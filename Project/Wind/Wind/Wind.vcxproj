@@ -65,21 +65,21 @@
     <None Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\OpenGLGraphics.vcxproj.filters" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\glew.c" />
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\graphics.cpp" />
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\ioutil.cpp" />
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\lodepng.cpp" />
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\window.cpp" />
+    <ClInclude Include="glew.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="ioutil.h" />
+    <ClInclude Include="lodepng.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="wglew.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\glew.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\graphics.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\ioutil.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\lodepng.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\resource.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\wglew.h" />
-    <ClInclude Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\window.h" />
+    <ClCompile Include="glew.c" />
+    <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="ioutil.cpp" />
+    <ClCompile Include="lodepng.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,6 @@
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
+#define GLEW_STATIC
 
 #include "glew.h"
 #include <gl/GL.h>
