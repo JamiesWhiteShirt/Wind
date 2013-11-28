@@ -1,12 +1,13 @@
 #include "window.h"
-#include "graphics.h"
 #include "ioutil.h"
 #include <iostream>
 #include <sstream>
+#include "graphics.h"
+//#include "noise.h"
 
 using namespace gfxu;
 
-VertexStream vStream(3);
+VertexStream vStream(36);
 
 int time = 0;
 
@@ -16,11 +17,11 @@ bool drawLoop()
 
 	glViewport(0, 0, GLWindow::instance->width, GLWindow::instance->height);
 
-	MatrixManager::reset();
+	MatrixManager::uniformP();
 	MatrixManager::multP(Matrix::ortho(-1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f));
 	MatrixManager::multP(Matrix::perspective(90.0f, (float)GLWindow::instance->width / (float)GLWindow::instance->height, 0.01f, 100.0f));
-	//MatrixManager::multP(Matrix::translate(0.0f, 0.0f, 1.5f));
 
+	MatrixManager::uniformM();
 	MatrixManager::multM(Matrix::rotate(time / 100.0f, 0.0f, 0.0f, 1.0f));
 	MatrixManager::multM(Matrix::rotate(time / 200.0f, 0.0f, 1.0f, 0.0f));
 	MatrixManager::multM(Matrix::rotate(time / 300.0f, 1.0f, 0.0f, 0.0f));
@@ -65,7 +66,7 @@ bool drawLoop()
 
 int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int _nCmdShow)
 {
-	vStream << VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
+	/*vStream << VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
 	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
 	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
@@ -105,9 +106,51 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 	vStream << VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
 	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);*/
+
+	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
 	
-	GLWindow::instance = new GLWindow(L"Wind", 400, 400, _hInstance, 1, 2);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+
+	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+
+	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+
+	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	
+	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 1, 2);
 	GLWindow::instance->initWindow();
 
 	if(!GLWindow::instance->isOK())
@@ -133,14 +176,26 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	normalShaderProgram.bind();
 
 	MatrixManager::reset();
-	MatrixManager::multP(Matrix::ortho(-1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f));
-	MatrixManager::multP(Matrix::perspective(90.0f, 1.0f, 0.01f, 100.0f));
-	MatrixManager::multP(Matrix::translate(0.0f, 0.0f, 1.5f));
+	/*Matrix mat;
+	mat.data[0] = 1.0f / 3.0f;
+	mat.data[1] = 1.0f / 3.0f;
+	mat.data[2] = 1.0f / 3.0f;
+	mat.data[4] = 1.0f / 3.0f;
+	mat.data[5] = 1.0f / 3.0f;
+	mat.data[6] = 1.0f / 3.0f;
+	mat.data[8] = 1.0f / 3.0f;
+	mat.data[9] = 1.0f / 3.0f;
+	mat.data[10] = 1.0f / 3.0f;
+	mat.data[15] = 1.0f;
+	MatrixManager::setColorManipulation(mat);*/
 
-	Texture2D testure(IOUtil::EXE_DIR + L"\\textures\\test.png", GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
+	Noise::NoiseGenerator2D noise1(8, 8, 2.0f, 0);
+
+	//Texture2D testure(IOUtil::EXE_DIR + L"\\textures\\test.png", GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
+	Texture2D testure(256, 256, &noise1, &noise1, &noise1, nullptr);
 	testure.bind();
 
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 
 	MSG msg;

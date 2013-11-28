@@ -1,25 +1,20 @@
-﻿Build started 26.11.2013 15:08:51.
-     1>Project "C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
+﻿Build started 28.11.2013 00:16:16.
+     1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt graphics.cpp main.cpp window.cpp
-         graphics.cpp
-     1>c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp(717): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(554) : see declaration of 'wcstombs'
-         Generating Code...
-         Compiling...
-         window.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Debug\Wind.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Debug\Wind.lib" /MACHINE:X86 Debug\glew.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.lib" /MACHINE:X86 Debug\glew.obj
          Debug\graphics.obj
          Debug\ioutil.obj
          Debug\lodepng.obj
          Debug\main.obj
+         Debug\noise.obj
          Debug\window.obj
-         Wind.vcxproj -> C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exe
-     1>Done Building Project "C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" (Build target(s)).
+            Creating library C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.lib and object C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exp
+         Wind.vcxproj -> C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exe
+     1>Done Building Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.95
+Time Elapsed 00:00:01.64

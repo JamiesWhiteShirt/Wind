@@ -699,6 +699,27 @@ Texture2D::Texture2D()
 
 }
 
+Texture2D::Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped)
+	: width(width), height(height), data(new unsigned char[width * height * 4]), object(0), magFilter(magFilter), minFilter(minFilter), wrap(wrap), mipmapped(mipmapped), uploaded(false)
+{
+
+}
+
+Texture2D::Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a)
+	: width(width), height(height), data(new unsigned char[width * height* 4]), object(0), magFilter(GL_LINEAR), minFilter(GL_LINEAR), wrap(GL_CLAMP_TO_EDGE), mipmapped(false), uploaded(false)
+{
+	for(int i = 0; i < width; i++)
+	{
+		for(int j = 0; j < height; j++)
+		{
+			data[(i + j * width) * 4] = (r == nullptr ? 1.0f : r->getNoise(i, j)) * 255;
+			data[(i + j * width) * 4 + 1] = (g == nullptr ? 1.0f : g->getNoise(i, j)) * 255;
+			data[(i + j * width) * 4 + 2] = (b == nullptr ? 1.0f : b->getNoise(i, j)) * 255;
+			data[(i + j * width) * 4 + 3] = (a == nullptr ? 1.0f : a->getNoise(i, j)) * 255;
+		}
+	}
+}
+
 Texture2D::Texture2D(wstring fileName)
 	: object(0), magFilter(GL_LINEAR), minFilter(GL_LINEAR), wrap(GL_REPEAT), mipmapped(false), uploaded(false)
 {
@@ -724,28 +745,6 @@ void Texture2D::init(wstring fileName)
 		{
 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
 		}
-
-		//memcpy(data, &image[0], image.size() * sizeof(unsigned char));
-
-		/*width = 2;
-		height = 2;
-		data = new unsigned char[width * height * 4];
-		data[0] = 255;
-		data[1] = 255;
-		data[2] = 255;
-		data[3] = 255;
-		data[4] = 0;
-		data[5] = 0;
-		data[6] = 0;
-		data[7] = 255;
-		data[8] = 0;
-		data[9] = 0;
-		data[10] = 0;
-		data[11] = 255;
-		data[12] = 255;
-		data[13] = 255;
-		data[14] = 255;
-		data[15] = 255;*/
 	}
 }
 

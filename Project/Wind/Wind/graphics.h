@@ -7,6 +7,7 @@
 #include <gl/GLU.h>
 #include <vector>
 #include <stack>
+#include "noise.h"
 
 typedef GLuint SHADER_OBJECT;
 typedef GLhandleARB SHADER_PROGRAM_OBJECT;
@@ -222,18 +223,20 @@ namespace gfxu
 	class Texture2D
 	{
 	private:
-		unsigned char* data;
-		unsigned int width, height;
+		void init(wstring fileName);
+	protected:
 		TEXTURE_OBJECT object;
 		TEXTURE_PARAMETER magFilter;
 		TEXTURE_PARAMETER minFilter;
 		TEXTURE_PARAMETER wrap;
 		bool mipmapped;
 		bool uploaded;
-
-		void init(wstring fileName);
-	public:
+		unsigned char* data;
 		Texture2D();
+		Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
+	public:
+		unsigned int width, height;
+		Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a);
 		Texture2D(wstring fileName);
 		Texture2D(wstring fileName, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
 		~Texture2D();

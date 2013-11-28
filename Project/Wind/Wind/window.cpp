@@ -10,9 +10,10 @@
 #define WGL_CONTEXT_PROFILE_MASK_ARB 0x9126
 
 typedef HGLRC (APIENTRY * PFNWGLCREATECONTEXTATTRIBSARBPROC) (HDC hDC, HGLRC hShareContext, const int* attribList);
+typedef HGLRC (APIENTRY * PFNWGLSWAPINTERVALEXTPROC) (int interval);
 
 PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
-
+PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
 
 GLWindow::GLWindow(wstring title, int width, int height, HINSTANCE hInstance, const int major_gl_version, const int minor_gl_version)
 	: title(title), width(width), height(height), hInstance(hInstance), major_gl_version(major_gl_version), minor_gl_version(minor_gl_version)
@@ -155,6 +156,9 @@ void GLWindow::initWindow()
 	};
 
 	wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC)wglGetProcAddress((LPCSTR)"wglCreateContextAttribsARB");
+	wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC)wglGetProcAddress((LPCSTR)"wglSwapIntervalEXT");
+
+	wglSwapIntervalEXT(0);
 
 	if(!(hRC = wglCreateContextAttribsARB(hDC, 0, attribs)))
 	{
