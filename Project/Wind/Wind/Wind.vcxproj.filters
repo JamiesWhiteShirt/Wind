@@ -47,6 +47,9 @@
     <ClInclude Include="noise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew.c">
@@ -68,6 +71,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="noise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderstates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,6 +9,9 @@
 #include <stack>
 #include "noise.h"
 
+#define MODELVIEW_MATRIX 0x0
+#define PROJECTION_MATRIX 0x1
+
 typedef GLuint SHADER_OBJECT;
 typedef GLhandleARB SHADER_PROGRAM_OBJECT;
 typedef GLint UNIFORM_LOCATION;
@@ -182,6 +185,7 @@ namespace gfxu
 		Matrix operator*(const Matrix& mat);
 		Matrix operator*(const float& scalar);
 		Vertex operator*(const Vertex& vert);
+		Matrix& operator=(const Matrix& mat);
 
 		static Matrix uniform();
 		static Matrix scale(float x = 1.0f, float y = 1.0f, float z = 1.0f);
@@ -252,4 +256,97 @@ namespace gfxu
 	VertexStream& operator<<(VertexStream& vStream, const VertexRGBA& v);
 	VertexStream& operator<<(VertexStream& vStream, const VertexUVRGBA& v);
 	VertexStream& operator<<(VertexStream& vStream, const VertexStream& vStream_in);
+}
+
+namespace RenderStates
+{
+	namespace RenderActions
+	{
+		class RA
+		{
+		public:
+			virtual bool invoke() = 0;
+		};
+
+		class RAVertexStreamDraw : public RA
+		{
+		private:
+			gfxu::VertexStream* vStream;
+		public:
+			RAVertexStreamDraw(gfxu::VertexStream &vStream);
+			bool invoke();
+		};
+
+		class RAMatrixSimpleOp : public RA
+		{
+		protected:
+			int m;
+		public:
+			RAMatrixSimpleOp(int m);
+		};
+
+		class RAMatrixPop : public RAMatrixSimpleOp
+		{
+		public:
+			RAMatrixPop(int m);
+			bool invoke();
+		};
+
+		class RAMatrixUniform : public RAMatrixSimpleOp
+		{
+		public:
+			RAMatrixUniform(int m);
+			bool invoke();
+		};
+
+		class RAMatrixPerspective : public RAMatrixSimpleOp
+		{
+		public:
+			RAMatrixPerspective(int m);
+			bool invoke();
+		};
+
+		class RAMatrixOp : public RAMatrixSimpleOp
+		{
+		protected:
+			gfxu::Matrix mat;
+		public:
+			RAMatrixOp(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
+		};
+
+		class RAMatrixPush : public RAMatrixOp
+		{
+		public:
+			RAMatrixPush(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
+			bool invoke();
+		};
+
+		class RAMatrixMult : public RAMatrixOp
+		{
+		public:
+			RAMatrixMult(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
+			bool invoke();
+		};
+	}
+	
+
+	class RenderState
+	{
+	private:
+	public:
+		vector<RenderActions::RA*> renderActions;
+		RenderState();
+		~RenderState();
+		void put(RenderActions::RA* ra);
+		bool render();
+		void clean();
+	};
+
+	extern bool swapping;
+	extern RenderState* processedState;
+	extern RenderState* pendingState;
+	extern RenderState* renderingState;
+
+	void swapProcessedPending();
+	void swapPendingRendering();
 }

@@ -11,9 +11,9 @@ private:
 	HWND hWnd;
 	HDC hDC;
 	HGLRC hRC;
+	HGLRC hRC_temp;
 
 	friend LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-	void destroyWindow();
 public:
 	wstring title;
 	int width, height;
@@ -24,7 +24,12 @@ public:
 	~GLWindow();
 
 	void initWindow();
+	void initGL();
 	void swapBuffers();
+	void makeCurrent();
+
+	void destroyGL();
+	void destroyWindow();
 
 	bool isOK();
 

@@ -9,6 +9,7 @@
 #include "lodepng.h"
 
 using namespace gfxu;
+using namespace RenderStates;
 
 Vertex::Vertex(float x, float y, float z, float w)
 	: x(x), y(y), z(z), w(w)
@@ -488,6 +489,13 @@ Vertex Matrix::operator*(const Vertex& vert)
 	return result;
 }
 
+Matrix& Matrix::operator=(const Matrix& mat)
+{
+	memcpy(data, mat.data, 16 * sizeof(float));
+
+	return *this;
+}
+
 Matrix Matrix::uniform()
 {
 	Matrix result;
@@ -708,14 +716,14 @@ Texture2D::Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER 
 Texture2D::Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a)
 	: width(width), height(height), data(new unsigned char[width * height* 4]), object(0), magFilter(GL_LINEAR), minFilter(GL_LINEAR), wrap(GL_CLAMP_TO_EDGE), mipmapped(false), uploaded(false)
 {
-	for(int i = 0; i < width; i++)
+	for(unsigned int i = 0; i < width; i++)
 	{
-		for(int j = 0; j < height; j++)
+		for(unsigned int j = 0; j < height; j++)
 		{
-			data[(i + j * width) * 4] = (r == nullptr ? 1.0f : r->getNoise(i, j)) * 255;
-			data[(i + j * width) * 4 + 1] = (g == nullptr ? 1.0f : g->getNoise(i, j)) * 255;
-			data[(i + j * width) * 4 + 2] = (b == nullptr ? 1.0f : b->getNoise(i, j)) * 255;
-			data[(i + j * width) * 4 + 3] = (a == nullptr ? 1.0f : a->getNoise(i, j)) * 255;
+			data[(i + j * width) * 4] = (unsigned char)((r == nullptr ? 1.0f : r->getNoise(i, j)) * 255.0f);
+			data[(i + j * width) * 4 + 1] = (unsigned char)((g == nullptr ? 1.0f : g->getNoise(i, j)) * 255.0f);
+			data[(i + j * width) * 4 + 2] = (unsigned char)((b == nullptr ? 1.0f : b->getNoise(i, j)) * 255.0f);
+			data[(i + j * width) * 4 + 3] = (unsigned char)((a == nullptr ? 1.0f : a->getNoise(i, j)) * 255.0f);
 		}
 	}
 }
@@ -797,7 +805,14 @@ void Texture2D::bind()
 
 bool gfxu::getError()
 {
-	return glGetError() != GL_NO_ERROR;
+	int error = glGetError();
+	if(error != GL_NO_ERROR)
+	{
+		return true;
+	} else
+	{
+		return false;
+	}
 }
 
 VertexStream& gfxu::operator<<(VertexStream& vStream, const Vertex& v)

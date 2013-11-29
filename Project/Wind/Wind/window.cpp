@@ -28,7 +28,6 @@ GLWindow::~GLWindow()
 
 void GLWindow::initWindow()
 {
-	HGLRC hRC_temp;
 	GLuint PixelFormat;
 	WNDCLASS wc;
 	DWORD dwExStyle;
@@ -115,8 +114,10 @@ void GLWindow::initWindow()
 		destroyWindow();
 		return;
 	}
+}
 
-
+void GLWindow::initGL()
+{
 	if(!(hRC_temp = wglCreateContext(hDC)))
 	{
 		OK = false;
@@ -180,6 +181,11 @@ void GLWindow::swapBuffers()
 	SwapBuffers(hDC);
 }
 
+void GLWindow::makeCurrent()
+{
+	wglMakeCurrent(hDC, hRC);
+}
+
 bool GLWindow::isOK()
 {
 	return OK;
@@ -190,11 +196,11 @@ void GLWindow::messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 	MessageBox(hWnd, lpText, lpText, uType);
 }
 
-void GLWindow::destroyWindow()
+void GLWindow::destroyGL()
 {
 	bool error = false;
 
-	glBindVertexArray(0);
+	//glBindVertexArray(0);
 
 	if(hRC)
 	{
@@ -208,6 +214,12 @@ void GLWindow::destroyWindow()
 			error = true;
 		}
 	}
+}
+
+void GLWindow::destroyWindow()
+{
+	bool error = false;
+
 	if(hDC && !ReleaseDC(hWnd, hDC))
 	{
 		hDC = NULL;
