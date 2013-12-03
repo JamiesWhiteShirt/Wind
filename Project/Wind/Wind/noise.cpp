@@ -7,7 +7,7 @@ using namespace Noise;
 
 unsigned char NoiseGenerator2D::noiseAt(int &x, int &y)
 {
-	int andField = sizeExponent - 1;
+	int andField = size - 1;
 	return noiseMap[(x & andField) | ((y & andField) << sizeExponent)];
 }
 
@@ -75,7 +75,9 @@ float NoiseGenerator2D::getNoise(float x, float y)
 
 unsigned char NoiseGenerator3D::noiseAt(int &x, int &y, int &z)
 {
-	int andField = sizeExponent - 1;
+	int andField = size - 1;
+	int pos = (x & andField) | ((y & andField) << sizeExponent) | ((z & andField) << (sizeExponent * 2));
+	unsigned char c = noiseMap[pos];
 	return noiseMap[(x & andField) | ((y & andField) << sizeExponent) | ((z & andField) << (sizeExponent * 2))];
 }
 
@@ -88,7 +90,7 @@ NoiseGenerator3D::NoiseGenerator3D(int sizeExponent, int octaves, float smoothne
 	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), seed(seed), noiseMap(new unsigned char[size * size * size])
 {
 	srand(seed);
-	for(int i = 0; i < size * size; i++)
+	for(int i = 0; i < size * size * size; i++)
 	{
 		noiseMap[i] = rand() & 1;
 	}

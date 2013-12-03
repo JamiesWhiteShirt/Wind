@@ -12,7 +12,8 @@ out vec4 color;
 
 void main()
 {
-	gl_Position = (vertex_in * modelview * projection) / vertex_in.w;
+	vec4 vert = vertex_in * modelview * projection;
+	gl_Position = vert;
 	tex_coord = tex_coord_in;
-	color = color_in;
+	color = color_in * (1.0 - vert.w * 0.01);
 }

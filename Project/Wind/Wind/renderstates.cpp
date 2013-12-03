@@ -127,27 +127,37 @@ bool RAMatrixMult::invoke()
 
 
 
-RenderState::RenderState()
+Camera::Camera()
 {
-	renderActions.reserve(32);
+
+}
+
+
+
+RenderState::RenderState()
+	: heap(MemUtil::MiniHeap(0x10000)), actionsSize(0), renderActions(new RA*[2048])
+{
+
 }
 
 RenderState::~RenderState()
 {
+	delete[] renderActions;
+
 	//clean();
 }
 
-void RenderState::put(RenderActions::RA* ra)
+bool RenderState::isEmpty()
 {
-	renderActions.push_back(ra);
+	return actionsSize == 0;
 }
 
 bool RenderState::render()
 {
-	for(unsigned int i = 0; i < renderActions.size(); i++)
+	for(unsigned int i = 0; i < actionsSize; i++)
 	{
 		RA* ra = renderActions[i];
-		if(!ra->invoke())
+		if(!renderActions[i]->invoke())
 		{
 			return false;
 		}
@@ -163,41 +173,45 @@ bool RenderState::render()
 
 void RenderState::clean()
 {
-	for(unsigned int i = 0; i < renderActions.size(); i++)
+	for(unsigned int i = 0; i < actionsSize; i++)
 	{
-		delete renderActions[i];
+		renderActions[i]->~RA();
 	}
 
-	renderActions.clear();
+	heap.clear();
+	actionsSize = 0;
 }
 
-bool RenderStates::swapping = false;
+std::mutex RenderStates::mut;
+bool RenderStates::newPendingAvailable = false;
 RenderState* RenderStates::processedState;
 RenderState* RenderStates::pendingState;
 RenderState* RenderStates::renderingState;
 
 void RenderStates::swapProcessedPending()
 {
-	while(RenderStates::swapping)
-	{
-
-	}
-	swapping = true;
+	mut.lock();
+	
+	pendingState->cam = processedState->cam;
 	RenderState* temp = RenderStates::processedState;
 	RenderStates::processedState = RenderStates::pendingState;
 	RenderStates::pendingState = temp;
-	swapping = false;
+
+	newPendingAvailable = true;
+	mut.unlock();
 }
 
 void RenderStates::swapPendingRendering()
 {
-	while(RenderStates::swapping)
+	mut.lock();
+	if(newPendingAvailable)
 	{
+		renderingState->cam = pendingState->cam;
+		RenderState* temp = RenderStates::pendingState;
+		RenderStates::pendingState = RenderStates::renderingState;
+		RenderStates::renderingState = temp;
 
+		newPendingAvailable = false;
 	}
-	swapping = true;
-	RenderState* temp = RenderStates::pendingState;
-	RenderStates::pendingState = RenderStates::renderingState;
-	RenderStates::renderingState = temp;
-	swapping = false;
+	mut.unlock();
 }

@@ -8,6 +8,8 @@
 #include <vector>
 #include <stack>
 #include "noise.h"
+#include "memutil.h"
+#include <mutex>
 
 #define MODELVIEW_MATRIX 0x0
 #define PROJECTION_MATRIX 0x1
@@ -258,6 +260,8 @@ namespace gfxu
 	VertexStream& operator<<(VertexStream& vStream, const VertexStream& vStream_in);
 }
 
+typedef gfxu::Vertex Vector;
+
 namespace RenderStates
 {
 	namespace RenderActions
@@ -327,22 +331,45 @@ namespace RenderStates
 			RAMatrixMult(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
 			bool invoke();
 		};
-	}
+	};
 	
+	class Camera
+	{
+	private:
+
+	public:
+		Vector pos;
+		Vector rot;
+		
+		Camera();
+	};
 
 	class RenderState
 	{
 	private:
+		MemUtil::MiniHeap heap;
+		RenderActions::RA** renderActions;
+		int actionsSize;
 	public:
-		vector<RenderActions::RA*> renderActions;
+		Camera cam;
+
 		RenderState();
 		~RenderState();
-		void put(RenderActions::RA* ra);
+
+		bool isEmpty();
+
+		template<class A>
+		void put(A ra)
+		{
+			renderActions[actionsSize++] = (RA*)heap.put(ra);
+		}
+
 		bool render();
 		void clean();
 	};
 
-	extern bool swapping;
+	extern std::mutex mut;
+	extern bool newPendingAvailable;
 	extern RenderState* processedState;
 	extern RenderState* pendingState;
 	extern RenderState* renderingState;

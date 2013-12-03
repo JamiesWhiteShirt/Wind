@@ -1,6 +1,13 @@
 #include <Windows.h>
 #include <iostream>
 
+#ifndef HID_USAGE_PAGE_GENERIC
+#define HID_USAGE_PAGE_GENERIC ((USHORT)0x01)
+#endif
+#ifndef HID_USAGE_GENERIC_MOUSE
+#define HID_USAGE_GENERIC_MOUSE ((USHORT)0x02)
+#endif
+
 using namespace std;
 
 class GLWindow
@@ -16,6 +23,7 @@ private:
 	friend LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 public:
 	wstring title;
+	bool rescaled;
 	int width, height;
 	const int major_gl_version, minor_gl_version;
 	bool active;
@@ -32,6 +40,7 @@ public:
 	void destroyWindow();
 
 	bool isOK();
+	HWND getHWnd();
 
 	void messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType);
 

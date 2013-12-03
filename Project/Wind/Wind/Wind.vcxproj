@@ -68,7 +68,10 @@
     <ClInclude Include="glew.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="ioutil.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="lodepng.h" />
+    <ClInclude Include="memutil.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="noise.h" />
@@ -79,9 +82,11 @@
   <ItemGroup>
     <ClCompile Include="glew.c" />
     <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="ioutil.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="memutil.cpp" />
     <ClCompile Include="noise.cpp" />
     <ClCompile Include="renderstates.cpp" />
     <ClCompile Include="window.cpp" />

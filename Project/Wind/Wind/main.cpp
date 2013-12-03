@@ -1,9 +1,13 @@
+#define _USE_MATH_DEFINES
+
 #include "window.h"
 #include "ioutil.h"
 #include <iostream>
 #include <sstream>
 #include "graphics.h"
 #include <thread>
+#include "input.h"
+#include <math.h>
 
 using namespace gfxu;
 using namespace RenderStates;
@@ -17,9 +21,12 @@ int ticks = 0;
 bool stop = false;
 bool enableRender = false;
 
+unsigned int chunk_size = 64;
+float treshold = 0.5f;
+
 void graphicsLoop()
 {
-	GLWindow::instance->initGL();
+GLWindow::instance->initGL();
 
 	if(!GLWindow::instance->isOK())
 	{
@@ -44,12 +51,13 @@ void graphicsLoop()
 	Noise::NoiseGenerator2D noise3(8, 8, 2.0f, 2);
 	Noise::NoiseGenerator2D noise4(8, 8, 2.0f, 3);
 
-	//Texture2D testure(IOUtil::EXE_DIR + L"\\textures\\test.png", GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
-	Texture2D testure(256, 256, &noise1, &noise2, &noise3, &noise4);
+	Texture2D testure(IOUtil::EXE_DIR + L"\\textures\\test.png", GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
+	//Texture2D testure(256, 256, &noise1, &noise2, &noise3, &noise4);
 	testure.bind();
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 
 	while(!stop)
 	{
@@ -57,14 +65,28 @@ void graphicsLoop()
 		{
 			continue;
 		}
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glViewport(0, 0, GLWindow::instance->width, GLWindow::instance->height);
-		MatrixManager::reset();
 
 		swapPendingRendering();
-		RenderStates::pendingState->render();
+
+		if(RenderStates::renderingState->isEmpty())
+		{
+			continue;
+		}
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		if(GLWindow::instance->rescaled)
+		{
+			glViewport(0, 0, GLWindow::instance->width, GLWindow::instance->height);
+			GLWindow::instance->rescaled = false;
+		}
+		
+		MatrixManager::reset();
+		RenderStates::renderingState->render();
 
 		if(getError()) stop = true;
+
+		glFlush();
 
 		GLWindow::instance->swapBuffers();
 	}
@@ -74,139 +96,223 @@ void graphicsLoop()
 
 bool drawLoop()
 {
+	Camera* cam = &RenderStates::processedState->cam;
+
+	if(Mouse::getMB(0))
+	{
+		for(int i = 0; i < Mouse::actions.size(); i++)
+		{
+			MouseAction ma = Mouse::actions[i];
+			cam->rot.x -= ma.ry * 0.5f;
+			cam->rot.y -= ma.rx * 0.5f;
+		}
+	}
+
+	if(Keyboard::getKey(87)) //W
+	{
+		cam->pos.x += 0.1f * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.y -= 0.1f * sin(cam->rot.x * M_PI / 180.0f);
+		cam->pos.z -= 0.1f * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
+	}
+
+	if(Keyboard::getKey(83)) //S
+	{
+		cam->pos.x -= 0.1f * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.y += 0.1f * sin(cam->rot.x * M_PI / 180.0f);
+		cam->pos.z += 0.1f * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
+	}
+
+	if(Keyboard::getKey(65)) //A
+	{
+		cam->pos.x += 0.1f * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.z += 0.1f * sin(cam->rot.y * M_PI / 180.0f);
+	}
+
+	if(Keyboard::getKey(68)) //D
+	{
+		cam->pos.x -= 0.1f * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.z -= 0.1f * sin(cam->rot.y * M_PI / 180.0f);
+	}
+
+	Mouse::actions.clear();
+	Keyboard::actions.clear();
+
 	RenderStates::processedState->clean();
 
-	RenderStates::processedState->put(new RAMatrixMult(PROJECTION_MATRIX, Matrix::ortho(-1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f)));
-	RenderStates::processedState->put(new RAMatrixPerspective(PROJECTION_MATRIX));
+	RenderStates::processedState->put(RAMatrixPerspective(PROJECTION_MATRIX));
+	
+	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.x, 1.0f, 0.0f, 0.0f)));
+	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.y, 0.0f, 1.0f, 0.0f)));
+	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.z, 0.0f, 0.0f, 1.0f)));
+	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::translate(cam->pos.x, cam->pos.y, cam->pos.z)));
 
-	RenderStates::processedState->put(new RAMatrixMult(MODELVIEW_MATRIX, Matrix::rotate(ticks / 10.0f, 0.0f, 0.0f, 1.0f)));
-	RenderStates::processedState->put(new RAMatrixMult(MODELVIEW_MATRIX, Matrix::rotate(ticks / 20.0f, 0.0f, 1.0f, 0.0f)));
-	RenderStates::processedState->put(new RAMatrixMult(MODELVIEW_MATRIX, Matrix::rotate(ticks / 30.0f, 1.0f, 0.0f, 0.0f)));
+	/*RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, -1.5f, -1.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, -1.5f, -1.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, -1.5f, -1.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, -1.5f, -1.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, 0.5f, -1.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, 0.5f, -1.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, 0.5f, -1.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, 0.5f, -1.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, -1.5f, 0.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, -1.5f, 0.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, -1.5f, 0.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, -1.5f, 0.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, 0.5f, 0.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(-1.5f, 0.5f, 0.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, 0.5f, 0.5f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));*/
 
-	RenderStates::processedState->put(new RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(0.5f, 0.5f, 0.5f)));
-	RenderStates::processedState->put(new RAVertexStreamDraw(vStream));
-	RenderStates::processedState->put(new RAMatrixPop(MODELVIEW_MATRIX));
+	RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(chunk_size / -2.0f, chunk_size / -2.0f, chunk_size / -2.0f)));
+	RenderStates::processedState->put(RAVertexStreamDraw(vStream));
+	RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 
 	swapProcessedPending();
 
-	Sleep(1);
+	if((processedState == pendingState) | (pendingState == renderingState) | (processedState == renderingState))
+	{
+		stop = true;
+	}
+
+	Sleep(5);
 	ticks++;
 	return true;
 }
 
 int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int _nCmdShow)
 {
-	/*vStream << VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	
-	vStream << VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-
-	vStream << VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-
-	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-
-	vStream << VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-
-	vStream << VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f);*/
-
-	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+	/*vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
 	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
 	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
 	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
 	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
 	
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+
 	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f);
 	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
 	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-
-	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
-	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
 
 	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f);
 	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
 	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f);
 
 	vStream << VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
 	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
 	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	vStream << VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	vStream << VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
 
-	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
-	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
-	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
-	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f);
-	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);
+	vStream << VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f);
+	vStream << VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+	vStream << VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f);*/
+
+	time_t timev;
+
+	Noise::NoiseGenerator3D noise(8, 8, 2.0f, time(&timev));
+
+	for(unsigned int i = 0; i < chunk_size; i++)
+	{
+		for(unsigned int j = 0; j < chunk_size; j++)
+		{
+			for(unsigned int k = 0; k < chunk_size; k++)
+			{
+				if(noise.getNoise(i, j, k) >= treshold)
+				{
+					if((noise.getNoise(i, j, k - 1) < treshold) | (k == 0))
+					{
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+					}
+					
+					if((noise.getNoise(i, j, k + 1) < treshold) | (k == chunk_size - 1))
+					{
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+					}
+
+					if((noise.getNoise(i, j - 1, k) < treshold) | (j == 0))
+					{
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+					}
+
+					if((noise.getNoise(i, j + 1, k) < treshold) | (j == chunk_size - 1))
+					{
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+					}
+
+					if((noise.getNoise(i - 1, j, k) < treshold) | (i == 0))
+					{
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
+					}
+
+					if((noise.getNoise(i + 1, j, k) < treshold) | (i == chunk_size - 1))
+					{
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
+						vStream << VertexUV(i + 1.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 1.0f);
+						vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
+					}
+				}
+			}
+		}
+	}
 
 	IOUtil::init();
 
@@ -243,18 +349,15 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			if((GLWindow::instance->active && !drawLoop()))
 			{
 				stop = true;
-			}/* else
-			{
-				GLWindow::instance->swapBuffers();
-			}*/
+			}
 		}
 	}
 
 	graphicsThread.join();
 
+	delete GLWindow::instance;
+	delete renderingState;
 	delete processedState;
 	delete pendingState;
-	delete renderingState;
-	delete GLWindow::instance;
 	return msg.wParam;
 }

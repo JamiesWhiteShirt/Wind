@@ -2,6 +2,7 @@
 #include <iostream>
 #include "graphics.h"
 #include "window.h"
+#include "input.h"
 
 #define WGL_CONTEXT_MAJOR_VERSION_ARB 0x2091
 #define WGL_CONTEXT_MINOR_VERSION_ARB 0x2092
@@ -16,7 +17,7 @@ PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
 PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
 
 GLWindow::GLWindow(wstring title, int width, int height, HINSTANCE hInstance, const int major_gl_version, const int minor_gl_version)
-	: title(title), width(width), height(height), hInstance(hInstance), major_gl_version(major_gl_version), minor_gl_version(minor_gl_version)
+	: title(title), rescaled(true), width(width), height(height), hInstance(hInstance), major_gl_version(major_gl_version), minor_gl_version(minor_gl_version)
 {
 
 }
@@ -39,7 +40,7 @@ void GLWindow::initWindow()
 	WindowRect.top = (long)0;
 	WindowRect.bottom = (long)height;
 
-	OK = true;
+	OK = false;
 
 	wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 	wc.lpfnWndProc = (WNDPROC)wndProc;
@@ -70,7 +71,6 @@ void GLWindow::initWindow()
 
 	if(!hWnd)
 	{
-		OK = false;
 		destroyWindow();
 		return;
 	}
@@ -96,24 +96,34 @@ void GLWindow::initWindow()
 
 	if(!(hDC = GetDC(hWnd)))
 	{
-		OK = false;
 		destroyWindow();
 		return;
 	}
 
 	if(!(PixelFormat = ChoosePixelFormat(hDC, &pfd)))
 	{
-		OK = false;
 		destroyWindow();
 		return;
 	}
 
 	if(!SetPixelFormat(hDC, PixelFormat, &pfd))
 	{
-		OK = false;
 		destroyWindow();
 		return;
 	}
+
+	RAWINPUTDEVICE Rid[1];
+	Rid[0].usUsagePage = HID_USAGE_PAGE_GENERIC;
+	Rid[0].usUsage = HID_USAGE_GENERIC_MOUSE;
+	Rid[0].dwFlags = RIDEV_INPUTSINK;
+	Rid[0].hwndTarget = hWnd;
+	if(!RegisterRawInputDevices(Rid, 1, sizeof(Rid[0])))
+	{
+		OK = false;
+		return;
+	}
+
+	OK = true;
 }
 
 void GLWindow::initGL()
@@ -164,14 +174,14 @@ void GLWindow::initGL()
 	if(!(hRC = wglCreateContextAttribsARB(hDC, 0, attribs)))
 	{
 		OK = false;
-		destroyWindow();
+		//destroyWindow();
 		return;
 	}
 
 	if(!wglMakeCurrent(NULL, NULL) || !wglDeleteContext(hRC_temp) || !wglMakeCurrent(hDC, hRC))
 	{
 		OK = false;
-		destroyWindow();
+		//destroyWindow();
 		return;
 	}
 }
@@ -189,6 +199,11 @@ void GLWindow::makeCurrent()
 bool GLWindow::isOK()
 {
 	return OK;
+}
+
+HWND GLWindow::getHWnd()
+{
+	return hWnd;
 }
 
 void GLWindow::messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
@@ -281,43 +296,62 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 	case WM_KEYDOWN:
 		{
-			//keys[wParam] = true;
+			Keyboard::setKey(wParam, true);
+			Keyboard::mut.lock();
+			Keyboard::actions.put(KeyboardAction(wParam, false));
+			Keyboard::mut.unlock();
 			break;
 		}
 	case WM_KEYUP:
 		{
-			//keys[wParam] = false;
+			Keyboard::setKey(wParam, false);
+			Keyboard::mut.lock();
+			Keyboard::actions.put(KeyboardAction(wParam, true));
+			Keyboard::mut.unlock();
 			break;
 		}
 	case WM_SIZE:
 		{
+			GLWindow::instance->rescaled = true;
 			GLWindow::instance->width = LOWORD(lParam);
 			GLWindow::instance->height = HIWORD(lParam);
 			break;
 		}
 	case WM_LBUTTONDOWN:
 		{
-			//leftMouseDown = true;
+			Mouse::setMB(0, true);
+			Mouse::mut.lock();
+			Mouse::actions.put(MouseAction(0, 0, 0, false));
+			Mouse::mut.unlock();
 			break;
 		}
 	case WM_LBUTTONUP:
 		{
-			//leftMouseDown = false;
+			Mouse::setMB(0, false);
+			Mouse::mut.lock();
+			Mouse::actions.put(MouseAction(0, 0, 0, true));
+			Mouse::mut.unlock();
 			break;
 		}
 	case WM_RBUTTONDOWN:
 		{
-			//rightMouseDown = true;
+			Mouse::setMB(1, true);
+			Mouse::mut.lock();
+			Mouse::actions.put(MouseAction(0, 0, 1, false));
+			Mouse::mut.unlock();
 			break;
 		}
 	case WM_RBUTTONUP:
 		{
-			//rightMouseDown = false;
+			Mouse::setMB(1, false);
+			Mouse::mut.lock();
+			Mouse::actions.put(MouseAction(0, 0, 1, true));
+			Mouse::mut.unlock();
 			break;
 		}
 	case WM_INPUT:
 		{
-			/*UINT dwSize = 40;
+			UINT dwSize = 40;
 			static byte lpb[40];
 
 			GetRawInputData((HRAWINPUT)lParam, RID_INPUT, lpb, &dwSize, sizeof(RAWINPUTHEADER));
@@ -326,41 +360,12 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 			if(raw->header.dwType == RIM_TYPEMOUSE)
 			{
-				int xPosRelative = raw->data.mouse.lLastX;
-				int yPosRelative = raw->data.mouse.lLastY;
-
-				if(rightMouseDown)
-				{
-					//camRotZ += xPosRelative * 0.25f;
-					camFOV += yPosRelative * 0.25f;
-
-					if(camFOV < 1.0)
-					{
-						camFOV = 1.0;
-					} else
-					if(camFOV > 135.0)
-					{
-						camFOV = 135.0;
-					}
-
-					//Reperspective();
-				} else
-				if(leftMouseDown)
-				{
-					float val1 = yPosRelative * 0.5f;
-					float val2 = xPosRelative * 0.5f;
-					float val3 = camRotZ * M_PI / 180;
-					float val4 = camFOV / 45.0f;
-
-					camRotX += (val1 * cos(val3) + val2 * sin(val3) * 0.25f) * val4;
-					camRotY += (val1 * -sin(val3) + val2 * cos(val3) * (int(abs(camRotX) + 90.0) % 360 < 180 ? 1.0 : -1.0) * 0.5f) * val4;
-
-					//camRotX += yPosRelative * cos(camRotZ * M_PI / 180) * 0.5f;
-					//camRotY += xPosRelative * cos(camRotZ * M_PI / 180) * 0.5f * (int(abs(camRotX) + 90.0) % 360 < 180 ? 1.0 : -1.0);
-				}
+				Mouse::mut.lock();
+				Mouse::actions.put(MouseAction(raw->data.mouse.lLastX, raw->data.mouse.lLastY, -1, false));
+				Mouse::mut.unlock();
 			}
 			
-			break;*/
+			break;
 		}
 	}
 
