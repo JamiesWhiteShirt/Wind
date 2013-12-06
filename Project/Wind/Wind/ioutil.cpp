@@ -9,8 +9,9 @@ void IOUtil::init()
 {
 	wchar_t buffer[MAX_PATH];
 	GetModuleFileName(NULL, buffer, MAX_PATH);
-	std::string::size_type pos = std::wstring(buffer).find_last_of(L"\\/");
-	EXE_DIR = std::wstring(buffer).substr(0, pos);
+	int pos = std::wstring(buffer).find_last_of(L"\\/");
+	buffer[pos] = 0;
+	EXE_DIR = buffer;
 }
 
 std::string IOUtil::readEntireFile(std::ifstream file)

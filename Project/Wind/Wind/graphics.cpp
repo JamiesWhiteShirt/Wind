@@ -89,10 +89,12 @@ VertexUVRGBA::VertexUVRGBA(const VertexUVRGBA& v)
 
 
 VertexStream::VertexStream()
-	: vertices(vector<VertexUVRGBA>()), vertex()
-{}
+	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false)
+{
+
+}
 VertexStream::VertexStream(int size)
-	: vertices(vector<VertexUVRGBA>()), vertex()
+	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false)
 {
 	vertices.reserve(size);
 }
@@ -145,6 +147,27 @@ void VertexStream::put(const T* vp, int length)
 		put(vp[i]);
 	}
 }
+void VertexStream::clear()
+{
+	vertices.clear();
+	if(ready)
+	{
+		if(isUploaded())
+		{
+			glDeleteBuffers(1, &vbo);
+			glGenBuffers(1, &vbo);
+			glBindBuffer(GL_ARRAY_BUFFER, vbo);
+			glEnableVertexAttribArray(0);
+			glEnableVertexAttribArray(1);
+			glEnableVertexAttribArray(2);
+			glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 4));
+			glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 6));
+		}
+
+		uploaded = false;
+	}
+}
 void VertexStream::setColor(float r, float g, float b)
 {
 	vertex.r = r;
@@ -162,6 +185,17 @@ void VertexStream::reserveAdditional(int size)
 	vertices.reserve(vertices.size() + size);
 }
 
+void VertexStream::lock()
+{
+	mutex.lock();
+}
+
+void VertexStream::unlock()
+{
+	mutex.unlock();
+}
+
+
 VertexUVRGBA* VertexStream::ptr()
 {
 	return &vertices[0];
@@ -173,28 +207,40 @@ int VertexStream::length()
 
 bool VertexStream::upload()
 {
-	if(!isUploaded())
+	if(!ready)
 	{
 		glGenVertexArrays(1, &vao);
-		glBindVertexArray(vao);
 		glGenBuffers(1, &vbo);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+		ready = true;
+	}
+
+	if(!isUploaded())
+	{
+		lock();
+
+		glBindVertexArray(vao);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(VertexUVRGBA), (const void*)&vertices[0], GL_STATIC_DRAW);
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
 		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 4));
 		glEnableVertexAttribArray(2);
+		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 4));
 		glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 6));
 
 		if(glGetError() != GL_NO_ERROR)
 		{
+			unlock();
 			return false;
 		}
 		else
 		{
 			uploaded = true;
 		}
+
+		unlock();
 	}
 
 	return true;

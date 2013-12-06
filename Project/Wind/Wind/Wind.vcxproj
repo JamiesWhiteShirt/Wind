@@ -65,6 +65,7 @@
     <None Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\OpenGLGraphics.vcxproj.filters" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="world.h" />
     <ClInclude Include="glew.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="ioutil.h" />
@@ -80,6 +81,7 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="world.cpp" />
     <ClCompile Include="glew.c" />
     <ClCompile Include="graphics.cpp" />
     <ClCompile Include="input.cpp" />

@@ -7,8 +7,8 @@ using namespace RenderActions;
 
 
 
-RAVertexStreamDraw::RAVertexStreamDraw(VertexStream &vStream)
-	: vStream(&vStream)
+RAVertexStreamDraw::RAVertexStreamDraw(VertexStream* vStream)
+	: vStream(vStream)
 {
 
 }

@@ -1,3 +1,4 @@
+#pragma once
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
 #define GLEW_STATIC
@@ -87,7 +88,9 @@ namespace gfxu
 		VertexUVRGBA vertex;
 		GLuint vao;
 		GLuint vbo;
+		bool ready;
 		bool uploaded;
+		std::mutex mutex;
 
 		friend VertexStream& operator<<(VertexStream&, const VertexStream&);
 	public:
@@ -102,10 +105,13 @@ namespace gfxu
 		void put(const VertexUVRGBA& v);
 		template <typename T>
 		void put(const T* vp, int length);
+		void clear();
 		void setColor(float r, float g, float b);
 		void setUV(float u, float v);
 		void reserveAdditional(int size);
 
+		void lock();
+		void unlock();
 		bool upload();
 		void draw();
 		bool isUploaded();
@@ -277,7 +283,7 @@ namespace RenderStates
 		private:
 			gfxu::VertexStream* vStream;
 		public:
-			RAVertexStreamDraw(gfxu::VertexStream &vStream);
+			RAVertexStreamDraw(gfxu::VertexStream* vStream);
 			bool invoke();
 		};
 
