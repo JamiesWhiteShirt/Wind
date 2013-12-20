@@ -268,7 +268,7 @@ namespace gfxu
 
 typedef gfxu::Vertex Vector;
 
-namespace RenderStates
+namespace GameStates
 {
 	namespace RenderActions
 	{
@@ -350,7 +350,7 @@ namespace RenderStates
 		Camera();
 	};
 
-	class RenderState
+	class GameState
 	{
 	private:
 		MemUtil::MiniHeap heap;
@@ -359,8 +359,8 @@ namespace RenderStates
 	public:
 		Camera cam;
 
-		RenderState();
-		~RenderState();
+		GameState();
+		~GameState();
 
 		bool isEmpty();
 
@@ -376,9 +376,9 @@ namespace RenderStates
 
 	extern std::mutex mut;
 	extern bool newPendingAvailable;
-	extern RenderState* processedState;
-	extern RenderState* pendingState;
-	extern RenderState* renderingState;
+	extern GameState* processedState;
+	extern GameState* pendingState;
+	extern GameState* renderingState;
 
 	void swapProcessedPending();
 	void swapPendingRendering();

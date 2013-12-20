@@ -1,6 +1,7 @@
 #include <map>
 #include "graphics.h"
 #include <mutex>
+#include <queue>
 
 class World;
 
@@ -60,10 +61,13 @@ private:
 public:
 	std::mutex chunkMapLock;
 	std::map<ChunkPosition, Chunk*> chunkMap;
+	std::queue<Chunk*> additionQueue;
+
 	World();
 	~World();
 
 	Chunk* getChunkFromCoordinate(int x, int y, int z);
+	bool isChunkLoaded(int x, int y, int z);
 	short getBlock(int x, int y, int z);
 	void setBlock(int x, int y, int z);
 };

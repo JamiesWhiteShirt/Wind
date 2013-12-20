@@ -13,12 +13,18 @@ namespace MemUtil
 		template<class A>
 		A* put(A object)
 		{
-			A* mempos = (A*)(heap + pos);
-			new(mempos) A(object);
-			//memcpy(mempos, &object, sizeof(A));
-			pos += sizeof(A);
+			if(pos + sizeof(A) <= size)
+			{
+				A* mempos = (A*)(heap + pos);
+				new(mempos) A(object);
+				pos += sizeof(A);
 
-			return mempos;
+				return mempos;
+			}
+			else
+			{
+				return nullptr;
+			}
 		}
 
 		void clear();

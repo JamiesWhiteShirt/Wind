@@ -9,7 +9,7 @@
 #include "lodepng.h"
 
 using namespace gfxu;
-using namespace RenderStates;
+using namespace GameStates;
 
 Vertex::Vertex(float x, float y, float z, float w)
 	: x(x), y(y), z(z), w(w)

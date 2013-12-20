@@ -12,7 +12,7 @@
 #include "world.h"
 
 using namespace gfxu;
-using namespace RenderStates;
+using namespace GameStates;
 using namespace RenderActions;
 
 std::thread graphicsThread;
@@ -73,7 +73,7 @@ void graphicsLoop()
 
 		swapPendingRendering();
 
-		if(RenderStates::renderingState->isEmpty())
+		if(GameStates::renderingState->isEmpty())
 		{
 			continue;
 		}
@@ -87,7 +87,7 @@ void graphicsLoop()
 		}
 		
 		MatrixManager::reset();
-		RenderStates::renderingState->render();
+		GameStates::renderingState->render();
 
 		if(getError()) stop = true;
 
@@ -101,7 +101,7 @@ void graphicsLoop()
 
 void chunkLoaderLoop()
 {
-	Noise::NoiseGenerator3D noise(8, 6, 2.0f, 2);
+	Noise::NoiseGenerator3D noise(8, 8, 2.0f, 3);
 
 	while(!stop)
 	{
@@ -140,11 +140,11 @@ void chunkLoaderLoop()
 
 bool drawLoop()
 {
-	Camera* cam = &RenderStates::processedState->cam;
+	Camera* cam = &GameStates::processedState->cam;
 
 	if(Mouse::getMB(0))
 	{
-		for(int i = 0; i < Mouse::actions.size(); i++)
+		for(int i = 0; i < Mouse::actions.getSize(); i++)
 		{
 			MouseAction ma = Mouse::actions[i];
 			cam->rot.x -= ma.ry * 0.5f;
@@ -181,23 +181,31 @@ bool drawLoop()
 	Mouse::actions.clear();
 	Keyboard::actions.clear();
 
-	RenderStates::processedState->clean();
+	GameStates::processedState->clean();
 
-	RenderStates::processedState->put(RAMatrixPerspective(PROJECTION_MATRIX));
+	GameStates::processedState->put(RAMatrixPerspective(PROJECTION_MATRIX));
 	
-	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.x, 1.0f, 0.0f, 0.0f)));
-	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.y, 0.0f, 1.0f, 0.0f)));
-	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.z, 0.0f, 0.0f, 1.0f)));
-	RenderStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::translate(cam->pos.x, cam->pos.y, cam->pos.z)));
+	GameStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.x, 1.0f, 0.0f, 0.0f)));
+	GameStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.y, 0.0f, 1.0f, 0.0f)));
+	GameStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::rotate(cam->rot.z, 0.0f, 0.0f, 1.0f)));
+	GameStates::processedState->put(RAMatrixMult(PROJECTION_MATRIX, Matrix::translate(cam->pos.x, cam->pos.y, cam->pos.z)));
 
 	world.chunkMapLock.lock();
 	for(map<ChunkPosition, Chunk*>::const_iterator iter = world.chunkMap.begin(); iter != world.chunkMap.end(); ++iter)
 	{
 		Chunk* chunk = iter->second;
 
-		if(chunk->isLoaded() && chunk->isRenderUpdateNeeded())
+		if(chunk != nullptr && chunk->isLoaded() && chunk->isRenderUpdateNeeded())
 		{
-			bool draw = false;
+			/*if(!world.isChunkLoaded(chunk->pos.x - 1, chunk->pos.y, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x + 1, chunk->pos.y, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y - 1, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y + 1, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y, chunk->pos.z - 1) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y, chunk->pos.z + 1))
+			{
+				continue;
+			}*/
 
 			VertexStream& vStream = chunk->vStream;
 			int cx = chunk->pos.x << 4;
@@ -215,10 +223,8 @@ bool drawLoop()
 					{
 						if(world.getBlock(i | cx, j | cy, k | cz))
 						{
-							draw = true;
 							if(!world.getBlock(i | cx, j | cy, (k | cz) - 1))
 							{
-								draw = true;
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
 								vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
@@ -229,7 +235,6 @@ bool drawLoop()
 					
 							if(!world.getBlock(i | cx, j | cy, (k | cz) + 1))
 							{
-								draw = true;
 								vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
@@ -240,7 +245,6 @@ bool drawLoop()
 
 							if(!world.getBlock(i | cx, (j | cy) - 1, k | cz))
 							{
-								draw = true;
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 1.0f, 0.0f);
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
@@ -251,7 +255,6 @@ bool drawLoop()
 
 							if(!world.getBlock(i | cx, (j | cy) + 1, k | cz))
 							{
-								draw = true;
 								vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 1.0f, j + 1.0f, k + 0.0f, 1.0f, 1.0f, 0.0f);
 								vStream << VertexUV(i + 0.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
@@ -262,7 +265,6 @@ bool drawLoop()
 
 							if(!world.getBlock((i | cx) - 1, j | cy, k | cz))
 							{
-								draw = true;
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 0.0f, 1.0f, 0.0f, 1.0f);
 								vStream << VertexUV(i + 0.0f, j + 1.0f, k + 0.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 0.0f, j + 0.0f, k + 1.0f, 1.0f, 1.0f, 1.0f);
@@ -273,7 +275,6 @@ bool drawLoop()
 
 							if(!world.getBlock((i | cx) + 1, j | cy, k | cz))
 							{
-								draw = true;
 								vStream << VertexUV(i + 1.0f, j + 0.0f, k + 1.0f, 1.0f, 0.0f, 1.0f);
 								vStream << VertexUV(i + 1.0f, j + 1.0f, k + 1.0f, 1.0f, 0.0f, 0.0f);
 								vStream << VertexUV(i + 1.0f, j + 0.0f, k + 0.0f, 1.0f, 1.0f, 1.0f);
@@ -285,14 +286,11 @@ bool drawLoop()
 					}
 				}
 			}
-
-			if(!draw)
-			{
-				int i = 0;
-			}
 			
 			chunk->setRenderUpdateNeeded(false);
 			vStream.unlock();
+
+			break;
 		}
 	}
 
@@ -300,18 +298,28 @@ bool drawLoop()
 	{
 		Chunk* chunk = iter->second;
 
-		if(chunk->isLoaded())
+		if(chunk != nullptr && chunk->isLoaded())
 		{
-			RenderStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(chunk->pos.x << 4, chunk->pos.y << 4, chunk->pos.z << 4)));
-			RenderStates::processedState->put(RAVertexStreamDraw(&chunk->vStream));
-			RenderStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
+			/*if(!world.isChunkLoaded(chunk->pos.x - 1, chunk->pos.y, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x + 1, chunk->pos.y, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y - 1, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y + 1, chunk->pos.z) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y, chunk->pos.z - 1) ||
+				!world.isChunkLoaded(chunk->pos.x, chunk->pos.y, chunk->pos.z + 1))
+			{
+				continue;
+			}*/
+
+			GameStates::processedState->put(RAMatrixPush(MODELVIEW_MATRIX, Matrix::translate(chunk->pos.x << 4, chunk->pos.y << 4, chunk->pos.z << 4)));
+			GameStates::processedState->put(RAVertexStreamDraw(&chunk->vStream));
+			GameStates::processedState->put(RAMatrixPop(MODELVIEW_MATRIX));
 		}
 	}
 	world.chunkMapLock.unlock();
 
-	RenderStates::swapProcessedPending();
+	GameStates::swapProcessedPending();
 
-	if((RenderStates::processedState == RenderStates::pendingState) | (RenderStates::pendingState == RenderStates::renderingState) | (RenderStates::processedState == RenderStates::renderingState))
+	if((GameStates::processedState == GameStates::pendingState) | (GameStates::pendingState == GameStates::renderingState) | (GameStates::processedState == GameStates::renderingState))
 	{
 		stop = true;
 	}
@@ -323,14 +331,14 @@ bool drawLoop()
 
 int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int _nCmdShow)
 {
-	for(int i = 1; i < 2; i++)
+	for(int i = 0; i < 10; i++)
 	{
-		for(int j = 1; j < 2; j++)
+		for(int j = 0; j < 10; j++)
 		{
-			for(int k = 1; k < 2; k++)
+			for(int k = 0; k < 10; k++)
 			{
 				Chunk* c = new Chunk(world, i, j, k);
-				world.chunkMap.insert(std::pair<ChunkPosition, Chunk*>(c->pos, c));
+				world.chunkMap[c->pos] = c;
 				chunkLoadQueue.push(c);
 			}
 		}
@@ -349,9 +357,9 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	thread chunkThread(chunkLoaderLoop);
 
-	RenderStates::processedState = new RenderState();
-	RenderStates::pendingState = new RenderState();
-	RenderStates::renderingState = new RenderState();
+	GameStates::processedState = new GameState();
+	GameStates::pendingState = new GameState();
+	GameStates::renderingState = new GameState();
 
 	MSG msg;
 
@@ -377,12 +385,12 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		}
 	}
 
-	chunkThread.join();
+	//chunkThread.join();
 	graphicsThread.join();
 
 	delete GLWindow::instance;
-	delete RenderStates::renderingState;
-	delete RenderStates::processedState;
-	delete RenderStates::pendingState;
+	delete GameStates::renderingState;
+	delete GameStates::processedState;
+	delete GameStates::pendingState;
 	return msg.wParam;
 }

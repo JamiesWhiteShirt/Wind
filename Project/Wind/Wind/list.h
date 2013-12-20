@@ -18,10 +18,13 @@ public:
 
 	void put(A object)
 	{
-		content[count++] = object;
+		if(count < size - 1)
+		{
+			content[count++] = object;
+		}
 	}
 
-	int size()
+	int getSize()
 	{
 		return count;
 	}

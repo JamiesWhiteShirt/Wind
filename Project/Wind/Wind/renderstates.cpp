@@ -2,7 +2,7 @@
 #include "window.h"
 
 using namespace gfxu;
-using namespace RenderStates;
+using namespace GameStates;
 using namespace RenderActions;
 
 
@@ -134,30 +134,30 @@ Camera::Camera()
 
 
 
-RenderState::RenderState()
-	: heap(MemUtil::MiniHeap(0x10000)), actionsSize(0), renderActions(new RA*[2048])
+GameState::GameState()
+	: heap(MemUtil::MiniHeap(0x10000000)), actionsSize(0), renderActions(new RA*[2048])
 {
 
 }
 
-RenderState::~RenderState()
+GameState::~GameState()
 {
 	delete[] renderActions;
 
 	//clean();
 }
 
-bool RenderState::isEmpty()
+bool GameState::isEmpty()
 {
 	return actionsSize == 0;
 }
 
-bool RenderState::render()
+bool GameState::render()
 {
 	for(unsigned int i = 0; i < actionsSize; i++)
 	{
 		RA* ra = renderActions[i];
-		if(!renderActions[i]->invoke())
+		if(ra == nullptr || !renderActions[i]->invoke())
 		{
 			return false;
 		}
@@ -171,7 +171,7 @@ bool RenderState::render()
 	return true;
 }
 
-void RenderState::clean()
+void GameState::clean()
 {
 	for(unsigned int i = 0; i < actionsSize; i++)
 	{
@@ -182,34 +182,34 @@ void RenderState::clean()
 	actionsSize = 0;
 }
 
-std::mutex RenderStates::mut;
-bool RenderStates::newPendingAvailable = false;
-RenderState* RenderStates::processedState;
-RenderState* RenderStates::pendingState;
-RenderState* RenderStates::renderingState;
+std::mutex GameStates::mut;
+bool GameStates::newPendingAvailable = false;
+GameState* GameStates::processedState;
+GameState* GameStates::pendingState;
+GameState* GameStates::renderingState;
 
-void RenderStates::swapProcessedPending()
+void GameStates::swapProcessedPending()
 {
 	mut.lock();
 	
 	pendingState->cam = processedState->cam;
-	RenderState* temp = RenderStates::processedState;
-	RenderStates::processedState = RenderStates::pendingState;
-	RenderStates::pendingState = temp;
+	GameState* temp = GameStates::processedState;
+	GameStates::processedState = GameStates::pendingState;
+	GameStates::pendingState = temp;
 
 	newPendingAvailable = true;
 	mut.unlock();
 }
 
-void RenderStates::swapPendingRendering()
+void GameStates::swapPendingRendering()
 {
 	mut.lock();
 	if(newPendingAvailable)
 	{
 		renderingState->cam = pendingState->cam;
-		RenderState* temp = RenderStates::pendingState;
-		RenderStates::pendingState = RenderStates::renderingState;
-		RenderStates::renderingState = temp;
+		GameState* temp = GameStates::pendingState;
+		GameStates::pendingState = GameStates::renderingState;
+		GameStates::renderingState = temp;
 
 		newPendingAvailable = false;
 	}

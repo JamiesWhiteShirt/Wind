@@ -65,7 +65,7 @@ void EmptyChunk::setBlock(int x, int y, int z, short id)
 Chunk::Chunk(World& world, int xPos, int yPos, int zPos)
 	: ChunkBase(world, xPos, yPos, zPos)
 {
-
+	vStream.reserveAdditional(8192);
 }
 
 Chunk::~Chunk()
@@ -97,14 +97,21 @@ World::~World()
 
 Chunk* World::getChunkFromCoordinate(int x, int y, int z)
 {
-	if(chunkMap.find(ChunkPosition(x >> 4, y >> 4, z >> 4)) == chunkMap.end())
+	ChunkPosition cp = ChunkPosition(x >> 4, y >> 4, z >> 4);
+	if(chunkMap.find(cp) == chunkMap.end())
 	{
 		return nullptr;
 	}
 	else
 	{
-		return chunkMap[ChunkPosition(x >> 4, y >> 4, z >> 4)];
+		return chunkMap[cp];
 	}
+}
+
+bool World::isChunkLoaded(int x, int y, int z)
+{
+	Chunk* c = getChunkFromCoordinate(x, y, z);
+	return !(c == nullptr || !c->isLoaded());
 }
 
 short World::getBlock(int x, int y, int z)
@@ -121,7 +128,7 @@ short World::getBlock(int x, int y, int z)
 
 bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2)
 {
-	if(cp1.x < cp2.x)
+	if(cp1.z < cp2.z)
 	{
 		return true;
 	}
@@ -131,7 +138,7 @@ bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2)
 		return true;
 	}
 
-	return cp1.z < cp2.z;
+	return cp1.x < cp2.x;
 }
 
 bool operator==(const ChunkPosition& cp1, const ChunkPosition& cp2)
