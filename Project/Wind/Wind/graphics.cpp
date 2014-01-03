@@ -246,13 +246,13 @@ bool VertexStream::upload()
 	return true;
 }
 
-void VertexStream::draw()
+void VertexStream::draw(GLenum mode)
 {
-	if(upload())
+	if(vertices.size() > 0 && upload())
 	{
-		MatrixManager::uploadChanges();
+		Uniforms::uploadChanges();
 		glBindVertexArray(vao);
-		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+		glDrawArrays(mode, 0, vertices.size());
 	}
 }
 
@@ -374,7 +374,7 @@ bool FragmentShader::compile()
 ShaderProgram::ShaderProgram(VertexShader* vShader, GeometryShader* gShader, FragmentShader* fShader)
 	: vShader(vShader), gShader(gShader), fShader(fShader), okay(false)
 {
-
+	create();
 }
 
 ShaderProgram::~ShaderProgram()
@@ -446,9 +446,13 @@ bool ShaderProgram::create()
 		glUseProgram(object);
 		modelview = glGetUniformLocation(object, "modelview");
 		projection = glGetUniformLocation(object, "projection");
-		colorManipulation = glGetUniformLocation(object, "color_manipulation");
+		const_color = glGetUniformLocation(object, "const_color");
 		texture1 = glGetUniformLocation(object, "texture_1");
-		glUniform1i(texture1, 0);
+		
+		if(texture1 >= 0)
+		{
+			glUniform1i(texture1, 0);
+		}
 
 		okay = true;
 		return okay;
@@ -459,6 +463,8 @@ void ShaderProgram::bind()
 {
 	glUseProgram(object);
 	current = this;
+
+	Uniforms::setForceUpload();
 }
 
 ShaderProgram* ShaderProgram::current;
@@ -542,7 +548,7 @@ Matrix& Matrix::operator=(const Matrix& mat)
 	return *this;
 }
 
-Matrix Matrix::uniform()
+Matrix Matrix::identity()
 {
 	Matrix result;
 	result[0] = 1.0f;
@@ -566,7 +572,7 @@ Matrix Matrix::scale(float x, float y, float z)
 
 Matrix Matrix::translate(float x, float y, float z)
 {
-	Matrix result = uniform();
+	Matrix result = identity();
 	result[3] = x;
 	result[7] = y;
 	result[11] = z;
@@ -630,120 +636,131 @@ Matrix Matrix::perspective(float fov, float aspect, float n, float f)
 
 
 
-Matrix MatrixManager::unstack(std::stack<Matrix> stack)
+MatrixStack::MatrixStack()
 {
-	Matrix mat = Matrix::uniform();
-	while(!stack.empty())
+	clear();
+}
+
+Matrix MatrixStack::unstack()
+{
+	std::stack<Matrix> stack2 = stack;
+	Matrix mat = Matrix::identity();
+	while(!stack2.empty())
 	{
-		mat = stack.top() * mat;
-		stack.pop();
+		mat = stack2.top() * mat;
+		stack2.pop();
 	}
 
 	return mat;
 }
 
-void MatrixManager::pushM(Matrix mat)
+void MatrixStack::push(Matrix mat)
 {
-	mChanged = true;
-	modelviewStack.push(mat);
+	stack.push(mat);
+	topmost = topmost * mat;
+	changed = true;
 }
 
-void MatrixManager::multM(Matrix mat)
+void MatrixStack::mult(Matrix mat)
 {
-	mChanged = true;
-	modelviewStack.top() = modelviewStack.top() * mat;
+	stack.top() = stack.top() * mat;
+	topmost = topmost * mat;
+	changed = true;
 }
 
-void MatrixManager::uniformM()
+void MatrixStack::identity()
 {
-	mChanged = true;
-	modelviewStack.top() = Matrix::uniform();
+	stack.top() = Matrix::identity();
+	topmost = unstack();
+	changed = true;
 }
 
-void MatrixManager::popM()
+void MatrixStack::pop()
 {
-	mChanged = true;
-	modelviewStack.pop();
+	stack.pop();
+	topmost = unstack();
+	changed = true;
 }
 
-void MatrixManager::pushP(Matrix mat)
+void MatrixStack::clear()
 {
-	pChanged = true;
-	projectionStack.push(mat);
-}
-
-void MatrixManager::multP(Matrix mat)
-{
-	pChanged = true;
-	projectionStack.top() = projectionStack.top() * mat;
-}
-
-void MatrixManager::uniformP()
-{
-	pChanged = true;
-	projectionStack.top() = Matrix::uniform();
-}
-
-void MatrixManager::popP()
-{
-	pChanged = true;
-	projectionStack.pop();
-}
-
-void MatrixManager::setColorManipulation(Matrix mat)
-{
-	cChanged = true;
-	colorManipulation = mat;
-}
-
-void MatrixManager::uploadChanges()
-{
-	if(mChanged)
+	while(!stack.empty())
 	{
-		glUniformMatrix4fv(ShaderProgram::current->modelview, 1, false, unstack(modelviewStack).data);
-		mChanged = false;
+		stack.pop();
+	}
+	stack.push(Matrix::identity());
+	topmost = Matrix::identity();
+	changed = true;
+}
+
+const Matrix MatrixStack::getTopmost()
+{
+	return topmost;
+}
+
+
+
+VecUniform::VecUniform()
+	: changed(true)
+{
+
+}
+
+void VecUniform::set(geom::Vector vec)
+{
+	this->vec = vec;
+	changed = true;
+}
+
+void VecUniform::set(float f1, float f2, float f3, float f4)
+{
+	vec = geom::Vector(f1, f2, f3, f4);
+	changed = true;
+}
+
+geom::Vector VecUniform::get()
+{
+	return vec;
+}
+
+
+
+void Uniforms::uploadChanges()
+{
+	if(forceUpload | (MMS.changed & (ShaderProgram::current->modelview >= 0)))
+	{
+		glUniformMatrix4fv(ShaderProgram::current->modelview, 1, false, MMS.getTopmost().data);
+		MMS.changed = false;
 	}
 
-	if(pChanged)
+	if(forceUpload | (PMS.changed & (ShaderProgram::current->projection >= 0)))
 	{
-		glUniformMatrix4fv(ShaderProgram::current->projection, 1, false, unstack(projectionStack).data);
-		pChanged = false;
+		glUniformMatrix4fv(ShaderProgram::current->projection, 1, false, PMS.getTopmost().data);
+		PMS.changed = false;
 	}
 
-	if(cChanged)
+	if(forceUpload | (color.changed & (ShaderProgram::current->const_color >= 0)))
 	{
-		glUniformMatrix4fv(ShaderProgram::current->colorManipulation, 1, false, colorManipulation.data);
-		cChanged = false;
+		geom::Vector vec = color.get();
+		glUniform4f(ShaderProgram::current->const_color, vec.x, vec.y, vec.z, vec.w);
 	}
 }
 
-void MatrixManager::reset()
+void Uniforms::reset()
 {
-	while(!modelviewStack.empty())
-	{
-		modelviewStack.pop();
-	}
-
-	while(!projectionStack.empty())
-	{
-		projectionStack.pop();
-	}
-
-	modelviewStack.push(Matrix::uniform());
-	projectionStack.push(Matrix::uniform());
-	colorManipulation = Matrix::uniform();
-
-	mChanged = true;
-	pChanged = true;
-	cChanged = true;
+	MMS.clear();
+	PMS.clear();
 }
 
-stack<Matrix> MatrixManager::modelviewStack;
-bool MatrixManager::mChanged = true;
-stack<Matrix> MatrixManager::projectionStack;
-bool MatrixManager::pChanged = true;
-Matrix MatrixManager::colorManipulation;
-bool MatrixManager::cChanged = true;
+void Uniforms::setForceUpload()
+{
+	MMS.changed = PMS.changed = true;
+}
+
+bool Uniforms::forceUpload = false;
+MatrixStack Uniforms::MMS;
+MatrixStack Uniforms::PMS;
+VecUniform Uniforms::color;
 
 
 

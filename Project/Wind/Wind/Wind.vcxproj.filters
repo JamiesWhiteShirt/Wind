@@ -62,6 +62,9 @@
     <ClInclude Include="world.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew.c">
@@ -85,9 +88,6 @@
     <ClCompile Include="noise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderstates.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="memutil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,6 +95,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="world.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gamestates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

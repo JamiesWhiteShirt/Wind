@@ -11,6 +11,7 @@
 #include "noise.h"
 #include "memutil.h"
 #include <mutex>
+#include "geometry.h"
 
 #define MODELVIEW_MATRIX 0x0
 #define PROJECTION_MATRIX 0x1
@@ -113,7 +114,7 @@ namespace gfxu
 		void lock();
 		void unlock();
 		bool upload();
-		void draw();
+		void draw(GLenum mode = GL_TRIANGLES);
 		bool isUploaded();
 
 		VertexUVRGBA* ptr();
@@ -165,15 +166,15 @@ namespace gfxu
 		FragmentShader* fShader;
 		SHADER_PROGRAM_OBJECT object;
 		bool okay;
+		bool create();
 	public:
 		ShaderProgram(VertexShader* vShader = nullptr, GeometryShader* gShader = nullptr, FragmentShader* fShader = nullptr);
 		~ShaderProgram();
-		bool create();
 		void bind();
 
 		UNIFORM_LOCATION modelview;
 		UNIFORM_LOCATION projection;
-		UNIFORM_LOCATION colorManipulation;
+		UNIFORM_LOCATION const_color;
 		UNIFORM_LOCATION texture1;
 
 		static ShaderProgram* current;
@@ -195,7 +196,7 @@ namespace gfxu
 		Vertex operator*(const Vertex& vert);
 		Matrix& operator=(const Matrix& mat);
 
-		static Matrix uniform();
+		static Matrix identity();
 		static Matrix scale(float x = 1.0f, float y = 1.0f, float z = 1.0f);
 		static Matrix translate(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 		static Matrix ortho2D(float left, float bottom, float right, float top);
@@ -204,32 +205,49 @@ namespace gfxu
 		static Matrix perspective(float fov, float aspect, float n, float f);
 	};
 
-	class MatrixManager
+	class MatrixStack
 	{
 	private:
-		static std::stack<Matrix> modelviewStack;
-		static bool mChanged;
-		static std::stack<Matrix> projectionStack;
-		static bool pChanged;
-		static Matrix colorManipulation;
-		static bool cChanged;
-
-		static Matrix unstack(std::stack<Matrix> stack);
+		std::stack<Matrix> stack;
+		Matrix topmost;
+		Matrix unstack();
 	public:
-		static void pushM(Matrix mat = Matrix::uniform());
-		static void multM(Matrix mat);
-		static void uniformM();
-		static void popM();
-		
-		static void pushP(Matrix mat = Matrix::uniform());
-		static void multP(Matrix mat);
-		static void uniformP();
-		static void popP();
+		bool changed;
 
-		static void setColorManipulation(Matrix mat = Matrix::uniform());
+		MatrixStack();
+		void push(Matrix mat = Matrix::identity());
+		void mult(Matrix mat);
+		void identity();
+		void pop();
+		void clear();
+		const Matrix getTopmost();
+	};
+
+	class VecUniform
+	{
+	private:
+		geom::Vector vec;
+	public:
+		VecUniform();
+		bool changed;
+		void set(geom::Vector value);
+		void set(float f1, float f2, float f3, float f4);
+		geom::Vector get();
+	};
+
+	class Uniforms
+	{
+	private:
+		static bool forceUpload;
+	public:
+		static MatrixStack MMS;
+		static MatrixStack PMS;
+		static VecUniform color;
 
 		static void uploadChanges();
 		static void reset();
+
+		static void setForceUpload();
 	};
 
 	class Texture2D
@@ -266,86 +284,15 @@ namespace gfxu
 	VertexStream& operator<<(VertexStream& vStream, const VertexStream& vStream_in);
 }
 
-typedef gfxu::Vertex Vector;
-
 namespace GameStates
 {
-	namespace RenderActions
-	{
-		class RA
-		{
-		public:
-			virtual bool invoke() = 0;
-		};
-
-		class RAVertexStreamDraw : public RA
-		{
-		private:
-			gfxu::VertexStream* vStream;
-		public:
-			RAVertexStreamDraw(gfxu::VertexStream* vStream);
-			bool invoke();
-		};
-
-		class RAMatrixSimpleOp : public RA
-		{
-		protected:
-			int m;
-		public:
-			RAMatrixSimpleOp(int m);
-		};
-
-		class RAMatrixPop : public RAMatrixSimpleOp
-		{
-		public:
-			RAMatrixPop(int m);
-			bool invoke();
-		};
-
-		class RAMatrixUniform : public RAMatrixSimpleOp
-		{
-		public:
-			RAMatrixUniform(int m);
-			bool invoke();
-		};
-
-		class RAMatrixPerspective : public RAMatrixSimpleOp
-		{
-		public:
-			RAMatrixPerspective(int m);
-			bool invoke();
-		};
-
-		class RAMatrixOp : public RAMatrixSimpleOp
-		{
-		protected:
-			gfxu::Matrix mat;
-		public:
-			RAMatrixOp(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
-		};
-
-		class RAMatrixPush : public RAMatrixOp
-		{
-		public:
-			RAMatrixPush(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
-			bool invoke();
-		};
-
-		class RAMatrixMult : public RAMatrixOp
-		{
-		public:
-			RAMatrixMult(int m, gfxu::Matrix mat = gfxu::Matrix::uniform());
-			bool invoke();
-		};
-	};
-	
 	class Camera
 	{
 	private:
 
 	public:
-		Vector pos;
-		Vector rot;
+		geom::Vector pos;
+		geom::Vector rot;
 		
 		Camera();
 	};
@@ -353,25 +300,11 @@ namespace GameStates
 	class GameState
 	{
 	private:
-		MemUtil::MiniHeap heap;
-		RenderActions::RA** renderActions;
-		int actionsSize;
 	public:
 		Camera cam;
 
 		GameState();
 		~GameState();
-
-		bool isEmpty();
-
-		template<class A>
-		void put(A ra)
-		{
-			renderActions[actionsSize++] = (RA*)heap.put(ra);
-		}
-
-		bool render();
-		void clean();
 	};
 
 	extern std::mutex mut;

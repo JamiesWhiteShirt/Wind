@@ -1,8 +1,26 @@
-﻿Build started 19.12.2013 18:34:42.
+﻿Build started 30.12.2013 20:20:15.
      1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt world.cpp
-         world.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(112): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(163): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(196): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(197): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(198): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(203): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(204): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(205): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(210): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(211): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(216): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(217): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(696): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(697): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(698): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(699): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(700): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp(701): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Debug\Wind.lib" /MACHINE:X86 Debug\world.obj
          Debug\glew.obj
@@ -20,4 +38,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.88
+Time Elapsed 00:00:02.39
