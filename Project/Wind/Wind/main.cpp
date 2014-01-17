@@ -10,6 +10,8 @@
 #include <math.h>
 #include <queue>
 #include "world.h"
+#include "task.h"
+#include "list.h"
 
 using namespace gfxu;
 using namespace GameStates;
@@ -25,20 +27,20 @@ World world;
 
 std::queue<ChunkBase*> chunkLoadQueue;
 
-geom::Line l1(geom::Vector(64.0f, 64.0f, 0.0f), geom::Vector(64.0f, 64.0f, 1.0f));
-geom::Line l2(geom::Vector(64.0f, 64.0f, 0.0f), geom::Vector(65.0f, 64.0f, 0.0f));
-geom::Line l3(geom::Vector(64.0f, 64.0f, 0.0f), geom::Vector(64.0f, 64.0f, 0.0f) + (l1 & l2));
+geom::Quad q(geom::Vector(0.0f, 0.0f, 0.0f), geom::Vector(0.0f, 25.0f, 0.0f), geom::Vector(25.0f, 50.0f, 25.0f), geom::Vector(25.0f, 0.0f, 25.0f));
+geom::Line l(geom::Vector(16.0f, 30.0f, -100.0f), geom::Vector(16.0f, 30.0f, 10.0f));
+geom::TracedIntersection intersection(q, l);
 
-geom::Triangle tri = geom::Triangle(geom::Vector(5.0f, 5.0f, 0.0f), geom::Vector(25.0f, 0.0f, 0.0f), geom::Vector(10.0f, 50.0f, 10.0f));
-geom::Line l = geom::Line(geom::Vector(16.0f, 16.0f, -1.0f), geom::Vector(16.0f, 16.0f, 1.0f));
-float t = (tri.normal() | (tri.vec1 - l.vec1)) / (tri.normal() | l.getV());
-geom::Vector vec = l.vec1 + l.getV() * t;
+geom::AxisAlignedCube cube(geom::Vector(), geom::Vector(10.0f, 10.0f, 10.0f));
+geom::Ray r(geom::Vector(-1.0f, 1.0f, 1.0f), geom::Vector(2.0f, 0.0f, 0.0f));
+geom::Intersection intersection2(cube, r);
 
 VertexStream grid;
 VertexStream square;
-VertexStream triangle;
+VertexStream quad;
 VertexStream line;
-VertexStream lines;
+
+MemUtil::MiniHeap taskList(4096);
 
 void graphicsLoop()
 {
@@ -88,6 +90,16 @@ void graphicsLoop()
 
 	while(!stop)
 	{
+		/*for(int i = 0; i < taskList.size; i++)
+		{
+			if(!taskList[i].invoke())
+			{
+				stop = true;
+			}
+		}*/
+
+		taskList.clear();
+
 		if(!enableRender)
 		{
 			continue;
@@ -108,11 +120,11 @@ void graphicsLoop()
 		normalShaderProgram.bind();
 		Uniforms::color.set(1.0f, 1.0f, 1.0f, 1.0f);
 		Uniforms::reset();
-		Uniforms::PMS.mult(Matrix::perspective(90.0f, (float)GLWindow::instance->width / (float)GLWindow::instance->height, 0.1f, 100.0f));
-		Uniforms::PMS.mult(Matrix::rotate(state->cam.rot.x, 1.0f, 0.0f, 0.0f));
-		Uniforms::PMS.mult(Matrix::rotate(state->cam.rot.y, 0.0f, 1.0f, 0.0f));
-		Uniforms::PMS.mult(Matrix::rotate(state->cam.rot.z, 0.0f, 0.0f, 1.0f));
-		Uniforms::PMS.mult(Matrix::translate(-state->cam.pos.x, -state->cam.pos.y, -state->cam.pos.z));
+		Uniforms::PMS.mult(geom::Matrix::perspective(90.0f, (float)GLWindow::instance->width / (float)GLWindow::instance->height, 0.1f, 100.0f));
+		Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.x, 1.0f, 0.0f, 0.0f));
+		Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.y, 0.0f, 1.0f, 0.0f));
+		Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.z, 0.0f, 0.0f, 1.0f));
+		Uniforms::PMS.mult(geom::Matrix::translate(-state->cam.pos.x, -state->cam.pos.y, -state->cam.pos.z));
 		
 		testure.bind();
 		for(map<ChunkPosition, ChunkBase*>::const_iterator iter = world.chunkMap.begin(); iter != world.chunkMap.end(); ++iter)
@@ -121,16 +133,30 @@ void graphicsLoop()
 
 			if(chunk != nullptr && chunk->isLoaded())
 			{
-				Uniforms::MMS.push(Matrix::translate(chunk->pos.x << 4, chunk->pos.y << 4, chunk->pos.z << 4));
-				chunk->mut.lock();
-				chunk->renderStream->draw();
-				chunk->mut.unlock();
-				Uniforms::MMS.pop();
+				float xPos = chunk->pos.x * 16;
+				float yPos = chunk->pos.y * 16;
+				float zPos = chunk->pos.z * 16;
+				geom::AxisAlignedCube cube(geom::Vector(-1.0f, -1.0f, -1.0f), geom::Vector(2.0f, 2.0f, 2.0f));
+				if(cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos, yPos, zPos)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos + 16, yPos, zPos)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos, yPos + 16, zPos)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos + 16, yPos + 16, zPos)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos, yPos, zPos + 16)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos + 16, yPos, zPos + 16)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos, yPos + 16, zPos + 16)).wDivide())
+					|| cube.inside((Uniforms::PMS.getTopmost() * geom::Vector(xPos + 16, yPos + 16, zPos + 16)).wDivide()))
+				{
+					Uniforms::MMS.push(geom::Matrix::translate(xPos, yPos, zPos));
+					chunk->mut.lock();
+					chunk->renderStream->draw();
+					chunk->mut.unlock();
+					Uniforms::MMS.pop();
+				}
 			}
 		}
 
-		/*noTexShaderProgram.bind();
-		Uniforms::MMS.push(Matrix::scale(16.0f, 16.0f, 16.0f));
+		noTexShaderProgram.bind();
+		Uniforms::MMS.push(geom::Matrix::scale(16.0f, 16.0f, 16.0f));
 		
 		Uniforms::color.set(0.5f, 0.5f, 0.5f, 1.0f);
 		grid.draw(GL_LINES);
@@ -142,21 +168,23 @@ void graphicsLoop()
 		glDepthFunc(GL_LEQUAL);
 		glDisable(GL_BLEND);
 
-		Uniforms::MMS.pop();*/
+		Uniforms::MMS.pop();
 
 
 		
 		/*glDisable(GL_CULL_FACE);
 		Uniforms::color.set(1.0f, 0.0f, 0.0f, 1.0f);
-		triangle.draw();
+		quad.draw();
 		Uniforms::color.set(0.0f, 1.0f, 0.0f, 1.0f);
 		line.draw(GL_LINES);
-		Uniforms::color.set(0.0f, 0.0f, 1.0f, 1.0f);
-		Uniforms::MMS.push(Matrix::translate(vec.x, vec.y, vec.z));
-		square.draw();
-		Uniforms::MMS.pop();
-		Uniforms::color.set(0.5f, 0.0f, 0.0f, 1.0f);
-		lines.draw(GL_LINES);
+		if(intersection.type == INTERSECTION_VECTOR)
+		{
+			geom::Vector vec = *(geom::Vector*)intersection.result;
+			Uniforms::color.set(0.0f, 0.0f, 1.0f, 1.0f);
+			Uniforms::MMS.push(Matrix::translate(vec.x, vec.y, vec.z));
+			square.draw();
+			Uniforms::MMS.pop();
+		}
 		glEnable(GL_CULL_FACE);*/
 
 		glFlush();
@@ -170,6 +198,9 @@ void graphicsLoop()
 void chunkLoaderLoop()
 {
 	Noise::NoiseGenerator3D noise(8, 8, 2.0f, 3);
+	Noise::NoiseGenerator2D noise2dx(8, 8, 2.0f, 0);
+	Noise::NoiseGenerator2D noise2dz(8, 8, 2.0f, 1);
+	Noise::NoiseGenerator2D noise2dlevel(8, 8, 2.0f, 2);
 
 	while(!stop)
 	{
@@ -185,17 +216,33 @@ void chunkLoaderLoop()
 
 		for(unsigned int i = 0; i < 16; i++)
 		{
-			for(unsigned int j = 0; j < 16; j++)
+			unsigned int x = i + chunk->pos.x * 16;
+			for(unsigned int k = 0; k < 16; k++)
 			{
-				for(unsigned int k = 0; k < 16; k++)
+				unsigned int z = k + chunk->pos.z * 16;
+				//float xd = noise2dx.getNoise(x, z) * 2.0 - 1.0;
+				//float zd = noise2dz.getNoise(x, z) * 2.0 - 1.0;
+				//float len = sqrtf(xd * xd + zd * zd);
+				for(unsigned int j = 0; j < 16; j++)
 				{
-					if(noise.getNoise(i + chunk->pos.x * 16, j + chunk->pos.y * 16, k + chunk->pos.z * 16) >= treshold)
+					unsigned int y = j + chunk->pos.y * 16;
+					//if(noise.getNoise(x, y, z) >= treshold)
+					if(y < 64)
 					{
 						chunk->setBlockRaw(i, j, k, 1);
 					}
 					else
 					{
-						chunk->setBlockRaw(i, j, k, 0);
+						//unsigned int h = 64.0f + noise2dlevel.getNoise(x + xd * 8.0f / len, z + zd * 8.0f / len) * 64.0;
+						//if(y < h)
+						if((y - 64) / 64.0f < noise.getNoise(x, y, z))
+						{
+							chunk->setBlockRaw(i, j, k, 1);
+						}
+						else
+						{
+							chunk->setBlockRaw(i, j, k, 0);
+						}
 					}
 				}
 			}
@@ -220,30 +267,32 @@ bool drawLoop()
 		}
 	}
 
+	float b = Keyboard::getKey(16) ? 0.4f : 0.1f;
+
 	if(Keyboard::getKey(87)) //W
 	{
-		cam->pos.x -= 0.1f * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
-		cam->pos.y += 0.1f * sin(cam->rot.x * M_PI / 180.0f);
-		cam->pos.z += 0.1f * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.x -= b * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.y += b * sin(cam->rot.x * M_PI / 180.0f);
+		cam->pos.z += b * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
 	}
 
 	if(Keyboard::getKey(83)) //S
 	{
-		cam->pos.x += 0.1f * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
-		cam->pos.y -= 0.1f * sin(cam->rot.x * M_PI / 180.0f);
-		cam->pos.z -= 0.1f * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.x += b * cos(cam->rot.x * M_PI / 180.0f) * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.y -= b * sin(cam->rot.x * M_PI / 180.0f);
+		cam->pos.z -= b * cos(cam->rot.x * M_PI / 180.0f) * cos(cam->rot.y * M_PI / 180.0f);
 	}
 
 	if(Keyboard::getKey(65)) //A
 	{
-		cam->pos.x -= 0.1f * cos(cam->rot.y * M_PI / 180.0f);
-		cam->pos.z -= 0.1f * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.x -= b * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.z -= b * sin(cam->rot.y * M_PI / 180.0f);
 	}
 
 	if(Keyboard::getKey(68)) //D
 	{
-		cam->pos.x += 0.1f * cos(cam->rot.y * M_PI / 180.0f);
-		cam->pos.z += 0.1f * sin(cam->rot.y * M_PI / 180.0f);
+		cam->pos.x += b * cos(cam->rot.y * M_PI / 180.0f);
+		cam->pos.z += b * sin(cam->rot.y * M_PI / 180.0f);
 	}
 
 	if(Keyboard::getKey(32)) //SPACE
@@ -694,7 +743,7 @@ bool drawLoop()
 			
 			chunk->mut.lock();
 			chunk->setRenderUpdateNeeded(false);
-			delete chunk->drawStream;
+			taskList.put(Tasks::TaskDelete(chunk->drawStream));
 			chunk->drawStream = &vStream;
 			chunk->swapStreams();
 			chunk->mut.unlock();
@@ -739,25 +788,21 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	square << Vertex(1.0f, 1.0f, 0.0f);
 	square << Vertex(-1.0f, 1.0f, 0.0f);
 
-	triangle << Vertex(tri.vec1.x, tri.vec1.y, tri.vec1.z);
-	triangle << Vertex(tri.vec2.x, tri.vec2.y, tri.vec2.z);
-	triangle << Vertex(tri.vec3.x, tri.vec3.y, tri.vec3.z);
+	quad << Vertex(q.vec1.x, q.vec1.y, q.vec1.z);
+	quad << Vertex(q.vec2.x, q.vec2.y, q.vec2.z);
+	quad << Vertex(q.vec3.x, q.vec3.y, q.vec3.z);
+	quad << Vertex(q.vec1.x, q.vec1.y, q.vec1.z);
+	quad << Vertex(q.vec3.x, q.vec3.y, q.vec3.z);
+	quad << Vertex(q.vec4.x, q.vec4.y, q.vec4.z);
 
 	line << Vertex(l.vec1.x, l.vec1.y, l.vec1.z);
 	line << Vertex(l.vec2.x, l.vec2.y, l.vec2.z);
-	
-	lines << Vertex(l1.vec1.x, l1.vec1.y, l1.vec1.z);
-	lines << Vertex(l1.vec2.x, l1.vec2.y, l1.vec2.z);
-	lines << Vertex(l2.vec1.x, l2.vec1.y, l2.vec1.z);
-	lines << Vertex(l2.vec2.x, l2.vec2.y, l2.vec2.z);
-	lines << Vertex(l3.vec1.x, l3.vec1.y, l3.vec1.z);
-	lines << Vertex(l3.vec2.x, l3.vec2.y, l3.vec2.z);
 
-	for(int i = 0; i < 8; i++)
+	for(int i = 0; i < 32; i++)
 	{
-		for(int j = 0; j < 8; j++)
+		for(int j = 3; j < 9; j++)
 		{
-			for(int k = 0; k < 8; k++)
+			for(int k = 0; k < 32; k++)
 			{
 				Chunk* c = new Chunk(world, i, j, k);
 				world.chunkMap[c->pos] = c;

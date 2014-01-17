@@ -83,7 +83,8 @@ unsigned char NoiseGenerator3D::noiseAt(int &x, int &y, int &z)
 
 float NoiseGenerator3D::interpolate(float f)
 {
-	return (cos(f * M_PI) + 1.0f) * 0.5f;
+	//return (cos(f * M_PI) + 1.0f) * 0.5f;
+	return 1.0f - f * f * (3 - f * 2);
 }
 
 NoiseGenerator3D::NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, unsigned int seed)

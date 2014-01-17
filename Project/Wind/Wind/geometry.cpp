@@ -22,6 +22,14 @@ Vector Vector::normalize()
 	return *this /= ~*this;
 }
 
+Vector Vector::wDivide()
+{
+	x /= w;
+	y /= w;
+	z /= w;
+	return *this;
+}
+
 Vector Vector::operator+(const Vector &vec) const
 {
 	return Vector(x + vec.x, y + vec.y, z + vec.z);
@@ -67,7 +75,7 @@ Vector Vector::operator/(float f) const
 
 Vector Vector::operator&(const Vector &vec) const
 {
-	return Vector(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.z);
+	return Vector(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
 }
 
 float Vector::operator|(const Vector &vec) const
@@ -295,6 +303,23 @@ Matrix Matrix::perspective(float fov, float aspect, float n, float f)
 	return Matrix(matData);
 }
 
+Plane::Plane(Vector pos, Vector normal)
+	: pos(pos), normal(normal)
+{
+
+}
+
+Ray::Ray(Vector pos, Vector dir)
+	: pos(pos), dir(dir)
+{
+
+}
+
+Vector Ray::trace(float t)
+{
+	return pos + dir * t;
+}
+
 Triangle::Triangle(Vector vec1, Vector vec2, Vector vec3)
 	: vec1(vec1), vec2(vec2), vec3(vec3)
 {
@@ -306,15 +331,21 @@ Vector Triangle::normal()
 	return (vec2 - vec1) & (vec3 - vec1);
 }
 
-Line::Line(Vector vec1, Vector vec2)
-	: vec1(vec1), vec2(vec2)
+Quad::Quad(Vector vec1, Vector vec2, Vector vec3, Vector vec4)
+	: vec1(vec1), vec2(vec2), vec3(vec3), vec4(vec4)
 {
 
 }
 
-Vector Line::operator&(const Line &l)
+Vector Quad::normal()
 {
-	return getV() & l.getV();
+	return (vec2 - vec1) & (vec3 - vec1);
+}
+
+Line::Line(Vector vec1, Vector vec2)
+	: vec1(vec1), vec2(vec2)
+{
+
 }
 
 Vector Line::getV() const
@@ -322,12 +353,102 @@ Vector Line::getV() const
 	return vec2 - vec1;
 }
 
-bool geom::intersects(Triangle tri, Line l)
+Vector Line::trace(float t)
 {
-	Vector triNormal = tri.normal();
-	Vector v = l.getV();
+	return getV() * t + vec1;
+}
 
-	float t = (triNormal | (tri.vec1 - l.vec1)) / (triNormal | v);
+AxisAlignedFace::AxisAlignedFace(Vector pos, float width, float height)
+	: pos(pos), width(width), height(height)
+{
 
-	return (t >= 0.0f) & (t < 1.0f);
+}
+
+AxisAlignedXY::AxisAlignedXY(Vector pos, float width, float height)
+	: AxisAlignedFace(pos, width, height)
+{
+
+}
+
+Vector AxisAlignedXY::getNormal()
+{
+	return Vector(0.0f, 0.0f, 1.0f);
+}
+
+bool AxisAlignedXY::inside(Vector vec)
+{
+	return vec.x >= pos.x & vec.x <= pos.x + width & vec.y >= pos.y & vec.y <= pos.y + height;
+}
+
+AxisAlignedXZ::AxisAlignedXZ(Vector pos, float width, float height)
+	: AxisAlignedFace(pos, width, height)
+{
+
+}
+
+Vector AxisAlignedXZ::getNormal()
+{
+	return Vector(0.0f, 1.0f, 0.0f);
+}
+
+bool AxisAlignedXZ::inside(Vector vec)
+{
+	return vec.x >= pos.x & vec.x <= pos.x + width & vec.z >= pos.z & vec.z <= pos.z + height;
+}
+
+AxisAlignedYZ::AxisAlignedYZ(Vector pos, float width, float height)
+	: AxisAlignedFace(pos, width, height)
+{
+
+}
+
+Vector AxisAlignedYZ::getNormal()
+{
+	return Vector(1.0f, 0.0f, 0.0f);
+}
+
+bool AxisAlignedYZ::inside(Vector vec)
+{
+	return vec.y >= pos.y & vec.y <= pos.y + width & vec.z >= pos.z & vec.z <= pos.z + height;
+}
+
+AxisAlignedCube::AxisAlignedCube(Vector pos, Vector size)
+	: pos(pos), size(size)
+{
+
+}
+
+AxisAlignedYZ AxisAlignedCube::getLeft()
+{
+	return AxisAlignedYZ(pos, size.z, size.y);
+}
+
+AxisAlignedYZ AxisAlignedCube::getRight()
+{
+	return AxisAlignedYZ(Vector(pos.x + size.x, pos.y, pos.z), size.z, size.y);
+}
+
+AxisAlignedXZ AxisAlignedCube::getBottom()
+{
+	return AxisAlignedXZ(pos, size.x, size.z);
+}
+
+AxisAlignedXZ AxisAlignedCube::getTop()
+{
+	return AxisAlignedXZ(Vector(pos.x, pos.y + size.y, pos.z), size.x, size.z);
+}
+
+AxisAlignedXY AxisAlignedCube::getFront()
+{
+	return AxisAlignedXY(pos, size.x, size.y);
+}
+
+AxisAlignedXY AxisAlignedCube::getBack()
+{
+	return AxisAlignedXY(Vector(pos.x, pos.y, pos.z + size.z), size.x, size.y);
+}
+
+bool AxisAlignedCube::inside(Vector vec)
+{
+	return vec.x >= pos.x & vec.x <= pos.x + size.x & vec.y >= pos.y & vec.y <= pos.y + size.y & vec.z >= pos.z & vec.z <= pos.z + size.z;
 }

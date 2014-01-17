@@ -1,28 +1,32 @@
-﻿Build started 02.01.2014 18:10:13.
+﻿Build started 17.01.2014 15:53:44.
      1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oi /Oy- /GL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>main.cpp(124): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(192): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>main.cpp(225): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(226): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(227): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(232): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(233): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(234): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(239): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(240): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(245): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(246): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(726): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(727): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(728): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(729): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(730): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(731): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(136): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(137): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(138): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(238): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>main.cpp(274): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(275): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(276): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(281): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(282): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(283): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(288): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(289): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(294): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(295): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(775): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(776): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(777): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(778): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(779): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>main.cpp(780): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.lib" /MACHINE:X86 /SAFESEH Release\geometry.obj
+         Release\intersection.obj
+         Release\task.obj
          Release\world.obj
          Release\glew.obj
          Release\graphics.obj
@@ -42,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.00
+Time Elapsed 00:00:02.77

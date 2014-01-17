@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="task.h" />
     <ClInclude Include="world.h" />
     <ClInclude Include="glew.h" />
     <ClInclude Include="graphics.h" />
@@ -87,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="intersection.cpp" />
+    <ClCompile Include="task.cpp" />
     <ClCompile Include="world.cpp" />
     <ClCompile Include="glew.c" />
     <ClCompile Include="graphics.cpp" />

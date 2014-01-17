@@ -208,19 +208,19 @@ namespace gfxu
 	class MatrixStack
 	{
 	private:
-		std::stack<Matrix> stack;
-		Matrix topmost;
-		Matrix unstack();
+		std::stack<geom::Matrix> stack;
+		geom::Matrix topmost;
+		geom::Matrix unstack();
 	public:
 		bool changed;
 
 		MatrixStack();
-		void push(Matrix mat = Matrix::identity());
-		void mult(Matrix mat);
+		void push(geom::Matrix mat = geom::Matrix::identity());
+		void mult(geom::Matrix mat);
 		void identity();
 		void pop();
 		void clear();
-		const Matrix getTopmost();
+		const geom::Matrix getTopmost();
 	};
 
 	class VecUniform

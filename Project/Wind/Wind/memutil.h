@@ -1,8 +1,10 @@
+#pragma once
+
 namespace MemUtil
 {
 	class MiniHeap
 	{
-	private:
+	protected:
 		char* heap;
 		unsigned int size;
 		unsigned int pos;

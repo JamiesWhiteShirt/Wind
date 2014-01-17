@@ -641,10 +641,10 @@ MatrixStack::MatrixStack()
 	clear();
 }
 
-Matrix MatrixStack::unstack()
+geom::Matrix MatrixStack::unstack()
 {
-	std::stack<Matrix> stack2 = stack;
-	Matrix mat = Matrix::identity();
+	std::stack<geom::Matrix> stack2 = stack;
+	geom::Matrix mat = geom::Matrix::identity();
 	while(!stack2.empty())
 	{
 		mat = stack2.top() * mat;
@@ -654,14 +654,14 @@ Matrix MatrixStack::unstack()
 	return mat;
 }
 
-void MatrixStack::push(Matrix mat)
+void MatrixStack::push(geom::Matrix mat)
 {
 	stack.push(mat);
 	topmost = topmost * mat;
 	changed = true;
 }
 
-void MatrixStack::mult(Matrix mat)
+void MatrixStack::mult(geom::Matrix mat)
 {
 	stack.top() = stack.top() * mat;
 	topmost = topmost * mat;
@@ -670,7 +670,7 @@ void MatrixStack::mult(Matrix mat)
 
 void MatrixStack::identity()
 {
-	stack.top() = Matrix::identity();
+	stack.top() = geom::Matrix::identity();
 	topmost = unstack();
 	changed = true;
 }
@@ -688,12 +688,12 @@ void MatrixStack::clear()
 	{
 		stack.pop();
 	}
-	stack.push(Matrix::identity());
-	topmost = Matrix::identity();
+	stack.push(geom::Matrix::identity());
+	topmost = geom::Matrix::identity();
 	changed = true;
 }
 
-const Matrix MatrixStack::getTopmost()
+const geom::Matrix MatrixStack::getTopmost()
 {
 	return topmost;
 }
