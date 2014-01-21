@@ -10,12 +10,22 @@ namespace Tasks
 		virtual bool invoke();
 	};
 
+	template <typename A>
 	class TaskDelete : public Task
 	{
 	private:
-		void* val;
+		A* val;
 	public:
-		TaskDelete(void* val);
-		virtual bool invoke();
+		TaskDelete(A* val)
+			: val(val)
+		{
+
+		}
+
+		virtual bool invoke()
+		{
+			delete val;
+			return true;
+		}
 	};
 };

@@ -1,49 +1,9 @@
-﻿Build started 17.01.2014 15:53:44.
-     1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oi /Oy- /GL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>main.cpp(136): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(137): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(138): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(238): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>main.cpp(274): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(275): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(276): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(281): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(282): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(283): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(288): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(289): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(294): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(295): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>main.cpp(775): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(776): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(777): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(778): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(779): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>main.cpp(780): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.lib" /MACHINE:X86 /SAFESEH Release\geometry.obj
-         Release\intersection.obj
-         Release\task.obj
-         Release\world.obj
-         Release\glew.obj
-         Release\graphics.obj
-         Release\input.obj
-         Release\ioutil.obj
-         Release\lodepng.obj
-         Release\main.obj
-         Release\memutil.obj
-         Release\noise.obj
-         Release\gamestates.obj
-         Release\window.obj
-            Creating library C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.lib and object C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.exp
-         Generating code
-         Finished generating code
-         Wind.vcxproj -> C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Release\Wind.exe
-     1>Done Building Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" (Build target(s)).
+﻿Build started 19.01.2014 01:46:39.
+     1>Project "C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Wind.vcxproj -> C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Release\Wind.exe
+     1>Done Building Project "C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.77
+Time Elapsed 00:00:00.05

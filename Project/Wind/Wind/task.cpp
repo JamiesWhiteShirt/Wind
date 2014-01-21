@@ -6,15 +6,3 @@ bool Task::invoke()
 {
 	return false;
 }
-
-TaskDelete::TaskDelete(void* val)
-	: val(val)
-{
-
-}
-
-bool TaskDelete::invoke()
-{
-	delete val;
-	return true;
-}

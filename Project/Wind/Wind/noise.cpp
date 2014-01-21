@@ -33,6 +33,11 @@ NoiseGenerator2D::~NoiseGenerator2D()
 
 float NoiseGenerator2D::getNoise(float x, float y)
 {
+	return getNoise(x, y, smoothness);
+}
+
+float NoiseGenerator2D::getNoise(float x, float y, float smoothness)
+{
 	float noise = 0.0f;
 	float value = 1.0f;
 	float maxValue = 0.0f;
@@ -103,6 +108,11 @@ NoiseGenerator3D::~NoiseGenerator3D()
 }
 
 float NoiseGenerator3D::getNoise(float x, float y, float z)
+{
+	return getNoise(x, y, z, smoothness);
+}
+
+float NoiseGenerator3D::getNoise(float x, float y, float z, float smoothness)
 {
 	float noise = 0.0f;
 	float value = 1.0f;

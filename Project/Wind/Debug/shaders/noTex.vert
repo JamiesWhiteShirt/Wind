@@ -14,5 +14,7 @@ void main()
 {
 	vec4 vert = vertex_in * modelview * projection;
 	gl_Position = vert;
-	color = color_in * const_color;
+	
+	float f = 1.0 - (vert.w / 128.0) * (vert.w / 128.0);
+	color = vec4(color_in.r * const_color.r * f, color_in.g * const_color.g * f, color_in.b * const_color.b * f, color_in.a * const_color.a);
 }

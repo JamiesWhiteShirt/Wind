@@ -29,6 +29,20 @@ GameState* GameStates::processedState;
 GameState* GameStates::pendingState;
 GameState* GameStates::renderingState;
 
+void GameStates::init()
+{
+	GameStates::processedState = new GameState();
+	GameStates::pendingState = new GameState();
+	GameStates::renderingState = new GameState();
+}
+
+void GameStates::cleanup()
+{
+	delete GameStates::renderingState;
+	delete GameStates::processedState;
+	delete GameStates::pendingState;
+}
+
 void GameStates::swapProcessedPending()
 {
 	mut.lock();

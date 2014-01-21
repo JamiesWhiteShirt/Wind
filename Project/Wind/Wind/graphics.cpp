@@ -11,90 +11,85 @@
 using namespace gfxu;
 using namespace GameStates;
 
-Vertex::Vertex(float x, float y, float z, float w)
-	: x(x), y(y), z(z), w(w)
+Vertex::Vertex(float x, float y, float z)
+	: x(x), y(y), z(z)
 {}
 Vertex::Vertex(const Vertex& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w)
+	: x(v.x), y(v.y), z(v.z)
 {}
 Vertex::Vertex(const VertexUV& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w)
+	: x(v.x), y(v.y), z(v.z)
 {}
 Vertex::Vertex(const VertexRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w)
+	: x(v.x), y(v.y), z(v.z)
 {}
 Vertex::Vertex(const VertexUVRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w)
+	: x(v.x), y(v.y), z(v.z)
 {}
-Vertex Vertex::operator*(const Matrix& mat)
-{
-	Vertex result;
 
-	result.x = x * mat.data[0] + y * mat.data[1] + z * mat.data[2] + w * mat.data[3];
-	result.y = x * mat.data[4] + y * mat.data[5] + z * mat.data[6] + w * mat.data[7];
-	result.z = x * mat.data[8] + y * mat.data[9] + z * mat.data[10] + w * mat.data[11];
-	result.w = x * mat.data[12] + y * mat.data[13] + z * mat.data[14] + w * mat.data[15];
-
-	return result;
-}
-
-VertexUV::VertexUV(float x, float y, float z, float w, float u, float v)
-	: x(x), y(y), z(z), w(w), u(u), v(v)
+VertexUV::VertexUV(float x, float y, float z, float u, float v)
+	: x(x), y(y), z(z), u(u), v(v)
 {}
 VertexUV::VertexUV(const Vertex& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(0.0f), v(0.0f)
+	: x(v.x), y(v.y), z(v.z), u(0.0f), v(0.0f)
 {}
 VertexUV::VertexUV(const VertexUV& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(v.u), v(v.v)
+	: x(v.x), y(v.y), z(v.z), u(v.u), v(v.v)
 {}
 VertexUV::VertexUV(const VertexRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(0.0f), v(0.0f)
+	: x(v.x), y(v.y), z(v.z), u(0.0f), v(0.0f)
 {}
 VertexUV::VertexUV(const VertexUVRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(v.u), v(v.v)
+	: x(v.x), y(v.y), z(v.z), u(v.u), v(v.v)
 {}
 
-VertexRGBA::VertexRGBA(float x, float y, float z, float w, float r, float g, float b, float a)
-	: x(x), y(y), z(z), w(w), r(r), g(g), b(b), a(a)
+VertexRGBA::VertexRGBA(float x, float y, float z, float r, float g, float b, float a)
+	: x(x), y(y), z(z), r(r * 255.0f), g(g * 255.0f), b(b * 255.0f), a(a * 255.0f)
+{}
+VertexRGBA::VertexRGBA(float x, float y, float z, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
+	: x(x), y(y), z(z), r(r), g(g), b(b), a(a)
 {}
 VertexRGBA::VertexRGBA(const Vertex& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), r(1.0f), g(1.0f), b(1.0f), a(1.0f)
+	: x(v.x), y(v.y), z(v.z), r(255), g(255), b(255), a(255)
 {}
 VertexRGBA::VertexRGBA(const VertexUV& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), r(1.0f), g(1.0f), b(1.0f), a(1.0f)
+	: x(v.x), y(v.y), z(v.z), r(255), g(255), b(255), a(255)
 {}
 VertexRGBA::VertexRGBA(const VertexRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), r(v.r), g(v.g), b(v.b), a(v.a)
+	: x(v.x), y(v.y), z(v.z), r(v.r), g(v.g), b(v.b), a(v.a)
 {}
 VertexRGBA::VertexRGBA(const VertexUVRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), r(v.r), g(v.g), b(v.b), a(v.a)
+	: x(v.x), y(v.y), z(v.z), r(v.r), g(v.g), b(v.b), a(v.a)
 {}
 
-VertexUVRGBA::VertexUVRGBA(float x, float y, float z, float w, float u, float v, float r, float g, float b, float a)
-	: x(x), y(y), z(z), w(w), u(u), v(v), r(r), g(g), b(b), a(a)
+VertexUVRGBA::VertexUVRGBA(float x, float y, float z, float u, float v, float r, float g, float b, float a)
+	: x(x), y(y), z(z), u(u), v(v), r(r * 255.0f), g(g * 255.0f), b(b * 255.0f), a(a * 255.0f)
+{}
+VertexUVRGBA::VertexUVRGBA(float x, float y, float z, float u, float v, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
+	: x(x), y(y), z(z), u(u), v(v), r(r), g(g), b(b), a(a)
 {}
 VertexUVRGBA::VertexUVRGBA(const Vertex& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(0.0f), v(0.0f), r(1.0f), g(1.0f), b(1.0f), a(1.0f)
+	: x(v.x), y(v.y), z(v.z), u(0.0f), v(0.0f), r(255), g(255), b(255), a(255)
 {}
 VertexUVRGBA::VertexUVRGBA(const VertexUV& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(v.u), v(v.v), r(1.0f), g(1.0f), b(1.0f), a(1.0f)
+	: x(v.x), y(v.y), z(v.z), u(v.u), v(v.v), r(255), g(255), b(255), a(255)
 {}
 VertexUVRGBA::VertexUVRGBA(const VertexRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(0.0f), v(0.0f), r(v.r), g(v.g), b(v.b), a(v.a)
+	: x(v.x), y(v.y), z(v.z), u(0.0f), v(0.0f), r(v.r), g(v.g), b(v.b), a(v.a)
 {}
 VertexUVRGBA::VertexUVRGBA(const VertexUVRGBA& v)
-	: x(v.x), y(v.y), z(v.z), w(v.w), u(v.u), v(v.v), r(v.r), g(v.g), b(v.b), a(v.a)
+	: x(v.x), y(v.y), z(v.z), u(v.u), v(v.v), r(v.r), g(v.g), b(v.b), a(v.a)
 {}
 
 
 
 VertexStream::VertexStream()
-	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false)
+	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false), released(false)
 {
 
 }
 VertexStream::VertexStream(int size)
-	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false)
+	: vertices(vector<VertexUVRGBA>()), vertex(), ready(false), uploaded(false), released(false)
 {
 	vertices.reserve(size);
 }
@@ -106,7 +101,7 @@ VertexStream::~VertexStream()
 		glDeleteBuffers(1, &vbo);
 	}
 }
-void VertexStream::put(float x, float y, float z, float w)
+void VertexStream::put(float x, float y, float z)
 {
 	vertex.x = x;
 	vertex.y = y;
@@ -114,30 +109,30 @@ void VertexStream::put(float x, float y, float z, float w)
 
 	vertices.push_back(vertex);
 }
-void VertexStream::put(float x, float y, float z, float w, float u, float v)
+void VertexStream::put(float x, float y, float z, float u, float v)
 {
 	setUV(u, v);
-	put(x, y, z, w);
+	put(x, y, z);
 }
 void VertexStream::put(const Vertex& v)
 {
-	put(v.x, v.y, v.z, v.w);
+	put(v.x, v.y, v.z);
 }
 void VertexStream::put(const VertexUV& v)
 {
 	setUV(v.u, v.v);
-	put(v.x, v.y, v.z, v.w);
+	put(v.x, v.y, v.z);
 }
 void VertexStream::put(const VertexRGBA& v)
 {
 	setColor(v.r, v.g, v.b);
-	put(v.x, v.y, v.z, v.w);
+	put(v.x, v.y, v.z);
 }
 void VertexStream::put(const VertexUVRGBA& v)
 {
 	setUV(v.u, v.v);
 	setColor(v.r, v.g, v.b);
-	put(v.x, v.y, v.z, v.w);
+	put(v.x, v.y, v.z);
 }
 template <typename T>
 void VertexStream::put(const T* vp, int length)
@@ -147,28 +142,12 @@ void VertexStream::put(const T* vp, int length)
 		put(vp[i]);
 	}
 }
-void VertexStream::clear()
+void VertexStream::release()
 {
+	released = true;
 	vertices.clear();
-	if(ready)
-	{
-		if(isUploaded())
-		{
-			glDeleteBuffers(1, &vbo);
-			glGenBuffers(1, &vbo);
-			glBindBuffer(GL_ARRAY_BUFFER, vbo);
-			glEnableVertexAttribArray(0);
-			glEnableVertexAttribArray(1);
-			glEnableVertexAttribArray(2);
-			glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
-			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 4));
-			glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 6));
-		}
-
-		uploaded = false;
-	}
 }
-void VertexStream::setColor(float r, float g, float b)
+void VertexStream::setColor(unsigned char r, unsigned char g, unsigned char b)
 {
 	vertex.r = r;
 	vertex.g = g;
@@ -226,9 +205,10 @@ bool VertexStream::upload()
 		glEnableVertexAttribArray(0);
 		glEnableVertexAttribArray(1);
 		glEnableVertexAttribArray(2);
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 4));
-		glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)(sizeof(float) * 6));
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)0);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexUVRGBA), (GLvoid*)offsetof(VertexUVRGBA, u));
+		//glVertexAttribPointer(2, 4, GL_UNSIGNED_SHORT, GL_TRUE, sizeof(VertexUVRGBA), (GLvoid*)offsetof(VertexUVRGBA, r));
+		glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(VertexUVRGBA), (GLvoid*)offsetof(VertexUVRGBA, r));
 
 		if(glGetError() != GL_NO_ERROR)
 		{
@@ -256,9 +236,20 @@ void VertexStream::draw(GLenum mode)
 	}
 }
 
+void VertexStream::compress()
+{
+	std::vector<VertexUVRGBA> temp(vertices.begin(), vertices.end());
+	vertices = temp;
+}
+
 bool VertexStream::isUploaded()
 {
 	return uploaded;
+}
+
+bool VertexStream::isReleased()
+{
+	return released;
 }
 
 
@@ -471,171 +462,6 @@ ShaderProgram* ShaderProgram::current;
 
 
 
-int Matrix::index(int x, int y)
-{
-	return x + (y << 2);
-}
-
-Matrix::Matrix()
-{
-	for(int i = 0; i < 16; i++)
-	{
-		data[i] = 0.0f;
-	}
-}
-
-Matrix::Matrix(float* data)
-{
-	for(int i = 0; i < 16; i++)
-	{
-		this->data[i] = data[i];
-	}
-}
-
-float& Matrix::operator[](int index)
-{
-	return data[index];
-}
-
-Matrix Matrix::operator*(const Matrix& mat)
-{
-	Matrix result;
-
-	for(int i = 0; i < 4; i++)
-	{
-		for(int j = 0; j < 4; j++)
-		{
-			float value = 0.0f;
-			for(int k = 0; k < 4; k++)
-			{
-				value += data[index(k, j)] * mat.data[index(i, k)];
-			}
-			result[index(i, j)] = value;
-		}
-	}
-
-	return result;
-}
-
-Matrix Matrix::operator*(const float& scalar)
-{
-	Matrix result;
-
-	for(int i = 0; i < 16; i++)
-	{
-		result[i] = data[i] * scalar;
-	}
-
-	return result;
-}
-
-Vertex Matrix::operator*(const Vertex& vert)
-{
-	Vertex result;
-
-	result.x = vert.x * data[0] + vert.y * data[1] + vert.z * data[2] + vert.w * data[3];
-	result.y = vert.x * data[4] + vert.y * data[5] + vert.z * data[6] + vert.w * data[7];
-	result.z = vert.x * data[8] + vert.y * data[9] + vert.z * data[10] + vert.w * data[11];
-	result.w = vert.x * data[12] + vert.y * data[13] + vert.z * data[14] + vert.w * data[15];
-
-	return result;
-}
-
-Matrix& Matrix::operator=(const Matrix& mat)
-{
-	memcpy(data, mat.data, 16 * sizeof(float));
-
-	return *this;
-}
-
-Matrix Matrix::identity()
-{
-	Matrix result;
-	result[0] = 1.0f;
-	result[5] = 1.0f;
-	result[10] = 1.0f;
-	result[15] = 1.0f;
-
-	return result;
-}
-
-Matrix Matrix::scale(float x, float y, float z)
-{
-	Matrix result;
-	result[0] = x;
-	result[5] = y;
-	result[10] = z;
-	result[15] = 1.0f;
-
-	return result;
-}
-
-Matrix Matrix::translate(float x, float y, float z)
-{
-	Matrix result = identity();
-	result[3] = x;
-	result[7] = y;
-	result[11] = z;
-
-	return result;
-}
-
-Matrix Matrix::ortho2D(float left, float bottom, float right, float top)
-{
-	float matData[] = {
-		2.0f / (right - left), 0.0f, 0.0f, (right + left) / (left - right),
-		0.0f, 2.0f / (top - bottom), 0.0f, (top + bottom) / (bottom - top),
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
-
-	return Matrix(matData);
-}
-
-Matrix Matrix::ortho(float left, float bottom, float n, float right, float top, float f)
-{
-	float matData[] = {
-		2.0f / (right - left), 0.0f, 0.0f, (right + left) / (left - right),
-		0.0f, 2.0f / (top - bottom), 0.0f, (top + bottom) / (bottom - top),
-		0.0f, 0.0f, 2.0f / (f - n), (f + n) / (n - f),
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
-
-	return Matrix(matData);
-}
-
-Matrix Matrix::rotate(float degrees, float x, float y, float z)
-{
-	float s = (float)sin(degrees * M_PI / 180.0f);
-	float c = (float)cos(degrees * M_PI / 180.0f);
-
-	float matData[] = {
-		x + (y + z) * c, z * -s, y * s, 0.0f,
-		z * s, y + (x + z) * c, x * -s, 0.0f,
-		y * -s, x * s, z + (x + y) * c, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
-
-	return Matrix(matData);
-}
-
-Matrix Matrix::perspective(float fov, float aspect, float n, float f)
-{
-	float frustumDepth = f - n;
-    float oneOverDepth = 1 / frustumDepth;
-
-	float matData[] = {
-		(1.0f / (float)tan(fov * M_PI / 360.0f)) / aspect, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f / (float)tan(fov * M_PI / 360.0f), 0.0f, 0.0f,
-		0.0f, 0.0f, f * oneOverDepth, -f * n * oneOverDepth,
-		0.0f, 0.0f, 1.0f, 0.0f
-	};
-
-	return Matrix(matData);
-}
-
-
-
 MatrixStack::MatrixStack()
 {
 	clear();
@@ -845,6 +671,8 @@ bool Texture2D::upload()
 	{
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
+
+	uploaded = true;
 
 	return true;
 }

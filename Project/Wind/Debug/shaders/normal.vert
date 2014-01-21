@@ -17,6 +17,6 @@ void main()
 	gl_Position = vert;
 	tex_coord = tex_coord_in;
 	
-	float f = (1.0 - vert.w * 0.01);
+	float f = 1.0 - (vert.w / 128.0) * (vert.w / 128.0);
 	color = vec4(color_in.r * const_color.r * f, color_in.g * const_color.g * f, color_in.b * const_color.b * f, color_in.a * const_color.a);
 }

@@ -36,22 +36,26 @@ namespace gfxu
 	{
 	private:
 	public:
-		float x, y, z, w;
-		Vertex(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 1.0f);
+		float x;
+		float y;
+		float z;
+		Vertex(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 		Vertex(const Vertex& v);
 		Vertex(const VertexUV& v);
 		Vertex(const VertexRGBA& v);
 		Vertex(const VertexUVRGBA& v);
-
-		Vertex operator*(const Matrix& mat);
 	};
 
 	class VertexUV
 	{
 	private:
 	public:
-		float x, y, z, w, u, v;
-		VertexUV(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 1.0f, float u = 0.0f, float v = 0.0f);
+		float x;
+		float y;
+		float z;
+		float u;
+		float v;
+		VertexUV(float x = 0.0f, float y = 0.0f, float z = 0.0f, float u = 0.0f, float v = 0.0f);
 		VertexUV(const Vertex& v);
 		VertexUV(const VertexUV& v);
 		VertexUV(const VertexRGBA& v);
@@ -62,8 +66,15 @@ namespace gfxu
 	{
 	private:
 	public:
-		float x, y, z, w, r, g, b, a;
-		VertexRGBA(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 1.0f, float r = 1.0f, float g = 1.0f, float b = 1.0f, float a = 1.0f);
+		float x;
+		float y;
+		float z;
+		unsigned char r;
+		unsigned char g;
+		unsigned char b;
+		unsigned char a;
+		VertexRGBA(float x = 0.0f, float y = 0.0f, float z = 0.0f, float r = 1.0f, float g = 1.0f, float b = 1.0f, float a = 1.0f);
+		VertexRGBA(float x, float y, float z, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 		VertexRGBA(const Vertex& v);
 		VertexRGBA(const VertexUV& v);
 		VertexRGBA(const VertexRGBA& v);
@@ -74,8 +85,17 @@ namespace gfxu
 	{
 	private:
 	public:
-		float x, y, z, w, u, v, r, g, b, a;
-		VertexUVRGBA(float x = 0.0f, float y = 0.0f, float z = 0.0, float w = 1.0f, float u = 0.0f, float v = 0.0f, float r = 1.0f, float g = 1.0f, float b = 1.0f, float a = 1.0f);
+		float x;
+		float y;
+		float z;
+		float u;
+		float v;
+		unsigned char r;
+		unsigned char g;
+		unsigned char b;
+		unsigned char a;
+		VertexUVRGBA(float x = 0.0f, float y = 0.0f, float z = 0.0, float u = 0.0f, float v = 0.0f, float r = 1.0f, float g = 1.0f, float b = 1.0f, float a = 1.0f);
+		VertexUVRGBA(float x, float y, float z, float u, float v, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 		VertexUVRGBA(const Vertex& v);
 		VertexUVRGBA(const VertexUV& v);
 		VertexUVRGBA(const VertexRGBA& v);
@@ -91,6 +111,7 @@ namespace gfxu
 		GLuint vbo;
 		bool ready;
 		bool uploaded;
+		bool released;
 		std::mutex mutex;
 
 		friend VertexStream& operator<<(VertexStream&, const VertexStream&);
@@ -98,16 +119,16 @@ namespace gfxu
 		VertexStream();
 		VertexStream(int size);
 		~VertexStream();
-		void put(float x, float y, float z, float w);
-		void put(float x, float y, float z, float w, float u, float v);
+		void put(float x, float y, float z);
+		void put(float x, float y, float z, float u, float v);
 		void put(const Vertex& v);
 		void put(const VertexUV& v);
 		void put(const VertexRGBA& v);
 		void put(const VertexUVRGBA& v);
 		template <typename T>
 		void put(const T* vp, int length);
-		void clear();
-		void setColor(float r, float g, float b);
+		void release();
+		void setColor(unsigned char r, unsigned char g, unsigned char b);
 		void setUV(float u, float v);
 		void reserveAdditional(int size);
 
@@ -115,7 +136,9 @@ namespace gfxu
 		void unlock();
 		bool upload();
 		void draw(GLenum mode = GL_TRIANGLES);
+		void compress();
 		bool isUploaded();
+		bool isReleased();
 
 		VertexUVRGBA* ptr();
 		int length();
@@ -178,31 +201,6 @@ namespace gfxu
 		UNIFORM_LOCATION texture1;
 
 		static ShaderProgram* current;
-	};
-
-	class Matrix
-	{
-	private:
-		int index(int x, int y);
-	public:
-		float data[16];
-
-		Matrix();
-		Matrix(float* data);
-
-		float& operator[](int index);
-		Matrix operator*(const Matrix& mat);
-		Matrix operator*(const float& scalar);
-		Vertex operator*(const Vertex& vert);
-		Matrix& operator=(const Matrix& mat);
-
-		static Matrix identity();
-		static Matrix scale(float x = 1.0f, float y = 1.0f, float z = 1.0f);
-		static Matrix translate(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-		static Matrix ortho2D(float left, float bottom, float right, float top);
-		static Matrix ortho(float left, float bottom, float near, float right, float top, float far);
-		static Matrix rotate(float degrees, float x, float y, float z);
-		static Matrix perspective(float fov, float aspect, float n, float f);
 	};
 
 	class MatrixStack
@@ -313,6 +311,8 @@ namespace GameStates
 	extern GameState* pendingState;
 	extern GameState* renderingState;
 
+	void init();
+	void cleanup();
 	void swapProcessedPending();
 	void swapPendingRendering();
 }

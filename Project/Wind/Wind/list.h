@@ -39,18 +39,13 @@ public:
 };
 
 template <typename A, int maxAmount, unsigned int allocSize>
-class VirtualList : protected List<A, maxAmount>, protected MemUtil::MiniHeap
+class VirtualList : protected List<A*, maxAmount>, protected MemUtil::MiniHeap
 {
 public:
 	VirtualList()
 		: MemUtil::MiniHeap(allocSize)
 	{
 
-	}
-
-	~VirtualList()
-	{
-		MemUtil::MiniHeap::~MiniHeap();
 	}
 
 	A* operator[](int index)

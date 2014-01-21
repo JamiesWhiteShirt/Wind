@@ -19,6 +19,7 @@ namespace Noise
 		~NoiseGenerator2D();
 
 		float getNoise(float x, float y);
+		float getNoise(float x, float y, float smoothness);
 	};
 
 	class NoiseGenerator3D
@@ -38,5 +39,6 @@ namespace Noise
 		~NoiseGenerator3D();
 
 		float getNoise(float x, float y, float z);
+		float getNoise(float x, float y, float z, float smoothness);
 	};
 }

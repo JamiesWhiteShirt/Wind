@@ -1,8 +1,11 @@
+#pragma once
+
 #include <map>
 #include "graphics.h"
 #include <mutex>
 #include <queue>
 #include <mutex>
+#include <memory>
 
 class World;
 
@@ -68,14 +71,15 @@ class World
 private:
 public:
 	std::mutex chunkMapLock;
-	std::map<ChunkPosition, ChunkBase*> chunkMap;
-	std::queue<ChunkBase*> additionQueue;
+	std::map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
+	std::queue<std::shared_ptr<ChunkBase>> additionQueue;
+	std::queue<ChunkPosition> removalQueue;
 
 	World();
 	~World();
 
-	ChunkBase* getChunk(int x, int y, int z);
-	ChunkBase* getChunkFromBlockCoordinate(int x, int y, int z);
+	std::shared_ptr<ChunkBase> getChunk(int x, int y, int z);
+	std::shared_ptr<ChunkBase> getChunkFromBlockCoordinate(int x, int y, int z);
 	bool isChunkLoaded(int x, int y, int z);
 	bool isChunkAtBlockCoordinateLoaded(int x, int y, int z);
 	short getBlock(int x, int y, int z);
