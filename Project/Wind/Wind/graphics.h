@@ -118,7 +118,7 @@ namespace gfxu
 	public:
 		VertexStream();
 		VertexStream(int size);
-		~VertexStream();
+		virtual ~VertexStream();
 		void put(float x, float y, float z);
 		void put(float x, float y, float z, float u, float v);
 		void put(const Vertex& v);
@@ -198,6 +198,9 @@ namespace gfxu
 		UNIFORM_LOCATION modelview;
 		UNIFORM_LOCATION projection;
 		UNIFORM_LOCATION const_color;
+		UNIFORM_LOCATION cam_pos;
+		UNIFORM_LOCATION fog_color;
+		UNIFORM_LOCATION fog_dist;
 		UNIFORM_LOCATION texture1;
 
 		static ShaderProgram* current;
@@ -221,16 +224,28 @@ namespace gfxu
 		const geom::Matrix getTopmost();
 	};
 
-	class VecUniform
+	template<typename A>
+	class Uniform
 	{
 	private:
-		geom::Vector vec;
+		A val;
 	public:
-		VecUniform();
 		bool changed;
-		void set(geom::Vector value);
-		void set(float f1, float f2, float f3, float f4);
-		geom::Vector get();
+
+		Uniform()
+			:changed(true)
+		{
+
+		}
+		void set(A value)
+		{
+			val = value;
+			changed = true;
+		}
+		A get()
+		{
+			return val;
+		}
 	};
 
 	class Uniforms
@@ -240,8 +255,13 @@ namespace gfxu
 	public:
 		static MatrixStack MMS;
 		static MatrixStack PMS;
-		static VecUniform color;
+		static Uniform<geom::Vector> color;
+		static Uniform<geom::Vector> camPos;
+		static Uniform<geom::Vector> fogColor;
+		static Uniform<float> fogDist;
 
+		static void setColor(float r = 1.0, float g = 1.0, float b = 1.0, float a = 1.0);
+		static void setFogColor(float r = 1.0, float g = 1.0, float b = 1.0, float a = 1.0);
 		static void uploadChanges();
 		static void reset();
 
@@ -300,6 +320,7 @@ namespace GameStates
 	private:
 	public:
 		Camera cam;
+		int FOV;
 
 		GameState();
 		~GameState();

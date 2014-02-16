@@ -7,9 +7,12 @@
 #include <string>
 #include <math.h>
 #include "lodepng.h"
+#include "threads.h"
 
 using namespace gfxu;
 using namespace GameStates;
+
+int vs = 0;
 
 Vertex::Vertex(float x, float y, float z)
 	: x(x), y(y), z(z)
@@ -97,8 +100,7 @@ VertexStream::~VertexStream()
 {
 	if(isUploaded())
 	{
-		glDeleteVertexArrays(1, &vao);
-		glDeleteBuffers(1, &vbo);
+		RenderThread::taskList.put(Tasks::TaskVBOVAOSet(vbo, vao));
 	}
 }
 void VertexStream::put(float x, float y, float z)
@@ -108,6 +110,8 @@ void VertexStream::put(float x, float y, float z)
 	vertex.z = z;
 
 	vertices.push_back(vertex);
+
+	vs++;
 }
 void VertexStream::put(float x, float y, float z, float u, float v)
 {
@@ -238,8 +242,7 @@ void VertexStream::draw(GLenum mode)
 
 void VertexStream::compress()
 {
-	std::vector<VertexUVRGBA> temp(vertices.begin(), vertices.end());
-	vertices = temp;
+	vertices.shrink_to_fit();
 }
 
 bool VertexStream::isUploaded()
@@ -438,6 +441,9 @@ bool ShaderProgram::create()
 		modelview = glGetUniformLocation(object, "modelview");
 		projection = glGetUniformLocation(object, "projection");
 		const_color = glGetUniformLocation(object, "const_color");
+		cam_pos = glGetUniformLocation(object, "cam_pos");
+		fog_color = glGetUniformLocation(object, "fog_color");
+		fog_dist = glGetUniformLocation(object, "fog_dist");
 		texture1 = glGetUniformLocation(object, "texture_1");
 		
 		if(texture1 >= 0)
@@ -526,30 +532,15 @@ const geom::Matrix MatrixStack::getTopmost()
 
 
 
-VecUniform::VecUniform()
-	: changed(true)
+void Uniforms::setColor(float r, float g, float b, float a)
 {
-
+	color.set(geom::Vector(r, g, b, a));
 }
 
-void VecUniform::set(geom::Vector vec)
+void Uniforms::setFogColor(float r, float g, float b, float a)
 {
-	this->vec = vec;
-	changed = true;
+	fogColor.set(geom::Vector(r, g, b, a));
 }
-
-void VecUniform::set(float f1, float f2, float f3, float f4)
-{
-	vec = geom::Vector(f1, f2, f3, f4);
-	changed = true;
-}
-
-geom::Vector VecUniform::get()
-{
-	return vec;
-}
-
-
 
 void Uniforms::uploadChanges()
 {
@@ -570,6 +561,23 @@ void Uniforms::uploadChanges()
 		geom::Vector vec = color.get();
 		glUniform4f(ShaderProgram::current->const_color, vec.x, vec.y, vec.z, vec.w);
 	}
+
+	if(forceUpload | (camPos.changed & (ShaderProgram::current->cam_pos >= 0)))
+	{
+		geom::Vector vec = camPos.get();
+		glUniform4f(ShaderProgram::current->cam_pos, vec.x, vec.y, vec.z, vec.w);
+	}
+
+	if(forceUpload | (fogColor.changed & (ShaderProgram::current->fog_color >= 0)))
+	{
+		geom::Vector vec = fogColor.get();
+		glUniform4f(ShaderProgram::current->fog_color, vec.x, vec.y, vec.z, vec.w);
+	}
+
+	if(forceUpload | (fogDist.changed & (ShaderProgram::current->fog_dist >= 0)))
+	{
+		glUniform1f(ShaderProgram::current->fog_dist, fogDist.get());
+	}
 }
 
 void Uniforms::reset()
@@ -586,7 +594,10 @@ void Uniforms::setForceUpload()
 bool Uniforms::forceUpload = false;
 MatrixStack Uniforms::MMS;
 MatrixStack Uniforms::PMS;
-VecUniform Uniforms::color;
+Uniform<geom::Vector> Uniforms::color;
+Uniform<geom::Vector> Uniforms::camPos;
+Uniform<geom::Vector> Uniforms::fogColor;
+Uniform<float> Uniforms::fogDist;
 
 
 

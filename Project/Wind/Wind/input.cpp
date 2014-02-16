@@ -25,8 +25,8 @@ bool Keyboard::getKey(int index)
 	return value;
 }
 
-MouseAction::MouseAction(int rx, int ry, int button, bool released)
-	: rx(rx), ry(ry), button(button), released(released)
+MouseAction::MouseAction(int rx, int ry, int sc, int button, bool released)
+	: rx(rx), ry(ry), sc(sc), button(button), released(released)
 {
 
 }

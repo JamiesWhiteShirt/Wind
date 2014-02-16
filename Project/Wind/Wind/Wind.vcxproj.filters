@@ -71,6 +71,9 @@
     <ClInclude Include="threads.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="mutexpool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew.c">

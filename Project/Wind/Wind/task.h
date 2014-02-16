@@ -1,6 +1,7 @@
 #pragma once
 
 #include "list.h"
+#include "graphics.h"
 
 namespace Tasks
 {
@@ -27,5 +28,15 @@ namespace Tasks
 			delete val;
 			return true;
 		}
+	};
+
+	class TaskVBOVAOSet : public Task
+	{
+	private:
+		GLuint vbo;
+		GLuint vao;
+	public:
+		TaskVBOVAOSet(GLuint vbo, GLuint vao);
+		bool invoke();
 	};
 };

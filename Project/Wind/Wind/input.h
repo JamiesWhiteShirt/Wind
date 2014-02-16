@@ -23,10 +23,10 @@ public:
 class MouseAction
 {
 public:
-	int rx, ry;
+	int rx, ry, sc;
 	int button;
 	bool released;
-	MouseAction(int rx = 0, int ry = 0, int button = -1, bool release = false);
+	MouseAction(int rx = 0, int ry = 0, int sc = 0, int button = -1, bool release = false);
 };
 
 class Mouse

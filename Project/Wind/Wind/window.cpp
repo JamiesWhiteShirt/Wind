@@ -349,6 +349,14 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			Mouse::mut.unlock();
 			break;
 		}
+	case WM_MOUSEWHEEL:
+		{
+			short sc = HIWORD(wParam);
+			Mouse::mut.lock();
+			Mouse::actions.put(MouseAction(0, 0, sc / WHEEL_DELTA, -1, false));
+			Mouse::mut.unlock();
+			break;
+		}
 	case WM_INPUT:
 		{
 			UINT dwSize = 40;
@@ -361,7 +369,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			if(raw->header.dwType == RIM_TYPEMOUSE)
 			{
 				Mouse::mut.lock();
-				Mouse::actions.put(MouseAction(raw->data.mouse.lLastX, raw->data.mouse.lLastY, -1, false));
+				Mouse::actions.put(MouseAction(raw->data.mouse.lLastX, raw->data.mouse.lLastY, 0, -1, false));
 				Mouse::mut.unlock();
 			}
 			

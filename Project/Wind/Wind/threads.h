@@ -19,6 +19,7 @@ namespace ChunkDrawThread
 	extern std::thread thread;
 	extern std::queue<std::shared_ptr<ChunkBase>> drawFirstQueue;
 	extern std::queue<std::shared_ptr<ChunkBase>> drawQueue;
+	extern std::queue<std::shared_ptr<ChunkBase>> drawLaterQueue;
 	extern std::mutex queueMut;
 	extern VirtualList<Tasks::Task, 256, 4098> taskList;
 

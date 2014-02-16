@@ -14,6 +14,7 @@ Camera::Camera()
 
 
 GameState::GameState()
+	: FOV(90)
 {
 
 }
@@ -43,15 +44,19 @@ void GameStates::cleanup()
 	delete GameStates::pendingState;
 }
 
+void swap(GameState* &gs1, GameState* &gs2)
+{
+	gs1->cam = gs2->cam;
+	gs1->FOV = gs2->FOV;
+	GameState* temp = gs2;
+	gs2 = gs1;
+	gs1 = temp;
+}
+
 void GameStates::swapProcessedPending()
 {
 	mut.lock();
-	
-	pendingState->cam = processedState->cam;
-	GameState* temp = GameStates::processedState;
-	GameStates::processedState = GameStates::pendingState;
-	GameStates::pendingState = temp;
-
+	swap(pendingState, processedState);
 	newPendingAvailable = true;
 	mut.unlock();
 }
@@ -61,11 +66,7 @@ void GameStates::swapPendingRendering()
 	mut.lock();
 	if(newPendingAvailable)
 	{
-		renderingState->cam = pendingState->cam;
-		GameState* temp = GameStates::pendingState;
-		GameStates::pendingState = GameStates::renderingState;
-		GameStates::renderingState = temp;
-
+		swap(renderingState, pendingState);
 		newPendingAvailable = false;
 	}
 	mut.unlock();

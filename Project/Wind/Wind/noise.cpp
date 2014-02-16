@@ -55,9 +55,9 @@ float NoiseGenerator2D::getNoise(float x, float y, float smoothness)
 	{
 		maxValue += value;
 
-		ix = (int)x;
+		ix = (int)floorf(x);
 		ix1 = ix + 1;
-		iy = (int)y;
+		iy = (int)floorf(y);
 		iy1 = iy + 1;
 		xMix = interpolate(x - ix);
 		xMixi = 1.0f - xMix;
@@ -135,11 +135,11 @@ float NoiseGenerator3D::getNoise(float x, float y, float z, float smoothness)
 	{
 		maxValue += value;
 
-		ix = (int)x;
+		ix = (int)floorf(x);
 		ix1 = ix + 1;
-		iy = (int)y;
+		iy = (int)floorf(y);
 		iy1 = iy + 1;
-		iz = (int)z;
+		iz = (int)floorf(z);
 		iz1 = iz + 1;
 		xMix = interpolate(x - ix);
 		xMixi = 1.0f - xMix;

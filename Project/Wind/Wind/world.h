@@ -22,11 +22,13 @@ private:
 	World* world;
 	bool renderUpdateNeeded;
 	bool loaded;
+	bool unloaded;
 public:
 	ChunkPosition pos;
 	std::mutex mut;
 	gfxu::VertexStream* renderStream;
 	gfxu::VertexStream* drawStream;
+	int surroundingExistingChunks;
 
 	ChunkBase(World& world, int xPos, int yPos, int zPos);
 	~ChunkBase();
@@ -34,9 +36,12 @@ public:
 	virtual short getBlock(int x, int y, int z) = 0;
 	virtual void setBlock(int x, int y, int z, short id) = 0;
 	virtual void setBlockRaw(int x, int y, int z, short id) = 0;
+	virtual bool isEmpty() = 0;
 
 	void setLoaded();
 	bool isLoaded();
+	void setUnloaded();
+	bool isUnloaded();
 
 	void setRenderUpdateNeeded(bool flag);
 	bool isRenderUpdateNeeded();
@@ -51,6 +56,7 @@ public:
 	short getBlock(int x, int y, int z);
 	void setBlock(int x, int y, int z, short id);
 	void setBlockRaw(int x, int y, int z, short id);
+	bool isEmpty();
 };
 
 class Chunk : public ChunkBase
@@ -64,16 +70,21 @@ public:
 	short getBlock(int x, int y, int z);
 	void setBlock(int x, int y, int z, short id);
 	void setBlockRaw(int x, int y, int z, short id);
+	bool isEmpty();
 };
 
 class World
 {
 private:
+	int incr(int x, int y, int z);
 public:
 	std::mutex chunkMapLock;
 	std::map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
+
+	std::mutex additionQueueLock;
 	std::queue<std::shared_ptr<ChunkBase>> additionQueue;
-	std::queue<ChunkPosition> removalQueue;
+	std::mutex removalQueueLock;
+	std::queue<std::shared_ptr<ChunkBase>> removalQueue;
 
 	World();
 	~World();
@@ -84,6 +95,9 @@ public:
 	bool isChunkAtBlockCoordinateLoaded(int x, int y, int z);
 	short getBlock(int x, int y, int z);
 	void setBlock(int x, int y, int z, short id);
+
+	bool addChunk(std::shared_ptr<ChunkBase> chunk);
+	void removeChunk(ChunkPosition cp);
 };
 
 bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2);

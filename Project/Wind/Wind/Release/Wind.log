@@ -1,4 +1,4 @@
-﻿Build started 19.01.2014 01:46:39.
+﻿Build started 16.02.2014 02:44:24.
      1>Project "C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
      1>Link:
          Wind.vcxproj -> C:\Users\Erlend\Documents\GitHub\Wind\Project\Wind\Release\Wind.exe
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.10
