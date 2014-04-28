@@ -1,22 +1,68 @@
 #include "world.h"
 #include "threads.h"
 
+inline unsigned int toIndex(unsigned int &x, unsigned int &y, unsigned int &z)
+{
+	return x << 8 | y << 4 | z;
+}
+
 ChunkPosition::ChunkPosition(int x, int y, int z)
 	: x(x), y(y), z(z)
 {
 
 }
 
+BlockCount::BlockCount(unsigned int size)
+	: size(size), solids(0), nonsolids(0)
+{
+
+}
+
+bool BlockCount::isAllAir()
+{
+	return (solids == 0) & (nonsolids == 0);
+}
+
+bool BlockCount::isAllSolid()
+{
+	return solids == size;
+}
+
+bool BlockCount::isVaried()
+{
+	return !(((solids == 0) & (nonsolids == 0)) | (solids == 16 * 16 * 16));
+}
+
+void BlockCount::remove(unsigned short oldBlock)
+{
+	if(oldBlock) solids--;
+}
+
+void BlockCount::place(unsigned short newBlock)
+{
+	if(newBlock) solids++;
+}
+
+void BlockCount::replace(unsigned short oldBlock, unsigned short newBlock)
+{
+	remove(oldBlock);
+	place(newBlock);
+}
+
 ChunkBase::ChunkBase(World& world, int xPos, int yPos, int zPos)
-	: world(&world), pos(ChunkPosition(xPos, yPos, zPos)), loaded(false), unloaded(false), renderUpdateNeeded(false), renderStream(nullptr), drawStream(nullptr), surroundingExistingChunks(0)
+	: world(&world), pos(ChunkPosition(xPos, yPos, zPos)), loaded(false), unloaded(false), renderUpdateNeeded(false), firstPass(nullptr), secondPass(nullptr)
 {
 
 }
 
 ChunkBase::~ChunkBase()
 {
-	if(renderStream != nullptr) delete renderStream;
-	if(drawStream != nullptr) delete drawStream;
+
+}
+
+unsigned short* ChunkBase::dataPtr()
+{
+	return nullptr;
 }
 
 void ChunkBase::setLoaded()
@@ -39,6 +85,11 @@ bool ChunkBase::isUnloaded()
 	return unloaded;
 }
 
+bool ChunkBase::shouldRender()
+{
+	return false;
+}
+
 void ChunkBase::setRenderUpdateNeeded(bool flag)
 {
 	renderUpdateNeeded = flag;
@@ -47,13 +98,6 @@ void ChunkBase::setRenderUpdateNeeded(bool flag)
 bool ChunkBase::isRenderUpdateNeeded()
 {
 	return renderUpdateNeeded;
-}
-
-void ChunkBase::swapStreams()
-{
-	gfxu::VertexStream* temp = renderStream;
-	renderStream = drawStream;
-	drawStream = temp;
 }
 
 
@@ -69,17 +113,17 @@ EmptyChunk::~EmptyChunk()
 
 }
 
-short EmptyChunk::getBlock(int x, int y, int z)
+Block* EmptyChunk::getBlock(unsigned int x, unsigned int y, unsigned int z)
 {
-	return 0;
+	return Blocks::air;
 }
 
-void EmptyChunk::setBlock(int x, int y, int z, short id)
+void EmptyChunk::setBlock(unsigned int x, unsigned int y, unsigned int z, Block* block)
 {
 
 }
 
-void EmptyChunk::setBlockRaw(int x, int y, int z, short id)
+void EmptyChunk::setBlockRaw(unsigned int x, unsigned int y, unsigned int z, Block* block)
 {
 
 }
@@ -89,10 +133,15 @@ bool EmptyChunk::isEmpty()
 	return true;
 }
 
+bool EmptyChunk::shouldRender()
+{
+	return false;
+}
+
 
 
 Chunk::Chunk(World& world, int xPos, int yPos, int zPos)
-	: ChunkBase(world, xPos, yPos, zPos)
+	: ChunkBase(world, xPos, yPos, zPos), solids(0), nonSolids(0)
 {
 
 }
@@ -102,24 +151,34 @@ Chunk::~Chunk()
 
 }
 
-short Chunk::getBlock(int x, int y, int z)
+Block* Chunk::getBlock(unsigned int x, unsigned int y, unsigned int z)
 {
-	return data[x][y][z];
+	return Blocks::blockArray[data[toIndex(x, y, z)]];
 }
 
-void Chunk::setBlock(int x, int y, int z, short id)
+void Chunk::setBlock(unsigned int x, unsigned int y, unsigned int z, Block* block)
 {
-	setBlockRaw(x, y, z, id);
+	data[toIndex(x, y, z)] = block->id;
 }
 
-void Chunk::setBlockRaw(int x, int y, int z, short id)
+void Chunk::setBlockRaw(unsigned int x, unsigned int y, unsigned int z, Block* block)
 {
-	data[x][y][z] = id;
+	data[toIndex(x, y, z)] = block->id;
 }
 
 bool Chunk::isEmpty()
 {
 	return false;
+}
+
+unsigned short* Chunk::dataPtr()
+{
+	return data;
+}
+
+bool Chunk::shouldRender()
+{
+	return true;
 }
 
 
@@ -137,13 +196,14 @@ World::~World()
 std::shared_ptr<ChunkBase> World::getChunk(int x, int y, int z)
 {
 	ChunkPosition cp = ChunkPosition(x, y, z);
-	if(chunkMap.find(cp) == chunkMap.end())
+	auto chunk = chunkMap.find(cp);
+	if(chunk == chunkMap.end())
 	{
 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
 	}
 	else
 	{
-		return chunkMap[cp];
+		return chunk->second;
 	}
 }
 
@@ -164,29 +224,28 @@ bool World::isChunkAtBlockCoordinateLoaded(int x, int y, int z)
 	return !c->isEmpty() && c->isLoaded();
 }
 
-short World::getBlock(int x, int y, int z)
+Block* World::getBlock(int x, int y, int z)
 {
 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
 
-	if(chunk->isEmpty() || !chunk->isLoaded())
+	if(chunk == nullptr || chunk->isEmpty() || !chunk->isLoaded())
 	{
-		return 0;
+		return Blocks::air;
 	}
 
 	return chunk->getBlock(x & 0xf, y & 0xf, z & 0xf);
 }
 
-void World::setBlock(int x, int y, int z, short id)
+void World::setBlock(int x, int y, int z, Block* block)
 {
 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
 
 	if(!chunk->isEmpty() && chunk->isLoaded())
 	{
-		bool sameBlock = chunk->getBlock(x & 0xf, y & 0xf, z & 0xf) == id;
-		chunk->setBlock(x & 0xf, y & 0xf, z & 0xf, id);
+		bool sameBlock = chunk->getBlock(x & 0xf, y & 0xf, z & 0xf) == block;
+		chunk->setBlock(x & 0xf, y & 0xf, z & 0xf, block);
 		if(!sameBlock)
 		{
-			ChunkDrawThread::queueMut.lock();
 			for(int i = x - 1; i <= x + 1; i++)
 			{
 				for(int j = y - 1; j <= y + 1; j++)
@@ -197,22 +256,12 @@ void World::setBlock(int x, int y, int z, short id)
 						if(!c->isEmpty())
 						{
 							c->setRenderUpdateNeeded(true);
-							ChunkDrawThread::drawFirstQueue.push(c);
+							requestQuickChunkDraw(c);
 						}
 					}
 				}
 			}
-			ChunkDrawThread::queueMut.unlock();
 		}
-	}
-}
-
-int World::incr(int x, int y, int z)
-{
-	std::shared_ptr<ChunkBase> chunk = getChunk(x, y, z);
-	if(chunk.isEmpty())
-	{
-
 	}
 }
 
@@ -224,6 +273,8 @@ bool World::addChunk(std::shared_ptr<ChunkBase> chunk)
 	}
 	
 	chunkMap[chunk->pos] = chunk;
+
+	return true;
 }
 
 void World::removeChunk(ChunkPosition cp)

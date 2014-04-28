@@ -100,14 +100,14 @@ VertexStream::~VertexStream()
 {
 	if(isUploaded())
 	{
-		RenderThread::taskList.put(Tasks::TaskVBOVAOSet(vbo, vao));
+		renderThread.taskList.put(Tasks::TaskVBOVAOSet(vbo, vao));
 	}
 }
 void VertexStream::put(float x, float y, float z)
 {
-	vertex.x = x;
-	vertex.y = y;
-	vertex.z = z;
+	vertex.x = x + translation.x;
+	vertex.y = y + translation.y;
+	vertex.z = z + translation.z;
 
 	vertices.push_back(vertex);
 
@@ -129,13 +129,13 @@ void VertexStream::put(const VertexUV& v)
 }
 void VertexStream::put(const VertexRGBA& v)
 {
-	setColor(v.r, v.g, v.b);
+	setColor(v.r, v.g, v.b, v.a);
 	put(v.x, v.y, v.z);
 }
 void VertexStream::put(const VertexUVRGBA& v)
 {
 	setUV(v.u, v.v);
-	setColor(v.r, v.g, v.b);
+	setColor(v.r, v.g, v.b, v.a);
 	put(v.x, v.y, v.z);
 }
 template <typename T>
@@ -151,16 +151,26 @@ void VertexStream::release()
 	released = true;
 	vertices.clear();
 }
-void VertexStream::setColor(unsigned char r, unsigned char g, unsigned char b)
+void VertexStream::setColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
 	vertex.r = r;
 	vertex.g = g;
 	vertex.b = b;
+	vertex.a = a;
 }
 void VertexStream::setUV(float u, float v)
 {
 	vertex.u = u;
 	vertex.v = v;
+}
+
+void VertexStream::setTranslation(float x, float y, float z)
+{
+	translation = Vertex(x, y, z);
+}
+void VertexStream::setTranslation(Vertex vertex)
+{
+	translation = vertex;
 }
 
 void VertexStream::reserveAdditional(int size)
@@ -196,6 +206,8 @@ bool VertexStream::upload()
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
+		getError("Vertex stream upload error");
+
 		ready = true;
 	}
 
@@ -214,7 +226,7 @@ bool VertexStream::upload()
 		//glVertexAttribPointer(2, 4, GL_UNSIGNED_SHORT, GL_TRUE, sizeof(VertexUVRGBA), (GLvoid*)offsetof(VertexUVRGBA, r));
 		glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(VertexUVRGBA), (GLvoid*)offsetof(VertexUVRGBA, r));
 
-		if(glGetError() != GL_NO_ERROR)
+		if(getError("Vertex stream upload error"))
 		{
 			unlock();
 			return false;
@@ -273,6 +285,7 @@ bool Shader::_compile(GLuint type)
 	}
 
 	std::string str = std::string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	file.close();
 	const char* strPtr = str.c_str();
 	const int strLen = str.length();
 
@@ -293,28 +306,24 @@ bool Shader::_compile(GLuint type)
 	if((compileStatus == GL_FALSE) & (GLWindow::instance != NULL))
 	{
 		GLint len;
-		GLchar* str = new GLchar[1024];
-		wstring title = L"Shader error in " + fileName;
-		glGetShaderInfoLog(object, 1024, &len, str);
+		glGetShaderiv(object, GL_INFO_LOG_LENGTH, &len);
 		if(len > 0)
 		{
-			wchar_t* wideStr = new wchar_t[len + 1];
-			mbstowcs_s(NULL, wideStr, len + 1, str, len);
-			GLWindow::instance->messageBox(wideStr, title.c_str(), MB_OK | MB_ICONERROR);
+			GLchar* str = new GLchar[len];
+			glGetShaderInfoLog(object, len, nullptr, str);
+			GLWindow::instance->postError(str, "Shader compliation error");
 
-			delete[] wideStr;
-		} else
+			delete[] str;
+		}
+		else
 		{
-			GLWindow::instance->messageBox(L"The shader had a compilation error but returned no log.", title.c_str(), MB_OK | MB_ICONERROR);
+			GLWindow::instance->postError("The shader had a compilation error, but returned no log.", "Shader compliation error");
 		}
 
-		delete[] str;
-		file.close();
 		return false;
 	}
 	
 	compiled = true;
-	file.close();
 	return compiled;
 }
 
@@ -379,86 +388,91 @@ ShaderProgram::~ShaderProgram()
 
 bool ShaderProgram::create()
 {
-	object = glCreateProgramObjectARB();
-
-	if(vShader)
+	if(vShader || gShader || fShader)
 	{
-		if(!vShader->compile())
+		object = glCreateProgramObjectARB();
+
+		if(vShader)
 		{
+			if(!vShader->compile())
+			{
+				return okay;
+			}
+			glAttachShader(object, vShader->object);
+		}
+
+		if(gShader)
+		{
+			if(!gShader->compile())
+			{
+				return okay;
+			}
+			glAttachShader(object, gShader->object);
+		}
+
+		if(fShader)
+		{
+			if(!fShader->compile())
+			{
+				return okay;
+			}
+			glAttachShader(object, fShader->object);
+		}
+
+		getError("Unable to attach shaders.");
+
+		glLinkProgram(object);
+		GLint linkStatus;
+
+		glGetObjectParameterivARB(object, GL_OBJECT_LINK_STATUS_ARB, &linkStatus);
+
+		if((linkStatus == GL_FALSE) & (GLWindow::instance != NULL))
+		{
+			GLint len;
+			glGetProgramiv(object, GL_INFO_LOG_LENGTH, &len);
+			if(len > 0)
+			{
+				GLchar* str = new GLchar[len];
+				glGetProgramInfoLog(object, len, nullptr, str);
+				GLWindow::instance->postError(str, "Linking error");
+				delete[] str;
+			}
+			else
+			{
+				GLWindow::instance->postError("The program has a linking error, but returned no log.", "Linking error");
+			}
+
+			GlobalThread::stop = true;
 			return okay;
 		}
-		glAttachShader(object, vShader->object);
-	}
-
-	if(gShader)
-	{
-		if(!gShader->compile())
+		else
 		{
-			return okay;
-		}
-		glAttachShader(object, gShader->object);
-	}
-
-	if(fShader)
-	{
-		if(!fShader->compile())
-		{
-			return okay;
-		}
-		glAttachShader(object, fShader->object);
-	}
-
-	glLinkProgram(object);
-	GLint linkStatus;
-
-	glGetObjectParameterivARB(object, GL_OBJECT_LINK_STATUS_ARB, &linkStatus);
-
-	if((linkStatus == GL_FALSE) & (GLWindow::instance != NULL))
-	{
-		GLint len;
-		GLchar* str = new GLchar[1024];
-		wstring title = L"Linking error";
-		glGetProgramInfoLog(object, 1024, &len, str);
-		if(len > 0)
-		{
-			wchar_t* wideStr = new wchar_t[len + 1];
-			mbstowcs_s(NULL, wideStr, len + 1, str, len);
-			GLWindow::instance->messageBox(wideStr, title.c_str(), MB_OK | MB_ICONERROR);
-
-			delete[] wideStr;
-		} else
-		{
-			GLWindow::instance->messageBox(L"The program had a linking error but returned no log.", title.c_str(), MB_OK | MB_ICONERROR);
-		}
-
-		delete[] str;
-
-		return okay;
-	}
-	else
-	{
-		glUseProgram(object);
-		modelview = glGetUniformLocation(object, "modelview");
-		projection = glGetUniformLocation(object, "projection");
-		const_color = glGetUniformLocation(object, "const_color");
-		cam_pos = glGetUniformLocation(object, "cam_pos");
-		fog_color = glGetUniformLocation(object, "fog_color");
-		fog_dist = glGetUniformLocation(object, "fog_dist");
-		texture1 = glGetUniformLocation(object, "texture_1");
+			glUseProgram(object);
+			modelview = glGetUniformLocation(object, "modelview");
+			projection = glGetUniformLocation(object, "projection");
+			const_color = glGetUniformLocation(object, "const_color");
+			cam_pos = glGetUniformLocation(object, "cam_pos");
+			fog_color = glGetUniformLocation(object, "fog_color");
+			fog_dist = glGetUniformLocation(object, "fog_dist");
+			texture1 = glGetUniformLocation(object, "texture_1");
 		
-		if(texture1 >= 0)
-		{
-			glUniform1i(texture1, 0);
-		}
+			if(texture1 >= 0)
+			{
+				glUniform1i(texture1, 0);
+			}
 
-		okay = true;
-		return okay;
+			okay = true;
+			return okay;
+		}
 	}
+
+	return false;
 }
 
 void ShaderProgram::bind()
 {
 	glUseProgram(object);
+	gfxu::getError();
 	current = this;
 
 	Uniforms::setForceUpload();
@@ -642,18 +656,7 @@ Texture2D::Texture2D(wstring fileName, TEXTURE_PARAMETER magFilter, TEXTURE_PARA
 
 void Texture2D::init(wstring fileName)
 {
-	char* nFileName = new char[fileName.length() + 1];
-	std::wcstombs(nFileName, fileName.c_str(), sizeof(char) * (fileName.length() + 1));
-	std::vector<unsigned char> image;
-	if(!lodepng::decode(image, width, height, nFileName))
-	{
-		data = new unsigned char[width * height * 4];
-
-		for(unsigned int i = 0; i < height; i++)
-		{
-			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
-		}
-	}
+	data = IOUtil::readPNG(fileName, width, height);
 }
 
 Texture2D::~Texture2D()
@@ -705,11 +708,14 @@ void Texture2D::bind()
 
 
 
-bool gfxu::getError()
+bool gfxu::getError(const char* caption)
 {
 	int error = glGetError();
 	if(error != GL_NO_ERROR)
 	{
+		const char* errorString = (const char*)gluErrorString(error);
+		GLWindow::instance->postError(errorString, caption);
+		
 		return true;
 	} else
 	{

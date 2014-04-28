@@ -48,6 +48,7 @@ void swap(GameState* &gs1, GameState* &gs2)
 {
 	gs1->cam = gs2->cam;
 	gs1->FOV = gs2->FOV;
+	gs1->devEnabled = gs2->devEnabled;
 	GameState* temp = gs2;
 	gs2 = gs1;
 	gs1 = temp;

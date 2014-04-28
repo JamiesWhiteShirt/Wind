@@ -9,4 +9,6 @@ namespace IOUtil
 	void init();
 
 	std::string readEntireFile(std::ifstream file);
+
+	unsigned char* readPNG(std::wstring file, unsigned int &width, unsigned int &height);
 }

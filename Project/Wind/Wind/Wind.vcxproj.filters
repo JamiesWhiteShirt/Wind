@@ -18,6 +18,27 @@
     <None Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\OpenGLGraphics.vcxproj.filters">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="..\x64\Release\programs\frustumclip.cl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\shaders\normal.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\shaders\normal.geom">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\shaders\normal.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\shaders\noTex.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\shaders\noTex.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\x64\Release\programs\generation.cl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glew.h">
@@ -74,6 +95,12 @@
     <ClInclude Include="mutexpool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="opencl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="blocks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew.c">
@@ -122,6 +149,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serverthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chunkloadthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chunkdrawthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opencl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="blocks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderblocks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

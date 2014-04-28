@@ -6,6 +6,7 @@
 #include "input.h"
 #include <math.h>
 #include "threads.h"
+#include "opencl.h"
 
 using namespace gfxu;
 using namespace GameStates;
@@ -31,6 +32,17 @@ bool mainLoop()
 			cam->rot.y -= ma.rx * 0.5f;
 		}
 	}
+
+	for(int i = 0; i < Keyboard::actions.getSize(); i++)
+	{
+		KeyboardAction kba = Keyboard::actions[i];
+		
+		if(kba.released && kba.button == 69)
+		{
+			GameStates::processedState->devEnabled = !GameStates::processedState->devEnabled;
+		}
+	}
+
 	if(GameStates::processedState->FOV < 5)
 	{
 		GameStates::processedState->FOV = 5;
@@ -70,7 +82,12 @@ bool mainLoop()
 
 	if(Keyboard::getKey(32)) //SPACE
 	{ //SPACE!
-		GlobalThread::world.setBlock((int)cam->pos.x, (int)cam->pos.y, (int)cam->pos.z, 1); //SPAAAAAAAAAAAAAACE!
+		GlobalThread::world.setBlock(floorf(cam->pos.x), floorf(cam->pos.y), floorf(cam->pos.z), Blocks::stone); //SPAAAAAAAAAAAAAACE!
+	}
+
+	if(Keyboard::getKey(17)) //CTRL
+	{
+		GlobalThread::world.setBlock(floorf(cam->pos.x), floorf(cam->pos.y), floorf(cam->pos.z), Blocks::air);
 	}
 
 	Mouse::actions.clear();
@@ -111,7 +128,7 @@ bool mainLoop()
 						{
 							c = std::shared_ptr<ChunkBase>(new Chunk(GlobalThread::world, i, j, k));
 							GlobalThread::world.additionQueue.push(c);
-							ChunkLoadThread::loadQueue.push(c);
+							requestChunkLoad(c);
 						}
 					}
 					else if(!in1 & in2)
@@ -143,48 +160,16 @@ bool mainLoop()
 		GlobalThread::stop = true;
 	}
 
-	Sleep(5);
 	ticks++;
 	return true;
 }
 
 int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int _nCmdShow)
 {
-	for(int i = -8; i <= 8; i++)
-	{
-		for(int j = -8; j <= 8; j++)
-		{
-			RenderThread::grid << Vertex(i, j, -8);
-			RenderThread::grid << Vertex(i, j, 8);
-			RenderThread::grid << Vertex(i, -8, j);
-			RenderThread::grid << Vertex(i, 8, j);
-			RenderThread::grid << Vertex(-8, i, j);
-			RenderThread::grid << Vertex(8, i, j);
-		}
-	}
-
-	RenderThread::square << Vertex(0.0f, 0.0f, 0.0f);
-	RenderThread::square << Vertex(1.0f, 0.0f, 0.0f);
-	RenderThread::square << Vertex(1.0f, 0.0f, 1.0f);
-	RenderThread::square << Vertex(1.0f, 0.0f, 1.0f);
-	RenderThread::square << Vertex(0.0f, 0.0f, 1.0f);
-	RenderThread::square << Vertex(0.0f, 0.0f, 0.0f);
-
-	/*for(int i = 0; i < 4; i++)
-	{
-		for(int j = -2; j < 2; j++)
-		{
-			for(int k = 0; k < 4; k++)
-			{
-				std::shared_ptr<ChunkBase> c(new Chunk(GlobalThread::world, i, j, k));
-				GlobalThread::world.chunkMap[c->pos] = c;
-				ChunkLoadThread::loadQueue.push(c);
-			}
-		}
-	}*/
+	long long tickTime = 20000000;
+	long long lastTick = 0;
 
 	for(int r = 0; r <= renderDistance; r++)
-	//int r = 8;
 	{
 		int r1 = r * r;
 		int r2 = r == 0 ? -1 : (r - 1) * (r - 1);
@@ -205,11 +190,10 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 					}
 
 					if((zDist <= r1) && (zDist > r2))
-					//if((zDist <= r1) && (GlobalThread::world.chunkMap.find(ChunkPosition(i, j, k)) == GlobalThread::world.chunkMap.end()))
 					{
 						std::shared_ptr<ChunkBase> c(new Chunk(GlobalThread::world, i, j, k));
 						GlobalThread::world.chunkMap[c->pos] = c;
-						ChunkLoadThread::loadQueue.push(c);
+						requestChunkLoad(c);
 					}
 				}
 			}
@@ -217,22 +201,37 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	}
 
 	IOUtil::init();
+	cl::load();
+	Blocks::initialize();
 
-	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 1, 2);
+	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 3, 4);
 	GLWindow::instance->initWindow();
 
-	RenderThread::thread = std::thread(RenderThread::loop);
+	renderThread.start();
 	while(GLWindow::instance == nullptr || !GLWindow::instance->isOK())
 	{
 
 	}
 
-	ChunkLoadThread::thread = std::thread(ChunkLoadThread::loop);
-	ChunkDrawThread::thread = std::thread(ChunkDrawThread::loop);
+	ChunkLoadThread::program.create(IOUtil::EXE_DIR + L"\\programs\\generation.cl");
+	ChunkLoadThread::noiseBuffer.create(sizeof(unsigned char) * 16 * 16 * 16, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, ChunkLoadThread::noise.noiseMap);
+	ChunkLoadThread::noise2Buffer.create(sizeof(unsigned char) * 16 * 16 * 16, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, ChunkLoadThread::noise2.noiseMap);
+
+	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
+	{
+		chunkLoadThreads[i].start();
+	}
+
+	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
+	{
+		chunkDrawThreads[i].start();
+	}
 
 	GameStates::init();
 
 	MSG msg;
+
+	std::chrono::system_clock::time_point startTime = std::chrono::high_resolution_clock::now();
 
 	while(!GlobalThread::stop)
 	{
@@ -248,19 +247,37 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			}
 		} else
 		{
-			RenderThread::skipRender = false;
-			if((GLWindow::instance->active && !mainLoop()))
+			std::chrono::system_clock::time_point now = std::chrono::high_resolution_clock::now();
+			long long difference = std::chrono::duration_cast<std::chrono::nanoseconds>(now - startTime).count();
+
+			long long tick = difference / tickTime;
+			long long ticksToProcess = tick - lastTick;
+
+			if(ticksToProcess > 0)
 			{
-				GlobalThread::stop = true;
+				lastTick++;
+				RenderThread::skipRender = false;
+				if(GLWindow::instance->active && !mainLoop())
+				{
+					GlobalThread::stop = true;
+				}
 			}
 		}
 	}
 
-	RenderThread::thread.join();
-	ChunkLoadThread::thread.join();
-	ChunkDrawThread::thread.join();
+	renderThread.stop();
+	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
+	{
+		chunkLoadThreads[i].stop();
+	}
+	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
+	{
+		chunkDrawThreads[i].stop();
+	}
 
 	delete GLWindow::instance;
 	GameStates::cleanup();
+	cl::unload();
+	Blocks::destroy();
 	return msg.wParam;
 }

@@ -12,6 +12,7 @@
 #include "memutil.h"
 #include <mutex>
 #include "geometry.h"
+#include <map>
 
 #define MODELVIEW_MATRIX 0x0
 #define PROJECTION_MATRIX 0x1
@@ -106,6 +107,7 @@ namespace gfxu
 	{
 	protected:
 		vector<VertexUVRGBA> vertices;
+		Vertex translation;
 		VertexUVRGBA vertex;
 		GLuint vao;
 		GLuint vbo;
@@ -128,8 +130,10 @@ namespace gfxu
 		template <typename T>
 		void put(const T* vp, int length);
 		void release();
-		void setColor(unsigned char r, unsigned char g, unsigned char b);
+		void setColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 		void setUV(float u, float v);
+		void setTranslation(float x, float y, float z);
+		void setTranslation(Vertex v);
 		void reserveAdditional(int size);
 
 		void lock();
@@ -162,21 +166,21 @@ namespace gfxu
 	class VertexShader : public Shader
 	{
 	public:
-		VertexShader(wstring fileName);
+		VertexShader(wstring fileName = L"");
 		virtual bool compile();
 	};
 
 	class GeometryShader : public Shader
 	{
 	public:
-		GeometryShader(wstring fileName);
+		GeometryShader(wstring fileName = L"");
 		virtual bool compile();
 	};
 
 	class FragmentShader : public Shader
 	{
 	public:
-		FragmentShader(wstring fileName);
+		FragmentShader(wstring fileName = L"");
 		virtual bool compile();
 	};
 
@@ -280,10 +284,10 @@ namespace gfxu
 		bool mipmapped;
 		bool uploaded;
 		unsigned char* data;
-		Texture2D();
 		Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
 	public:
 		unsigned int width, height;
+		Texture2D();
 		Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a);
 		Texture2D(wstring fileName);
 		Texture2D(wstring fileName, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
@@ -293,7 +297,32 @@ namespace gfxu
 		void bind();
 	};
 
-	bool getError();
+	class TiledTexture : public Texture2D
+	{
+	private:
+		class Icon
+		{
+		public:
+			TiledTexture* texture;
+
+			wstring file;
+			unsigned int x;
+			unsigned int y;
+			unsigned int width;
+			unsigned int height;
+			unsigned char* data;
+
+			Icon(wstring file);
+		};
+
+		std::map<wstring, Icon> icons;
+	public:
+		TiledTexture();
+
+		Icon* icon(wstring fileName);
+	};
+
+	bool getError(const char* message = "OpenGL error");
 
 	VertexStream& operator<<(VertexStream& vStream, const Vertex& v);
 	VertexStream& operator<<(VertexStream& vStream, const VertexUV& v);
@@ -321,6 +350,7 @@ namespace GameStates
 	public:
 		Camera cam;
 		int FOV;
+		bool devEnabled;
 
 		GameState();
 		~GameState();

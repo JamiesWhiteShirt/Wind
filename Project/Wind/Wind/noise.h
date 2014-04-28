@@ -10,11 +10,13 @@ namespace Noise
 		int octaves;
 		float smoothness;
 		int seed;
-		unsigned char* noiseMap;
 
 		unsigned char noiseAt(int &x, int &y);
 		float interpolate(float f);
 	public:
+		unsigned char* noiseMap;
+
+		NoiseGenerator2D();
 		NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, unsigned int seed);
 		~NoiseGenerator2D();
 
@@ -30,11 +32,13 @@ namespace Noise
 		int octaves;
 		float smoothness;
 		int seed;
-		unsigned char* noiseMap;
 
 		unsigned char noiseAt(int &x, int &y, int &z);
 		float interpolate(float f);
 	public:
+		unsigned char* noiseMap;
+
+		NoiseGenerator3D();
 		NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, unsigned int seed);
 		~NoiseGenerator3D();
 

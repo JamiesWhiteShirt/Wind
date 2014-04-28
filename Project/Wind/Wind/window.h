@@ -43,6 +43,7 @@ public:
 	HWND getHWnd();
 
 	void messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType);
+	void postError(const char* text, const char* caption);
 
 	static GLWindow* instance;
 };

@@ -16,6 +16,11 @@ float NoiseGenerator2D::interpolate(float f)
 	return (cos(f * M_PI) + 1.0f) * 0.5f;
 }
 
+NoiseGenerator2D::NoiseGenerator2D()
+{
+
+}
+
 NoiseGenerator2D::NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, unsigned int seed)
 	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), seed(seed), noiseMap(new unsigned char[size * size])
 {
@@ -90,6 +95,11 @@ float NoiseGenerator3D::interpolate(float f)
 {
 	//return (cos(f * M_PI) + 1.0f) * 0.5f;
 	return 1.0f - f * f * (3 - f * 2);
+}
+
+NoiseGenerator3D::NoiseGenerator3D()
+{
+
 }
 
 NoiseGenerator3D::NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, unsigned int seed)

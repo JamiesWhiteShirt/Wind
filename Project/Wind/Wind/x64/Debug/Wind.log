@@ -1,0 +1,85 @@
+﻿Build started 28.04.2014 21:08:40.
+     1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5/include" /Zi /nologo /W3 /WX- /Od /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt chunkloadthread.cpp graphics.cpp ioutil.cpp main.cpp opencl.cpp renderthread.cpp
+         renderthread.cpp
+     1>renderthread.cpp(65): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(76): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>renderthread.cpp(77): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>renderthread.cpp(78): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>renderthread.cpp(166): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(179): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(197): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(234): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(235): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(236): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(237): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(238): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>renderthread.cpp(239): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         ioutil.cpp
+     1>ioutil.cpp(13): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>ioutil.cpp(26): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdlib.h(554) : see declaration of 'wcstombs'
+         graphics.cpp
+     1>graphics.cpp(51): warning C4244: 'initializing' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>graphics.cpp(70): warning C4244: 'initializing' : conversion from 'float' to 'unsigned char', possible loss of data
+     1>graphics.cpp(198): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>graphics.cpp(251): warning C4267: 'argument' : conversion from 'size_t' to 'GLsizei', possible loss of data
+     1>graphics.cpp(290): warning C4267: 'initializing' : conversion from 'size_t' to 'const int', possible loss of data
+     1>graphics.cpp(637): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>graphics.cpp(638): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>graphics.cpp(639): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>graphics.cpp(640): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+         Generating Code...
+         Compiling...
+         opencl.cpp
+         main.cpp
+     1>main.cpp(59): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(60): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(61): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(66): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(67): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(68): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(73): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(74): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(79): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(80): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(85): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(90): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(96): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(97): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(98): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>main.cpp(282): warning C4244: 'return' : conversion from 'WPARAM' to 'int', possible loss of data
+         chunkloadthread.cpp
+     1>chunkloadthread.cpp(6): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>chunkloadthread.cpp(7): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5/lib/x64" OpenCL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.lib" /MACHINE:X64 x64\Debug\blocks.obj
+         x64\Debug\chunkdrawthread.obj
+         x64\Debug\chunkloadthread.obj
+         x64\Debug\geometry.obj
+         x64\Debug\intersection.obj
+         x64\Debug\opencl.obj
+         x64\Debug\renderblocks.obj
+         x64\Debug\renderthread.obj
+         x64\Debug\serverthread.obj
+         x64\Debug\task.obj
+         x64\Debug\threads.obj
+         x64\Debug\world.obj
+         x64\Debug\glew.obj
+         x64\Debug\graphics.obj
+         x64\Debug\input.obj
+         x64\Debug\ioutil.obj
+         x64\Debug\lodepng.obj
+         x64\Debug\main.obj
+         x64\Debug\memutil.obj
+         x64\Debug\noise.obj
+         x64\Debug\gamestates.obj
+         x64\Debug\window.obj
+         Wind.vcxproj -> C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.exe
+     1>Done Building Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.33

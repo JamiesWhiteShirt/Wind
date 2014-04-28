@@ -3,6 +3,7 @@
 #include "graphics.h"
 #include "window.h"
 #include "input.h"
+#include "threads.h"
 
 #define WGL_CONTEXT_MAJOR_VERSION_ARB 0x2091
 #define WGL_CONTEXT_MINOR_VERSION_ARB 0x2092
@@ -208,7 +209,25 @@ HWND GLWindow::getHWnd()
 
 void GLWindow::messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 {
-	MessageBox(hWnd, lpText, lpText, uType);
+	MessageBox(hWnd, lpText, lpCaption, uType);
+}
+
+void GLWindow::postError(const char* text, const char* caption)
+{
+	size_t lText = strlen(text);
+	wchar_t* wText = new wchar_t[lText + 1];
+	mbstowcs_s(NULL, wText, lText + 1, text, lText);
+
+	size_t lCap = strlen(text);
+	wchar_t* wCap = new wchar_t[lCap + 1];
+	mbstowcs_s(NULL, wCap, lCap + 1, caption, lCap);
+
+	messageBox(wText, wCap, MB_OK | MB_ICONERROR);
+
+	GlobalThread::stop = true;
+
+	delete wText;
+	delete wCap;
 }
 
 void GLWindow::destroyGL()
@@ -321,7 +340,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			Mouse::setMB(0, true);
 			Mouse::mut.lock();
-			Mouse::actions.put(MouseAction(0, 0, 0, false));
+			Mouse::actions.put(MouseAction(0, 0, 0, 0, false));
 			Mouse::mut.unlock();
 			break;
 		}
@@ -329,7 +348,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			Mouse::setMB(0, false);
 			Mouse::mut.lock();
-			Mouse::actions.put(MouseAction(0, 0, 0, true));
+			Mouse::actions.put(MouseAction(0, 0, 0, 0, true));
 			Mouse::mut.unlock();
 			break;
 		}
@@ -337,7 +356,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			Mouse::setMB(1, true);
 			Mouse::mut.lock();
-			Mouse::actions.put(MouseAction(0, 0, 1, false));
+			Mouse::actions.put(MouseAction(0, 0, 0, 1, false));
 			Mouse::mut.unlock();
 			break;
 		}
@@ -345,7 +364,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			Mouse::setMB(1, false);
 			Mouse::mut.lock();
-			Mouse::actions.put(MouseAction(0, 0, 1, true));
+			Mouse::actions.put(MouseAction(0, 0, 0, 1, true));
 			Mouse::mut.unlock();
 			break;
 		}
@@ -359,17 +378,20 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 	case WM_INPUT:
 		{
-			UINT dwSize = 40;
-			static byte lpb[40];
+			UINT dwSize = 48;
+			RAWINPUT raw;
 
-			GetRawInputData((HRAWINPUT)lParam, RID_INPUT, lpb, &dwSize, sizeof(RAWINPUTHEADER));
+			GetRawInputData((HRAWINPUT)lParam, RID_INPUT, &raw, &dwSize, sizeof(RAWINPUTHEADER));
 
-			RAWINPUT* raw = (RAWINPUT*)lpb;
-
-			if(raw->header.dwType == RIM_TYPEMOUSE)
+			if(raw.header.dwType == RIM_TYPEMOUSE)
 			{
+				if(raw.data.mouse.lLastX != 0 && raw.data.mouse.lLastY != 0)
+				{
+					int i = 0;
+				}
+
 				Mouse::mut.lock();
-				Mouse::actions.put(MouseAction(raw->data.mouse.lLastX, raw->data.mouse.lLastY, 0, -1, false));
+				Mouse::actions.put(MouseAction(raw.data.mouse.lLastX, raw.data.mouse.lLastY, 0, -1, false));
 				Mouse::mut.unlock();
 			}
 			

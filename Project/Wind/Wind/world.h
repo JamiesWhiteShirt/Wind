@@ -6,6 +6,7 @@
 #include <queue>
 #include <mutex>
 #include <memory>
+#include "blocks.h"
 
 class World;
 
@@ -16,36 +17,54 @@ public:
 	ChunkPosition(int x, int y, int z);
 };
 
+class BlockCount
+{
+private:
+	unsigned int size;
+	unsigned int solids;
+	unsigned int nonsolids;
+public:
+	BlockCount(unsigned int size);
+	bool isAllAir();
+	bool isAllSolid();
+	bool isVaried();
+	void remove(unsigned short oldBlock);
+	void place(unsigned short newBlock);
+	void replace(unsigned short oldBlock, unsigned short newBlock);
+};
+
 class ChunkBase
 {
 private:
-	World* world;
 	bool renderUpdateNeeded;
 	bool loaded;
 	bool unloaded;
+protected:
+	World* world;
 public:
 	ChunkPosition pos;
-	std::mutex mut;
-	gfxu::VertexStream* renderStream;
-	gfxu::VertexStream* drawStream;
-	int surroundingExistingChunks;
+	std::mutex mutex;
+	std::mutex renderMutex;
+	std::shared_ptr<gfxu::VertexStream> firstPass;
+	std::shared_ptr<gfxu::VertexStream> secondPass;
 
 	ChunkBase(World& world, int xPos, int yPos, int zPos);
 	~ChunkBase();
 
-	virtual short getBlock(int x, int y, int z) = 0;
-	virtual void setBlock(int x, int y, int z, short id) = 0;
-	virtual void setBlockRaw(int x, int y, int z, short id) = 0;
+	virtual Block* getBlock(unsigned int x, unsigned int y, unsigned int z) = 0;
+	virtual void setBlock(unsigned int x, unsigned int y, unsigned int z, Block* block) = 0;
+	virtual void setBlockRaw(unsigned int x, unsigned int y, unsigned int z, Block* block) = 0;
 	virtual bool isEmpty() = 0;
+	virtual unsigned short* dataPtr();
 
 	void setLoaded();
 	bool isLoaded();
 	void setUnloaded();
 	bool isUnloaded();
+	virtual bool shouldRender();
 
 	void setRenderUpdateNeeded(bool flag);
 	bool isRenderUpdateNeeded();
-	void swapStreams();
 };
 
 class EmptyChunk : public ChunkBase
@@ -53,30 +72,34 @@ class EmptyChunk : public ChunkBase
 public:
 	EmptyChunk(World& world, int xPos, int yPos, int zPos);
 	~EmptyChunk();
-	short getBlock(int x, int y, int z);
-	void setBlock(int x, int y, int z, short id);
-	void setBlockRaw(int x, int y, int z, short id);
+	Block* getBlock(unsigned int x, unsigned int y, unsigned int z);
+	void setBlock(unsigned int x, unsigned int y, unsigned int z, Block* block);
+	void setBlockRaw(unsigned int x, unsigned int y, unsigned int z, Block* block);
 	bool isEmpty();
+	bool shouldRender();
 };
 
 class Chunk : public ChunkBase
 {
 private:
+	unsigned int solids;
+	unsigned int nonSolids;
 public:
-	short data[16][16][16];
+	unsigned short data[16 * 16 * 16];
 
 	Chunk(World& world, int xPos, int yPos, int zPos);
 	~Chunk();
-	short getBlock(int x, int y, int z);
-	void setBlock(int x, int y, int z, short id);
-	void setBlockRaw(int x, int y, int z, short id);
+	Block* getBlock(unsigned int x, unsigned int y, unsigned int z);
+	void setBlock(unsigned int x, unsigned int y, unsigned int z, Block* block);
+	void setBlockRaw(unsigned int x, unsigned int y, unsigned int z, Block* block);
 	bool isEmpty();
+	virtual unsigned short* dataPtr();
+	bool shouldRender();
 };
 
 class World
 {
 private:
-	int incr(int x, int y, int z);
 public:
 	std::mutex chunkMapLock;
 	std::map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
@@ -93,8 +116,8 @@ public:
 	std::shared_ptr<ChunkBase> getChunkFromBlockCoordinate(int x, int y, int z);
 	bool isChunkLoaded(int x, int y, int z);
 	bool isChunkAtBlockCoordinateLoaded(int x, int y, int z);
-	short getBlock(int x, int y, int z);
-	void setBlock(int x, int y, int z, short id);
+	Block* getBlock(int x, int y, int z);
+	void setBlock(int x, int y, int z, Block* block);
 
 	bool addChunk(std::shared_ptr<ChunkBase> chunk);
 	void removeChunk(ChunkPosition cp);
