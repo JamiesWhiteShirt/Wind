@@ -1,6 +1,6 @@
 #pragma once
 
-#include <map>
+#include <unordered_map>
 #include "graphics.h"
 #include <mutex>
 #include <queue>
@@ -15,6 +15,21 @@ class ChunkPosition
 public:
 	int x, y, z;
 	ChunkPosition(int x, int y, int z);
+};
+
+namespace std
+{
+	template <>
+	struct hash<ChunkPosition>
+	{
+		std::size_t operator()(const ChunkPosition& key) const
+		{
+			using std::size_t;
+			using std::hash;
+
+			return hash<int>()(key.x) ^ hash<int>()(key.y) ^ hash<int>()(key.z);
+		}
+	};
 };
 
 class BlockCount
@@ -102,7 +117,7 @@ class World
 private:
 public:
 	std::mutex chunkMapLock;
-	std::map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
+	std::unordered_map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
 
 	std::mutex additionQueueLock;
 	std::queue<std::shared_ptr<ChunkBase>> additionQueue;

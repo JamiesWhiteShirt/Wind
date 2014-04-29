@@ -400,19 +400,71 @@ bool BlockRenderers::renderInvisibleBlock(World* world, int x, int y, int z, Blo
 
 bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* block, VertexStream* vStream)
 {
-	Block* b = world->getBlock(x, y + 1, z);
-	if(b != block)
+	vStream->setColor(16, 64, 224, 127);
+
+	Block* b = world->getBlock(x, y, z - 1);
+	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::N))
 	{
-		vStream->setColor(16, 64, 224, 127);
-		if(!b->solidFace(world, x, y + 1, z, Relatives::D))
-		{
-			vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 0.0f));
-			vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 0.0f));
-			vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
-			vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 0.0f));
-			vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f));
-			vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
-		}
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+	}
+
+	b = world->getBlock(x, y, z + 1);
+	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::S))
+	{
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+	}
+
+	b = world->getBlock(x, y - 1, z);
+	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::U))
+	{
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 1.0f));
+
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 1.0f));
+	}
+
+	b = world->getBlock(x, y + 1, z);
+	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::D))
+	{
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
 
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 0.0f));

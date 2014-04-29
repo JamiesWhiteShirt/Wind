@@ -299,12 +299,10 @@ namespace gfxu
 
 	class TiledTexture : public Texture2D
 	{
-	private:
+	public:
 		class Icon
 		{
 		public:
-			TiledTexture* texture;
-
 			wstring file;
 			unsigned int x;
 			unsigned int y;
@@ -313,13 +311,16 @@ namespace gfxu
 			unsigned char* data;
 
 			Icon(wstring file);
+			~Icon();
 		};
 
-		std::map<wstring, Icon> icons;
-	public:
 		TiledTexture();
+		~TiledTexture();
 
-		Icon* icon(wstring fileName);
+		Icon* icon(wstring file);
+		bool upload();
+	private:
+		std::map<wstring, Icon*> icons;
 	};
 
 	bool getError(const char* message = "OpenGL error");

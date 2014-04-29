@@ -8,11 +8,11 @@ EXTRN	wcstombs:PROC
 EXTRN	__report_rangecheckfailure:PROC
 EXTRN	__imp_GetModuleFileNameW:PROC
 	ORG $+3
-$SG4294923245 DB '\', 00H, '/', 00H, 00H, 00H
+$SG4294922314 DB '\', 00H, '/', 00H, 00H, 00H
 	ORG $+2
-$SG4294923244 DB 'PNG load error', 00H
+$SG4294922313 DB 'PNG load error', 00H
 	ORG $+1
-$SG4294923243 DB 'PNG file not found.', 00H
+$SG4294922312 DB 'PNG file not found.', 00H
 PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<unsigned char> > >
 PUBLIC	??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEAE0@Z ; std::_Ptr_cat<unsigned char,unsigned char>
 PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<unsigned char> > >
@@ -39,7 +39,7 @@ PUBLIC	??0?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@X
 PUBLIC	?init@IOUtil@@YAXXZ				; IOUtil::init
 PUBLIC	?find@?$char_traits@_W@std@@SAPEB_WPEB_W_KAEB_W@Z ; std::char_traits<wchar_t>::find
 PUBLIC	wmemchr
-PUBLIC	?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; IOUtil::readPNG
+PUBLIC	?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z ; IOUtil::readPNG
 PUBLIC	?EXE_DIR@IOUtil@@3V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@A ; IOUtil::EXE_DIR
 allocator_arg DB 01H DUP (?)
 	ALIGN	4
@@ -102,73 +102,71 @@ $pdata$1$??__FEXE_DIR@IOUtil@@YAXXZ DD imagerel ??__FEXE_DIR@IOUtil@@YAXXZ+76
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel $LN241
-	DD	imagerel $LN241+574
-	DD	imagerel $unwind$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+$pdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD imagerel $LN241
+	DD	imagerel $LN241+567
+	DD	imagerel $unwind$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+$ip2state$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 	DD	0ffffffffH
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+68
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+59
 	DD	00H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+128
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+122
 	DD	01H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+183
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+191
 	DD	02H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+195
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+206
 	DD	03H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+255
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+272
 	DD	02H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+274
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+291
 	DD	01H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+427
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+430
 	DD	00H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+441
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+444
 	DD	0ffffffffH
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+461
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+464
 	DD	01H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+481
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+484
 	DD	00H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z+496
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+500
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 0ffffffffH
-	DD	imagerel ?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+$stateUnwindMap$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA
 	DD	00H
-	DD	imagerel ?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+	DD	imagerel ?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA
 	DD	01H
-	DD	imagerel ?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+	DD	imagerel ?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA
 	DD	02H
-	DD	imagerel ?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA
+	DD	imagerel ?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-$cppxdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 019930522H
+$cppxdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD 019930522H
 	DD	04H
-	DD	imagerel $stateUnwindMap$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+	DD	imagerel $stateUnwindMap$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 	DD	00H
 	DD	00H
 	DD	0cH
-	DD	imagerel $ip2state$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
-	DD	088H
+	DD	imagerel $ip2state$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
+	DD	070H
 	DD	00H
 	DD	01H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z DD 0d3919H
-	DD	021742bH
-	DD	0206427H
-	DD	01f3423H
-	DD	0180117H
-	DD	0e00af00cH
-	DD	0c006d008H
-	DD	05004H
+$unwind$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD 092d19H
+	DD	0160112H
+	DD	0e009f00bH
+	DD	07005c007H
+	DD	050036004H
+	DD	03002H
 	DD	imagerel __GSHandlerCheck_EH
-	DD	imagerel $cppxdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
-	DD	0baH
+	DD	imagerel $cppxdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
+	DD	0a2H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -274,107 +272,105 @@ EXE_DIR$initializer$ DQ FLAT:??__EEXE_DIR@IOUtil@@YAXXZ
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
-;	COMDAT ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
+;	COMDAT ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 _TEXT	SEGMENT
-data$1$ = 64
-height$ = 64
-width$ = 72
-file$GSCopy$1$ = 80
+buffer$1 = 64
 image$ = 88
-buffer$1 = 112
-$T2 = 136
-file$GSCopy$ = 144
-$T3 = 152
-__$ArrayPad$ = 184
+$T2 = 112
+file$GSCopy$ = 120
+$T3 = 128
+__$ArrayPad$ = 160
 file$ = 240
-?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z PROC ; IOUtil::readPNG, COMDAT
+width$ = 248
+height$ = 256
+?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z PROC ; IOUtil::readPNG, COMDAT
 
 ; 24   : {
 
 $LN241:
-  00000	48 8b c4	 mov	 rax, rsp
-  00003	55		 push	 rbp
-  00004	41 54		 push	 r12
-  00006	41 55		 push	 r13
-  00008	41 56		 push	 r14
-  0000a	41 57		 push	 r15
-  0000c	48 8d 68 a1	 lea	 rbp, QWORD PTR [rax-95]
-  00010	48 81 ec c0 00
-	00 00		 sub	 rsp, 192		; 000000c0H
-  00017	48 c7 45 ff fe
-	ff ff ff	 mov	 QWORD PTR $T2[rbp-137], -2
-  0001f	48 89 58 10	 mov	 QWORD PTR [rax+16], rbx
-  00023	48 89 70 18	 mov	 QWORD PTR [rax+24], rsi
-  00027	48 89 78 20	 mov	 QWORD PTR [rax+32], rdi
-  0002b	48 8b 05 00 00
+  00000	40 53		 push	 rbx
+  00002	55		 push	 rbp
+  00003	56		 push	 rsi
+  00004	57		 push	 rdi
+  00005	41 54		 push	 r12
+  00007	41 56		 push	 r14
+  00009	41 57		 push	 r15
+  0000b	48 81 ec b0 00
+	00 00		 sub	 rsp, 176		; 000000b0H
+  00012	48 c7 44 24 70
+	fe ff ff ff	 mov	 QWORD PTR $T2[rsp], -2
+  0001b	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
-  00032	48 33 c4	 xor	 rax, rsp
-  00035	48 89 45 2f	 mov	 QWORD PTR __$ArrayPad$[rbp-137], rax
-  00039	48 8b d9	 mov	 rbx, rcx
-  0003c	48 89 4d c7	 mov	 QWORD PTR file$GSCopy$1$[rbp-137], rcx
-  00040	48 89 4d 07	 mov	 QWORD PTR file$GSCopy$[rbp-137], rcx
+  00022	48 33 c4	 xor	 rax, rsp
+  00025	48 89 84 24 a0
+	00 00 00	 mov	 QWORD PTR __$ArrayPad$[rsp], rax
+  0002d	4d 8b f0	 mov	 r14, r8
+  00030	4c 8b fa	 mov	 r15, rdx
+  00033	48 8b d9	 mov	 rbx, rcx
+  00036	48 89 4c 24 78	 mov	 QWORD PTR file$GSCopy$[rsp], rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 1728 : 		return (this->_Mysize);
 
-  00044	48 8b 49 10	 mov	 rcx, QWORD PTR [rcx+16]
+  0003b	48 8b 49 10	 mov	 rcx, QWORD PTR [rcx+16]
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 28   : 	char* nFileName = new char[file.length() + 1];
+; 25   : 	char* nFileName = new char[file.length() + 1];
 
-  00048	48 ff c1	 inc	 rcx
-  0004b	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
-  00050	48 8b f8	 mov	 rdi, rax
+  0003f	48 ff c1	 inc	 rcx
+  00042	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
+  00047	48 8b f8	 mov	 rdi, rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 1728 : 		return (this->_Mysize);
 
-  00053	4c 8b 43 10	 mov	 r8, QWORD PTR [rbx+16]
+  0004a	4c 8b 43 10	 mov	 r8, QWORD PTR [rbx+16]
 
 ; 524  : 			: this->_Bx._Buf);
 
-  00057	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
-  0005c	72 05		 jb	 SHORT $LN18@readPNG
+  0004e	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
+  00053	72 05		 jb	 SHORT $LN18@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
 
 ; 88   : 		reinterpret_cast<const volatile char&>(_Val)))));
 
-  0005e	48 8b 13	 mov	 rdx, QWORD PTR [rbx]
+  00055	48 8b 13	 mov	 rdx, QWORD PTR [rbx]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 524  : 			: this->_Bx._Buf);
 
-  00061	eb 03		 jmp	 SHORT $LN19@readPNG
+  00058	eb 03		 jmp	 SHORT $LN19@readPNG
 $LN18@readPNG:
-  00063	48 8b d3	 mov	 rdx, rbx
+  0005a	48 8b d3	 mov	 rdx, rbx
 $LN19@readPNG:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 29   : 	std::wcstombs(nFileName, file.c_str(), sizeof(char) * (file.length() + 1));
+; 26   : 	std::wcstombs(nFileName, file.c_str(), sizeof(char) * (file.length() + 1));
 
-  00066	49 ff c0	 inc	 r8
-  00069	48 8b c8	 mov	 rcx, rax
-  0006c	e8 00 00 00 00	 call	 wcstombs
+  0005d	49 ff c0	 inc	 r8
+  00060	48 8b c8	 mov	 rcx, rax
+  00063	e8 00 00 00 00	 call	 wcstombs
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 486  : 		_Myfirst = pointer();
 
-  00071	45 33 ed	 xor	 r13d, r13d
-  00074	4c 89 6d cf	 mov	 QWORD PTR image$[rbp-137], r13
+  00068	45 33 e4	 xor	 r12d, r12d
+  0006b	4c 89 64 24 58	 mov	 QWORD PTR image$[rsp], r12
 
 ; 487  : 		_Mylast = pointer();
 
-  00078	4c 89 6d d7	 mov	 QWORD PTR image$[rbp-129], r13
+  00070	4c 89 64 24 60	 mov	 QWORD PTR image$[rsp+8], r12
 
 ; 488  : 		_Myend = pointer();
 
-  0007c	4c 89 6d df	 mov	 QWORD PTR image$[rbp-121], r13
+  00075	4c 89 64 24 68	 mov	 QWORD PTR image$[rsp+16], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  00080	48 c7 45 27 0f
-	00 00 00	 mov	 QWORD PTR $T3[rbp-113], 15
+  0007a	48 c7 84 24 98
+	00 00 00 0f 00
+	00 00		 mov	 QWORD PTR $T3[rsp+24], 15
 
 ; 1729 : 		}
 ; 1730 : 
@@ -867,12 +863,14 @@ $LN19@readPNG:
 ; 2217 : 		{	// set new length and null terminator
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  00088	4c 89 6d 1f	 mov	 QWORD PTR $T3[rbp-121], r13
+  00086	4c 89 a4 24 90
+	00 00 00	 mov	 QWORD PTR $T3[rsp+16], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 564  : 		_Left = _Right;
 
-  0008c	44 88 6d 0f	 mov	 BYTE PTR $T3[rbp-137], r13b
+  0008e	44 88 a4 24 80
+	00 00 00	 mov	 BYTE PTR $T3[rsp], r12b
 
 ; 348  : 		}
 ; 349  : 
@@ -1051,116 +1049,120 @@ $LN19@readPNG:
 ; 522  : 		return (*_First == 0 ? 0
 ; 523  : 			: _CSTD strlen(_First));
 
-  00090	44 38 2f	 cmp	 BYTE PTR [rdi], r13b
-  00093	75 05		 jne	 SHORT $LN72@readPNG
-  00095	45 8b c5	 mov	 r8d, r13d
-  00098	eb 10		 jmp	 SHORT $LN73@readPNG
+  00096	44 38 27	 cmp	 BYTE PTR [rdi], r12b
+  00099	75 05		 jne	 SHORT $LN72@readPNG
+  0009b	45 8b c4	 mov	 r8d, r12d
+  0009e	eb 0e		 jmp	 SHORT $LN73@readPNG
 $LN72@readPNG:
-  0009a	49 83 c8 ff	 or	 r8, -1
-  0009e	66 90		 npad	 2
+  000a0	49 83 c8 ff	 or	 r8, -1
 $LL239@readPNG:
-  000a0	49 ff c0	 inc	 r8
-  000a3	42 80 3c 07 00	 cmp	 BYTE PTR [rdi+r8], 0
-  000a8	75 f6		 jne	 SHORT $LL239@readPNG
+  000a4	49 ff c0	 inc	 r8
+  000a7	42 80 3c 07 00	 cmp	 BYTE PTR [rdi+r8], 0
+  000ac	75 f6		 jne	 SHORT $LL239@readPNG
 $LN73@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
 
-  000aa	48 8b d7	 mov	 rdx, rdi
-  000ad	48 8d 4d 0f	 lea	 rcx, QWORD PTR $T3[rbp-137]
-  000b1	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
-  000b6	90		 npad	 1
+  000ae	48 8b d7	 mov	 rdx, rdi
+  000b1	48 8d 8c 24 80
+	00 00 00	 lea	 rcx, QWORD PTR $T3[rsp]
+  000b9	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
+  000be	90		 npad	 1
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 486  : 		_Myfirst = pointer();
 
-  000b7	4c 89 6d e7	 mov	 QWORD PTR buffer$1[rbp-137], r13
+  000bf	4c 89 64 24 40	 mov	 QWORD PTR buffer$1[rsp], r12
 
 ; 487  : 		_Mylast = pointer();
 
-  000bb	4c 89 6d ef	 mov	 QWORD PTR buffer$1[rbp-129], r13
+  000c4	4c 89 64 24 48	 mov	 QWORD PTR buffer$1[rsp+8], r12
 
 ; 488  : 		_Myend = pointer();
 
-  000bf	4c 89 6d f7	 mov	 QWORD PTR buffer$1[rbp-121], r13
+  000c9	4c 89 64 24 50	 mov	 QWORD PTR buffer$1[rsp+16], r12
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6194 :   load_file(buffer, filename);
 
-  000c3	48 8d 55 0f	 lea	 rdx, QWORD PTR $T3[rbp-137]
-  000c7	48 8d 4d e7	 lea	 rcx, QWORD PTR buffer$1[rbp-137]
-  000cb	e8 00 00 00 00	 call	 ?load_file@lodepng@@YAXAEAV?$vector@EV?$allocator@E@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z ; lodepng::load_file
+  000ce	48 8d 94 24 80
+	00 00 00	 lea	 rdx, QWORD PTR $T3[rsp]
+  000d6	48 8d 4c 24 40	 lea	 rcx, QWORD PTR buffer$1[rsp]
+  000db	e8 00 00 00 00	 call	 ?load_file@lodepng@@YAXAEAV?$vector@EV?$allocator@E@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z ; lodepng::load_file
 
 ; 6164 :   return decode(out, w, h, in.empty() ? 0 : &in[0], (unsigned)in.size(), colortype, bitdepth);
 
-  000d0	48 8b 7d e7	 mov	 rdi, QWORD PTR buffer$1[rbp-137]
-  000d4	4c 8b cf	 mov	 r9, rdi
+  000e0	48 8b 7c 24 40	 mov	 rdi, QWORD PTR buffer$1[rsp]
+  000e5	4c 8b cf	 mov	 r9, rdi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1097 : 		return (this->_Myfirst == this->_Mylast);
 
-  000d7	48 8b 45 ef	 mov	 rax, QWORD PTR buffer$1[rbp-129]
-  000db	48 3b f8	 cmp	 rdi, rax
+  000e8	48 8b 44 24 48	 mov	 rax, QWORD PTR buffer$1[rsp+8]
+  000ed	48 3b f8	 cmp	 rdi, rax
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6164 :   return decode(out, w, h, in.empty() ? 0 : &in[0], (unsigned)in.size(), colortype, bitdepth);
 
-  000de	4d 0f 44 cd	 cmove	 r9, r13
+  000f0	4d 0f 44 cc	 cmove	 r9, r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
-  000e2	48 2b c7	 sub	 rax, rdi
+  000f4	48 2b c7	 sub	 rax, rdi
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6164 :   return decode(out, w, h, in.empty() ? 0 : &in[0], (unsigned)in.size(), colortype, bitdepth);
 
-  000e5	8b c0		 mov	 eax, eax
-  000e7	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  000ec	4c 8d 45 b7	 lea	 r8, QWORD PTR height$[rbp-137]
-  000f0	48 8d 55 bf	 lea	 rdx, QWORD PTR width$[rbp-137]
-  000f4	48 8d 4d cf	 lea	 rcx, QWORD PTR image$[rbp-137]
-  000f8	e8 00 00 00 00	 call	 ?decode@lodepng@@YAIAEAV?$vector@EV?$allocator@E@std@@@std@@AEAI1PEBE_KW4LodePNGColorType@@I@Z ; lodepng::decode
-  000fd	8b f0		 mov	 esi, eax
+  000f7	8b c0		 mov	 eax, eax
+  000f9	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  000fe	4d 8b c6	 mov	 r8, r14
+  00101	49 8b d7	 mov	 rdx, r15
+  00104	48 8d 4c 24 58	 lea	 rcx, QWORD PTR image$[rsp]
+  00109	e8 00 00 00 00	 call	 ?decode@lodepng@@YAIAEAV?$vector@EV?$allocator@E@std@@@std@@AEAI1PEBE_KW4LodePNGColorType@@I@Z ; lodepng::decode
+  0010e	8b f0		 mov	 esi, eax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  000ff	48 85 ff	 test	 rdi, rdi
-  00102	74 08		 je	 SHORT $LN97@readPNG
+  00110	48 85 ff	 test	 rdi, rdi
+  00113	74 08		 je	 SHORT $LN97@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00104	48 8b cf	 mov	 rcx, rdi
-  00107	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00115	48 8b cf	 mov	 rcx, rdi
+  00118	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN97@readPNG:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 31   : 	if(!lodepng::decode(image, width, height, nFileName))
+; 28   : 	if(!lodepng::decode(image, width, height, nFileName))
 
-  0010c	85 f6		 test	 esi, esi
-  0010e	40 0f 94 c7	 sete	 dil
+  0011d	85 f6		 test	 esi, esi
+  0011f	40 0f 94 c7	 sete	 dil
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  00112	48 83 7d 27 10	 cmp	 QWORD PTR $T3[rbp-113], 16
-  00117	72 09		 jb	 SHORT $LN128@readPNG
+  00123	48 83 bc 24 98
+	00 00 00 10	 cmp	 QWORD PTR $T3[rsp+24], 16
+  0012c	72 0d		 jb	 SHORT $LN128@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00119	48 8b 4d 0f	 mov	 rcx, QWORD PTR $T3[rbp-137]
-  0011d	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0012e	48 8b 8c 24 80
+	00 00 00	 mov	 rcx, QWORD PTR $T3[rsp]
+  00136	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN128@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  00122	48 c7 45 27 0f
-	00 00 00	 mov	 QWORD PTR $T3[rbp-113], 15
+  0013b	48 c7 84 24 98
+	00 00 00 0f 00
+	00 00		 mov	 QWORD PTR $T3[rsp+24], 15
 
 ; 1729 : 		}
 ; 1730 : 
@@ -1653,166 +1655,155 @@ $LN128@readPNG:
 ; 2217 : 		{	// set new length and null terminator
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  0012a	4c 89 6d 1f	 mov	 QWORD PTR $T3[rbp-121], r13
+  00147	4c 89 a4 24 90
+	00 00 00	 mov	 QWORD PTR $T3[rsp+16], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 564  : 		_Left = _Right;
 
-  0012e	c6 45 0f 00	 mov	 BYTE PTR $T3[rbp-137], 0
+  0014f	c6 84 24 80 00
+	00 00 00	 mov	 BYTE PTR $T3[rsp], 0
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 31   : 	if(!lodepng::decode(image, width, height, nFileName))
+; 28   : 	if(!lodepng::decode(image, width, height, nFileName))
 
-  00132	40 84 ff	 test	 dil, dil
-  00135	0f 84 92 00 00
-	00		 je	 $LN4@readPNG
+  00157	40 84 ff	 test	 dil, dil
+  0015a	74 74		 je	 SHORT $LN4@readPNG
 
-; 32   : 	{
-; 33   : 		unsigned char* data = new unsigned char[width * height * 4];
+; 29   : 	{
+; 30   : 		unsigned char* data = new unsigned char[width * height * 4];
 
-  0013b	44 8b 7d bf	 mov	 r15d, DWORD PTR width$[rbp-137]
-  0013f	41 8b cf	 mov	 ecx, r15d
-  00142	44 8b 75 b7	 mov	 r14d, DWORD PTR height$[rbp-137]
-  00146	41 0f af ce	 imul	 ecx, r14d
-  0014a	c1 e1 02	 shl	 ecx, 2
-  0014d	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
-  00152	48 8b f0	 mov	 rsi, rax
-  00155	48 89 45 b7	 mov	 QWORD PTR data$1$[rbp-137], rax
+  0015c	41 8b 0f	 mov	 ecx, DWORD PTR [r15]
+  0015f	41 0f af 0e	 imul	 ecx, DWORD PTR [r14]
+  00163	c1 e1 02	 shl	 ecx, 2
+  00166	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
+  0016b	48 8b e8	 mov	 rbp, rax
 
-; 34   : 
-; 35   : 		for(unsigned int i = 0; i < height; i++)
+; 31   : 
+; 32   : 		for(unsigned int i = 0; i < height; i++)
 
-  00159	41 8b fd	 mov	 edi, r13d
-  0015c	4c 8b 65 cf	 mov	 r12, QWORD PTR image$[rbp-137]
-  00160	45 85 f6	 test	 r14d, r14d
-  00163	74 46		 je	 SHORT $LN1@readPNG
-  00165	45 8b ef	 mov	 r13d, r15d
-  00168	49 c1 e5 02	 shl	 r13, 2
-
-; 32   : 	{
-; 33   : 		unsigned char* data = new unsigned char[width * height * 4];
-
-  0016c	33 f6		 xor	 esi, esi
-  0016e	48 8b d8	 mov	 rbx, rax
+  0016e	41 8b fc	 mov	 edi, r12d
+  00171	41 8b 16	 mov	 edx, DWORD PTR [r14]
+  00174	48 8b 74 24 58	 mov	 rsi, QWORD PTR image$[rsp]
+  00179	85 d2		 test	 edx, edx
+  0017b	74 31		 je	 SHORT $LN1@readPNG
+  0017d	0f 1f 00	 npad	 3
 $LL3@readPNG:
 
-; 37   : 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
+; 34   : 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
 
-  00171	41 8b d6	 mov	 edx, r14d
-  00174	2b d7		 sub	 edx, edi
-  00176	ff ca		 dec	 edx
-  00178	41 0f af d7	 imul	 edx, r15d
-  0017c	c1 e2 02	 shl	 edx, 2
+  00180	41 8b 0f	 mov	 ecx, DWORD PTR [r15]
+  00183	44 8b c1	 mov	 r8d, ecx
+  00186	49 c1 e0 02	 shl	 r8, 2
+  0018a	2b d7		 sub	 edx, edi
+  0018c	ff ca		 dec	 edx
+  0018e	0f af d1	 imul	 edx, ecx
+  00191	c1 e2 02	 shl	 edx, 2
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1148 : 		return (*(this->_Myfirst + _Pos));
 
-  0017f	49 03 d4	 add	 rdx, r12
+  00194	48 03 d6	 add	 rdx, rsi
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 37   : 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
+; 34   : 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
 
-  00182	8b ce		 mov	 ecx, esi
-  00184	48 03 cb	 add	 rcx, rbx
-  00187	4d 8b c5	 mov	 r8, r13
-  0018a	e8 00 00 00 00	 call	 memcpy
+  00197	0f af cf	 imul	 ecx, edi
+  0019a	c1 e1 02	 shl	 ecx, 2
+  0019d	48 03 cd	 add	 rcx, rbp
+  001a0	e8 00 00 00 00	 call	 memcpy
 
-; 34   : 
-; 35   : 		for(unsigned int i = 0; i < height; i++)
+; 31   : 
+; 32   : 		for(unsigned int i = 0; i < height; i++)
 
-  0018f	ff c7		 inc	 edi
-  00191	42 8d 04 bd 00
-	00 00 00	 lea	 eax, DWORD PTR [r15*4]
-  00199	03 f0		 add	 esi, eax
-  0019b	41 3b fe	 cmp	 edi, r14d
-  0019e	72 d1		 jb	 SHORT $LL3@readPNG
-  001a0	48 8b 5d c7	 mov	 rbx, QWORD PTR file$GSCopy$1$[rbp-137]
-  001a4	48 8b 75 b7	 mov	 rsi, QWORD PTR data$1$[rbp-137]
-  001a8	45 33 ed	 xor	 r13d, r13d
+  001a5	ff c7		 inc	 edi
+  001a7	41 8b 16	 mov	 edx, DWORD PTR [r14]
+  001aa	3b fa		 cmp	 edi, edx
+  001ac	72 d2		 jb	 SHORT $LL3@readPNG
 $LN1@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  001ab	4d 85 e4	 test	 r12, r12
-  001ae	74 09		 je	 SHORT $LN144@readPNG
+  001ae	48 85 f6	 test	 rsi, rsi
+  001b1	74 09		 je	 SHORT $LN144@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001b0	49 8b cc	 mov	 rcx, r12
-  001b3	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  001b8	90		 npad	 1
+  001b3	48 8b ce	 mov	 rcx, rsi
+  001b6	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  001bb	90		 npad	 1
 $LN144@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  001b9	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
-  001be	72 08		 jb	 SHORT $LN177@readPNG
+  001bc	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
+  001c1	72 08		 jb	 SHORT $LN177@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001c0	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
-  001c3	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  001c3	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
+  001c6	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN177@readPNG:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 40   : 		return data;
+; 37   : 		return data;
 
-  001c8	48 8b c6	 mov	 rax, rsi
-  001cb	eb 34		 jmp	 SHORT $LN240@readPNG
+  001cb	48 8b c5	 mov	 rax, rbp
+  001ce	eb 35		 jmp	 SHORT $LN240@readPNG
 $LN4@readPNG:
 
-; 41   : 	}
-; 42   : 
-; 43   : 	GLWindow::instance->postError("PNG file not found.", "PNG load error");
+; 38   : 	}
+; 39   : 
+; 40   : 	GLWindow::instance->postError("PNG file not found.", "PNG load error");
 
-  001cd	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294923244
-  001d4	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294923243
-  001db	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
-  001e0	90		 npad	 1
+  001d0	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294922313
+  001d7	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294922312
+  001de	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  001e3	90		 npad	 1
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  001e1	48 8b 4d cf	 mov	 rcx, QWORD PTR image$[rbp-137]
-  001e5	48 85 c9	 test	 rcx, rcx
-  001e8	74 06		 je	 SHORT $LN191@readPNG
+  001e4	48 8b 4c 24 58	 mov	 rcx, QWORD PTR image$[rsp]
+  001e9	48 85 c9	 test	 rcx, rcx
+  001ec	74 06		 je	 SHORT $LN191@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001ea	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  001ef	90		 npad	 1
+  001ee	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  001f3	90		 npad	 1
 $LN191@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  001f0	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
-  001f5	72 08		 jb	 SHORT $LN224@readPNG
+  001f4	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
+  001f9	72 08		 jb	 SHORT $LN224@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001f7	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
-  001fa	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  001fb	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
+  001fe	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN224@readPNG:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 45   : 	return nullptr;
+; 42   : 	return nullptr;
 
-  001ff	33 c0		 xor	 eax, eax
+  00203	33 c0		 xor	 eax, eax
 $LN240@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  00201	48 c7 43 18 07
+  00205	48 c7 43 18 07
 	00 00 00	 mov	 QWORD PTR [rbx+24], 7
 
 ; 1729 : 		}
@@ -2306,112 +2297,103 @@ $LN240@readPNG:
 ; 2217 : 		{	// set new length and null terminator
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  00209	4c 89 6b 10	 mov	 QWORD PTR [rbx+16], r13
+  0020d	4c 89 63 10	 mov	 QWORD PTR [rbx+16], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 347  : 		_Left = _Right;
 
-  0020d	66 44 89 2b	 mov	 WORD PTR [rbx], r13w
+  00211	66 44 89 23	 mov	 WORD PTR [rbx], r12w
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
 
-; 46   : }
+; 43   : }
 
-  00211	48 8b 4d 2f	 mov	 rcx, QWORD PTR __$ArrayPad$[rbp-137]
-  00215	48 33 cc	 xor	 rcx, rsp
-  00218	e8 00 00 00 00	 call	 __security_check_cookie
-  0021d	4c 8d 9c 24 c0
-	00 00 00	 lea	 r11, QWORD PTR [rsp+192]
-  00225	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
-  00229	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
-  0022d	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
-  00231	49 8b e3	 mov	 rsp, r11
-  00234	41 5f		 pop	 r15
-  00236	41 5e		 pop	 r14
-  00238	41 5d		 pop	 r13
-  0023a	41 5c		 pop	 r12
-  0023c	5d		 pop	 rbp
-  0023d	c3		 ret	 0
-?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ENDP ; IOUtil::readPNG
+  00215	48 8b 8c 24 a0
+	00 00 00	 mov	 rcx, QWORD PTR __$ArrayPad$[rsp]
+  0021d	48 33 cc	 xor	 rcx, rsp
+  00220	e8 00 00 00 00	 call	 __security_check_cookie
+  00225	48 81 c4 b0 00
+	00 00		 add	 rsp, 176		; 000000b0H
+  0022c	41 5f		 pop	 r15
+  0022e	41 5e		 pop	 r14
+  00230	41 5c		 pop	 r12
+  00232	5f		 pop	 rdi
+  00233	5e		 pop	 rsi
+  00234	5d		 pop	 rbp
+  00235	5b		 pop	 rbx
+  00236	c3		 ret	 0
+?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z ENDP ; IOUtil::readPNG
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
-data$1$ = 64
-height$ = 64
-width$ = 72
-file$GSCopy$1$ = 80
+buffer$1 = 64
 image$ = 88
-buffer$1 = 112
-$T2 = 136
-file$GSCopy$ = 144
-$T3 = 152
-__$ArrayPad$ = 184
+$T2 = 112
+file$GSCopy$ = 120
+$T3 = 128
+__$ArrayPad$ = 160
 file$ = 240
-?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$0
-  00000	48 8b 8a 90 00
+width$ = 248
+height$ = 256
+?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$0
+  00000	48 8b 8a 78 00
 	00 00		 mov	 rcx, QWORD PTR file$GSCopy$[rdx]
   00007	e9 00 00 00 00	 jmp	 ??1?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAA@XZ ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
-?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$0
+?dtor$0@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
-data$1$ = 64
-height$ = 64
-width$ = 72
-file$GSCopy$1$ = 80
+buffer$1 = 64
 image$ = 88
-buffer$1 = 112
-$T2 = 136
-file$GSCopy$ = 144
-$T3 = 152
-__$ArrayPad$ = 184
+$T2 = 112
+file$GSCopy$ = 120
+$T3 = 128
+__$ArrayPad$ = 160
 file$ = 240
-?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$1
+width$ = 248
+height$ = 256
+?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$1
   0000c	48 8d 8a 58 00
 	00 00		 lea	 rcx, QWORD PTR image$[rdx]
   00013	e9 00 00 00 00	 jmp	 ??1?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ ; std::vector<unsigned char,std::allocator<unsigned char> >::~vector<unsigned char,std::allocator<unsigned char> >
-?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$1
+?dtor$1@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
-data$1$ = 64
-height$ = 64
-width$ = 72
-file$GSCopy$1$ = 80
+buffer$1 = 64
 image$ = 88
-buffer$1 = 112
-$T2 = 136
-file$GSCopy$ = 144
-$T3 = 152
-__$ArrayPad$ = 184
+$T2 = 112
+file$GSCopy$ = 120
+$T3 = 128
+__$ArrayPad$ = 160
 file$ = 240
-?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$2
-  00018	48 8d 8a 98 00
+width$ = 248
+height$ = 256
+?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$2
+  00018	48 8d 8a 80 00
 	00 00		 lea	 rcx, QWORD PTR $T3[rdx]
   0001f	e9 00 00 00 00	 jmp	 ??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
-?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$2
+?dtor$2@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
-data$1$ = 64
-height$ = 64
-width$ = 72
-file$GSCopy$1$ = 80
+buffer$1 = 64
 image$ = 88
-buffer$1 = 112
-$T2 = 136
-file$GSCopy$ = 144
-$T3 = 152
-__$ArrayPad$ = 184
+$T2 = 112
+file$GSCopy$ = 120
+$T3 = 128
+__$ArrayPad$ = 160
 file$ = 240
-?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$3
-  00024	48 8d 8a 70 00
+width$ = 248
+height$ = 256
+?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA PROC ; `IOUtil::readPNG'::`1'::dtor$3
+  00024	48 8d 8a 40 00
 	00 00		 lea	 rcx, QWORD PTR buffer$1[rdx]
   0002b	e9 00 00 00 00	 jmp	 ??1?$vector@EV?$allocator@E@std@@@std@@QEAA@XZ ; std::vector<unsigned char,std::allocator<unsigned char> >::~vector<unsigned char,std::allocator<unsigned char> >
-?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$3
+?dtor$3@?0??readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z@4HA ENDP ; `IOUtil::readPNG'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\wchar.h
@@ -2425,7 +2407,7 @@ wmemchr	PROC						; COMDAT
 ; 1241 :         {for (; 0 < _N; ++_S, --_N)
 
   00000	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294923245
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294922314
   00007	4d 85 c0	 test	 r8, r8
   0000a	74 12		 je	 SHORT $LN2@wmemchr
   0000c	0f 1f 40 00	 npad	 4
@@ -2468,7 +2450,7 @@ _Ch$ = 24
   00003	74 19		 je	 SHORT $LN6@find
   00005	41 0f b7 08	 movzx	 ecx, WORD PTR [r8]
   00009	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294923245
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294922314
 $LL8@find:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\wchar.h
 
@@ -10807,7 +10789,7 @@ $LL6@find_last_:
   00045	0f b7 13	 movzx	 edx, WORD PTR [rbx]
   00048	48 8b ce	 mov	 rcx, rsi
   0004b	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294923245
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294922314
 $LL25@find_last_:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\wchar.h
 

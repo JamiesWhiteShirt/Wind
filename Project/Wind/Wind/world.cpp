@@ -305,5 +305,5 @@ bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2)
 
 bool operator==(const ChunkPosition& cp1, const ChunkPosition& cp2)
 {
-	return (cp1.x < cp2.x) & (cp1.y < cp2.y) & (cp1.z < cp2.z);
+	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 }

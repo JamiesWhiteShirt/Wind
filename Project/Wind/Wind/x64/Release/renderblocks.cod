@@ -28,45 +28,46 @@ $pdata$?renderOrdinaryBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVer
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN105
-	DD	imagerel $LN105+62
+$pdata$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN396
+	DD	imagerel $LN396+61
 	DD	imagerel $unwind$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN105+62
-	DD	imagerel $LN105+996
-	DD	imagerel $chain$2$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
+$pdata$0$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN396+61
+	DD	imagerel $LN396+2849
+	DD	imagerel $chain$0$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$3$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN105+996
-	DD	imagerel $LN105+1020
-	DD	imagerel $chain$3$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
+$pdata$1$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD imagerel $LN396+2849
+	DD	imagerel $LN396+3772
+	DD	imagerel $chain$1$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$3$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 021H
-	DD	imagerel $LN105
-	DD	imagerel $LN105+62
+$chain$1$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 021H
+	DD	imagerel $LN396
+	DD	imagerel $LN396+61
 	DD	imagerel $unwind$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$2$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 061721H
-	DD	037817H
-	DD	046812H
-	DD	0c6405H
-	DD	imagerel $LN105
-	DD	imagerel $LN105+62
+$chain$0$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 020421H
+	DD	010c404H
+	DD	imagerel $LN396
+	DD	imagerel $LN396+61
 	DD	imagerel $unwind$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 081501H
-	DD	0f7415H
-	DD	0e5415H
-	DD	0d3415H
-	DD	0e0119215H
+$unwind$?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z DD 0e2a01H
+	DD	03782aH
+	DD	046823H
+	DD	0125417H
+	DD	0113417H
+	DD	0f0139217H
+	DD	0d00fe011H
+	DD	0600c700dH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -113,95 +114,103 @@ _TEXT	ENDS
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
 ;	COMDAT ?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 _TEXT	SEGMENT
-world$ = 96
-x$ = 104
-y$ = 112
-z$ = 120
-block$ = 128
-vStream$ = 136
+world$ = 128
+x$ = 136
+y$ = 144
+z$ = 152
+block$ = 160
+vStream$ = 168
 ?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z PROC ; BlockRenderers::renderFluidBlock, COMDAT
 
 ; 402  : {
 
-$LN105:
-  00000	48 89 5c 24 10	 mov	 QWORD PTR [rsp+16], rbx
-  00005	48 89 6c 24 18	 mov	 QWORD PTR [rsp+24], rbp
-  0000a	48 89 7c 24 20	 mov	 QWORD PTR [rsp+32], rdi
+$LN396:
+  00000	48 8b c4	 mov	 rax, rsp
+  00003	48 89 58 10	 mov	 QWORD PTR [rax+16], rbx
+  00007	48 89 68 18	 mov	 QWORD PTR [rax+24], rbp
+  0000b	56		 push	 rsi
+  0000c	57		 push	 rdi
+  0000d	41 55		 push	 r13
   0000f	41 56		 push	 r14
-  00011	48 83 ec 50	 sub	 rsp, 80			; 00000050H
-
-; 403  : 	Block* b = world->getBlock(x, y + 1, z);
-
-  00015	45 8d 70 01	 lea	 r14d, DWORD PTR [r8+1]
-  00019	41 8b d9	 mov	 ebx, r9d
-  0001c	8b fa		 mov	 edi, edx
-  0001e	45 8b c6	 mov	 r8d, r14d
-  00021	48 8b e9	 mov	 rbp, rcx
-  00024	e8 00 00 00 00	 call	 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z ; World::getBlock
-
-; 404  : 	if(b != block)
-
-  00029	48 3b 84 24 80
-	00 00 00	 cmp	 rax, QWORD PTR block$[rsp]
-  00031	0f 84 ad 03 00
-	00		 je	 $LN103@renderFlui
-
-; 407  : 		if(!b->solidFace(world, x, y + 1, z, Relatives::D))
-
-  00037	48 8b 0d 00 00
-	00 00		 mov	 rcx, QWORD PTR ?D@Relatives@@3PEAVBlockFace@@EA ; Relatives::D
-  0003e	48 89 74 24 60	 mov	 QWORD PTR [rsp+96], rsi
+  00011	41 57		 push	 r15
+  00013	48 83 ec 50	 sub	 rsp, 80			; 00000050H
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 156  : 	vertex.r = r;
 
-  00043	48 8b b4 24 88
+  00017	48 8b b4 24 a8
 	00 00 00	 mov	 rsi, QWORD PTR vStream$[rsp]
-  0004b	0f 29 74 24 40	 movaps	 XMMWORD PTR [rsp+64], xmm6
-  00050	0f 29 7c 24 30	 movaps	 XMMWORD PTR [rsp+48], xmm7
+  0001f	0f 29 70 c8	 movaps	 XMMWORD PTR [rax-56], xmm6
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
 
-; 407  : 		if(!b->solidFace(world, x, y + 1, z, Relatives::D))
+; 402  : {
 
-  00055	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00023	41 8b e9	 mov	 ebp, r9d
+  00026	0f 29 78 b8	 movaps	 XMMWORD PTR [rax-72], xmm7
+
+; 405  : 	Block* b = world->getBlock(x, y, z - 1);
+
+  0002a	41 ff c9	 dec	 r9d
+  0002d	45 8b e8	 mov	 r13d, r8d
+  00030	44 8b f2	 mov	 r14d, edx
+  00033	4c 8b f9	 mov	 r15, rcx
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 156  : 	vertex.r = r;
 
-  0005a	c7 46 40 10 40
+  00036	c7 46 40 10 40
 	e0 7f		 mov	 DWORD PTR [rsi+64], 2145402896 ; 7fe04010H
+  0003d	4c 89 60 08	 mov	 QWORD PTR [rax+8], r12
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
 
-; 407  : 		if(!b->solidFace(world, x, y + 1, z, Relatives::D))
+; 405  : 	Block* b = world->getBlock(x, y, z - 1);
 
-  00061	4c 8b 10	 mov	 r10, QWORD PTR [rax]
-  00064	45 8b ce	 mov	 r9d, r14d
-  00067	44 8b c7	 mov	 r8d, edi
-  0006a	48 8b d5	 mov	 rdx, rbp
-  0006d	48 8b c8	 mov	 rcx, rax
-  00070	89 5c 24 20	 mov	 DWORD PTR [rsp+32], ebx
-  00074	41 ff 52 08	 call	 QWORD PTR [r10+8]
-  00078	33 ed		 xor	 ebp, ebp
-  0007a	f3 0f 10 35 00
+  00041	e8 00 00 00 00	 call	 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z ; World::getBlock
+
+; 406  : 	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::N))
+
+  00046	4c 8b a4 24 a0
+	00 00 00	 mov	 r12, QWORD PTR block$[rsp]
+  0004e	f3 0f 10 35 00
 	00 00 00	 movss	 xmm6, DWORD PTR __real@3f800000
-  00082	0f 57 ff	 xorps	 xmm7, xmm7
-  00085	84 c0		 test	 al, al
-  00087	0f 85 a4 01 00
-	00		 jne	 $LN53@renderFlui
+  00056	0f 57 ff	 xorps	 xmm7, xmm7
+  00059	33 db		 xor	 ebx, ebx
+  0005b	49 3b c4	 cmp	 rax, r12
+  0005e	0f 84 76 03 00
+	00		 je	 $LN103@renderFlui
+  00064	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?N@Relatives@@3PEAVBlockFace@@EA ; Relatives::N
+  0006b	4c 8b 10	 mov	 r10, QWORD PTR [rax]
+  0006e	45 8d 4d 01	 lea	 r9d, DWORD PTR [r13+1]
+  00072	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00077	45 8b c6	 mov	 r8d, r14d
+  0007a	49 8b d7	 mov	 rdx, r15
+  0007d	48 8b c8	 mov	 rcx, rax
+  00080	89 6c 24 20	 mov	 DWORD PTR [rsp+32], ebp
+  00084	41 ff 52 08	 call	 QWORD PTR [r10+8]
+  00088	84 c0		 test	 al, al
+  0008a	0f 85 4a 03 00
+	00		 jne	 $LN103@renderFlui
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  0008d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  00090	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00092	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  00096	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  0009a	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00095	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00099	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  0009d	f3 0f 58 c7	 addss	 xmm0, xmm7
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -211,50 +220,50 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  0009e	48 89 6e 38	 mov	 QWORD PTR [rsi+56], rbp
+  000a1	48 89 5e 38	 mov	 QWORD PTR [rsi+56], rbx
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  000a2	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  000a5	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
 
 ; 109  : 	vertex.y = y + translation.y;
 
-  000a7	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
-  000ac	f3 0f 58 c6	 addss	 xmm0, xmm6
-  000b0	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+  000aa	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  000af	f3 0f 58 c7	 addss	 xmm0, xmm7
+  000b3	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  000b5	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  000ba	f3 0f 58 c7	 addss	 xmm0, xmm7
-  000be	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  000b8	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  000bd	f3 0f 58 c7	 addss	 xmm0, xmm7
+  000c1	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  000c3	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  000c6	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  000c8	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  000cb	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 109  : 	vertex.y = y + translation.y;
 
-  000cd	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+  000d0	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  000d2	ff 05 00 00 00
+  000d5	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  000d8	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  000dc	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  000e0	f3 0f 58 c6	 addss	 xmm0, xmm6
-  000e4	f3 0f 58 ce	 addss	 xmm1, xmm6
+  000db	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  000df	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  000e3	f3 0f 58 c6	 addss	 xmm0, xmm6
+  000e7	f3 0f 58 cf	 addss	 xmm1, xmm7
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -264,46 +273,46 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  000e8	48 c7 46 38 00
+  000eb	48 c7 46 38 00
 	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  000f0	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  000f3	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  000f5	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  000fa	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  000ff	f3 0f 58 c7	 addss	 xmm0, xmm7
-  00103	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  000f8	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  000fd	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00102	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00106	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00108	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  0010b	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  0010d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  00110	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  00112	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+  00115	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  00117	ff 05 00 00 00
+  0011a	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  0011d	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  00121	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  00125	f3 0f 58 c7	 addss	 xmm0, xmm7
-  00129	f3 0f 58 ce	 addss	 xmm1, xmm6
+  00120	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00124	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00128	f3 0f 58 c7	 addss	 xmm0, xmm7
+  0012c	f3 0f 58 cf	 addss	 xmm1, xmm7
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -313,53 +322,53 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  0012d	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+  00130	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
 
 ; 164  : 	vertex.v = v;
 
-  00130	c7 46 3c 00 00
+  00133	c7 46 3c 00 00
 	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  00137	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0013a	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
 
 ; 109  : 	vertex.y = y + translation.y;
 
-  0013c	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  0013f	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  00141	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
-  00146	f3 0f 58 c6	 addss	 xmm0, xmm6
-  0014a	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+  00144	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00149	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0014d	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  0014f	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  00152	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  00154	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  00157	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 109  : 	vertex.y = y + translation.y;
 
-  00159	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+  0015c	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  0015e	ff 05 00 00 00
+  00161	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00164	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  00168	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  0016c	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00170	f3 0f 58 ce	 addss	 xmm1, xmm6
+  00167	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0016b	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  0016f	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00173	f3 0f 58 cf	 addss	 xmm1, xmm7
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -369,46 +378,46 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  00174	48 c7 46 38 00
+  00177	48 c7 46 38 00
 	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  0017c	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0017f	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  00181	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  00186	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  0018b	f3 0f 58 c7	 addss	 xmm0, xmm7
-  0018f	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  00184	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00189	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  0018e	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00192	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00194	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  00197	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  00199	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  0019c	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 109  : 	vertex.y = y + translation.y;
 
-  0019e	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+  001a1	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  001a3	ff 05 00 00 00
+  001a6	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  001a9	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  001ad	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  001b1	f3 0f 58 c6	 addss	 xmm0, xmm6
-  001b5	f3 0f 58 ce	 addss	 xmm1, xmm6
+  001ac	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  001b0	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  001b4	f3 0f 58 c6	 addss	 xmm0, xmm6
+  001b8	f3 0f 58 ce	 addss	 xmm1, xmm6
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -418,38 +427,38 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  001b9	c7 46 38 00 00
+  001bc	c7 46 38 00 00
 	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
 
 ; 164  : 	vertex.v = v;
 
-  001c0	c7 46 3c 00 00
+  001c3	c7 46 3c 00 00
 	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  001c7	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  001ca	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  001cc	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  001d1	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  001d6	f3 0f 58 c6	 addss	 xmm0, xmm6
-  001da	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  001cf	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  001d4	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  001d9	f3 0f 58 c7	 addss	 xmm0, xmm7
+  001dd	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  001df	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  001e2	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  001e4	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  001e7	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  001e9	ff 05 00 00 00
+  001ec	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 157  : 	vertex.g = g;
@@ -460,48 +469,50 @@ $LN105:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  001ef	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+  001f2	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
 
 ; 164  : 	vertex.v = v;
 
-  001f2	c7 46 3c 00 00
+  001f5	c7 46 3c 00 00
 	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  001f9	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
-  001fe	f3 0f 58 c7	 addss	 xmm0, xmm7
-  00202	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-  00207	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
-  0020c	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00210	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
-  00215	f3 0f 58 ce	 addss	 xmm1, xmm6
+  001fc	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+  00201	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00205	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0020a	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  0020f	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00213	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+  00218	f3 0f 58 cf	 addss	 xmm1, xmm7
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00219	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  0021d	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  00221	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
-  00226	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  0021c	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00220	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00224	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00229	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  0022b	ff 05 00 00 00
+  0022e	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-$LN53@renderFlui:
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  00231	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  00234	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00239	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00236	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  0023a	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  0023e	f3 0f 58 c7	 addss	 xmm0, xmm7
+  0023e	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00242	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
 
 ; 157  : 	vertex.g = g;
 ; 158  : 	vertex.b = b;
@@ -511,245 +522,208 @@ $LN53@renderFlui:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  00242	48 89 6e 38	 mov	 QWORD PTR [rsi+56], rbp
-
-; 108  : 	vertex.x = x + translation.x;
-
-  00246	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-
-; 109  : 	vertex.y = y + translation.y;
-
-  0024b	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
-  00250	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00254	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
-
-; 110  : 	vertex.z = z + translation.z;
-
-  00259	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  0025e	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00262	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  00267	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
-
-; 108  : 	vertex.x = x + translation.x;
-
-  0026c	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
-
-; 109  : 	vertex.y = y + translation.y;
-
-  00271	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
-
-; 113  : 
-; 114  : 	vs++;
-
-  00276	ff 05 00 00 00
-	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  0027c	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  00280	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  00284	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00288	f3 0f 58 ce	 addss	 xmm1, xmm6
-
-; 157  : 	vertex.g = g;
-; 158  : 	vertex.b = b;
-; 159  : 	vertex.a = a;
-; 160  : }
-; 161  : void VertexStream::setUV(float u, float v)
-; 162  : {
-; 163  : 	vertex.u = u;
-
-  0028c	48 c7 46 38 00
-	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
-
-; 108  : 	vertex.x = x + translation.x;
-
-  00294	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-
-; 110  : 	vertex.z = z + translation.z;
-
-  00299	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  0029e	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  002a3	f3 0f 58 c6	 addss	 xmm0, xmm6
-  002a7	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  002ac	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
-
-; 108  : 	vertex.x = x + translation.x;
-
-  002b1	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
-
-; 110  : 	vertex.z = z + translation.z;
-
-  002b6	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
-
-; 113  : 
-; 114  : 	vs++;
-
-  002bb	ff 05 00 00 00
-	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  002c1	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  002c5	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  002c9	f3 0f 58 c7	 addss	 xmm0, xmm7
-  002cd	f3 0f 58 cf	 addss	 xmm1, xmm7
-
-; 157  : 	vertex.g = g;
-; 158  : 	vertex.b = b;
-; 159  : 	vertex.a = a;
-; 160  : }
-; 161  : void VertexStream::setUV(float u, float v)
-; 162  : {
-; 163  : 	vertex.u = u;
-
-  002d1	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
-
-; 164  : 	vertex.v = v;
-
-  002d4	c7 46 3c 00 00
-	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
-
-; 108  : 	vertex.x = x + translation.x;
-
-  002db	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-
-; 109  : 	vertex.y = y + translation.y;
-
-  002e0	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
-
-; 110  : 	vertex.z = z + translation.z;
-
-  002e5	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
-  002ea	f3 0f 58 c6	 addss	 xmm0, xmm6
-  002ee	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  002f3	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
-
-; 108  : 	vertex.x = x + translation.x;
-
-  002f8	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
-
-; 109  : 	vertex.y = y + translation.y;
-
-  002fd	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
-
-; 113  : 
-; 114  : 	vs++;
-
-  00302	ff 05 00 00 00
-	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  00308	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  0030c	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  00310	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00314	f3 0f 58 ce	 addss	 xmm1, xmm6
-
-; 157  : 	vertex.g = g;
-; 158  : 	vertex.b = b;
-; 159  : 	vertex.a = a;
-; 160  : }
-; 161  : void VertexStream::setUV(float u, float v)
-; 162  : {
-; 163  : 	vertex.u = u;
-
-  00318	48 c7 46 38 00
-	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
-
-; 108  : 	vertex.x = x + translation.x;
-
-  00320	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-
-; 110  : 	vertex.z = z + translation.z;
-
-  00325	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  0032a	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  0032f	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00333	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  00338	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
-
-; 108  : 	vertex.x = x + translation.x;
-
-  0033d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
-
-; 109  : 	vertex.y = y + translation.y;
-
-  00342	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
-
-; 113  : 
-; 114  : 	vs++;
-
-  00347	ff 05 00 00 00
-	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-
-; 111  : 
-; 112  : 	vertices.push_back(vertex);
-
-  0034d	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  00351	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  00355	f3 0f 58 c6	 addss	 xmm0, xmm6
-  00359	f3 0f 58 ce	 addss	 xmm1, xmm6
-
-; 157  : 	vertex.g = g;
-; 158  : 	vertex.b = b;
-; 159  : 	vertex.a = a;
-; 160  : }
-; 161  : void VertexStream::setUV(float u, float v)
-; 162  : {
-; 163  : 	vertex.u = u;
-
-  0035d	c7 46 38 00 00
+  00246	c7 46 38 00 00
 	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
 
+; 108  : 	vertex.x = x + translation.x;
+
+  0024d	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00251	f3 0f 58 cf	 addss	 xmm1, xmm7
+
 ; 164  : 	vertex.v = v;
 
-  00364	c7 46 3c 00 00
+  00255	c7 46 3c 00 00
 	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  0036b	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0025c	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00261	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
 
 ; 110  : 	vertex.z = z + translation.z;
 
-  00370	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
-  00375	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
-  0037a	f3 0f 58 c7	 addss	 xmm0, xmm7
-  0037e	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  00266	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  0026b	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0026f	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  00383	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  00274	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 108  : 	vertex.x = x + translation.x;
 
-  00388	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+  00279	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0027e	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  0038d	ff 05 00 00 00
+  00283	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00289	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0028d	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00291	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00295	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00299	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  0029c	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  002a3	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  002a8	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  002ad	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  002b2	f3 0f 58 c7	 addss	 xmm0, xmm7
+  002b6	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  002bb	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  002c0	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  002c5	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  002ca	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  002d0	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  002d4	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  002d8	f3 0f 58 c7	 addss	 xmm0, xmm7
+  002dc	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  002e0	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  002e8	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  002ed	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  002f2	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  002f7	f3 0f 58 c7	 addss	 xmm0, xmm7
+  002fb	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00300	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00305	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0030a	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0030f	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00315	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00319	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  0031d	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00321	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00325	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  00328	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0032f	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00334	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00339	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  0033e	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00342	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00347	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0034c	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00351	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00356	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 
 ; 157  : 	vertex.g = g;
@@ -760,51 +734,2052 @@ $LN53@renderFlui:
 ; 162  : {
 ; 163  : 	vertex.u = u;
 
-  00393	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
-
-; 164  : 	vertex.v = v;
-
-  00396	c7 46 3c 00 00
-	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
-
-; 110  : 	vertex.z = z + translation.z;
-
-  0039d	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
-  003a2	f3 0f 58 c7	 addss	 xmm0, xmm7
-  003a6	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
-  003ab	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
-  003b0	f3 0f 58 c6	 addss	 xmm0, xmm6
-  003b4	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
-  003b9	f3 0f 58 cf	 addss	 xmm1, xmm7
+  0035c	33 c0		 xor	 eax, eax
 
 ; 111  : 
 ; 112  : 	vertices.push_back(vertex);
 
-  003bd	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
-  003c1	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
-  003c5	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
-  003ca	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+  0035e	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00362	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00366	f3 0f 58 cf	 addss	 xmm1, xmm7
+  0036a	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0036e	48 89 46 38	 mov	 QWORD PTR [rsi+56], rax
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00372	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00377	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0037c	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00381	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00385	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0038a	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
 
 ; 113  : 
 ; 114  : 	vs++;
 
-  003cf	ff 05 00 00 00
+  0038f	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-  003d5	0f 28 7c 24 30	 movaps	 xmm7, XMMWORD PTR [rsp+48]
-  003da	0f 28 74 24 40	 movaps	 xmm6, XMMWORD PTR [rsp+64]
-  003df	48 8b 74 24 60	 mov	 rsi, QWORD PTR [rsp+96]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00395	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0039d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  003a2	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  003a7	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  003ab	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  003af	f3 0f 58 c7	 addss	 xmm0, xmm7
+  003b3	f3 0f 58 cf	 addss	 xmm1, xmm7
+  003b7	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  003bc	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  003c1	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  003c6	f3 0f 58 c7	 addss	 xmm0, xmm7
+  003ca	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  003cf	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  003d4	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN103@renderFlui:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
 
-; 426  : }
+; 423  : 	b = world->getBlock(x, y, z + 1);
 
-  003e4	48 8b 5c 24 68	 mov	 rbx, QWORD PTR [rsp+104]
-  003e9	48 8b 6c 24 70	 mov	 rbp, QWORD PTR [rsp+112]
-  003ee	48 8b 7c 24 78	 mov	 rdi, QWORD PTR [rsp+120]
-  003f3	b0 01		 mov	 al, 1
-  003f5	48 83 c4 50	 add	 rsp, 80			; 00000050H
-  003f9	41 5e		 pop	 r14
-  003fb	c3		 ret	 0
+  003da	44 8d 4d 01	 lea	 r9d, DWORD PTR [rbp+1]
+  003de	45 8b c5	 mov	 r8d, r13d
+  003e1	41 8b d6	 mov	 edx, r14d
+  003e4	49 8b cf	 mov	 rcx, r15
+  003e7	e8 00 00 00 00	 call	 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z ; World::getBlock
+
+; 424  : 	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::S))
+
+  003ec	49 3b c4	 cmp	 rax, r12
+  003ef	0f 84 76 03 00
+	00		 je	 $LN199@renderFlui
+  003f5	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?S@Relatives@@3PEAVBlockFace@@EA ; Relatives::S
+  003fc	4c 8b 10	 mov	 r10, QWORD PTR [rax]
+  003ff	45 8d 4d 01	 lea	 r9d, DWORD PTR [r13+1]
+  00403	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00408	45 8b c6	 mov	 r8d, r14d
+  0040b	49 8b d7	 mov	 rdx, r15
+  0040e	48 8b c8	 mov	 rcx, rax
+  00411	89 6c 24 20	 mov	 DWORD PTR [rsp+32], ebp
+  00415	41 ff 52 08	 call	 QWORD PTR [r10+8]
+  00419	84 c0		 test	 al, al
+  0041b	0f 85 4a 03 00
+	00		 jne	 $LN199@renderFlui
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00421	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00426	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0042a	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  0042e	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00432	48 89 5e 38	 mov	 QWORD PTR [rsi+56], rbx
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00436	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0043b	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  00440	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00444	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00449	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0044e	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00452	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00457	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0045c	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00461	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00466	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0046c	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00470	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00474	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00478	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0047c	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00484	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00489	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0048e	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00493	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00497	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0049c	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  004a1	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  004a6	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 113  : 
+; 114  : 	vs++;
+
+  004ab	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  004b1	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  004b5	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  004b9	f3 0f 58 c7	 addss	 xmm0, xmm7
+  004bd	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  004c1	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  004c4	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  004cb	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  004d0	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  004d5	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  004da	f3 0f 58 c6	 addss	 xmm0, xmm6
+  004de	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  004e3	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  004e8	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  004ed	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  004f2	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  004f8	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  004fc	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00500	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00504	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00508	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00510	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00515	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0051a	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  0051f	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00523	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00528	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0052d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00532	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00537	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0053d	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00541	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00545	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00549	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0054d	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 164  : 	vertex.v = v;
+
+  00554	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0055b	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00560	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00565	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  0056a	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0056e	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00573	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00578	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0057d	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00583	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  00586	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 110  : 	vertex.z = z + translation.z;
+
+  0058d	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+  00592	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00596	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0059b	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  005a0	f3 0f 58 c6	 addss	 xmm0, xmm6
+  005a4	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+  005a9	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  005ad	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  005b1	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  005b5	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  005ba	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  005bf	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 108  : 	vertex.x = x + translation.x;
+
+  005c5	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  005ca	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  005cf	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  005d3	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  005d7	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  005de	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 110  : 	vertex.z = z + translation.z;
+
+  005e2	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 164  : 	vertex.v = v;
+
+  005e6	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  005ed	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  005f2	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  005f7	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  005fc	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00600	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00605	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0060a	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0060f	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00614	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0061a	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0061e	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00622	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00626	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0062a	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  0062d	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00634	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00639	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0063e	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00643	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00647	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0064c	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00651	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00656	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0065b	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00661	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00665	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00669	f3 0f 58 c7	 addss	 xmm0, xmm7
+  0066d	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00671	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00679	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  0067e	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00683	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00688	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0068c	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00691	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00696	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0069b	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  006a0	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  006a6	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  006aa	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  006ae	f3 0f 58 c6	 addss	 xmm0, xmm6
+  006b2	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  006b6	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  006b9	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  006c0	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  006c5	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  006ca	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  006cf	f3 0f 58 c6	 addss	 xmm0, xmm6
+  006d3	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  006d8	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  006dd	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  006e2	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  006e7	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  006ed	33 c0		 xor	 eax, eax
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  006ef	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  006f3	f3 0f 58 c6	 addss	 xmm0, xmm6
+  006f7	f3 0f 58 cf	 addss	 xmm1, xmm7
+  006fb	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  006ff	48 89 46 38	 mov	 QWORD PTR [rsi+56], rax
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00703	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00708	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  0070d	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00712	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00716	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0071b	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00720	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00726	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0072e	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00733	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00738	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0073c	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00740	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00744	f3 0f 58 cf	 addss	 xmm1, xmm7
+  00748	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  0074d	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00752	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00757	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0075b	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  00760	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00765	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+$LN199@renderFlui:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+
+; 441  : 	b = world->getBlock(x, y - 1, z);
+
+  0076b	45 8d 45 ff	 lea	 r8d, DWORD PTR [r13-1]
+  0076f	44 8b cd	 mov	 r9d, ebp
+  00772	41 8b d6	 mov	 edx, r14d
+  00775	49 8b cf	 mov	 rcx, r15
+  00778	e8 00 00 00 00	 call	 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z ; World::getBlock
+
+; 442  : 	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::U))
+
+  0077d	49 3b c4	 cmp	 rax, r12
+  00780	0f 84 78 03 00
+	00		 je	 $LN295@renderFlui
+  00786	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?U@Relatives@@3PEAVBlockFace@@EA ; Relatives::U
+  0078d	4c 8b 10	 mov	 r10, QWORD PTR [rax]
+  00790	45 8d 4d 01	 lea	 r9d, DWORD PTR [r13+1]
+  00794	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00799	45 8b c6	 mov	 r8d, r14d
+  0079c	49 8b d7	 mov	 rdx, r15
+  0079f	48 8b c8	 mov	 rcx, rax
+  007a2	89 6c 24 20	 mov	 DWORD PTR [rsp+32], ebp
+  007a6	41 ff 52 08	 call	 QWORD PTR [r10+8]
+  007aa	84 c0		 test	 al, al
+  007ac	0f 85 4c 03 00
+	00		 jne	 $LN295@renderFlui
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+
+; 108  : 	vertex.x = x + translation.x;
+
+  007b2	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  007b7	33 c0		 xor	 eax, eax
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  007b9	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  007bd	f3 0f 58 c7	 addss	 xmm0, xmm7
+  007c1	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  007c5	48 89 46 38	 mov	 QWORD PTR [rsi+56], rax
+
+; 108  : 	vertex.x = x + translation.x;
+
+  007c9	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  007ce	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  007d3	f3 0f 58 c7	 addss	 xmm0, xmm7
+  007d7	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  007dc	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  007e1	f3 0f 58 c7	 addss	 xmm0, xmm7
+  007e5	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  007ea	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  007ef	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  007f4	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  007f9	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  007ff	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00803	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00807	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0080b	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0080f	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00817	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  0081c	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00821	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00826	f3 0f 58 c7	 addss	 xmm0, xmm7
+  0082a	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0082f	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00834	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00839	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0083e	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00844	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00848	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  0084c	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00850	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00854	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  00857	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0085e	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00863	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00868	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  0086d	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00871	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00876	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0087b	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00880	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00885	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0088b	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  0088f	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00893	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00897	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0089b	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  008a3	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  008a8	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  008ad	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  008b2	f3 0f 58 c7	 addss	 xmm0, xmm7
+  008b6	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  008bb	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  008c0	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  008c5	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  008ca	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  008d0	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  008d4	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  008d8	f3 0f 58 c6	 addss	 xmm0, xmm6
+  008dc	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  008e0	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 164  : 	vertex.v = v;
+
+  008e7	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  008ee	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  008f3	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  008f8	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  008fd	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00901	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00906	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  0090b	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00910	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00915	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  0091b	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  0091e	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00925	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00929	f3 0f 58 cf	 addss	 xmm1, xmm7
+  0092d	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  00932	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00937	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  0093c	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00940	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00944	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00948	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+  0094d	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00952	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00957	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0095c	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00962	33 c0		 xor	 eax, eax
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00964	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00968	f3 0f 58 c7	 addss	 xmm0, xmm7
+  0096c	f3 0f 58 cf	 addss	 xmm1, xmm7
+  00970	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00974	48 89 46 38	 mov	 QWORD PTR [rsi+56], rax
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00978	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  0097d	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00982	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00987	f3 0f 58 c6	 addss	 xmm0, xmm6
+  0098b	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00990	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00995	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  0099a	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  0099f	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  009a5	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  009a9	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  009ad	f3 0f 58 c6	 addss	 xmm0, xmm6
+  009b1	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  009b5	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  009bd	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  009c2	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  009c7	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  009cc	f3 0f 58 c6	 addss	 xmm0, xmm6
+  009d0	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  009d5	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  009da	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  009df	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  009e4	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  009ea	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  009ee	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  009f2	f3 0f 58 c7	 addss	 xmm0, xmm7
+  009f6	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  009fa	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 164  : 	vertex.v = v;
+
+  009fd	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00a04	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00a09	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00a0e	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00a13	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00a17	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00a1c	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00a21	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00a26	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00a2b	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00a31	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00a35	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00a39	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00a3d	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00a41	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00a49	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00a4e	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00a53	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00a58	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00a5c	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00a61	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00a66	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00a6b	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00a70	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00a76	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00a7a	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00a7e	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00a82	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00a86	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 164  : 	vertex.v = v;
+
+  00a8d	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00a94	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00a99	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00a9e	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00aa3	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00aa7	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00aac	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00ab1	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00ab7	89 5e 38	 mov	 DWORD PTR [rsi+56], ebx
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00aba	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00abf	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00ac4	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00ac8	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+
+; 164  : 	vertex.v = v;
+
+  00acc	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00ad3	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00ad7	f3 0f 58 cf	 addss	 xmm1, xmm7
+  00adb	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00ae0	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00ae5	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00aea	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00aee	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00af3	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00af8	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+$LN295@renderFlui:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+
+; 459  : 	b = world->getBlock(x, y + 1, z);
+
+  00afe	45 8d 45 01	 lea	 r8d, DWORD PTR [r13+1]
+  00b02	44 8b cd	 mov	 r9d, ebp
+  00b05	41 8b d6	 mov	 edx, r14d
+  00b08	49 8b cf	 mov	 rcx, r15
+  00b0b	e8 00 00 00 00	 call	 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z ; World::getBlock
+
+; 460  : 	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::D))
+
+  00b10	49 3b c4	 cmp	 rax, r12
+  00b13	4c 8b a4 24 80
+	00 00 00	 mov	 r12, QWORD PTR [rsp+128]
+  00b1b	0f 84 76 03 00
+	00		 je	 $LN393@renderFlui
+  00b21	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?D@Relatives@@3PEAVBlockFace@@EA ; Relatives::D
+  00b28	4c 8b 10	 mov	 r10, QWORD PTR [rax]
+  00b2b	45 8d 4d 01	 lea	 r9d, DWORD PTR [r13+1]
+  00b2f	48 89 4c 24 28	 mov	 QWORD PTR [rsp+40], rcx
+  00b34	45 8b c6	 mov	 r8d, r14d
+  00b37	49 8b d7	 mov	 rdx, r15
+  00b3a	48 8b c8	 mov	 rcx, rax
+  00b3d	89 6c 24 20	 mov	 DWORD PTR [rsp+32], ebp
+  00b41	41 ff 52 08	 call	 QWORD PTR [r10+8]
+  00b45	84 c0		 test	 al, al
+  00b47	0f 85 4a 03 00
+	00		 jne	 $LN393@renderFlui
+; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00b4d	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00b52	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00b56	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00b5a	f3 0f 58 c7	 addss	 xmm0, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00b5e	33 ed		 xor	 ebp, ebp
+  00b60	48 89 6e 38	 mov	 QWORD PTR [rsi+56], rbp
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00b64	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00b69	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  00b6e	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00b72	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00b77	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00b7c	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00b80	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00b85	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00b8a	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00b8f	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00b94	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00b9a	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00b9e	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00ba2	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00ba6	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00baa	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00bb2	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00bb7	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00bbc	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00bc1	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00bc5	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00bca	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00bcf	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00bd4	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00bd9	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00bdf	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00be3	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00be7	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00beb	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00bef	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+
+; 164  : 	vertex.v = v;
+
+  00bf2	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00bf9	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00bfe	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00c03	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00c08	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00c0c	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00c11	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00c16	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00c1b	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00c20	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00c26	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00c2a	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00c2e	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00c32	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00c36	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00c3e	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00c43	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00c48	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00c4d	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00c51	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00c56	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00c5b	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00c60	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00c65	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00c6b	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00c6f	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00c73	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00c77	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00c7b	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 164  : 	vertex.v = v;
+
+  00c82	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00c89	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00c8e	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00c93	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00c98	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00c9c	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00ca1	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00ca6	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00cab	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00cb1	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+
+; 164  : 	vertex.v = v;
+
+  00cb4	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00cbb	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00cbf	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00cc4	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  00cc9	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00ccd	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00cd2	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00cd7	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00cdb	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00cdf	f3 0f 58 ce	 addss	 xmm1, xmm6
+  00ce3	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00ce8	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00ced	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00cf2	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00cf7	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00cfd	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00d01	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00d05	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00d09	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00d0d	48 89 6e 38	 mov	 QWORD PTR [rsi+56], rbp
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00d11	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00d16	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00d1b	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00d20	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00d24	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00d29	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00d2e	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00d33	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00d38	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00d3e	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00d42	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00d46	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00d4a	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00d4e	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00d56	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00d5b	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00d60	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00d65	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00d69	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00d6e	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00d73	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00d78	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00d7d	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00d83	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00d87	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00d8b	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00d8f	f3 0f 58 cf	 addss	 xmm1, xmm7
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00d93	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+
+; 164  : 	vertex.v = v;
+
+  00d96	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00d9d	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00da2	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00da7	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00dac	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00db0	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00db5	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00dba	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00dbf	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00dc4	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00dca	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00dce	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00dd2	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00dd6	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00dda	48 c7 46 38 00
+	00 80 3f	 mov	 QWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00de2	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00de7	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00dec	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00df1	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00df5	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00dfa	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00dff	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 109  : 	vertex.y = y + translation.y;
+
+  00e04	f3 0f 10 4e 24	 movss	 xmm1, DWORD PTR [rsi+36]
+
+; 113  : 
+; 114  : 	vs++;
+
+  00e09	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00e0f	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00e13	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00e17	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00e1b	f3 0f 58 ce	 addss	 xmm1, xmm6
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00e1f	c7 46 38 00 00
+	80 3f		 mov	 DWORD PTR [rsi+56], 1065353216 ; 3f800000H
+
+; 164  : 	vertex.v = v;
+
+  00e26	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00e2d	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00e32	f3 0f 10 46 28	 movss	 xmm0, DWORD PTR [rsi+40]
+  00e37	f3 0f 11 4e 30	 movss	 DWORD PTR [rsi+48], xmm1
+  00e3c	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00e40	f3 0f 11 46 34	 movss	 DWORD PTR [rsi+52], xmm0
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00e45	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00e4a	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+
+; 157  : 	vertex.g = g;
+; 158  : 	vertex.b = b;
+; 159  : 	vertex.a = a;
+; 160  : }
+; 161  : void VertexStream::setUV(float u, float v)
+; 162  : {
+; 163  : 	vertex.u = u;
+
+  00e50	89 6e 38	 mov	 DWORD PTR [rsi+56], ebp
+
+; 164  : 	vertex.v = v;
+
+  00e53	c7 46 3c 00 00
+	80 3f		 mov	 DWORD PTR [rsi+60], 1065353216 ; 3f800000H
+
+; 108  : 	vertex.x = x + translation.x;
+
+  00e5a	f3 0f 10 46 20	 movss	 xmm0, DWORD PTR [rsi+32]
+
+; 110  : 	vertex.z = z + translation.z;
+
+  00e5f	f3 0f 10 4e 28	 movss	 xmm1, DWORD PTR [rsi+40]
+
+; 111  : 
+; 112  : 	vertices.push_back(vertex);
+
+  00e64	48 8d 56 2c	 lea	 rdx, QWORD PTR [rsi+44]
+  00e68	48 8d 4e 08	 lea	 rcx, QWORD PTR [rsi+8]
+  00e6c	f3 0f 58 c7	 addss	 xmm0, xmm7
+  00e70	f3 0f 58 cf	 addss	 xmm1, xmm7
+  00e74	f3 0f 11 46 2c	 movss	 DWORD PTR [rsi+44], xmm0
+  00e79	f3 0f 10 46 24	 movss	 xmm0, DWORD PTR [rsi+36]
+  00e7e	f3 0f 11 4e 34	 movss	 DWORD PTR [rsi+52], xmm1
+  00e83	f3 0f 58 c6	 addss	 xmm0, xmm6
+  00e87	f3 0f 11 46 30	 movss	 DWORD PTR [rsi+48], xmm0
+  00e8c	e8 00 00 00 00	 call	 ?push_back@?$vector@VVertexUVRGBA@gfxu@@V?$allocator@VVertexUVRGBA@gfxu@@@std@@@std@@QEAAXAEBVVertexUVRGBA@gfxu@@@Z ; std::vector<gfxu::VertexUVRGBA,std::allocator<gfxu::VertexUVRGBA> >::push_back
+
+; 113  : 
+; 114  : 	vs++;
+
+  00e91	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?vs@@3HA	; vs
+$LN393@renderFlui:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+
+; 478  : }
+
+  00e97	0f 28 74 24 40	 movaps	 xmm6, XMMWORD PTR [rsp+64]
+  00e9c	0f 28 7c 24 30	 movaps	 xmm7, XMMWORD PTR [rsp+48]
+  00ea1	4c 8d 5c 24 50	 lea	 r11, QWORD PTR [rsp+80]
+  00ea6	b0 01		 mov	 al, 1
+  00ea8	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
+  00eac	49 8b 6b 40	 mov	 rbp, QWORD PTR [r11+64]
+  00eb0	49 8b e3	 mov	 rsp, r11
+  00eb3	41 5f		 pop	 r15
+  00eb5	41 5e		 pop	 r14
+  00eb7	41 5d		 pop	 r13
+  00eb9	5f		 pop	 rdi
+  00eba	5e		 pop	 rsi
+  00ebb	c3		 ret	 0
 ?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z ENDP ; BlockRenderers::renderFluidBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp

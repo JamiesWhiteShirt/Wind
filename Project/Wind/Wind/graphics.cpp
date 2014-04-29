@@ -706,6 +706,45 @@ void Texture2D::bind()
 	}
 }
 
+TiledTexture::TiledTexture()
+	: Texture2D()
+{
+
+}
+
+TiledTexture::~TiledTexture()
+{
+
+}
+
+TiledTexture::Icon* TiledTexture::icon(wstring file)
+{
+	auto iconIter = icons.find(file);
+
+	if(iconIter == icons.end())
+	{
+		Icon* icon = new TiledTexture::Icon(file);
+
+		icons[file] = icon;
+		return icon;
+	}
+	else
+	{
+		return iconIter->second;
+	}
+}
+
+TiledTexture::Icon::Icon(wstring file)
+	: file(file), x(0), y(0)
+{
+	data = IOUtil::readPNG(file, width, height);
+}
+
+TiledTexture::Icon::~Icon()
+{
+	delete[] data;
+}
+
 
 
 bool gfxu::getError(const char* caption)

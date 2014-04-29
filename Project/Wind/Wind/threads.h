@@ -1,6 +1,6 @@
 #pragma once
 
-#define DRAW_THREAD_AMOUNT 2
+#define DRAW_THREAD_AMOUNT 1
 #define LOAD_THREAD_AMOUNT 1
 
 #include <thread>

@@ -1711,20 +1711,20 @@ $pdata$??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@PEBD
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN32
-	DD	imagerel $LN32+198
+$pdata$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN31
+	DD	imagerel $LN31+144
 	DD	imagerel $unwind$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN32
-	DD	imagerel $LN32+198
+$pdata$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN31
+	DD	imagerel $LN31+144
 	DD	imagerel $unwind$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN32
-	DD	imagerel $LN32+198
+$pdata$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN31
+	DD	imagerel $LN31+144
 	DD	imagerel $unwind$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -2103,9 +2103,9 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 	DD	0ffffffffH
-	DD	imagerel ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+32
+	DD	imagerel ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+27
 	DD	00H
-	DD	imagerel ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+144
+	DD	imagerel ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+95
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -2128,8 +2128,7 @@ $cppxdata$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 01993
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 061d11H
-	DD	0a641dH
+$unwind$?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 041811H
 	DD	093418H
 	DD	07006520aH
 	DD	imagerel __CxxFrameHandler3
@@ -2139,9 +2138,9 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 	DD	0ffffffffH
-	DD	imagerel ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+32
+	DD	imagerel ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+27
 	DD	00H
-	DD	imagerel ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+144
+	DD	imagerel ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+95
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -2164,8 +2163,7 @@ $cppxdata$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 019930522H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 061d11H
-	DD	0a641dH
+$unwind$?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 041811H
 	DD	093418H
 	DD	07006520aH
 	DD	imagerel __CxxFrameHandler3
@@ -2175,9 +2173,9 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z
 	DD	0ffffffffH
-	DD	imagerel ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+32
+	DD	imagerel ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+27
 	DD	00H
-	DD	imagerel ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+144
+	DD	imagerel ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z+95
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -2200,8 +2198,7 @@ $cppxdata$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 019930
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 061d11H
-	DD	0a641dH
+$unwind$?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD 041811H
 	DD	093418H
 	DD	07006520aH
 	DD	imagerel __CxxFrameHandler3
@@ -9666,100 +9663,83 @@ chunk$ = 64
 
 ; 103  : {
 
-$LN32:
+$LN31:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	57		 push	 rdi
   00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
   0000a	48 c7 44 24 20
 	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
   00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
-  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
-  0001d	48 8b d9	 mov	 rbx, rcx
+  00018	48 8b d9	 mov	 rbx, rcx
 
 ; 104  : 	ChunkDrawThread* thread = &chunkDrawThreads[(drawerThread++) % DRAW_THREAD_AMOUNT];
 
-  00020	8b 0d 00 00 00
-	00		 mov	 ecx, DWORD PTR ?drawerThread@@3HA ; drawerThread
-  00026	8b c1		 mov	 eax, ecx
-  00028	25 01 00 00 80	 and	 eax, -2147483647	; ffffffff80000001H
-  0002d	7d 07		 jge	 SHORT $LN31@requestQui
-  0002f	ff c8		 dec	 eax
-  00031	83 c8 fe	 or	 eax, -2
-  00034	ff c0		 inc	 eax
-$LN31@requestQui:
-  00036	48 63 f8	 movsxd	 rdi, eax
-  00039	48 69 ff b8 08
-	00 00		 imul	 rdi, 2232		; 000008b8H
-  00040	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A ; chunkDrawThreads
-  00047	48 03 f8	 add	 rdi, rax
-  0004a	ff c1		 inc	 ecx
-  0004c	89 0d 00 00 00
-	00		 mov	 DWORD PTR ?drawerThread@@3HA, ecx ; drawerThread
+  0001b	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?drawerThread@@3HA ; drawerThread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00052	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  00059	e8 00 00 00 00	 call	 _Mtx_lock
+  00021	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  00028	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  0005e	85 c0		 test	 eax, eax
-  00060	74 07		 je	 SHORT $LN8@requestQui
+  0002d	85 c0		 test	 eax, eax
+  0002f	74 07		 je	 SHORT $LN8@requestQui
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00062	8b c8		 mov	 ecx, eax
-  00064	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00031	8b c8		 mov	 ecx, eax
+  00033	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN8@requestQui:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 
 ; 155  : 		c.push_back(_Val);
 
-  00069	48 8d 8f 38 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2104]
-  00070	48 8b d3	 mov	 rdx, rbx
-  00073	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
+  00038	48 8b d3	 mov	 rdx, rbx
+  0003b	48 8d 0d 38 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2104
+  00042	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00078	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  0007f	e8 00 00 00 00	 call	 _Mtx_unlock
+  00047	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  0004e	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00084	85 c0		 test	 eax, eax
-  00086	74 08		 je	 SHORT $LN17@requestQui
+  00053	85 c0		 test	 eax, eax
+  00055	74 08		 je	 SHORT $LN17@requestQui
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00088	8b c8		 mov	 ecx, eax
-  0008a	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  0008f	90		 npad	 1
+  00057	8b c8		 mov	 ecx, eax
+  00059	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  0005e	90		 npad	 1
 $LN17@requestQui:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00090	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
-  00094	48 85 db	 test	 rbx, rbx
-  00097	74 1d		 je	 SHORT $LN28@requestQui
+  0005f	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
+  00063	48 85 db	 test	 rbx, rbx
+  00066	74 1d		 je	 SHORT $LN28@requestQui
 
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00099	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
-  0009d	75 17		 jne	 SHORT $LN28@requestQui
+  00068	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  0006c	75 17		 jne	 SHORT $LN28@requestQui
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  0009f	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000a2	48 8b cb	 mov	 rcx, rbx
-  000a5	ff 10		 call	 QWORD PTR [rax]
+  0006e	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00071	48 8b cb	 mov	 rcx, rbx
+  00074	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -9769,24 +9749,23 @@ $LN17@requestQui:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  000a7	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  000ab	75 09		 jne	 SHORT $LN28@requestQui
+  00076	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  0007a	75 09		 jne	 SHORT $LN28@requestQui
 
 ; 128  : 			_Delete_this();
 
-  000ad	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000b0	48 8b cb	 mov	 rcx, rbx
-  000b3	ff 50 08	 call	 QWORD PTR [rax+8]
+  0007c	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  0007f	48 8b cb	 mov	 rcx, rbx
+  00082	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN28@requestQui:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkdrawthread.cpp
 
 ; 109  : }
 
-  000b6	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  000bb	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
-  000c0	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  000c4	5f		 pop	 rdi
-  000c5	c3		 ret	 0
+  00085	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0008a	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0008e	5f		 pop	 rdi
+  0008f	c3		 ret	 0
 ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ENDP ; requestQuickChunkDraw
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -9815,100 +9794,83 @@ chunk$ = 64
 
 ; 112  : {
 
-$LN32:
+$LN31:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	57		 push	 rdi
   00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
   0000a	48 c7 44 24 20
 	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
   00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
-  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
-  0001d	48 8b d9	 mov	 rbx, rcx
+  00018	48 8b d9	 mov	 rbx, rcx
 
 ; 113  : 	ChunkDrawThread* thread = &chunkDrawThreads[(drawerThread++) % DRAW_THREAD_AMOUNT];
 
-  00020	8b 0d 00 00 00
-	00		 mov	 ecx, DWORD PTR ?drawerThread@@3HA ; drawerThread
-  00026	8b c1		 mov	 eax, ecx
-  00028	25 01 00 00 80	 and	 eax, -2147483647	; ffffffff80000001H
-  0002d	7d 07		 jge	 SHORT $LN31@requestChu
-  0002f	ff c8		 dec	 eax
-  00031	83 c8 fe	 or	 eax, -2
-  00034	ff c0		 inc	 eax
-$LN31@requestChu:
-  00036	48 63 f8	 movsxd	 rdi, eax
-  00039	48 69 ff b8 08
-	00 00		 imul	 rdi, 2232		; 000008b8H
-  00040	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A ; chunkDrawThreads
-  00047	48 03 f8	 add	 rdi, rax
-  0004a	ff c1		 inc	 ecx
-  0004c	89 0d 00 00 00
-	00		 mov	 DWORD PTR ?drawerThread@@3HA, ecx ; drawerThread
+  0001b	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?drawerThread@@3HA ; drawerThread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00052	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  00059	e8 00 00 00 00	 call	 _Mtx_lock
+  00021	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  00028	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  0005e	85 c0		 test	 eax, eax
-  00060	74 07		 je	 SHORT $LN8@requestChu
+  0002d	85 c0		 test	 eax, eax
+  0002f	74 07		 je	 SHORT $LN8@requestChu
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00062	8b c8		 mov	 ecx, eax
-  00064	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00031	8b c8		 mov	 ecx, eax
+  00033	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN8@requestChu:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 
 ; 155  : 		c.push_back(_Val);
 
-  00069	48 8d 8f 60 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2144]
-  00070	48 8b d3	 mov	 rdx, rbx
-  00073	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
+  00038	48 8b d3	 mov	 rdx, rbx
+  0003b	48 8d 0d 60 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2144
+  00042	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00078	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  0007f	e8 00 00 00 00	 call	 _Mtx_unlock
+  00047	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  0004e	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00084	85 c0		 test	 eax, eax
-  00086	74 08		 je	 SHORT $LN17@requestChu
+  00053	85 c0		 test	 eax, eax
+  00055	74 08		 je	 SHORT $LN17@requestChu
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00088	8b c8		 mov	 ecx, eax
-  0008a	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  0008f	90		 npad	 1
+  00057	8b c8		 mov	 ecx, eax
+  00059	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  0005e	90		 npad	 1
 $LN17@requestChu:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00090	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
-  00094	48 85 db	 test	 rbx, rbx
-  00097	74 1d		 je	 SHORT $LN28@requestChu
+  0005f	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
+  00063	48 85 db	 test	 rbx, rbx
+  00066	74 1d		 je	 SHORT $LN28@requestChu
 
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00099	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
-  0009d	75 17		 jne	 SHORT $LN28@requestChu
+  00068	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  0006c	75 17		 jne	 SHORT $LN28@requestChu
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  0009f	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000a2	48 8b cb	 mov	 rcx, rbx
-  000a5	ff 10		 call	 QWORD PTR [rax]
+  0006e	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00071	48 8b cb	 mov	 rcx, rbx
+  00074	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -9918,24 +9880,23 @@ $LN17@requestChu:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  000a7	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  000ab	75 09		 jne	 SHORT $LN28@requestChu
+  00076	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  0007a	75 09		 jne	 SHORT $LN28@requestChu
 
 ; 128  : 			_Delete_this();
 
-  000ad	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000b0	48 8b cb	 mov	 rcx, rbx
-  000b3	ff 50 08	 call	 QWORD PTR [rax+8]
+  0007c	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  0007f	48 8b cb	 mov	 rcx, rbx
+  00082	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN28@requestChu:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkdrawthread.cpp
 
 ; 118  : }
 
-  000b6	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  000bb	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
-  000c0	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  000c4	5f		 pop	 rdi
-  000c5	c3		 ret	 0
+  00085	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0008a	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0008e	5f		 pop	 rdi
+  0008f	c3		 ret	 0
 ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ENDP ; requestChunkDraw
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -9964,100 +9925,83 @@ chunk$ = 64
 
 ; 121  : {
 
-$LN32:
+$LN31:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	57		 push	 rdi
   00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
   0000a	48 c7 44 24 20
 	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
   00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
-  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
-  0001d	48 8b d9	 mov	 rbx, rcx
+  00018	48 8b d9	 mov	 rbx, rcx
 
 ; 122  : 	ChunkDrawThread* thread = &chunkDrawThreads[(drawerThread++) % DRAW_THREAD_AMOUNT];
 
-  00020	8b 0d 00 00 00
-	00		 mov	 ecx, DWORD PTR ?drawerThread@@3HA ; drawerThread
-  00026	8b c1		 mov	 eax, ecx
-  00028	25 01 00 00 80	 and	 eax, -2147483647	; ffffffff80000001H
-  0002d	7d 07		 jge	 SHORT $LN31@requestLat
-  0002f	ff c8		 dec	 eax
-  00031	83 c8 fe	 or	 eax, -2
-  00034	ff c0		 inc	 eax
-$LN31@requestLat:
-  00036	48 63 f8	 movsxd	 rdi, eax
-  00039	48 69 ff b8 08
-	00 00		 imul	 rdi, 2232		; 000008b8H
-  00040	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A ; chunkDrawThreads
-  00047	48 03 f8	 add	 rdi, rax
-  0004a	ff c1		 inc	 ecx
-  0004c	89 0d 00 00 00
-	00		 mov	 DWORD PTR ?drawerThread@@3HA, ecx ; drawerThread
+  0001b	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?drawerThread@@3HA ; drawerThread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00052	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  00059	e8 00 00 00 00	 call	 _Mtx_lock
+  00021	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  00028	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  0005e	85 c0		 test	 eax, eax
-  00060	74 07		 je	 SHORT $LN8@requestLat
+  0002d	85 c0		 test	 eax, eax
+  0002f	74 07		 je	 SHORT $LN8@requestLat
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00062	8b c8		 mov	 ecx, eax
-  00064	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00031	8b c8		 mov	 ecx, eax
+  00033	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN8@requestLat:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 
 ; 155  : 		c.push_back(_Val);
 
-  00069	48 8d 8f 88 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2184]
-  00070	48 8b d3	 mov	 rdx, rbx
-  00073	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
+  00038	48 8b d3	 mov	 rdx, rbx
+  0003b	48 8d 0d 88 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2184
+  00042	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00078	48 8d 8f b0 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2224]
-  0007f	e8 00 00 00 00	 call	 _Mtx_unlock
+  00047	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  0004e	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00084	85 c0		 test	 eax, eax
-  00086	74 08		 je	 SHORT $LN17@requestLat
+  00053	85 c0		 test	 eax, eax
+  00055	74 08		 je	 SHORT $LN17@requestLat
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00088	8b c8		 mov	 ecx, eax
-  0008a	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  0008f	90		 npad	 1
+  00057	8b c8		 mov	 ecx, eax
+  00059	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  0005e	90		 npad	 1
 $LN17@requestLat:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00090	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
-  00094	48 85 db	 test	 rbx, rbx
-  00097	74 1d		 je	 SHORT $LN28@requestLat
+  0005f	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
+  00063	48 85 db	 test	 rbx, rbx
+  00066	74 1d		 je	 SHORT $LN28@requestLat
 
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00099	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
-  0009d	75 17		 jne	 SHORT $LN28@requestLat
+  00068	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  0006c	75 17		 jne	 SHORT $LN28@requestLat
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  0009f	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000a2	48 8b cb	 mov	 rcx, rbx
-  000a5	ff 10		 call	 QWORD PTR [rax]
+  0006e	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00071	48 8b cb	 mov	 rcx, rbx
+  00074	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -10067,24 +10011,23 @@ $LN17@requestLat:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  000a7	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  000ab	75 09		 jne	 SHORT $LN28@requestLat
+  00076	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  0007a	75 09		 jne	 SHORT $LN28@requestLat
 
 ; 128  : 			_Delete_this();
 
-  000ad	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000b0	48 8b cb	 mov	 rcx, rbx
-  000b3	ff 50 08	 call	 QWORD PTR [rax+8]
+  0007c	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  0007f	48 8b cb	 mov	 rcx, rbx
+  00082	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN28@requestLat:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkdrawthread.cpp
 
 ; 127  : }
 
-  000b6	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  000bb	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
-  000c0	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  000c4	5f		 pop	 rdi
-  000c5	c3		 ret	 0
+  00085	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0008a	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0008e	5f		 pop	 rdi
+  0008f	c3		 ret	 0
 ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ENDP ; requestLateChunkDraw
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
