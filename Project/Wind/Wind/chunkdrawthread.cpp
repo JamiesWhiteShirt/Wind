@@ -22,7 +22,7 @@ bool renderChunk(std::shared_ptr<ChunkBase> chunk)
 			for(int k = -1; k < 2; k++)
 			{
 				std::shared_ptr<ChunkBase> c = GlobalThread::world.getChunk(chunk->pos.x + i, chunk->pos.y + j, chunk->pos.z + k);
-				if(!c->isEmpty() && !c->isLoaded())
+				if(c == nullptr || (!c->isEmpty() && !c->isLoaded()))
 				{
 					return false;
 				}
@@ -44,9 +44,11 @@ bool renderChunk(std::shared_ptr<ChunkBase> chunk)
 			{
 				firstPass->setTranslation(i, j, k);
 				firstPass->setColor(255, 255, 255, 255);
+				firstPass->unbindIcon();
 
 				secondPass->setTranslation(i, j, k);
 				secondPass->setColor(255, 255, 255, 255);
+				secondPass->unbindIcon();
 
 				const int x = i | cx;
 				const int y = j | cy;
@@ -88,6 +90,11 @@ bool renderFirstPossible(std::queue<std::shared_ptr<ChunkBase>>& q)
 		}
 	}
 	return false;
+}
+
+void ChunkDrawThread::staticInit()
+{
+
 }
 
 bool ChunkDrawThread::tick()

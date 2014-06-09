@@ -118,7 +118,7 @@ float noise3d(__global const uchar* noiseMap, float x, float y, float z, uint oc
 	return noise / maxValue;
 }
 
-__kernel void generateTerrain_p1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const uchar* noiseMap1, __global const uchar* noiseMap2)
+__kernel void generateTerrain_p1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const uchar* noiseMap1, __global const uchar* noiseMap2, __global const uchar* noiseMap3)
 {
 	const int x = chunkX * 16 + get_global_id(0);
 	const int y = chunkY * 16 + get_global_id(1);
@@ -136,19 +136,143 @@ __kernel void generateTerrain_p1(__global ushort* blocks, const int chunkX, cons
 	}
 	else
 	{
-		float smoothness = 2.0f + noise3d(noiseMap2, x * 4.0f, y * 4.0f, z * 4.0f, 12, 2.5f);
-		float n2 = noise3d(noiseMap1, x * 20.0f, y * 25.0f, z * 20.0f, 12, smoothness);
+		float tolerance = (y + 32) / 96.0f;
 
-		if((y + 32) / 96.0f < n2)
-		//if((y + 32) / 96.0f < smoothness)
+		float n1 = noise3d(noiseMap2, x * 16.0f, y * 16.0f, z * 16.0f, 12, 2.5f);
+		float smoothness = 2.0f + n1;
+		float n2 = noise3d(noiseMap1, x * 20.0f, y * 25.0f, z * 20.0f, 12, smoothness);
+		float n3 = noise3d(noiseMap3, x * 20.0f, y * 20.0f, z * 20.0f, 12, 2.0f);
+
+		float stoneChance = (1.0f - tolerance) * (n1 + 1.0f) / 2.0f + (n2 - tolerance) * 16.0f * (1.0f - n1);
+
+		if(tolerance < n2)
 		{
-			blocks[index] = 1;
+			if(n3 < stoneChance * 0.5f)
+			{
+				blocks[index] = 1;
+			}
+			else if(n3 < stoneChance * 0.75f)
+			{
+				blocks[index] = 6;
+			}
+			else if(n3 < stoneChance)
+			{
+				blocks[index] = 5;
+			}
+			else if(y >= -1)
+			{
+				if(y < 5)
+				{
+					blocks[index] = 7;
+				}
+				else
+				{
+					smoothness = 2.0f + noise3d(noiseMap2, x * 16.0f, (y + 1) * 16.0f, z * 16.0f, 12, 2.5f);
+					n2 = noise3d(noiseMap1, x * 20.0f, (y + 1) * 25.0f, z * 20.0f, 12, smoothness);
+					tolerance = (y + 33) / 96.0f;
+
+					if(tolerance < n2)
+					{
+						blocks[index] = 3;
+					}
+					else
+					{
+						blocks[index] = 4;
+					}
+				}
+			}
+			else
+			{
+				blocks[index] = 7;
+			}
 		}
 		else
 		{
 			if(y < 0)
 			{
+				blocks[index] = 2;
+			}
+			else
+			{
 				blocks[index] = 0;
+			}
+		}
+	}
+}
+
+__kernel void generateTerrain_alt(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const float* noise1, __global const float* noise2, __global const float* noise3)
+{
+	const int x = chunkX * 16 + get_global_id(0);
+	const int y = chunkY * 16 + get_global_id(1);
+	const int z = chunkZ * 16 + get_global_id(2);
+
+	const int index = (get_global_id(0) << 8) | (get_global_id(1) << 4) | get_global_id(2);
+
+	if(y < -32)
+	{
+		blocks[index] = 1;
+	}
+	else if(y >= 64)
+	{
+		blocks[index] = 0;
+	}
+	else
+	{
+		float tolerance = (y + 32) / 96.0f;
+
+		float n1 = noise1[index];
+		float smoothness = 2.0f + n1;
+		float n2 = noise2[index];
+		float n3 = noise3[index];
+
+		float stoneChance = (1.0f - tolerance) * (n1 + 1.0f) / 2.0f + (n2 - tolerance) * 16.0f * (1.0f - n1);
+
+		if(tolerance < n2)
+		{
+			if(n3 < stoneChance * 0.5f)
+			{
+				blocks[index] = 1;
+			}
+			else if(n3 < stoneChance * 0.75f)
+			{
+				blocks[index] = 6;
+			}
+			else if(n3 < stoneChance)
+			{
+				blocks[index] = 5;
+			}
+			else if(y >= -1)
+			{
+				if(y < 5)
+				{
+					blocks[index] = 7;
+				}
+				else
+				{
+					/*smoothness = 2.0f + noise3d(noiseMap2, x * 16.0f, (y + 1) * 16.0f, z * 16.0f, 12, 2.5f);
+					n2 = noise3d(noiseMap1, x * 20.0f, (y + 1) * 25.0f, z * 20.0f, 12, smoothness);
+					tolerance = (y + 33) / 96.0f;
+
+					if(tolerance < n2)
+					{*/
+						blocks[index] = 3;
+					/*}
+					else
+					{
+						blocks[index] = 4;
+					}*/
+				}
+			}
+			else
+			{
+				blocks[index] = 7;
+			}
+		}
+		else
+		{
+			if(y < 0)
+			{
+				blocks[index] = 2;
 			}
 			else
 			{

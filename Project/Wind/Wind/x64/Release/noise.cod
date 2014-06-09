@@ -6,109 +6,3822 @@ INCLUDELIB OLDNAMES
 
 EXTRN	srand:PROC
 EXTRN	rand:PROC
+	ORG $+6
+$SG4294904952 DB '\', 00H, 'p', 00H, 'r', 00H, 'o', 00H, 'g', 00H, 'r', 00H
+	DB	'a', 00H, 'm', 00H, 's', 00H, '\', 00H, 'n', 00H, 'o', 00H, 'i'
+	DB	00H, 's', 00H, 'e', 00H, '.', 00H, 'c', 00H, 'l', 00H, 00H, 00H
+	ORG $+2
+$SG4294904951 DB 'fillNoiseBuffer1d', 00H
+	ORG $+6
+$SG4294904950 DB 'fillNoiseBufferWithSmoothness1d', 00H
+$SG4294904949 DB 'fillNoiseBuffer2d', 00H
+	ORG $+6
+$SG4294904948 DB 'fillNoiseBufferWithSmoothness2d', 00H
+$SG4294904947 DB 'fillNoiseBuffer3d', 00H
+	ORG $+6
+$SG4294904946 DB 'fillNoiseBufferWithSmoothness3d', 00H
+PUBLIC	?staticInit@Noise@@YAXXZ			; Noise::staticInit
+PUBLIC	?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
+PUBLIC	?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ	; Noise::NoiseGenerator2D::prepareForCL
+PUBLIC	??1NoiseGenerator2D@Noise@@QEAA@XZ		; Noise::NoiseGenerator2D::~NoiseGenerator2D
+PUBLIC	??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z		; Noise::NoiseGenerator2D::NoiseGenerator2D
+PUBLIC	?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBufferWithSmoothness
+PUBLIC	?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
+PUBLIC	?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
+PUBLIC	?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ	; Noise::NoiseGenerator3D::prepareForCL
 PUBLIC	??1NoiseGenerator3D@Noise@@QEAA@XZ		; Noise::NoiseGenerator3D::~NoiseGenerator3D
 PUBLIC	??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z		; Noise::NoiseGenerator3D::NoiseGenerator3D
+PUBLIC	?noiseProgram@Noise@@3VProgram@cl@@A		; Noise::noiseProgram
+	ALIGN	4
+
+_Tuple_alloc DB	01H DUP (?)
+	ALIGN	4
+
+?noiseProgram@Noise@@3VProgram@cl@@A DB 038H DUP (?)	; Noise::noiseProgram
+ignore	DB	01H DUP (?)
+	ALIGN	4
+
+allocator_arg DB 01H DUP (?)
+	ALIGN	4
+
+piecewise_construct DB 01H DUP (?)
+_BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD imagerel $LN11
-	DD	imagerel $LN11+151
+$pdata$??__EnoiseProgram@Noise@@YAXXZ DD imagerel ??__EnoiseProgram@Noise@@YAXXZ
+	DD	imagerel ??__EnoiseProgram@Noise@@YAXXZ+76
+	DD	imagerel $unwind$??__EnoiseProgram@Noise@@YAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?staticInit@Noise@@YAXXZ DD imagerel $LN5
+	DD	imagerel $LN5+41
+	DD	imagerel $unwind$?staticInit@Noise@@YAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z DD imagerel $LN119
+	DD	imagerel $LN119+1258
+	DD	imagerel $unwind$?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ DD imagerel $LN7
+	DD	imagerel $LN7+116
+	DD	imagerel $unwind$?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1NoiseGenerator2D@Noise@@QEAA@XZ DD imagerel $LN9
+	DD	imagerel $LN9+68
+	DD	imagerel $unwind$??1NoiseGenerator2D@Noise@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z DD imagerel $LN13
+	DD	imagerel $LN13+161
+	DD	imagerel $unwind$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z DD imagerel $LN136
+	DD	imagerel $LN136+1537
+	DD	imagerel $unwind$?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z DD imagerel $LN4
+	DD	imagerel $LN4+121
+	DD	imagerel $unwind$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z DD imagerel $LN134
+	DD	imagerel $LN134+1515
+	DD	imagerel $unwind$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ DD imagerel $LN7
+	DD	imagerel $LN7+123
+	DD	imagerel $unwind$?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??1NoiseGenerator3D@Noise@@QEAA@XZ DD imagerel $LN9
+	DD	imagerel $LN9+68
+	DD	imagerel $unwind$??1NoiseGenerator3D@Noise@@QEAA@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD imagerel $LN13
+	DD	imagerel $LN13+171
 	DD	imagerel $unwind$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD 060f01H
-	DD	07640fH
-	DD	06340fH
-	DD	0700b320fH
+$ip2state$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD imagerel ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
+	DD	0ffffffffH
+	DD	imagerel ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z+68
+	DD	00H
+	DD	imagerel ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z+152
+	DD	0ffffffffH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0???0NoiseGenerator3D@Noise@@QEAA@HHMI@Z@4HA
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+$cppxdata$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD 019930522H
+	DD	01H
+	DD	imagerel $stateUnwindMap$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
+	DD	00H
+	DD	00H
+	DD	03H
+	DD	imagerel $ip2state$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
+	DD	020H
+	DD	00H
+	DD	01H
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z DD 061d11H
+	DD	0a641dH
+	DD	093418H
+	DD	07006520aH
+	DD	imagerel __CxxFrameHandler3
+	DD	imagerel $cppxdata$??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1NoiseGenerator3D@Noise@@QEAA@XZ DD 020601H
+	DD	030023206H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ DD 040a01H
+	DD	09340aH
+	DD	07006520aH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z DD 072119H
+	DD	01a0113H
+	DD	07005e007H
+	DD	030036004H
+	DD	05002H
+	DD	imagerel __GSHandlerCheck
+	DD	0c0H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z DD 010701H
+	DD	0e207H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z DD 092819H
+	DD	021641aH
+	DD	01e341aH
+	DD	01a011aH
+	DD	0700ce00eH
+	DD	0500bH
+	DD	imagerel __GSHandlerCheck
+	DD	0c0H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z DD imagerel ??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+	DD	0ffffffffH
+	DD	imagerel ??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z+68
+	DD	00H
+	DD	imagerel ??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z+142
+	DD	0ffffffffH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0???0NoiseGenerator2D@Noise@@QEAA@HHMI@Z@4HA
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+$cppxdata$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z DD 019930522H
+	DD	01H
+	DD	imagerel $stateUnwindMap$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+	DD	00H
+	DD	00H
+	DD	03H
+	DD	imagerel $ip2state$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+	DD	020H
+	DD	00H
+	DD	01H
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z DD 061d11H
+	DD	0a641dH
+	DD	093418H
+	DD	07006520aH
+	DD	imagerel __CxxFrameHandler3
+	DD	imagerel $cppxdata$??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??1NoiseGenerator2D@Noise@@QEAA@XZ DD 020601H
+	DD	030023206H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ DD 040a01H
+	DD	09340aH
+	DD	07006520aH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z DD 091b01H
+	DD	018641bH
+	DD	017541bH
+	DD	016341bH
+	DD	014011bH
+	DD	07014H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?staticInit@Noise@@YAXXZ DD 010401H
+	DD	08204H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$ip2state$??__EnoiseProgram@Noise@@YAXXZ DD imagerel ??__EnoiseProgram@Noise@@YAXXZ
+	DD	0ffffffffH
+	DD	imagerel ??__EnoiseProgram@Noise@@YAXXZ+25
+	DD	00H
+	DD	imagerel ??__EnoiseProgram@Noise@@YAXXZ+60
+	DD	0ffffffffH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$??__EnoiseProgram@Noise@@YAXXZ DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0???__EnoiseProgram@Noise@@YAXXZ@4HA
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+$cppxdata$??__EnoiseProgram@Noise@@YAXXZ DD 019930522H
+	DD	01H
+	DD	imagerel $stateUnwindMap$??__EnoiseProgram@Noise@@YAXXZ
+	DD	00H
+	DD	00H
+	DD	03H
+	DD	imagerel $ip2state$??__EnoiseProgram@Noise@@YAXXZ
+	DD	020H
+	DD	00H
+	DD	01H
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$??__EnoiseProgram@Noise@@YAXXZ DD 010d11H
+	DD	06204H
+	DD	imagerel __CxxFrameHandler3
+	DD	imagerel $cppxdata$??__EnoiseProgram@Noise@@YAXXZ
+noiseProgram$initializer$ DQ FLAT:??__EnoiseProgram@Noise@@YAXXZ
 ; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
 ;	COMDAT ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z
 _TEXT	SEGMENT
-this$ = 48
-sizeExponent$dead$ = 56
-octaves$dead$ = 64
-smoothness$ = 72
-seed$ = 80
+$T1 = 32
+this$ = 64
+sizeExponent$dead$ = 72
+octaves$dead$ = 80
+smoothness$ = 88
+seed$ = 96
 ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z PROC		; Noise::NoiseGenerator3D::NoiseGenerator3D, COMDAT
 
-; 107  : {
+; 268  : {
 
-$LN11:
-  00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
-  00005	48 89 74 24 10	 mov	 QWORD PTR [rsp+16], rsi
-  0000a	57		 push	 rdi
-  0000b	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-  0000f	8b 5c 24 50	 mov	 ebx, DWORD PTR seed$[rsp]
-  00013	f3 0f 11 59 0c	 movss	 DWORD PTR [rcx+12], xmm3
-  00018	48 8b f9	 mov	 rdi, rcx
-  0001b	c7 01 04 00 00
-	00		 mov	 DWORD PTR [rcx], 4
-  00021	c7 41 04 10 00
-	00 00		 mov	 DWORD PTR [rcx+4], 16
-  00028	c7 41 08 08 00
-	00 00		 mov	 DWORD PTR [rcx+8], 8
-  0002f	89 59 10	 mov	 DWORD PTR [rcx+16], ebx
-  00032	b9 00 10 00 00	 mov	 ecx, 4096		; 00001000H
-  00037	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
+$LN13:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	57		 push	 rdi
+  00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
+  0000a	48 c7 44 24 20
+	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
+  00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
+  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
+  0001d	48 8b f9	 mov	 rdi, rcx
+  00020	c7 01 08 00 00
+	00		 mov	 DWORD PTR [rcx], 8
+  00026	c7 41 04 00 01
+	00 00		 mov	 DWORD PTR [rcx+4], 256	; 00000100H
+  0002d	c7 41 08 0c 00
+	00 00		 mov	 DWORD PTR [rcx+8], 12
+  00034	f3 0f 11 59 0c	 movss	 DWORD PTR [rcx+12], xmm3
+  00039	8b 5c 24 60	 mov	 ebx, DWORD PTR seed$[rsp]
+  0003d	89 59 10	 mov	 DWORD PTR [rcx+16], ebx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 
-; 108  : 	srand(seed);
+; 261  : {
 
-  0003c	8b cb		 mov	 ecx, ebx
-  0003e	48 89 47 18	 mov	 QWORD PTR [rdi+24], rax
-  00042	e8 00 00 00 00	 call	 srand
+  00040	c6 41 18 00	 mov	 BYTE PTR [rcx+24], 0
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
 
-; 109  : 	for(int i = 0; i < size * size * size; i++)
+; 268  : {
 
-  00047	8b 4f 04	 mov	 ecx, DWORD PTR [rdi+4]
-  0004a	33 db		 xor	 ebx, ebx
-  0004c	8b c1		 mov	 eax, ecx
-  0004e	8b f3		 mov	 esi, ebx
-  00050	0f af c1	 imul	 eax, ecx
-  00053	0f af c1	 imul	 eax, ecx
-  00056	85 c0		 test	 eax, eax
-  00058	7e 2a		 jle	 SHORT $LN9@NoiseGener
-  0005a	66 0f 1f 44 00
-	00		 npad	 6
+  00044	8b 41 04	 mov	 eax, DWORD PTR [rcx+4]
+  00047	8b d0		 mov	 edx, eax
+  00049	0f af d0	 imul	 edx, eax
+  0004c	0f af d0	 imul	 edx, eax
+  0004f	48 63 ca	 movsxd	 rcx, edx
+  00052	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
+  00057	48 89 47 30	 mov	 QWORD PTR [rdi+48], rax
+
+; 269  : 	srand(seed);
+
+  0005b	8b cb		 mov	 ecx, ebx
+  0005d	e8 00 00 00 00	 call	 srand
+
+; 270  : 	for(int i = 0; i < size * size * size; i++)
+
+  00062	33 db		 xor	 ebx, ebx
+  00064	8b 4f 04	 mov	 ecx, DWORD PTR [rdi+4]
+  00067	8b f3		 mov	 esi, ebx
+  00069	8b c1		 mov	 eax, ecx
+  0006b	0f af c1	 imul	 eax, ecx
+  0006e	0f af c1	 imul	 eax, ecx
+  00071	85 c0		 test	 eax, eax
+  00073	7e 23		 jle	 SHORT $LN12@NoiseGener
 $LL3@NoiseGener:
 
-; 110  : 	{
-; 111  : 		noiseMap[i] = rand() & 1;
+; 271  : 	{
+; 272  : 		noiseMap[i] = rand() & 1;
 
-  00060	e8 00 00 00 00	 call	 rand
-  00065	48 8b 4f 18	 mov	 rcx, QWORD PTR [rdi+24]
-  00069	ff c3		 inc	 ebx
-  0006b	24 01		 and	 al, 1
-  0006d	48 8d 76 01	 lea	 rsi, QWORD PTR [rsi+1]
-  00071	88 44 0e ff	 mov	 BYTE PTR [rsi+rcx-1], al
-  00075	8b 47 04	 mov	 eax, DWORD PTR [rdi+4]
-  00078	8b c8		 mov	 ecx, eax
-  0007a	0f af c8	 imul	 ecx, eax
-  0007d	0f af c8	 imul	 ecx, eax
-  00080	3b d9		 cmp	 ebx, ecx
-  00082	7c dc		 jl	 SHORT $LL3@NoiseGener
-$LN9@NoiseGener:
+  00075	e8 00 00 00 00	 call	 rand
+  0007a	24 01		 and	 al, 1
+  0007c	48 8b 4f 30	 mov	 rcx, QWORD PTR [rdi+48]
+  00080	88 04 0e	 mov	 BYTE PTR [rsi+rcx], al
 
-; 112  : 	}
-; 113  : }
+; 270  : 	for(int i = 0; i < size * size * size; i++)
 
-  00084	48 8b 5c 24 30	 mov	 rbx, QWORD PTR [rsp+48]
-  00089	48 8b 74 24 38	 mov	 rsi, QWORD PTR [rsp+56]
-  0008e	48 8b c7	 mov	 rax, rdi
-  00091	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  00095	5f		 pop	 rdi
-  00096	c3		 ret	 0
+  00083	ff c3		 inc	 ebx
+  00085	48 8d 76 01	 lea	 rsi, QWORD PTR [rsi+1]
+  00089	8b 47 04	 mov	 eax, DWORD PTR [rdi+4]
+  0008c	8b c8		 mov	 ecx, eax
+  0008e	0f af c8	 imul	 ecx, eax
+  00091	0f af c8	 imul	 ecx, eax
+  00094	3b d9		 cmp	 ebx, ecx
+  00096	7c dd		 jl	 SHORT $LL3@NoiseGener
+$LN12@NoiseGener:
+
+; 273  : 	}
+; 274  : }
+
+  00098	48 8b c7	 mov	 rax, rdi
+  0009b	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  000a0	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
+  000a5	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  000a9	5f		 pop	 rdi
+  000aa	c3		 ret	 0
 ??0NoiseGenerator3D@Noise@@QEAA@HHMI@Z ENDP		; Noise::NoiseGenerator3D::NoiseGenerator3D
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+sizeExponent$dead$ = 72
+octaves$dead$ = 80
+smoothness$ = 88
+seed$ = 96
+?dtor$0@?0???0NoiseGenerator3D@Noise@@QEAA@HHMI@Z@4HA PROC ; `Noise::NoiseGenerator3D::NoiseGenerator3D'::`1'::dtor$0
+  00000	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00007	48 83 c1 18	 add	 rcx, 24
+  0000b	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$0@?0???0NoiseGenerator3D@Noise@@QEAA@HHMI@Z@4HA ENDP ; `Noise::NoiseGenerator3D::NoiseGenerator3D'::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
 ;	COMDAT ??1NoiseGenerator3D@Noise@@QEAA@XZ
 _TEXT	SEGMENT
-this$ = 8
+this$ = 48
 ??1NoiseGenerator3D@Noise@@QEAA@XZ PROC			; Noise::NoiseGenerator3D::~NoiseGenerator3D, COMDAT
 
-; 117  : 	delete[] noiseMap;
+; 277  : {
 
-  00000	48 8b 49 18	 mov	 rcx, QWORD PTR [rcx+24]
-  00004	e9 00 00 00 00	 jmp	 ??3@YAXPEAX@Z		; operator delete
+$LN9:
+  00000	40 53		 push	 rbx
+  00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
+  00006	48 8b d9	 mov	 rbx, rcx
+
+; 278  : 	delete[] noiseMap;
+
+  00009	48 8b 49 30	 mov	 rcx, QWORD PTR [rcx+48]
+  0000d	e8 00 00 00 00	 call	 ??_V@YAXPEAX@Z		; operator delete[]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 267  : 	if(okay)
+
+  00012	80 7b 18 00	 cmp	 BYTE PTR [rbx+24], 0
+  00016	74 26		 je	 SHORT $LN4@NoiseGener
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  00018	48 8b 4b 20	 mov	 rcx, QWORD PTR [rbx+32]
+  0001c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  00022	85 c0		 test	 eax, eax
+  00024	74 18		 je	 SHORT $LN4@NoiseGener
+
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  00026	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  0002d	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 279  : }
+
+  00034	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00038	5b		 pop	 rbx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  00039	e9 00 00 00 00	 jmp	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN4@NoiseGener:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 279  : }
+
+  0003e	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00042	5b		 pop	 rbx
+  00043	c3		 ret	 0
 ??1NoiseGenerator3D@Noise@@QEAA@XZ ENDP			; Noise::NoiseGenerator3D::~NoiseGenerator3D
 _TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ
+_TEXT	SEGMENT
+error$1 = 64
+this$ = 64
+?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ PROC	; Noise::NoiseGenerator3D::prepareForCL, COMDAT
+
+; 342  : {
+
+$LN7:
+  00000	48 89 5c 24 10	 mov	 QWORD PTR [rsp+16], rbx
+  00005	57		 push	 rdi
+  00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
+
+; 343  : 	noiseMapBuffer.create(sizeof(unsigned char) * size * size * size, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, noiseMap);
+
+  0000a	48 63 41 04	 movsxd	 rax, DWORD PTR [rcx+4]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  0000e	4c 8b 49 30	 mov	 r9, QWORD PTR [rcx+48]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 342  : {
+
+  00012	48 8b d9	 mov	 rbx, rcx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  00015	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?context@cl@@3PEAU_cl_context@@EA ; cl::context
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 343  : 	noiseMapBuffer.create(sizeof(unsigned char) * size * size * size, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, noiseMap);
+
+  0001c	48 8b f8	 mov	 rdi, rax
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  0001f	ba 24 00 00 00	 mov	 edx, 36			; 00000024H
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 343  : 	noiseMapBuffer.create(sizeof(unsigned char) * size * size * size, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, noiseMap);
+
+  00024	48 0f af f8	 imul	 rdi, rax
+  00028	48 0f af f8	 imul	 rdi, rax
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  0002c	48 8d 44 24 40	 lea	 rax, QWORD PTR error$1[rsp]
+  00031	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00036	4c 8b c7	 mov	 r8, rdi
+  00039	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clCreateBuffer
+
+; 281  : 	if(error != CL_SUCCESS)
+
+  0003f	83 7c 24 40 00	 cmp	 DWORD PTR error$1[rsp], 0
+  00044	48 89 43 20	 mov	 QWORD PTR [rbx+32], rax
+  00048	74 1e		 je	 SHORT $LN3@prepareFor
+
+; 282  : 	{
+; 283  : 		GLWindow::instance->postError("Failed to create buffer", "OpenCL buffer creation error");
+
+  0004a	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952789
+  00051	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952788
+  00058	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 344  : }
+
+  0005d	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  00062	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  00066	5f		 pop	 rdi
+  00067	c3		 ret	 0
+$LN3@prepareFor:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 287  : 	this->size = size;
+
+  00068	48 89 7b 28	 mov	 QWORD PTR [rbx+40], rdi
+
+; 288  : 	okay = true;
+
+  0006c	c6 43 18 01	 mov	 BYTE PTR [rbx+24], 1
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 344  : }
+
+  00070	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  00075	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  00079	5f		 pop	 rdi
+  0007a	c3		 ret	 0
+?prepareForCL@NoiseGenerator3D@Noise@@QEAAXXZ ENDP	; Noise::NoiseGenerator3D::prepareForCL
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z
+_TEXT	SEGMENT
+ys$ = 80
+xs$GSCopy$ = 88
+zs$ = 96
+event$1 = 104
+$T2 = 112
+global_ws$ = 144
+local_ws$ = 168
+__$ArrayPad$ = 192
+this$ = 256
+queue$ = 264
+buffer$ = 272
+xs$dead$ = 280
+ys$dead$ = 288
+zs$dead$ = 296
+smoothness$ = 304
+x$ = 312
+y$ = 320
+z$ = 328
+xd$ = 336
+yd$ = 344
+zd$ = 352
+?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z PROC ; Noise::NoiseGenerator3D::fillNoiseBuffer, COMDAT
+
+; 352  : {
+
+$LN134:
+  00000	40 55		 push	 rbp
+  00002	53		 push	 rbx
+  00003	56		 push	 rsi
+  00004	57		 push	 rdi
+  00005	41 56		 push	 r14
+  00007	48 8d 6c 24 f9	 lea	 rbp, QWORD PTR [rsp-7]
+  0000c	48 81 ec d0 00
+	00 00		 sub	 rsp, 208		; 000000d0H
+  00013	48 8b 05 00 00
+	00 00		 mov	 rax, QWORD PTR __security_cookie
+  0001a	48 33 c4	 xor	 rax, rsp
+  0001d	48 89 45 f7	 mov	 QWORD PTR __$ArrayPad$[rbp-201], rax
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  00021	45 33 f6	 xor	 r14d, r14d
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 352  : {
+
+  00024	49 8b f8	 mov	 rdi, r8
+  00027	48 8b f2	 mov	 rsi, rdx
+  0002a	48 8b d9	 mov	 rbx, rcx
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  0002d	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294904947
+  00034	45 8d 46 11	 lea	 r8d, QWORD PTR [r14+17]
+  00038	48 8d 4d a7	 lea	 rcx, QWORD PTR $T2[rbp-201]
+  0003c	c7 45 97 12 00
+	00 00		 mov	 DWORD PTR zs$[rbp-201], 18
+  00043	c7 45 87 12 00
+	00 00		 mov	 DWORD PTR ys$[rbp-201], 18
+  0004a	c7 45 8f 12 00
+	00 00		 mov	 DWORD PTR xs$GSCopy$[rbp-201], 18
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 353  : 	const size_t local_ws[] = {1, 1, 1};
+
+  00051	48 c7 45 df 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-201], 1
+  00059	48 c7 45 e7 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-193], 1
+  00061	48 c7 45 ef 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-185], 1
+
+; 354  : 	const size_t global_ws[] = {xs, ys, zs};
+
+  00069	48 c7 45 c7 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-201], 18
+  00071	48 c7 45 cf 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-193], 18
+  00079	48 c7 45 d7 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-185], 18
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
+
+  00081	48 c7 45 bf 0f
+	00 00 00	 mov	 QWORD PTR $T2[rbp-177], 15
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  00089	4c 89 75 b7	 mov	 QWORD PTR $T2[rbp-185], r14
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+
+; 564  : 		_Left = _Right;
+
+  0008d	44 88 75 a7	 mov	 BYTE PTR $T2[rbp-201], r14b
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  00091	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 356  : 	noiseProgram.prepare("fillNoiseBuffer3d");
+
+  00096	48 8d 55 a7	 lea	 rdx, QWORD PTR $T2[rbp-201]
+  0009a	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  000a1	e8 00 00 00 00	 call	 ?prepare@Program@cl@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; cl::Program::prepare
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 214  : 	if(!preparedKernel)
+
+  000a6	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  000ad	48 85 c9	 test	 rcx, rcx
+  000b0	75 10		 jne	 SHORT $LN51@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  000b2	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  000b9	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  000c0	eb 32		 jmp	 SHORT $LN119@fillNoiseB
+$LN51@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000c2	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  000c8	4c 8d 4f 08	 lea	 r9, QWORD PTR [rdi+8]
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000cc	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  000d2	8b d0		 mov	 edx, eax
+  000d4	ff c0		 inc	 eax
+  000d6	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  000dc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  000e2	85 c0		 test	 eax, eax
+  000e4	74 13		 je	 SHORT $LN50@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  000e6	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  000ed	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN119@fillNoiseB:
+  000f4	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN50@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  000f9	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00100	48 85 c9	 test	 rcx, rcx
+  00103	75 10		 jne	 SHORT $LN57@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00105	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0010c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00113	eb 32		 jmp	 SHORT $LN120@fillNoiseB
+$LN57@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00115	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  0011b	4c 8d 4b 20	 lea	 r9, QWORD PTR [rbx+32]
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0011f	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  00125	8b d0		 mov	 edx, eax
+  00127	ff c0		 inc	 eax
+  00129	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0012f	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00135	85 c0		 test	 eax, eax
+  00137	74 13		 je	 SHORT $LN56@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00139	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00140	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN120@fillNoiseB:
+  00147	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN56@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0014c	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00153	48 85 c9	 test	 rcx, rcx
+  00156	75 10		 jne	 SHORT $LN61@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00158	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0015f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00166	eb 31		 jmp	 SHORT $LN121@fillNoiseB
+$LN61@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00168	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0016e	4c 8b cb	 mov	 r9, rbx
+  00171	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00177	8b d0		 mov	 edx, eax
+  00179	ff c0		 inc	 eax
+  0017b	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00181	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00187	85 c0		 test	 eax, eax
+  00189	74 13		 je	 SHORT $LN60@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0018b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00192	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN121@fillNoiseB:
+  00199	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN60@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0019e	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  001a5	48 85 c9	 test	 rcx, rcx
+  001a8	75 10		 jne	 SHORT $LN65@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  001aa	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  001b1	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  001b8	eb 32		 jmp	 SHORT $LN122@fillNoiseB
+$LN65@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  001ba	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  001c0	4c 8d 4d 67	 lea	 r9, QWORD PTR smoothness$[rbp-201]
+  001c4	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  001ca	8b d0		 mov	 edx, eax
+  001cc	ff c0		 inc	 eax
+  001ce	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  001d4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  001da	85 c0		 test	 eax, eax
+  001dc	74 13		 je	 SHORT $LN64@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  001de	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  001e5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN122@fillNoiseB:
+  001ec	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN64@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  001f1	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  001f8	48 85 c9	 test	 rcx, rcx
+  001fb	75 10		 jne	 SHORT $LN69@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  001fd	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00204	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0020b	eb 32		 jmp	 SHORT $LN123@fillNoiseB
+$LN69@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0020d	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 361  : 	noiseProgram.setArgument(sizeof(unsigned int), &octaves);
+
+  00213	4c 8d 4b 08	 lea	 r9, QWORD PTR [rbx+8]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00217	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0021d	8b d0		 mov	 edx, eax
+  0021f	ff c0		 inc	 eax
+  00221	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00227	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0022d	85 c0		 test	 eax, eax
+  0022f	74 13		 je	 SHORT $LN68@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00231	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00238	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN123@fillNoiseB:
+  0023f	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN68@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00244	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0024b	48 85 c9	 test	 rcx, rcx
+  0024e	75 10		 jne	 SHORT $LN73@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00250	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00257	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0025e	eb 32		 jmp	 SHORT $LN124@fillNoiseB
+$LN73@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00260	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00266	4c 8d 4d 6f	 lea	 r9, QWORD PTR x$[rbp-201]
+  0026a	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00270	8b d0		 mov	 edx, eax
+  00272	ff c0		 inc	 eax
+  00274	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0027a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00280	85 c0		 test	 eax, eax
+  00282	74 13		 je	 SHORT $LN72@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00284	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0028b	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN124@fillNoiseB:
+  00292	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN72@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00297	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0029e	48 85 c9	 test	 rcx, rcx
+  002a1	75 10		 jne	 SHORT $LN77@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  002a3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  002aa	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  002b1	eb 32		 jmp	 SHORT $LN125@fillNoiseB
+$LN77@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  002b3	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  002b9	4c 8d 4d 77	 lea	 r9, QWORD PTR y$[rbp-201]
+  002bd	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  002c3	8b d0		 mov	 edx, eax
+  002c5	ff c0		 inc	 eax
+  002c7	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  002cd	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  002d3	85 c0		 test	 eax, eax
+  002d5	74 13		 je	 SHORT $LN76@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  002d7	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  002de	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN125@fillNoiseB:
+  002e5	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN76@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  002ea	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  002f1	48 85 c9	 test	 rcx, rcx
+  002f4	75 10		 jne	 SHORT $LN81@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  002f6	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  002fd	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00304	eb 32		 jmp	 SHORT $LN126@fillNoiseB
+$LN81@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00306	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0030c	4c 8d 4d 7f	 lea	 r9, QWORD PTR z$[rbp-201]
+  00310	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00316	8b d0		 mov	 edx, eax
+  00318	ff c0		 inc	 eax
+  0031a	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00320	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00326	85 c0		 test	 eax, eax
+  00328	74 13		 je	 SHORT $LN80@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0032a	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00331	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN126@fillNoiseB:
+  00338	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN80@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0033d	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00344	48 85 c9	 test	 rcx, rcx
+  00347	75 10		 jne	 SHORT $LN85@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00349	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00350	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00357	eb 35		 jmp	 SHORT $LN127@fillNoiseB
+$LN85@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00359	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0035f	4c 8d 8d 87 00
+	00 00		 lea	 r9, QWORD PTR xd$[rbp-201]
+  00366	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0036c	8b d0		 mov	 edx, eax
+  0036e	ff c0		 inc	 eax
+  00370	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00376	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0037c	85 c0		 test	 eax, eax
+  0037e	74 13		 je	 SHORT $LN84@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00380	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00387	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN127@fillNoiseB:
+  0038e	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN84@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00393	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0039a	48 85 c9	 test	 rcx, rcx
+  0039d	75 10		 jne	 SHORT $LN89@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0039f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  003a6	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  003ad	eb 35		 jmp	 SHORT $LN128@fillNoiseB
+$LN89@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  003af	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  003b5	4c 8d 8d 8f 00
+	00 00		 lea	 r9, QWORD PTR yd$[rbp-201]
+  003bc	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  003c2	8b d0		 mov	 edx, eax
+  003c4	ff c0		 inc	 eax
+  003c6	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  003cc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  003d2	85 c0		 test	 eax, eax
+  003d4	74 13		 je	 SHORT $LN88@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  003d6	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  003dd	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN128@fillNoiseB:
+  003e4	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN88@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  003e9	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  003f0	48 85 c9	 test	 rcx, rcx
+  003f3	75 10		 jne	 SHORT $LN93@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  003f5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  003fc	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00403	eb 35		 jmp	 SHORT $LN129@fillNoiseB
+$LN93@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00405	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0040b	4c 8d 8d 97 00
+	00 00		 lea	 r9, QWORD PTR zd$[rbp-201]
+  00412	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00418	8b d0		 mov	 edx, eax
+  0041a	ff c0		 inc	 eax
+  0041c	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00422	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00428	85 c0		 test	 eax, eax
+  0042a	74 13		 je	 SHORT $LN92@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0042c	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00433	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN129@fillNoiseB:
+  0043a	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN92@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0043f	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00446	48 85 c9	 test	 rcx, rcx
+  00449	75 10		 jne	 SHORT $LN97@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0044b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00452	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00459	eb 32		 jmp	 SHORT $LN130@fillNoiseB
+$LN97@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0045b	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00461	4c 8d 4d 8f	 lea	 r9, QWORD PTR xs$GSCopy$[rbp-201]
+  00465	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0046b	8b d0		 mov	 edx, eax
+  0046d	ff c0		 inc	 eax
+  0046f	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00475	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0047b	85 c0		 test	 eax, eax
+  0047d	74 13		 je	 SHORT $LN96@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0047f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00486	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN130@fillNoiseB:
+  0048d	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN96@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00492	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00499	48 85 c9	 test	 rcx, rcx
+  0049c	75 10		 jne	 SHORT $LN101@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0049e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  004a5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  004ac	eb 32		 jmp	 SHORT $LN131@fillNoiseB
+$LN101@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  004ae	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  004b4	4c 8d 4d 87	 lea	 r9, QWORD PTR ys$[rbp-201]
+  004b8	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  004be	8b d0		 mov	 edx, eax
+  004c0	ff c0		 inc	 eax
+  004c2	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  004c8	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  004ce	85 c0		 test	 eax, eax
+  004d0	74 13		 je	 SHORT $LN100@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  004d2	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  004d9	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN131@fillNoiseB:
+  004e0	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN100@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  004e5	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  004ec	48 85 c9	 test	 rcx, rcx
+  004ef	75 10		 jne	 SHORT $LN105@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  004f1	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  004f8	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  004ff	eb 32		 jmp	 SHORT $LN132@fillNoiseB
+$LN105@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00501	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00507	4c 8d 4d 97	 lea	 r9, QWORD PTR zs$[rbp-201]
+  0050b	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00511	8b d0		 mov	 edx, eax
+  00513	ff c0		 inc	 eax
+  00515	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0051b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00521	85 c0		 test	 eax, eax
+  00523	74 13		 je	 SHORT $LN104@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00525	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0052c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN132@fillNoiseB:
+  00533	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN104@fillNoiseB:
+
+; 231  : }
+; 232  : 
+; 233  : bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
+; 234  : {
+; 235  : 	if(!preparedKernel)
+
+  00538	48 8b 15 28 00
+	00 00		 mov	 rdx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0053f	48 85 d2	 test	 rdx, rdx
+  00542	75 15		 jne	 SHORT $LN109@fillNoiseB
+
+; 236  : 	{
+; 237  : 		GLWindow::instance->postError("Tried to execute unprepared kernel", "OpenCL program execution error");
+
+  00544	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952795
+  0054b	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952794
+  00552	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 238  : 		return false;
+
+  00557	eb 78		 jmp	 SHORT $LN116@fillNoiseB
+$LN109@fillNoiseB:
+
+; 239  : 	}
+; 240  : 
+; 241  : 	cl_int error;
+; 242  : 	cl_event event;
+; 243  : 
+; 244  : 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
+
+  00559	48 8b 0e	 mov	 rcx, QWORD PTR [rsi]
+  0055c	48 8d 45 9f	 lea	 rax, QWORD PTR event$1[rbp-201]
+  00560	45 33 c9	 xor	 r9d, r9d
+  00563	48 89 44 24 40	 mov	 QWORD PTR [rsp+64], rax
+  00568	4c 89 74 24 38	 mov	 QWORD PTR [rsp+56], r14
+  0056d	48 8d 45 df	 lea	 rax, QWORD PTR local_ws$[rbp-201]
+  00571	44 89 74 24 30	 mov	 DWORD PTR [rsp+48], r14d
+  00576	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  0057b	48 8d 45 c7	 lea	 rax, QWORD PTR global_ws$[rbp-201]
+  0057f	45 8d 41 03	 lea	 r8d, QWORD PTR [r9+3]
+  00583	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00588	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clEnqueueNDRangeKernel
+
+; 245  : 	if(error != CL_SUCCESS)
+
+  0058e	85 c0		 test	 eax, eax
+  00590	74 15		 je	 SHORT $LN108@fillNoiseB
+
+; 246  : 	{
+; 247  : 		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
+
+  00592	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952793
+  00599	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952792
+  005a0	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 248  : 		return false;
+
+  005a5	eb 2a		 jmp	 SHORT $LN116@fillNoiseB
+$LN108@fillNoiseB:
+
+; 249  : 	}
+; 250  : 
+; 251  : 	queue.addSyncEvent(event);
+
+  005a7	48 8b 55 9f	 mov	 rdx, QWORD PTR event$1[rbp-201]
+  005ab	48 8b ce	 mov	 rcx, rsi
+  005ae	e8 00 00 00 00	 call	 ?addSyncEvent@CommandQueue@cl@@QEAAXPEAU_cl_event@@@Z ; cl::CommandQueue::addSyncEvent
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  005b3	48 8d 0d 18 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A+24
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 253  : 	preparedKernel = 0;
+
+  005ba	4c 89 35 28 00
+	00 00		 mov	 QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40, r14
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  005c1	e8 00 00 00 00	 call	 _Mtx_unlock
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  005c6	85 c0		 test	 eax, eax
+  005c8	74 07		 je	 SHORT $LN116@fillNoiseB
+
+; 33   : 		_Throw_C_error(_Res);
+
+  005ca	8b c8		 mov	 ecx, eax
+  005cc	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+$LN116@fillNoiseB:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 372  : }
+
+  005d1	48 8b 4d f7	 mov	 rcx, QWORD PTR __$ArrayPad$[rbp-201]
+  005d5	48 33 cc	 xor	 rcx, rsp
+  005d8	e8 00 00 00 00	 call	 __security_check_cookie
+  005dd	48 81 c4 d0 00
+	00 00		 add	 rsp, 208		; 000000d0H
+  005e4	41 5e		 pop	 r14
+  005e6	5f		 pop	 rdi
+  005e7	5e		 pop	 rsi
+  005e8	5b		 pop	 rbx
+  005e9	5d		 pop	 rbp
+  005ea	c3		 ret	 0
+?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ENDP ; Noise::NoiseGenerator3D::fillNoiseBuffer
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z
+_TEXT	SEGMENT
+this$dead$ = 128
+queue$ = 136
+buffer$ = 144
+xs$dead$ = 152
+ys$dead$ = 160
+zs$dead$ = 168
+x$ = 176
+y$ = 184
+z$ = 192
+xd$ = 200
+yd$ = 208
+zd$ = 216
+?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z PROC ; Noise::NoiseGenerator3D::fillNoiseBuffer, COMDAT
+
+; 347  : {
+
+$LN4:
+  00000	48 8b c4	 mov	 rax, rsp
+  00003	48 83 ec 78	 sub	 rsp, 120		; 00000078H
+
+; 348  : 	fillNoiseBuffer(queue, buffer, xs, ys, zs, smoothness, x, y, z, xd, yd, zd);
+
+  00007	f3 0f 10 84 24
+	d8 00 00 00	 movss	 xmm0, DWORD PTR zd$[rsp]
+  00010	f3 0f 10 8c 24
+	d0 00 00 00	 movss	 xmm1, DWORD PTR yd$[rsp]
+  00019	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?smoothnessNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A ; ChunkLoadThread::smoothnessNoise
+  00020	f3 0f 11 40 e8	 movss	 DWORD PTR [rax-24], xmm0
+  00025	f3 0f 10 84 24
+	c8 00 00 00	 movss	 xmm0, DWORD PTR xd$[rsp]
+  0002e	f3 0f 11 48 e0	 movss	 DWORD PTR [rax-32], xmm1
+  00033	f3 0f 10 8c 24
+	c0 00 00 00	 movss	 xmm1, DWORD PTR z$[rsp]
+  0003c	f3 0f 11 40 d8	 movss	 DWORD PTR [rax-40], xmm0
+  00041	f3 0f 10 84 24
+	b8 00 00 00	 movss	 xmm0, DWORD PTR y$[rsp]
+  0004a	f3 0f 11 48 d0	 movss	 DWORD PTR [rax-48], xmm1
+  0004f	f3 0f 10 8c 24
+	b0 00 00 00	 movss	 xmm1, DWORD PTR x$[rsp]
+  00058	f3 0f 11 40 c8	 movss	 DWORD PTR [rax-56], xmm0
+  0005d	f3 0f 10 05 0c
+	00 00 00	 movss	 xmm0, DWORD PTR ?smoothnessNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A+12
+  00065	f3 0f 11 48 c0	 movss	 DWORD PTR [rax-64], xmm1
+  0006a	f3 0f 11 40 b8	 movss	 DWORD PTR [rax-72], xmm0
+  0006f	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
+
+; 349  : }
+
+  00074	48 83 c4 78	 add	 rsp, 120		; 00000078H
+  00078	c3		 ret	 0
+?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMM@Z ENDP ; Noise::NoiseGenerator3D::fillNoiseBuffer
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z
+_TEXT	SEGMENT
+ys$ = 80
+xs$GSCopy$ = 88
+zs$ = 96
+event$1 = 104
+$T2 = 112
+global_ws$ = 144
+local_ws$ = 168
+__$ArrayPad$ = 192
+this$dead$ = 240
+queue$ = 248
+buffer$ = 256
+xs$dead$ = 264
+ys$dead$ = 272
+zs$dead$ = 280
+smoothness$ = 288
+x$ = 296
+y$ = 304
+z$ = 312
+xd$ = 320
+yd$ = 328
+zd$ = 336
+?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z PROC ; Noise::NoiseGenerator3D::fillNoiseBufferWithSmoothness, COMDAT
+
+; 375  : {
+
+$LN136:
+  00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
+  00005	48 89 74 24 20	 mov	 QWORD PTR [rsp+32], rsi
+  0000a	55		 push	 rbp
+  0000b	57		 push	 rdi
+  0000c	41 56		 push	 r14
+  0000e	48 8d 6c 24 f9	 lea	 rbp, QWORD PTR [rsp-7]
+  00013	48 81 ec d0 00
+	00 00		 sub	 rsp, 208		; 000000d0H
+  0001a	48 8b 05 00 00
+	00 00		 mov	 rax, QWORD PTR __security_cookie
+  00021	48 33 c4	 xor	 rax, rsp
+  00024	48 89 45 f7	 mov	 QWORD PTR __$ArrayPad$[rbp-201], rax
+  00028	48 8b 7d 57	 mov	 rdi, QWORD PTR smoothness$[rbp-201]
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  0002c	45 33 f6	 xor	 r14d, r14d
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 375  : {
+
+  0002f	49 8b d8	 mov	 rbx, r8
+  00032	48 8b f2	 mov	 rsi, rdx
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  00035	48 8d 4d a7	 lea	 rcx, QWORD PTR $T2[rbp-201]
+  00039	45 8d 46 1f	 lea	 r8d, QWORD PTR [r14+31]
+  0003d	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294904946
+  00044	c7 45 97 12 00
+	00 00		 mov	 DWORD PTR zs$[rbp-201], 18
+  0004b	c7 45 87 12 00
+	00 00		 mov	 DWORD PTR ys$[rbp-201], 18
+  00052	c7 45 8f 12 00
+	00 00		 mov	 DWORD PTR xs$GSCopy$[rbp-201], 18
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 376  : 	const size_t local_ws[] = {1, 1, 1};
+
+  00059	48 c7 45 df 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-201], 1
+  00061	48 c7 45 e7 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-193], 1
+  00069	48 c7 45 ef 01
+	00 00 00	 mov	 QWORD PTR local_ws$[rbp-185], 1
+
+; 377  : 	const size_t global_ws[] = {xs, ys, zs};
+
+  00071	48 c7 45 c7 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-201], 18
+  00079	48 c7 45 cf 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-193], 18
+  00081	48 c7 45 d7 12
+	00 00 00	 mov	 QWORD PTR global_ws$[rbp-185], 18
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
+
+  00089	48 c7 45 bf 0f
+	00 00 00	 mov	 QWORD PTR $T2[rbp-177], 15
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  00091	4c 89 75 b7	 mov	 QWORD PTR $T2[rbp-185], r14
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+
+; 564  : 		_Left = _Right;
+
+  00095	44 88 75 a7	 mov	 BYTE PTR $T2[rbp-201], r14b
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  00099	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 379  : 	noiseProgram.prepare("fillNoiseBufferWithSmoothness3d");
+
+  0009e	48 8d 55 a7	 lea	 rdx, QWORD PTR $T2[rbp-201]
+  000a2	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  000a9	e8 00 00 00 00	 call	 ?prepare@Program@cl@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; cl::Program::prepare
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 214  : 	if(!preparedKernel)
+
+  000ae	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  000b5	48 85 c9	 test	 rcx, rcx
+  000b8	75 10		 jne	 SHORT $LN51@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  000ba	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  000c1	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  000c8	eb 32		 jmp	 SHORT $LN121@fillNoiseB
+$LN51@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000ca	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  000d0	4c 8d 4b 08	 lea	 r9, QWORD PTR [rbx+8]
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000d4	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  000da	8b d0		 mov	 edx, eax
+  000dc	ff c0		 inc	 eax
+  000de	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  000e4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  000ea	85 c0		 test	 eax, eax
+  000ec	74 13		 je	 SHORT $LN50@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  000ee	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  000f5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN121@fillNoiseB:
+  000fc	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN50@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00101	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00108	48 85 c9	 test	 rcx, rcx
+  0010b	75 10		 jne	 SHORT $LN57@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0010d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00114	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0011b	eb 35		 jmp	 SHORT $LN122@fillNoiseB
+$LN57@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0011d	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00123	4c 8d 0d 20 00
+	00 00		 lea	 r9, OFFSET FLAT:?solidNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A+32
+  0012a	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  00130	8b d0		 mov	 edx, eax
+  00132	ff c0		 inc	 eax
+  00134	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0013a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00140	85 c0		 test	 eax, eax
+  00142	74 13		 je	 SHORT $LN56@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00144	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0014b	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN122@fillNoiseB:
+  00152	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN56@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00157	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0015e	48 85 c9	 test	 rcx, rcx
+  00161	75 10		 jne	 SHORT $LN61@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00163	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0016a	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00171	eb 35		 jmp	 SHORT $LN123@fillNoiseB
+$LN61@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00173	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00179	4c 8d 0d 00 00
+	00 00		 lea	 r9, OFFSET FLAT:?solidNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A ; ChunkLoadThread::solidNoise
+  00180	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00186	8b d0		 mov	 edx, eax
+  00188	ff c0		 inc	 eax
+  0018a	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00190	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00196	85 c0		 test	 eax, eax
+  00198	74 13		 je	 SHORT $LN60@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0019a	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  001a1	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN123@fillNoiseB:
+  001a8	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN60@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  001ad	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  001b4	48 85 c9	 test	 rcx, rcx
+  001b7	75 10		 jne	 SHORT $LN67@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  001b9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  001c0	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  001c7	eb 32		 jmp	 SHORT $LN124@fillNoiseB
+$LN67@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  001c9	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  001cf	4c 8d 4f 08	 lea	 r9, QWORD PTR [rdi+8]
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  001d3	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  001d9	8b d0		 mov	 edx, eax
+  001db	ff c0		 inc	 eax
+  001dd	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  001e3	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  001e9	85 c0		 test	 eax, eax
+  001eb	74 13		 je	 SHORT $LN66@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  001ed	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  001f4	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN124@fillNoiseB:
+  001fb	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN66@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00200	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00207	48 85 c9	 test	 rcx, rcx
+  0020a	75 10		 jne	 SHORT $LN71@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0020c	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00213	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0021a	eb 35		 jmp	 SHORT $LN125@fillNoiseB
+$LN71@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0021c	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00222	4c 8d 0d 08 00
+	00 00		 lea	 r9, OFFSET FLAT:?solidNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A+8
+  00229	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0022f	8b d0		 mov	 edx, eax
+  00231	ff c0		 inc	 eax
+  00233	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00239	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0023f	85 c0		 test	 eax, eax
+  00241	74 13		 je	 SHORT $LN70@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00243	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0024a	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN125@fillNoiseB:
+  00251	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN70@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00256	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0025d	48 85 c9	 test	 rcx, rcx
+  00260	75 10		 jne	 SHORT $LN75@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00262	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00269	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00270	eb 32		 jmp	 SHORT $LN126@fillNoiseB
+$LN75@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00272	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00278	4c 8d 4d 5f	 lea	 r9, QWORD PTR x$[rbp-201]
+  0027c	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00282	8b d0		 mov	 edx, eax
+  00284	ff c0		 inc	 eax
+  00286	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0028c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00292	85 c0		 test	 eax, eax
+  00294	74 13		 je	 SHORT $LN74@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00296	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0029d	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN126@fillNoiseB:
+  002a4	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN74@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  002a9	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  002b0	48 85 c9	 test	 rcx, rcx
+  002b3	75 10		 jne	 SHORT $LN79@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  002b5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  002bc	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  002c3	eb 32		 jmp	 SHORT $LN127@fillNoiseB
+$LN79@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  002c5	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  002cb	4c 8d 4d 67	 lea	 r9, QWORD PTR y$[rbp-201]
+  002cf	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  002d5	8b d0		 mov	 edx, eax
+  002d7	ff c0		 inc	 eax
+  002d9	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  002df	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  002e5	85 c0		 test	 eax, eax
+  002e7	74 13		 je	 SHORT $LN78@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  002e9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  002f0	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN127@fillNoiseB:
+  002f7	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN78@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  002fc	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00303	48 85 c9	 test	 rcx, rcx
+  00306	75 10		 jne	 SHORT $LN83@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00308	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0030f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00316	eb 32		 jmp	 SHORT $LN128@fillNoiseB
+$LN83@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00318	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0031e	4c 8d 4d 6f	 lea	 r9, QWORD PTR z$[rbp-201]
+  00322	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00328	8b d0		 mov	 edx, eax
+  0032a	ff c0		 inc	 eax
+  0032c	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00332	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00338	85 c0		 test	 eax, eax
+  0033a	74 13		 je	 SHORT $LN82@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0033c	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00343	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN128@fillNoiseB:
+  0034a	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN82@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0034f	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00356	48 85 c9	 test	 rcx, rcx
+  00359	75 10		 jne	 SHORT $LN87@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0035b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00362	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00369	eb 32		 jmp	 SHORT $LN129@fillNoiseB
+$LN87@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0036b	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00371	4c 8d 4d 77	 lea	 r9, QWORD PTR xd$[rbp-201]
+  00375	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0037b	8b d0		 mov	 edx, eax
+  0037d	ff c0		 inc	 eax
+  0037f	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00385	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0038b	85 c0		 test	 eax, eax
+  0038d	74 13		 je	 SHORT $LN86@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0038f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00396	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN129@fillNoiseB:
+  0039d	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN86@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  003a2	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  003a9	48 85 c9	 test	 rcx, rcx
+  003ac	75 10		 jne	 SHORT $LN91@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  003ae	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  003b5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  003bc	eb 32		 jmp	 SHORT $LN130@fillNoiseB
+$LN91@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  003be	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  003c4	4c 8d 4d 7f	 lea	 r9, QWORD PTR yd$[rbp-201]
+  003c8	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  003ce	8b d0		 mov	 edx, eax
+  003d0	ff c0		 inc	 eax
+  003d2	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  003d8	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  003de	85 c0		 test	 eax, eax
+  003e0	74 13		 je	 SHORT $LN90@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  003e2	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  003e9	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN130@fillNoiseB:
+  003f0	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN90@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  003f5	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  003fc	48 85 c9	 test	 rcx, rcx
+  003ff	75 10		 jne	 SHORT $LN95@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00401	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00408	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0040f	eb 35		 jmp	 SHORT $LN131@fillNoiseB
+$LN95@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00411	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00417	4c 8d 8d 87 00
+	00 00		 lea	 r9, QWORD PTR zd$[rbp-201]
+  0041e	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00424	8b d0		 mov	 edx, eax
+  00426	ff c0		 inc	 eax
+  00428	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0042e	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00434	85 c0		 test	 eax, eax
+  00436	74 13		 je	 SHORT $LN94@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00438	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0043f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN131@fillNoiseB:
+  00446	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN94@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0044b	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00452	48 85 c9	 test	 rcx, rcx
+  00455	75 10		 jne	 SHORT $LN99@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00457	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0045e	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00465	eb 32		 jmp	 SHORT $LN132@fillNoiseB
+$LN99@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00467	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0046d	4c 8d 4d 8f	 lea	 r9, QWORD PTR xs$GSCopy$[rbp-201]
+  00471	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00477	8b d0		 mov	 edx, eax
+  00479	ff c0		 inc	 eax
+  0047b	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00481	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00487	85 c0		 test	 eax, eax
+  00489	74 13		 je	 SHORT $LN98@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0048b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00492	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN132@fillNoiseB:
+  00499	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN98@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0049e	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  004a5	48 85 c9	 test	 rcx, rcx
+  004a8	75 10		 jne	 SHORT $LN103@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  004aa	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  004b1	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  004b8	eb 32		 jmp	 SHORT $LN133@fillNoiseB
+$LN103@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  004ba	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  004c0	4c 8d 4d 87	 lea	 r9, QWORD PTR ys$[rbp-201]
+  004c4	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  004ca	8b d0		 mov	 edx, eax
+  004cc	ff c0		 inc	 eax
+  004ce	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  004d4	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  004da	85 c0		 test	 eax, eax
+  004dc	74 13		 je	 SHORT $LN102@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  004de	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  004e5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN133@fillNoiseB:
+  004ec	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN102@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  004f1	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  004f8	48 85 c9	 test	 rcx, rcx
+  004fb	75 10		 jne	 SHORT $LN107@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  004fd	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00504	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0050b	eb 32		 jmp	 SHORT $LN134@fillNoiseB
+$LN107@fillNoiseB:
+
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0050d	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00513	4c 8d 4d 97	 lea	 r9, QWORD PTR zs$[rbp-201]
+  00517	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0051d	8b d0		 mov	 edx, eax
+  0051f	ff c0		 inc	 eax
+  00521	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00527	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0052d	85 c0		 test	 eax, eax
+  0052f	74 13		 je	 SHORT $LN106@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00531	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00538	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN134@fillNoiseB:
+  0053f	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN106@fillNoiseB:
+
+; 231  : }
+; 232  : 
+; 233  : bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
+; 234  : {
+; 235  : 	if(!preparedKernel)
+
+  00544	48 8b 15 28 00
+	00 00		 mov	 rdx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0054b	48 85 d2	 test	 rdx, rdx
+  0054e	75 15		 jne	 SHORT $LN111@fillNoiseB
+
+; 236  : 	{
+; 237  : 		GLWindow::instance->postError("Tried to execute unprepared kernel", "OpenCL program execution error");
+
+  00550	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952795
+  00557	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952794
+  0055e	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 238  : 		return false;
+
+  00563	eb 78		 jmp	 SHORT $LN118@fillNoiseB
+$LN111@fillNoiseB:
+
+; 239  : 	}
+; 240  : 
+; 241  : 	cl_int error;
+; 242  : 	cl_event event;
+; 243  : 
+; 244  : 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
+
+  00565	48 8b 0e	 mov	 rcx, QWORD PTR [rsi]
+  00568	48 8d 45 9f	 lea	 rax, QWORD PTR event$1[rbp-201]
+  0056c	45 33 c9	 xor	 r9d, r9d
+  0056f	48 89 44 24 40	 mov	 QWORD PTR [rsp+64], rax
+  00574	4c 89 74 24 38	 mov	 QWORD PTR [rsp+56], r14
+  00579	48 8d 45 df	 lea	 rax, QWORD PTR local_ws$[rbp-201]
+  0057d	44 89 74 24 30	 mov	 DWORD PTR [rsp+48], r14d
+  00582	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00587	48 8d 45 c7	 lea	 rax, QWORD PTR global_ws$[rbp-201]
+  0058b	45 8d 41 03	 lea	 r8d, QWORD PTR [r9+3]
+  0058f	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00594	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clEnqueueNDRangeKernel
+
+; 245  : 	if(error != CL_SUCCESS)
+
+  0059a	85 c0		 test	 eax, eax
+  0059c	74 15		 je	 SHORT $LN110@fillNoiseB
+
+; 246  : 	{
+; 247  : 		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
+
+  0059e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952793
+  005a5	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952792
+  005ac	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 248  : 		return false;
+
+  005b1	eb 2a		 jmp	 SHORT $LN118@fillNoiseB
+$LN110@fillNoiseB:
+
+; 249  : 	}
+; 250  : 
+; 251  : 	queue.addSyncEvent(event);
+
+  005b3	48 8b 55 9f	 mov	 rdx, QWORD PTR event$1[rbp-201]
+  005b7	48 8b ce	 mov	 rcx, rsi
+  005ba	e8 00 00 00 00	 call	 ?addSyncEvent@CommandQueue@cl@@QEAAXPEAU_cl_event@@@Z ; cl::CommandQueue::addSyncEvent
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  005bf	48 8d 0d 18 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A+24
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 253  : 	preparedKernel = 0;
+
+  005c6	4c 89 35 28 00
+	00 00		 mov	 QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40, r14
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  005cd	e8 00 00 00 00	 call	 _Mtx_unlock
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  005d2	85 c0		 test	 eax, eax
+  005d4	74 07		 je	 SHORT $LN118@fillNoiseB
+
+; 33   : 		_Throw_C_error(_Res);
+
+  005d6	8b c8		 mov	 ecx, eax
+  005d8	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+$LN118@fillNoiseB:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 395  : }
+
+  005dd	48 8b 4d f7	 mov	 rcx, QWORD PTR __$ArrayPad$[rbp-201]
+  005e1	48 33 cc	 xor	 rcx, rsp
+  005e4	e8 00 00 00 00	 call	 __security_check_cookie
+  005e9	4c 8d 9c 24 d0
+	00 00 00	 lea	 r11, QWORD PTR [rsp+208]
+  005f1	49 8b 5b 20	 mov	 rbx, QWORD PTR [r11+32]
+  005f5	49 8b 73 38	 mov	 rsi, QWORD PTR [r11+56]
+  005f9	49 8b e3	 mov	 rsp, r11
+  005fc	41 5e		 pop	 r14
+  005fe	5f		 pop	 rdi
+  005ff	5d		 pop	 rbp
+  00600	c3		 ret	 0
+?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z ENDP ; Noise::NoiseGenerator3D::fillNoiseBufferWithSmoothness
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z
+_TEXT	SEGMENT
+$T1 = 32
+this$ = 64
+sizeExponent$dead$ = 72
+octaves$dead$ = 80
+smoothness$ = 88
+seed$ = 96
+??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z PROC		; Noise::NoiseGenerator2D::NoiseGenerator2D, COMDAT
+
+; 143  : {
+
+$LN13:
+  00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
+  00005	57		 push	 rdi
+  00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
+  0000a	48 c7 44 24 20
+	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
+  00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
+  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
+  0001d	48 8b f9	 mov	 rdi, rcx
+  00020	c7 01 08 00 00
+	00		 mov	 DWORD PTR [rcx], 8
+  00026	c7 41 04 00 01
+	00 00		 mov	 DWORD PTR [rcx+4], 256	; 00000100H
+  0002d	c7 41 08 0c 00
+	00 00		 mov	 DWORD PTR [rcx+8], 12
+  00034	f3 0f 11 59 0c	 movss	 DWORD PTR [rcx+12], xmm3
+  00039	8b 5c 24 60	 mov	 ebx, DWORD PTR seed$[rsp]
+  0003d	89 59 10	 mov	 DWORD PTR [rcx+16], ebx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 261  : {
+
+  00040	c6 41 18 00	 mov	 BYTE PTR [rcx+24], 0
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 143  : {
+
+  00044	8b 41 04	 mov	 eax, DWORD PTR [rcx+4]
+  00047	0f af c0	 imul	 eax, eax
+  0004a	48 63 c8	 movsxd	 rcx, eax
+  0004d	e8 00 00 00 00	 call	 ??_U@YAPEAX_K@Z		; operator new[]
+  00052	48 89 47 30	 mov	 QWORD PTR [rdi+48], rax
+
+; 144  : 	srand(seed);
+
+  00056	8b cb		 mov	 ecx, ebx
+  00058	e8 00 00 00 00	 call	 srand
+
+; 145  : 	for(int i = 0; i < size * size; i++)
+
+  0005d	33 db		 xor	 ebx, ebx
+  0005f	8b 47 04	 mov	 eax, DWORD PTR [rdi+4]
+  00062	8b f3		 mov	 esi, ebx
+  00064	0f af c0	 imul	 eax, eax
+  00067	85 c0		 test	 eax, eax
+  00069	7e 23		 jle	 SHORT $LN12@NoiseGener
+  0006b	0f 1f 44 00 00	 npad	 5
+$LL3@NoiseGener:
+
+; 146  : 	{
+; 147  : 		noiseMap[i] = rand() & 1;
+
+  00070	e8 00 00 00 00	 call	 rand
+  00075	24 01		 and	 al, 1
+  00077	48 8b 4f 30	 mov	 rcx, QWORD PTR [rdi+48]
+  0007b	88 04 0e	 mov	 BYTE PTR [rsi+rcx], al
+
+; 145  : 	for(int i = 0; i < size * size; i++)
+
+  0007e	ff c3		 inc	 ebx
+  00080	48 8d 76 01	 lea	 rsi, QWORD PTR [rsi+1]
+  00084	8b 47 04	 mov	 eax, DWORD PTR [rdi+4]
+  00087	0f af c0	 imul	 eax, eax
+  0008a	3b d8		 cmp	 ebx, eax
+  0008c	7c e2		 jl	 SHORT $LL3@NoiseGener
+$LN12@NoiseGener:
+
+; 148  : 	}
+; 149  : }
+
+  0008e	48 8b c7	 mov	 rax, rdi
+  00091	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  00096	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
+  0009b	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0009f	5f		 pop	 rdi
+  000a0	c3		 ret	 0
+??0NoiseGenerator2D@Noise@@QEAA@HHMI@Z ENDP		; Noise::NoiseGenerator2D::NoiseGenerator2D
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+sizeExponent$dead$ = 72
+octaves$dead$ = 80
+smoothness$ = 88
+seed$ = 96
+?dtor$0@?0???0NoiseGenerator2D@Noise@@QEAA@HHMI@Z@4HA PROC ; `Noise::NoiseGenerator2D::NoiseGenerator2D'::`1'::dtor$0
+  00000	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00007	48 83 c1 18	 add	 rcx, 24
+  0000b	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$0@?0???0NoiseGenerator2D@Noise@@QEAA@HHMI@Z@4HA ENDP ; `Noise::NoiseGenerator2D::NoiseGenerator2D'::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ??1NoiseGenerator2D@Noise@@QEAA@XZ
+_TEXT	SEGMENT
+this$ = 48
+??1NoiseGenerator2D@Noise@@QEAA@XZ PROC			; Noise::NoiseGenerator2D::~NoiseGenerator2D, COMDAT
+
+; 152  : {
+
+$LN9:
+  00000	40 53		 push	 rbx
+  00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
+  00006	48 8b d9	 mov	 rbx, rcx
+
+; 153  : 	delete[] noiseMap;
+
+  00009	48 8b 49 30	 mov	 rcx, QWORD PTR [rcx+48]
+  0000d	e8 00 00 00 00	 call	 ??_V@YAXPEAX@Z		; operator delete[]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 267  : 	if(okay)
+
+  00012	80 7b 18 00	 cmp	 BYTE PTR [rbx+24], 0
+  00016	74 26		 je	 SHORT $LN4@NoiseGener
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  00018	48 8b 4b 20	 mov	 rcx, QWORD PTR [rbx+32]
+  0001c	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  00022	85 c0		 test	 eax, eax
+  00024	74 18		 je	 SHORT $LN4@NoiseGener
+
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  00026	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  0002d	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 154  : }
+
+  00034	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00038	5b		 pop	 rbx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  00039	e9 00 00 00 00	 jmp	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN4@NoiseGener:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 154  : }
+
+  0003e	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00042	5b		 pop	 rbx
+  00043	c3		 ret	 0
+??1NoiseGenerator2D@Noise@@QEAA@XZ ENDP			; Noise::NoiseGenerator2D::~NoiseGenerator2D
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ
+_TEXT	SEGMENT
+error$1 = 64
+this$ = 64
+?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ PROC	; Noise::NoiseGenerator2D::prepareForCL, COMDAT
+
+; 204  : {
+
+$LN7:
+  00000	48 89 5c 24 10	 mov	 QWORD PTR [rsp+16], rbx
+  00005	57		 push	 rdi
+  00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
+
+; 205  : 	noiseMapBuffer.create(sizeof(unsigned char) * size * size, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, noiseMap);
+
+  0000a	48 63 79 04	 movsxd	 rdi, DWORD PTR [rcx+4]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  0000e	4c 8b 49 30	 mov	 r9, QWORD PTR [rcx+48]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 204  : {
+
+  00012	48 8b d9	 mov	 rbx, rcx
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  00015	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?context@cl@@3PEAU_cl_context@@EA ; cl::context
+  0001c	48 8d 44 24 40	 lea	 rax, QWORD PTR error$1[rsp]
+  00021	ba 24 00 00 00	 mov	 edx, 36			; 00000024H
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 205  : 	noiseMapBuffer.create(sizeof(unsigned char) * size * size, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, noiseMap);
+
+  00026	48 0f af ff	 imul	 rdi, rdi
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 280  : 	mem = clCreateBuffer(context, flags, size, data, &error);
+
+  0002a	4c 8b c7	 mov	 r8, rdi
+  0002d	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00032	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clCreateBuffer
+
+; 281  : 	if(error != CL_SUCCESS)
+
+  00038	83 7c 24 40 00	 cmp	 DWORD PTR error$1[rsp], 0
+  0003d	48 89 43 20	 mov	 QWORD PTR [rbx+32], rax
+  00041	74 1e		 je	 SHORT $LN3@prepareFor
+
+; 282  : 	{
+; 283  : 		GLWindow::instance->postError("Failed to create buffer", "OpenCL buffer creation error");
+
+  00043	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952789
+  0004a	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952788
+  00051	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 206  : }
+
+  00056	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0005b	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0005f	5f		 pop	 rdi
+  00060	c3		 ret	 0
+$LN3@prepareFor:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 287  : 	this->size = size;
+
+  00061	48 89 7b 28	 mov	 QWORD PTR [rbx+40], rdi
+
+; 288  : 	okay = true;
+
+  00065	c6 43 18 01	 mov	 BYTE PTR [rbx+24], 1
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 206  : }
+
+  00069	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0006e	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  00072	5f		 pop	 rdi
+  00073	c3		 ret	 0
+?prepareForCL@NoiseGenerator2D@Noise@@QEAAXXZ ENDP	; Noise::NoiseGenerator2D::prepareForCL
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z
+_TEXT	SEGMENT
+event$1 = 80
+local_ws$ = 88
+global_ws$ = 104
+$T2 = 120
+this$ = 176
+queue$ = 184
+buffer$ = 192
+xs$dead$ = 200
+xs$ = 200
+ys$dead$ = 208
+ys$ = 208
+smoothness$ = 216
+x$ = 224
+y$ = 232
+xd$ = 240
+yd$ = 248
+?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z PROC ; Noise::NoiseGenerator2D::fillNoiseBuffer, COMDAT
+
+; 214  : {
+
+$LN119:
+  00000	48 8b c4	 mov	 rax, rsp
+  00003	48 89 58 08	 mov	 QWORD PTR [rax+8], rbx
+  00007	48 89 68 10	 mov	 QWORD PTR [rax+16], rbp
+  0000b	48 89 70 18	 mov	 QWORD PTR [rax+24], rsi
+  0000f	44 89 48 20	 mov	 DWORD PTR [rax+32], r9d
+  00013	57		 push	 rdi
+  00014	48 81 ec a0 00
+	00 00		 sub	 rsp, 160		; 000000a0H
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  0001b	33 ed		 xor	 ebp, ebp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 214  : {
+
+  0001d	49 8b d8	 mov	 rbx, r8
+  00020	48 8b f2	 mov	 rsi, rdx
+  00023	48 8b f9	 mov	 rdi, rcx
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  00026	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294904949
+  0002d	44 8d 45 11	 lea	 r8d, QWORD PTR [rbp+17]
+  00031	48 8d 48 d0	 lea	 rcx, QWORD PTR [rax-48]
+  00035	c7 40 28 12 00
+	00 00		 mov	 DWORD PTR [rax+40], 18
+  0003c	c7 40 20 12 00
+	00 00		 mov	 DWORD PTR [rax+32], 18
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 215  : 	const size_t local_ws[] = {1, 1};
+
+  00043	48 c7 40 b0 01
+	00 00 00	 mov	 QWORD PTR [rax-80], 1
+  0004b	48 c7 40 b8 01
+	00 00 00	 mov	 QWORD PTR [rax-72], 1
+
+; 216  : 	const size_t global_ws[] = {xs, ys};
+
+  00053	48 c7 40 c0 12
+	00 00 00	 mov	 QWORD PTR [rax-64], 18
+  0005b	48 c7 40 c8 12
+	00 00 00	 mov	 QWORD PTR [rax-56], 18
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
+
+  00063	48 c7 40 e8 0f
+	00 00 00	 mov	 QWORD PTR [rax-24], 15
+
+; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
+
+  0006b	48 89 68 e0	 mov	 QWORD PTR [rax-32], rbp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+
+; 564  : 		_Left = _Right;
+
+  0006f	40 88 68 d0	 mov	 BYTE PTR [rax-48], bpl
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+
+; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
+
+  00073	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 218  : 	noiseProgram.prepare("fillNoiseBuffer2d");
+
+  00078	48 8d 54 24 78	 lea	 rdx, QWORD PTR $T2[rsp]
+  0007d	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  00084	e8 00 00 00 00	 call	 ?prepare@Program@cl@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; cl::Program::prepare
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 214  : 	if(!preparedKernel)
+
+  00089	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00090	48 85 c9	 test	 rcx, rcx
+  00093	75 10		 jne	 SHORT $LN51@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00095	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0009c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  000a3	eb 32		 jmp	 SHORT $LN107@fillNoiseB
+$LN51@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000a5	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  000ab	4c 8d 4b 08	 lea	 r9, QWORD PTR [rbx+8]
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000af	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  000b5	8b d0		 mov	 edx, eax
+  000b7	ff c0		 inc	 eax
+  000b9	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  000bf	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  000c5	85 c0		 test	 eax, eax
+  000c7	74 13		 je	 SHORT $LN50@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  000c9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  000d0	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN107@fillNoiseB:
+  000d7	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN50@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  000dc	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  000e3	48 85 c9	 test	 rcx, rcx
+  000e6	75 10		 jne	 SHORT $LN57@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  000e8	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  000ef	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  000f6	eb 32		 jmp	 SHORT $LN108@fillNoiseB
+$LN57@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  000f8	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+
+; 223  : 		return false;
+; 224  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+
+  000fe	4c 8d 4f 20	 lea	 r9, QWORD PTR [rdi+32]
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00102	41 b8 08 00 00
+	00		 mov	 r8d, 8
+  00108	8b d0		 mov	 edx, eax
+  0010a	ff c0		 inc	 eax
+  0010c	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00112	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00118	85 c0		 test	 eax, eax
+  0011a	74 13		 je	 SHORT $LN56@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0011c	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00123	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN108@fillNoiseB:
+  0012a	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN56@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0012f	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00136	48 85 c9	 test	 rcx, rcx
+  00139	75 10		 jne	 SHORT $LN61@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0013b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00142	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00149	eb 31		 jmp	 SHORT $LN109@fillNoiseB
+$LN61@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0014b	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00151	4c 8b cf	 mov	 r9, rdi
+  00154	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0015a	8b d0		 mov	 edx, eax
+  0015c	ff c0		 inc	 eax
+  0015e	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00164	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0016a	85 c0		 test	 eax, eax
+  0016c	74 13		 je	 SHORT $LN60@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0016e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00175	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN109@fillNoiseB:
+  0017c	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN60@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00181	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00188	48 85 c9	 test	 rcx, rcx
+  0018b	75 10		 jne	 SHORT $LN65@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0018d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00194	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0019b	eb 36		 jmp	 SHORT $LN110@fillNoiseB
+$LN65@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0019d	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  001a3	4c 8d 8c 24 d8
+	00 00 00	 lea	 r9, QWORD PTR smoothness$[rsp]
+  001ab	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  001b1	8b d0		 mov	 edx, eax
+  001b3	ff c0		 inc	 eax
+  001b5	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  001bb	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  001c1	85 c0		 test	 eax, eax
+  001c3	74 13		 je	 SHORT $LN64@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  001c5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  001cc	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN110@fillNoiseB:
+  001d3	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN64@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  001d8	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  001df	48 85 c9	 test	 rcx, rcx
+  001e2	75 10		 jne	 SHORT $LN69@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  001e4	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  001eb	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  001f2	eb 32		 jmp	 SHORT $LN111@fillNoiseB
+$LN69@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  001f4	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 223  : 	noiseProgram.setArgument(sizeof(unsigned int), &octaves);
+
+  001fa	4c 8d 4f 08	 lea	 r9, QWORD PTR [rdi+8]
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  001fe	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00204	8b d0		 mov	 edx, eax
+  00206	ff c0		 inc	 eax
+  00208	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0020e	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00214	85 c0		 test	 eax, eax
+  00216	74 13		 je	 SHORT $LN68@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00218	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0021f	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN111@fillNoiseB:
+  00226	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN68@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  0022b	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00232	48 85 c9	 test	 rcx, rcx
+  00235	75 10		 jne	 SHORT $LN73@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00237	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0023e	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  00245	eb 36		 jmp	 SHORT $LN112@fillNoiseB
+$LN73@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  00247	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  0024d	4c 8d 8c 24 e0
+	00 00 00	 lea	 r9, QWORD PTR x$[rsp]
+  00255	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0025b	8b d0		 mov	 edx, eax
+  0025d	ff c0		 inc	 eax
+  0025f	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00265	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0026b	85 c0		 test	 eax, eax
+  0026d	74 13		 je	 SHORT $LN72@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0026f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00276	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN112@fillNoiseB:
+  0027d	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN72@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00282	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00289	48 85 c9	 test	 rcx, rcx
+  0028c	75 10		 jne	 SHORT $LN77@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0028e	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00295	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0029c	eb 36		 jmp	 SHORT $LN113@fillNoiseB
+$LN77@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0029e	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  002a4	4c 8d 8c 24 e8
+	00 00 00	 lea	 r9, QWORD PTR y$[rsp]
+  002ac	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  002b2	8b d0		 mov	 edx, eax
+  002b4	ff c0		 inc	 eax
+  002b6	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  002bc	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  002c2	85 c0		 test	 eax, eax
+  002c4	74 13		 je	 SHORT $LN76@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  002c6	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  002cd	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN113@fillNoiseB:
+  002d4	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN76@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  002d9	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  002e0	48 85 c9	 test	 rcx, rcx
+  002e3	75 10		 jne	 SHORT $LN81@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  002e5	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  002ec	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  002f3	eb 36		 jmp	 SHORT $LN114@fillNoiseB
+$LN81@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  002f5	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  002fb	4c 8d 8c 24 f0
+	00 00 00	 lea	 r9, QWORD PTR xd$[rsp]
+  00303	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00309	8b d0		 mov	 edx, eax
+  0030b	ff c0		 inc	 eax
+  0030d	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00313	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00319	85 c0		 test	 eax, eax
+  0031b	74 13		 je	 SHORT $LN80@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  0031d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00324	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN114@fillNoiseB:
+  0032b	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN80@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00330	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  00337	48 85 c9	 test	 rcx, rcx
+  0033a	75 10		 jne	 SHORT $LN85@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  0033c	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  00343	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  0034a	eb 36		 jmp	 SHORT $LN115@fillNoiseB
+$LN85@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  0034c	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00352	4c 8d 8c 24 f8
+	00 00 00	 lea	 r9, QWORD PTR yd$[rsp]
+  0035a	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  00360	8b d0		 mov	 edx, eax
+  00362	ff c0		 inc	 eax
+  00364	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  0036a	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  00370	85 c0		 test	 eax, eax
+  00372	74 13		 je	 SHORT $LN84@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00374	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  0037b	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN115@fillNoiseB:
+  00382	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN84@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  00387	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0038e	48 85 c9	 test	 rcx, rcx
+  00391	75 10		 jne	 SHORT $LN89@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  00393	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  0039a	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  003a1	eb 36		 jmp	 SHORT $LN116@fillNoiseB
+$LN89@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  003a3	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  003a9	4c 8d 8c 24 c8
+	00 00 00	 lea	 r9, QWORD PTR xs$[rsp]
+  003b1	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  003b7	8b d0		 mov	 edx, eax
+  003b9	ff c0		 inc	 eax
+  003bb	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  003c1	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  003c7	85 c0		 test	 eax, eax
+  003c9	74 13		 je	 SHORT $LN88@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  003cb	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  003d2	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN116@fillNoiseB:
+  003d9	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN88@fillNoiseB:
+
+; 214  : 	if(!preparedKernel)
+
+  003de	48 8b 0d 28 00
+	00 00		 mov	 rcx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  003e5	48 85 c9	 test	 rcx, rcx
+  003e8	75 10		 jne	 SHORT $LN93@fillNoiseB
+
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+
+  003ea	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952799
+  003f1	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952798
+
+; 217  : 		return false;
+
+  003f8	eb 36		 jmp	 SHORT $LN117@fillNoiseB
+$LN93@fillNoiseB:
+
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
+
+  003fa	8b 05 20 00 00
+	00		 mov	 eax, DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32
+  00400	4c 8d 8c 24 d0
+	00 00 00	 lea	 r9, QWORD PTR ys$[rsp]
+  00408	41 b8 04 00 00
+	00		 mov	 r8d, 4
+  0040e	8b d0		 mov	 edx, eax
+  00410	ff c0		 inc	 eax
+  00412	89 05 20 00 00
+	00		 mov	 DWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+32, eax
+  00418	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clSetKernelArg
+
+; 220  : 	if(error != CL_SUCCESS)
+
+  0041e	85 c0		 test	 eax, eax
+  00420	74 13		 je	 SHORT $LN92@fillNoiseB
+
+; 221  : 	{
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+
+  00422	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952797
+  00429	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952796
+$LN117@fillNoiseB:
+  00430	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+$LN92@fillNoiseB:
+
+; 231  : }
+; 232  : 
+; 233  : bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
+; 234  : {
+; 235  : 	if(!preparedKernel)
+
+  00435	48 8b 15 28 00
+	00 00		 mov	 rdx, QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40
+  0043c	48 85 d2	 test	 rdx, rdx
+  0043f	75 15		 jne	 SHORT $LN97@fillNoiseB
+
+; 236  : 	{
+; 237  : 		GLWindow::instance->postError("Tried to execute unprepared kernel", "OpenCL program execution error");
+
+  00441	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952795
+  00448	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952794
+  0044f	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 238  : 		return false;
+
+  00454	eb 7b		 jmp	 SHORT $LN104@fillNoiseB
+$LN97@fillNoiseB:
+
+; 239  : 	}
+; 240  : 
+; 241  : 	cl_int error;
+; 242  : 	cl_event event;
+; 243  : 
+; 244  : 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
+
+  00456	48 8b 0e	 mov	 rcx, QWORD PTR [rsi]
+  00459	48 8d 44 24 50	 lea	 rax, QWORD PTR event$1[rsp]
+  0045e	45 33 c9	 xor	 r9d, r9d
+  00461	48 89 44 24 40	 mov	 QWORD PTR [rsp+64], rax
+  00466	48 89 6c 24 38	 mov	 QWORD PTR [rsp+56], rbp
+  0046b	48 8d 44 24 58	 lea	 rax, QWORD PTR local_ws$[rsp]
+  00470	89 6c 24 30	 mov	 DWORD PTR [rsp+48], ebp
+  00474	48 89 44 24 28	 mov	 QWORD PTR [rsp+40], rax
+  00479	48 8d 44 24 68	 lea	 rax, QWORD PTR global_ws$[rsp]
+  0047e	45 8d 41 02	 lea	 r8d, QWORD PTR [r9+2]
+  00482	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00487	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clEnqueueNDRangeKernel
+
+; 245  : 	if(error != CL_SUCCESS)
+
+  0048d	85 c0		 test	 eax, eax
+  0048f	74 15		 je	 SHORT $LN96@fillNoiseB
+
+; 246  : 	{
+; 247  : 		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
+
+  00491	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952793
+  00498	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952792
+  0049f	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+
+; 248  : 		return false;
+
+  004a4	eb 2b		 jmp	 SHORT $LN104@fillNoiseB
+$LN96@fillNoiseB:
+
+; 249  : 	}
+; 250  : 
+; 251  : 	queue.addSyncEvent(event);
+
+  004a6	48 8b 54 24 50	 mov	 rdx, QWORD PTR event$1[rsp]
+  004ab	48 8b ce	 mov	 rcx, rsi
+  004ae	e8 00 00 00 00	 call	 ?addSyncEvent@CommandQueue@cl@@QEAAXPEAU_cl_event@@@Z ; cl::CommandQueue::addSyncEvent
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  004b3	48 8d 0d 18 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A+24
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 253  : 	preparedKernel = 0;
+
+  004ba	48 89 2d 28 00
+	00 00		 mov	 QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+40, rbp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  004c1	e8 00 00 00 00	 call	 _Mtx_unlock
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  004c6	85 c0		 test	 eax, eax
+  004c8	74 07		 je	 SHORT $LN104@fillNoiseB
+
+; 33   : 		_Throw_C_error(_Res);
+
+  004ca	8b c8		 mov	 ecx, eax
+  004cc	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+$LN104@fillNoiseB:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 231  : }
+
+  004d1	4c 8d 9c 24 a0
+	00 00 00	 lea	 r11, QWORD PTR [rsp+160]
+  004d9	49 8b 5b 10	 mov	 rbx, QWORD PTR [r11+16]
+  004dd	49 8b 6b 18	 mov	 rbp, QWORD PTR [r11+24]
+  004e1	49 8b 73 20	 mov	 rsi, QWORD PTR [r11+32]
+  004e5	49 8b e3	 mov	 rsp, r11
+  004e8	5f		 pop	 rdi
+  004e9	c3		 ret	 0
+?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ENDP ; Noise::NoiseGenerator2D::fillNoiseBuffer
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ?staticInit@Noise@@YAXXZ
+_TEXT	SEGMENT
+$T1 = 32
+?staticInit@Noise@@YAXXZ PROC				; Noise::staticInit, COMDAT
+
+; 20   : {
+
+$LN5:
+  00000	48 83 ec 48	 sub	 rsp, 72			; 00000048H
+
+; 21   : 	Noise::noiseProgram.create(IOUtil::EXE_DIR + L"\\programs\\noise.cl");
+
+  00004	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294904952
+  0000b	48 8d 4c 24 20	 lea	 rcx, QWORD PTR $T1[rsp]
+  00010	e8 00 00 00 00	 call	 ??$?H_WU?$char_traits@_W@std@@V?$allocator@_W@1@@std@@YA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@AEBV10@PEB_W@Z ; std::operator+<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
+  00015	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  0001c	48 8b d0	 mov	 rdx, rax
+  0001f	e8 00 00 00 00	 call	 ?create@Program@cl@@QEAA_NV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; cl::Program::create
+
+; 22   : }
+
+  00024	48 83 c4 48	 add	 rsp, 72			; 00000048H
+  00028	c3		 ret	 0
+?staticInit@Noise@@YAXXZ ENDP				; Noise::staticInit
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xtree
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+;	COMDAT ??__EnoiseProgram@Noise@@YAXXZ
+text$yc	SEGMENT
+$T1 = 32
+??__EnoiseProgram@Noise@@YAXXZ PROC			; Noise::`dynamic initializer for 'noiseProgram'', COMDAT
+
+; 11   : cl::Program Noise::noiseProgram;
+
+  00000	48 83 ec 38	 sub	 rsp, 56			; 00000038H
+  00004	48 c7 44 24 20
+	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xtree
+
+; 778  : 		this->_Myhead = _Buyheadnode();
+
+  0000d	e8 00 00 00 00	 call	 ?_Buyheadnode@?$_Tree_alloc@$0A@U?$_Tree_base_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAU_cl_kernel@@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAU_cl_kernel@@@std@@@2@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAU_cl_kernel@@@std@@PEAX@2@XZ ; std::_Tree_alloc<0,std::_Tree_base_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,_cl_kernel * __ptr64>,std::allocator<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,_cl_kernel * __ptr64> > > >::_Buyheadnode
+  00012	48 89 05 08 00
+	00 00		 mov	 QWORD PTR ?noiseProgram@Noise@@3VProgram@cl@@A+8, rax
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
+
+  00019	ba 02 00 00 00	 mov	 edx, 2
+  0001e	48 8d 0d 18 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A+24
+  00025	e8 00 00 00 00	 call	 _Mtx_init
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  0002a	85 c0		 test	 eax, eax
+  0002c	74 07		 je	 SHORT $LN31@dynamic
+
+; 33   : 		_Throw_C_error(_Res);
+
+  0002e	8b c8		 mov	 ecx, eax
+  00030	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+$LN31@dynamic:
+; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+
+; 97   : {
+
+  00035	c6 05 30 00 00
+	00 00		 mov	 BYTE PTR ?noiseProgram@Noise@@3VProgram@cl@@A+48, 0
+; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+
+; 11   : cl::Program Noise::noiseProgram;
+
+  0003c	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:??__FnoiseProgram@Noise@@YAXXZ ; Noise::`dynamic atexit destructor for 'noiseProgram''
+  00043	48 83 c4 38	 add	 rsp, 56			; 00000038H
+  00047	e9 00 00 00 00	 jmp	 atexit
+??__EnoiseProgram@Noise@@YAXXZ ENDP			; Noise::`dynamic initializer for 'noiseProgram''
+text$yc	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+?dtor$0@?0???__EnoiseProgram@Noise@@YAXXZ@4HA PROC	; `Noise::`dynamic initializer for 'noiseProgram'''::`1'::dtor$0
+  00000	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  00007	48 83 c1 08	 add	 rcx, 8
+  0000b	e9 00 00 00 00	 jmp	 ??1?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAU_cl_kernel@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAU_cl_kernel@@@std@@@2@@std@@QEAA@XZ
+?dtor$0@?0???__EnoiseProgram@Noise@@YAXXZ@4HA ENDP	; `Noise::`dynamic initializer for 'noiseProgram'''::`1'::dtor$0
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT ??__FnoiseProgram@Noise@@YAXXZ
+text$yd	SEGMENT
+??__FnoiseProgram@Noise@@YAXXZ PROC			; Noise::`dynamic atexit destructor for 'noiseProgram'', COMDAT
+  00000	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
+  00007	e9 00 00 00 00	 jmp	 ??1Program@cl@@QEAA@XZ	; cl::Program::~Program
+??__FnoiseProgram@Noise@@YAXXZ ENDP			; Noise::`dynamic atexit destructor for 'noiseProgram''
+text$yd	ENDS
 END

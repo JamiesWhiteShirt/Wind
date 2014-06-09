@@ -6,7 +6,7 @@ cl_platform_id cl::platform;
 cl_device_id cl::device;
 cl_context cl::context;
 
-bool cl::load()
+bool cl::staticInit()
 {
 	cl_uint num_platforms;
 	cl_int error = 0;
@@ -63,6 +63,35 @@ bool cl::CommandQueue::create()
 	return true;
 }
 
+bool cl::CommandQueue::sync()
+{
+	cl_int error = clWaitForEvents(lastEvents.size(), &lastEvents[0]);
+	if(error != CL_SUCCESS)
+	{
+		GLWindow::instance->postError("Failed to wait for events to finish", "OpenCL sync error");
+		return false;
+	}
+
+	for(auto iter = lastEvents.begin(); iter != lastEvents.end(); ++iter)
+	{
+		error = clReleaseEvent(*iter);
+		if(error != CL_SUCCESS)
+		{
+			GLWindow::instance->postError("Failed to release event", "OpenCL sync error");
+			return false;
+		}
+	}
+
+	lastEvents.clear();
+
+	return true;
+}
+
+void cl::CommandQueue::addSyncEvent(cl_event event)
+{
+	lastEvents.push_back(event);
+}
+
 cl::Program::Program()
 	: okay(false)
 {
@@ -70,7 +99,7 @@ cl::Program::Program()
 }
 
 cl::Program::Program(std::wstring fileName)
-	: okay(false), preparedKernel(0)
+	: okay(false), preparedKernel(0), argIndex(0)
 {
 	create(fileName);
 }
@@ -129,6 +158,7 @@ cl::Program::~Program()
 			if(error != CL_SUCCESS)
 			{
 				GLWindow::instance->postError("Could not release kernel", "OpenCL program deletion error");
+				return;
 			}
 		}
 		error = clReleaseProgram(program);
@@ -169,22 +199,24 @@ bool cl::Program::prepare(std::string kernel)
 	{
 		mut.lock();
 		preparedKernel = k;
+		argIndex = 0;
 		return true;
 	}
 	else
 	{
+		GLWindow::instance->postError("Could not prepare kernel for execution", "OpenCL kernel error");
 		return false;
 	}
 }
 
-bool cl::Program::setArgument(int index, size_t size, const void* value)
+bool cl::Program::setArgument(size_t size, const void* value)
 {
 	if(!preparedKernel)
 	{
 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
 		return false;
 	}
-	cl_int error = clSetKernelArg(preparedKernel, index, size, value);
+	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
 	if(error != CL_SUCCESS)
 	{
 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
@@ -193,9 +225,9 @@ bool cl::Program::setArgument(int index, size_t size, const void* value)
 	return true;
 }
 
-bool cl::Program::setArgument(int index, size_t size, Buffer* value)
+bool cl::Program::setArgument(size_t size, Buffer* value)
 {
-	return setArgument(index, size, &value->mem);
+	return setArgument(size, &value->mem);
 }
 
 bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
@@ -216,19 +248,7 @@ bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* 
 		return false;
 	}
 
-	error = clWaitForEvents(1, &event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to wait for kernel finish event", "OpenCL program execution error");
-		return false;
-	}
-
-	error = clReleaseEvent(event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to release kernel finish event", "OpenCL program execution error");
-		return false;
-	}
+	queue.addSyncEvent(event);
 
 	preparedKernel = 0;
 	mut.unlock();
@@ -282,19 +302,7 @@ bool cl::Buffer::write(CommandQueue& queue, size_t offset, size_t cb, const void
 		return false;
 	}
 
-	error = clWaitForEvents(1, &event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to wait for kernel finish event", "OpenCL program execution error");
-		return false;
-	}
-
-	error = clReleaseEvent(event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to release kernel finish event", "OpenCL program execution error");
-		return false;
-	}
+	queue.addSyncEvent(event);
 
 	return true;
 }
@@ -317,19 +325,7 @@ bool cl::Buffer::read(CommandQueue& queue, size_t offset, size_t cb, void* data)
 		return false;
 	}
 
-	error = clWaitForEvents(1, &event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to wait for kernel finish event", "OpenCL program execution error");
-		return false;
-	}
-
-	error = clReleaseEvent(event);
-	if(error != CL_SUCCESS)
-	{
-		GLWindow::instance->postError("Failed to release kernel finish event", "OpenCL program execution error");
-		return false;
-	}
+	queue.addSyncEvent(event);
 
 	return true;
 }
@@ -337,4 +333,22 @@ bool cl::Buffer::read(CommandQueue& queue, size_t offset, size_t cb, void* data)
 bool cl::Buffer::read(CommandQueue& queue, void* data)
 {
 	return read(queue, 0, size, data);
+}
+
+bool cl::Buffer::copyTo(CommandQueue& queue, Buffer& buffer)
+{
+	if(!okay) return false;
+	
+	cl_event event;
+
+	cl_int error = clEnqueueCopyBuffer(queue.queue, mem, buffer.mem, 0, 0, size, 0, nullptr, &event);
+	if(error != CL_SUCCESS)
+	{
+		GLWindow::instance->postError("Failed to copy buffer", "OpenCL buffer copy error");
+		return false;
+	}
+
+	queue.addSyncEvent(event);
+
+	return true;
 }

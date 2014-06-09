@@ -79,19 +79,26 @@ class Block
 private:
 
 protected:
-	Block(unsigned short id, BLOCK_RENDER_FUNC firstPassRenderer, BLOCK_RENDER_FUNC secondPassRenderer);
+	gfxu::TiledTexture::Icon* icon;
+	std::wstring texturePath;
+
+	Block(unsigned short id, std::wstring texture, BLOCK_RENDER_FUNC firstPassRenderer, BLOCK_RENDER_FUNC secondPassRenderer);
 public:
 	const unsigned short id;
 	BLOCK_RENDER_FUNC firstPassRenderer;
 	BLOCK_RENDER_FUNC secondPassRenderer;
 
-	Block(unsigned short id);
+	Block(unsigned short id, std::wstring texture);
 	~Block();
 
+	virtual void registerIcons(gfxu::TiledTexture* texture);
+
+	virtual gfxu::TiledTexture::Icon* getIcon(World* world, int x, int y, int z, const BlockFace* face);
+
 	virtual bool solidCube(World* world, int x, int y, int z);
-	virtual bool solidFace(World* world, int x, int y, int z, BlockFace* face);
-	virtual bool solidEdge(World* world, int x, int y, int z, BlockEdge* edge);
-	virtual bool solidCorner(World* world, int x, int y, int z, BlockCorner* edge);
+	virtual bool solidFace(World* world, int x, int y, int z, const BlockFace* face);
+	virtual bool solidEdge(World* world, int x, int y, int z, const BlockEdge* edge);
+	virtual bool solidCorner(World* world, int x, int y, int z, const BlockCorner* edge);
 };
 
 class BlockAir : public Block
@@ -105,9 +112,23 @@ public:
 class BlockFluid : public Block
 {
 public:
-	BlockFluid(unsigned short id);
+	BlockFluid(unsigned short id, std::wstring texture);
 	
 	virtual bool solidCube(World* world, int x, int y, int z);
+};
+
+class BlockGrass : public Block
+{
+private:
+	gfxu::TiledTexture::Icon* iconTop;
+	gfxu::TiledTexture::Icon* iconBottom;
+
+public:
+	BlockGrass(unsigned short id, std::wstring texture);
+
+	virtual void registerIcons(gfxu::TiledTexture* texture);
+
+	virtual gfxu::TiledTexture::Icon* getIcon(World* world, int x, int y, int z, const BlockFace* face);
 };
 
 namespace Blocks
@@ -117,7 +138,12 @@ namespace Blocks
 	extern BlockAir* air;
 	extern Block* stone;
 	extern BlockFluid* water;
+	extern Block* dirt;
+	extern BlockGrass* grass;
+	extern Block* fineGravel;
+	extern Block* gravel;
+	extern Block* sand;
 
-	void initialize();
+	void staticInit();
 	void destroy();
 };

@@ -6,6 +6,8 @@
 
 using namespace gfxu;
 
+gfxu::TiledTexture* RenderThread::blocksTexture;
+
 bool RenderThread::skipRender = true;
 
 cl::CommandQueue commandQueue;
@@ -22,9 +24,8 @@ gfxu::ShaderProgram* normalShaderProgram;
 gfxu::VertexShader* noTexVShader;
 gfxu::FragmentShader* noTexFShader;
 gfxu::ShaderProgram* noTexShaderProgram;
-gfxu::Texture2D* testure;
 
-const int renderDistance = 8;
+const int renderDistance = 10;
 bool bGrid[renderDistance * 2 + 1][renderDistance * 2 + 1][renderDistance * 2 + 1];
 
 bool RenderThread::tick()
@@ -67,42 +68,37 @@ bool RenderThread::tick()
 	gfxu::Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.y, 0.0f, 1.0f, 0.0f));
 	gfxu::Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.z, 0.0f, 0.0f, 1.0f));
 	gfxu::Uniforms::PMS.mult(geom::Matrix::translate(-state->cam.pos.x, -state->cam.pos.y, -state->cam.pos.z));
-		
-	testure->bind();
 
 	float cScale = 1.0f + 90.0f / state->FOV;
-	//float cScale = 1.0f;
-	//geom::AxisAlignedCube cube(geom::Vector(-cScale, -cScale, -cScale), geom::Vector(2.0f, 2.0f, 2.0f) * cScale);
 	int xCam = floorf(state->cam.pos.x / 16.0f);
 	int yCam = floorf(state->cam.pos.y / 16.0f);
 	int zCam = floorf(state->cam.pos.z / 16.0f);
 
 	geom::Matrix projectionMatrix = gfxu::Uniforms::PMS.getTopmost();
-	//geom::Matrix projectionMatrix = geom::Matrix::perspective(state->FOV, (float)GLWindow::instance->width / (float)GLWindow::instance->height, 0.1f, 16.0f * renderDistance);// * geom::Matrix::rotate(state->cam.rot.x, 1.0f, 0.0f, 0.0f) * geom::Matrix::rotate(state->cam.rot.y, 0.0f, 1.0f, 0.0f) * geom::Matrix::rotate(state->cam.rot.z, 0.0f, 0.0f, 1.0f);
 	projectionMatrixBuffer.write(commandQueue, projectionMatrix.data);
 
 	const size_t global_ws_1[] = {renderDistance * 2 + 2, renderDistance * 2 + 2, renderDistance * 2 + 2};
 	const size_t local_ws_1[] = {1, 1, 1};
 
-	if(!program.prepare("gridTransform")) GlobalThread::stop = true;
-	if(!program.setArgument(0, sizeof(const unsigned int), &renderDistance)) GlobalThread::stop = true;
-	if(!program.setArgument(1, sizeof(cl_mem), &projectionMatrixBuffer)) GlobalThread::stop = true;
-	if(!program.setArgument(2, sizeof(const int), &xCam)) GlobalThread::stop = true;
-	if(!program.setArgument(3, sizeof(const int), &yCam)) GlobalThread::stop = true;
-	if(!program.setArgument(4, sizeof(const int), &zCam)) GlobalThread::stop = true;
-	if(!program.setArgument(5, sizeof(cl_mem), &boolBuffer)) GlobalThread::stop = true;
-	if(!program.invoke(commandQueue, 3, global_ws_1, local_ws_1)) GlobalThread::stop = true;
+	if(!program.prepare("gridTransform")) return false;
+	if(!program.setArgument(sizeof(const unsigned int), &renderDistance)) return false;
+	if(!program.setArgument(sizeof(cl_mem), &projectionMatrixBuffer)) return false;
+	if(!program.setArgument(sizeof(const int), &xCam)) return false;
+	if(!program.setArgument(sizeof(const int), &yCam)) return false;
+	if(!program.setArgument(sizeof(const int), &zCam)) return false;
+	if(!program.setArgument(sizeof(cl_mem), &boolBuffer)) return false;
+	if(!program.invoke(commandQueue, 3, global_ws_1, local_ws_1)) return false;
 
 	const size_t global_ws_2[] = {renderDistance * 2 + 1, renderDistance * 2 + 1, renderDistance * 2 + 1};
 	const size_t local_ws_2[] = {1, 1, 1};
 
-	if(!program.prepare("arrayInsideCheck")) GlobalThread::stop = true;
-	if(!program.setArgument(0, sizeof(const unsigned int), &renderDistance)) GlobalThread::stop = true;
-	if(!program.setArgument(1, sizeof(cl_mem), &gridBuffer)) GlobalThread::stop = true;
-	if(!program.setArgument(2, sizeof(cl_mem), &boolBuffer)) GlobalThread::stop = true;
-	if(!program.invoke(commandQueue, 3, global_ws_2, local_ws_2)) GlobalThread::stop = true;
+	if(!program.prepare("arrayInsideCheck")) return false;
+	if(!program.setArgument(sizeof(const unsigned int), &renderDistance)) return false;
+	if(!program.setArgument(sizeof(cl_mem), &gridBuffer)) return false;
+	if(!program.setArgument(sizeof(cl_mem), &boolBuffer)) return false;
+	if(!program.invoke(commandQueue, 3, global_ws_2, local_ws_2)) return false;
 
-	if(!gridBuffer.read(commandQueue, bGrid)) GlobalThread::stop = true;
+	if(!gridBuffer.read(commandQueue, bGrid)) return false;
 
 	getError();
 
@@ -141,10 +137,10 @@ bool RenderThread::tick()
 	GlobalThread::world.removalQueueLock.unlock();
 
 	std::vector<shared_ptr<ChunkBase>> chunksToRender;
-	for(map<ChunkPosition, std::shared_ptr<ChunkBase>>::const_iterator iter = GlobalThread::world.chunkMap.begin(); iter != GlobalThread::world.chunkMap.end(); ++iter)
+	for(auto iter = GlobalThread::world.chunkMap.begin(); iter != GlobalThread::world.chunkMap.end(); ++iter)
 	{
 		shared_ptr<ChunkBase> chunk = iter->second;
-		if(!chunk->isEmpty() && chunk->isLoaded())
+		if(!chunk->isEmpty())
 		{
 			if(chunk->pos.x - renderDistance <= xCam && chunk->pos.x + renderDistance >= xCam && chunk->pos.y - renderDistance <= yCam && chunk->pos.y + renderDistance >= yCam && chunk->pos.z - renderDistance <= zCam && chunk->pos.z + renderDistance > zCam)
 			{
@@ -156,30 +152,36 @@ bool RenderThread::tick()
 		}
 	}
 	GlobalThread::world.chunkMapLock.unlock();
-
-	for(int i = 0; i < chunksToRender.size(); i++)
-	{
-		std::shared_ptr<ChunkBase> chunk = chunksToRender[i];
-
-		if(chunk->firstPass != nullptr)
-		{
-			gfxu::Uniforms::MMS.push(geom::Matrix::translate(chunk->pos.x * 16, chunk->pos.y * 16, chunk->pos.z * 16));
-			chunk->firstPass->draw();
-			gfxu::Uniforms::MMS.pop();
-		}
-	}
+	
+	blocksTexture->bind();
 
 	glEnable(GL_BLEND);
 	for(int i = 0; i < chunksToRender.size(); i++)
 	{
 		std::shared_ptr<ChunkBase> chunk = chunksToRender[i];
 
+		chunk->renderMutex.lock();
+		if(chunk->isLoaded() && chunk->firstPass != nullptr)
+		{
+			gfxu::Uniforms::MMS.push(geom::Matrix::translate(chunk->pos.x * 16, chunk->pos.y * 16, chunk->pos.z * 16));
+			chunk->firstPass->draw();
+			gfxu::Uniforms::MMS.pop();
+		}
+		chunk->renderMutex.unlock();
+	}
+
+	for(int i = 0; i < chunksToRender.size(); i++)
+	{
+		std::shared_ptr<ChunkBase> chunk = chunksToRender[i];
+		
+		chunk->renderMutex.lock();
 		if(chunk->secondPass != nullptr)
 		{
 			gfxu::Uniforms::MMS.push(geom::Matrix::translate(chunk->pos.x * 16, chunk->pos.y * 16, chunk->pos.z * 16));
 			chunk->secondPass->draw();
 			gfxu::Uniforms::MMS.pop();
 		}
+		chunk->renderMutex.unlock();
 	}
 
 	noTexShaderProgram->bind();
@@ -203,8 +205,8 @@ bool RenderThread::tick()
 		grid->draw(GL_LINES);
 		gfxu::Uniforms::MMS.pop();
 		glDepthFunc(GL_LEQUAL);
-		glDisable(GL_BLEND);
 	}
+	glDisable(GL_BLEND);
 
 	glFlush();
 	if(gfxu::getError("Graphics thread loop error")) GlobalThread::stop = true;
@@ -277,10 +279,6 @@ void RenderThread::preStart()
 
 	gfxu::Uniforms::reset();
 
-	filePath = IOUtil::EXE_DIR;
-	filePath += L"\\textures\\test.png";
-	testure = new gfxu::Texture2D(filePath, GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
-
 	glClearColor(0.5f, 0.875f, 1.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
@@ -297,7 +295,7 @@ void RenderThread::postStop()
 	delete noTexVShader;
 	delete noTexFShader;
 	delete noTexShaderProgram;
-	delete testure;
+	delete blocksTexture;
 
 	GLWindow::instance->destroyGL();
 }

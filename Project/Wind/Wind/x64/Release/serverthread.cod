@@ -121,7 +121,7 @@ ignore	DB	01H DUP (?)
 allocator_arg DB 01H DUP (?)
 	ALIGN	4
 
-?world@ServerThread@@3VWorld@@A DB 0a8H DUP (?)		; ServerThread::world
+?world@ServerThread@@3VWorld@@A DB 0e8H DUP (?)		; ServerThread::world
 ?thread@ServerThread@@3V0std@@A DB 010H DUP (?)		; ServerThread::thread
 ?taskList@ServerThread@@3V?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@A DB 0818H DUP (?) ; ServerThread::taskList
 piecewise_construct DB 01H DUP (?)

@@ -6,7 +6,7 @@ namespace IOUtil
 {
 	extern std::wstring EXE_DIR;
 
-	void init();
+	void staticInit();
 
 	std::string readEntireFile(std::ifstream file);
 

@@ -27,7 +27,7 @@ namespace std
 			using std::size_t;
 			using std::hash;
 
-			return hash<int>()(key.x) ^ hash<int>()(key.y) ^ hash<int>()(key.z);
+			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
 		}
 	};
 };
@@ -115,6 +115,7 @@ public:
 class World
 {
 private:
+	std::unordered_map<ChunkPosition, std::shared_ptr<ChunkBase>> redrawQuicklyAfterTick;
 public:
 	std::mutex chunkMapLock;
 	std::unordered_map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
@@ -126,6 +127,8 @@ public:
 
 	World();
 	~World();
+
+	void tick();
 
 	std::shared_ptr<ChunkBase> getChunk(int x, int y, int z);
 	std::shared_ptr<ChunkBase> getChunkFromBlockCoordinate(int x, int y, int z);

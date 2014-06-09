@@ -4,9 +4,9 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
+PUBLIC	?instance@GLWindow@@2PEAV1@EA			; GLWindow::instance
 PUBLIC	?wglSwapIntervalEXT@@3P6APEAUHGLRC__@@H@ZEA	; wglSwapIntervalEXT
 PUBLIC	?wglCreateContextAttribsARB@@3P6APEAUHGLRC__@@PEAUHDC__@@PEAU1@PEBH@ZEA ; wglCreateContextAttribsARB
-PUBLIC	?instance@GLWindow@@2PEAV1@EA			; GLWindow::instance
 EXTRN	__imp_wglDeleteContext:PROC
 EXTRN	__imp_DestroyWindow:PROC
 EXTRN	__imp_PostQuitMessage:PROC
@@ -31,11 +31,9 @@ EXTRN	__imp_SetPixelFormat:PROC
 EXTRN	__imp_SwapBuffers:PROC
 EXTRN	__imp_DefWindowProcW:PROC
 EXTRN	__imp_wglCreateContext:PROC
-	ALIGN	8
-
+?instance@GLWindow@@2PEAV1@EA DQ 01H DUP (?)		; GLWindow::instance
 ?wglSwapIntervalEXT@@3P6APEAUHGLRC__@@H@ZEA DQ 01H DUP (?) ; wglSwapIntervalEXT
 ?wglCreateContextAttribsARB@@3P6APEAUHGLRC__@@PEAUHDC__@@PEAU1@PEBH@ZEA DQ 01H DUP (?) ; wglCreateContextAttribsARB
-?instance@GLWindow@@2PEAV1@EA DQ 01H DUP (?)		; GLWindow::instance
 _BSS	ENDS
 ;	COMDAT ?pfd@?7??initWindow@GLWindow@@QEAAXXZ@4UtagPIXELFORMATDESCRIPTOR@@A
 _DATA	SEGMENT
@@ -65,33 +63,31 @@ _DATA	SEGMENT
 	DD	00H
 	DD	00H
 	DD	00H
-$SG4294909300 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
+$SG4294899928 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
 	DB	'o', 00H, 'w', 00H, 00H, 00H
 	ORG $+6
-$SG4294909299 DB 'R', 00H, 'e', 00H, 'g', 00H, 'i', 00H, 's', 00H, 't', 00H
-	DB	'r', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, ' '
-	DB	00H, 'e', 00H, 'r', 00H, 'r', 00H, 'o', 00H, 'r', 00H, 00H, 00H
-	ORG $+10
-$SG4294909298 DB 'C', 00H, 'o', 00H, 'u', 00H, 'l', 00H, 'd', 00H, ' ', 00H
+$SG4294899926 DB 'C', 00H, 'o', 00H, 'u', 00H, 'l', 00H, 'd', 00H, ' ', 00H
 	DB	'n', 00H, 'o', 00H, 't', 00H, ' ', 00H, 'r', 00H, 'e', 00H, 'g'
 	DB	00H, 'i', 00H, 's', 00H, 't', 00H, 'e', 00H, 'r', 00H, ' ', 00H
 	DB	'w', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'o', 00H, 'w', 00H, ' '
 	DB	00H, 'c', 00H, 'l', 00H, 'a', 00H, 's', 00H, 's', 00H, '.', 00H
 	DB	00H, 00H
 	ORG $+6
-$SG4294909297 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
+$SG4294899927 DB 'R', 00H, 'e', 00H, 'g', 00H, 'i', 00H, 's', 00H, 't', 00H
+	DB	'r', 00H, 'a', 00H, 't', 00H, 'i', 00H, 'o', 00H, 'n', 00H, ' '
+	DB	00H, 'e', 00H, 'r', 00H, 'r', 00H, 'o', 00H, 'r', 00H, 00H, 00H
+	ORG $+2
+$SG4294899924 DB 'wglCreateContextAttribsARB', 00H
+	ORG $+5
+$SG4294899925 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
 	DB	'o', 00H, 'w', 00H, 00H, 00H
 	ORG $+6
-$SG4294909296 DB 'wglCreateContextAttribsARB', 00H
-	ORG $+5
-$SG4294909295 DB 'wglSwapIntervalEXT', 00H
-	ORG $+5
-$SG4294909294 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
+$SG4294899922 DB 'G', 00H, 'L', 00H, 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H
 	DB	'o', 00H, 'w', 00H, 00H, 00H
 	ORG $+6
-$SG4294909293 DB 'E', 00H, 'R', 00H, 'R', 00H, 'O', 00H, 'R', 00H, 00H, 00H
-	ORG $+4
-$SG4294909292 DB 'T', 00H, 'h', 00H, 'e', 00H, 'r', 00H, 'e', 00H, ' ', 00H
+$SG4294899923 DB 'wglSwapIntervalEXT', 00H
+	ORG $+13
+$SG4294899920 DB 'T', 00H, 'h', 00H, 'e', 00H, 'r', 00H, 'e', 00H, ' ', 00H
 	DB	'w', 00H, 'a', 00H, 's', 00H, ' ', 00H, 'a', 00H, 'n', 00H, ' '
 	DB	00H, 'e', 00H, 'r', 00H, 'r', 00H, 'o', 00H, 'r', 00H, ' ', 00H
 	DB	'w', 00H, 'h', 00H, 'i', 00H, 'l', 00H, 'e', 00H, ' ', 00H, 'd'
@@ -99,6 +95,8 @@ $SG4294909292 DB 'T', 00H, 'h', 00H, 'e', 00H, 'r', 00H, 'e', 00H, ' ', 00H
 	DB	'i', 00H, 'n', 00H, 'g', 00H, ' ', 00H, 't', 00H, 'h', 00H, 'e'
 	DB	00H, ' ', 00H, 'w', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'o', 00H
 	DB	'w', 00H, 00H, 00H
+	ORG $+2
+$SG4294899921 DB 'E', 00H, 'R', 00H, 'R', 00H, 'O', 00H, 'R', 00H, 00H, 00H
 PUBLIC	?put@?$List@VMouseAction@@$0BA@@@QEAAXVMouseAction@@@Z ; List<MouseAction,16>::put
 PUBLIC	?put@?$List@VKeyboardAction@@$0BA@@@QEAAXVKeyboardAction@@@Z ; List<KeyboardAction,16>::put
 PUBLIC	?wndProc@@YA_JPEAUHWND__@@I_K_J@Z		; wndProc
@@ -534,7 +532,7 @@ $LN7@initGL:
 ; 170  : 	wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC)wglGetProcAddress((LPCSTR)"wglCreateContextAttribsARB");
 
   000b8	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:$SG4294909296
+	00 00		 lea	 rcx, OFFSET FLAT:$SG4294899924
   000bf	c7 44 24 20 91
 	20 00 00	 mov	 DWORD PTR attribs$[rsp], 8337 ; 00002091H
   000c7	44 89 44 24 24	 mov	 DWORD PTR attribs$[rsp+4], r8d
@@ -550,7 +548,7 @@ $LN7@initGL:
 ; 171  : 	wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC)wglGetProcAddress((LPCSTR)"wglSwapIntervalEXT");
 
   000ec	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:$SG4294909295
+	00 00		 lea	 rcx, OFFSET FLAT:$SG4294899923
   000f3	48 89 05 00 00
 	00 00		 mov	 QWORD PTR ?wglCreateContextAttribsARB@@3P6APEAUHGLRC__@@PEAUHDC__@@PEAU1@PEBH@ZEA, rax ; wglCreateContextAttribsARB
   000fa	ff 15 00 00 00
@@ -3995,7 +3993,7 @@ $LN19:
   0007d	48 8d 4d e7	 lea	 rcx, QWORD PTR wc$[rbp-137]
   00081	48 89 45 0f	 mov	 QWORD PTR wc$[rbp-97], rax
   00085	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294909300
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294899928
   0008c	0f 57 c0	 xorps	 xmm0, xmm0
   0008f	66 0f 7f 45 17	 movdqa	 XMMWORD PTR wc$[rbp-89], xmm0
   00094	48 89 45 27	 mov	 QWORD PTR wc$[rbp-73], rax
@@ -4010,9 +4008,9 @@ $LN19:
 
   000a3	44 8d 4f 10	 lea	 r9d, QWORD PTR [rdi+16]
   000a7	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294909299
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294899927
   000ae	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294909298
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294899926
   000b5	33 c9		 xor	 ecx, ecx
   000b7	40 88 3b	 mov	 BYTE PTR [rbx], dil
   000ba	ff 15 00 00 00
@@ -4074,7 +4072,7 @@ $LN13@initWindow:
   0010f	89 4c 24 38	 mov	 DWORD PTR [rsp+56], ecx
   00113	89 54 24 30	 mov	 DWORD PTR [rsp+48], edx
   00117	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294909297
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294899925
   0011e	41 b9 00 00 cf
 	06		 mov	 r9d, 114229248		; 06cf0000H
   00124	b9 00 01 04 00	 mov	 ecx, 262400		; 00040100H
@@ -4300,7 +4298,7 @@ $LN3@destroyWin:
 
   00050	48 8b 53 08	 mov	 rdx, QWORD PTR [rbx+8]
   00054	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:$SG4294909294
+	00 00		 lea	 rcx, OFFSET FLAT:$SG4294899922
   0005b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_UnregisterClassW
   00061	85 c0		 test	 eax, eax
@@ -4326,9 +4324,9 @@ $LN7@destroyWin:
 ; 274  : 		MessageBox(NULL, L"There was an error while destroying the window", L"ERROR", MB_OK | MB_ICONINFORMATION);
 
   00074	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294909293
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294899921
   0007b	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294909292
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294899920
   00082	41 b9 40 00 00
 	00		 mov	 r9d, 64			; 00000040H
   00088	33 c9		 xor	 ecx, ecx

@@ -6,11 +6,11 @@ using namespace IOUtil;
 
 std::wstring IOUtil::EXE_DIR;
 
-void IOUtil::init()
+void IOUtil::staticInit()
 {
 	wchar_t buffer[MAX_PATH];
 	GetModuleFileName(NULL, buffer, MAX_PATH);
-	int pos = std::wstring(buffer).find_last_of(L"\\/");
+	size_t pos = std::wstring(buffer).find_last_of(L"\\/");
 	buffer[pos] = 0;
 	EXE_DIR = buffer;
 }

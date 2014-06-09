@@ -193,6 +193,21 @@ World::~World()
 
 }
 
+void World::tick()
+{
+	for(auto iter = redrawQuicklyAfterTick.begin(); iter != redrawQuicklyAfterTick.end(); ++iter)
+	{
+		std::shared_ptr<ChunkBase> c = iter->second;
+		if(!c->isEmpty())
+		{
+			c->setRenderUpdateNeeded(true);
+			requestQuickChunkDraw(c);
+		}
+	}
+
+	redrawQuicklyAfterTick.clear();
+}
+
 std::shared_ptr<ChunkBase> World::getChunk(int x, int y, int z)
 {
 	ChunkPosition cp = ChunkPosition(x, y, z);
@@ -253,11 +268,7 @@ void World::setBlock(int x, int y, int z, Block* block)
 					for(int k = z - 1; k <= z + 1; k++)
 					{
 						std::shared_ptr<ChunkBase> c = getChunkFromBlockCoordinate(i, j, k);
-						if(!c->isEmpty())
-						{
-							c->setRenderUpdateNeeded(true);
-							requestQuickChunkDraw(c);
-						}
+						redrawQuicklyAfterTick[c->pos] = c;
 					}
 				}
 			}

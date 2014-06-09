@@ -16,5 +16,12 @@ void main()
 	{
 		discard;
 	}
-	fragColor = mix(color * texture2D(texture_1, tex_coord), fog_color, f * f);
+
+	vec4 c = mix(color * texture2D(texture_1, tex_coord), fog_color, f * f);
+	if(c.a <= 0.0)
+	{
+		discard;
+	}
+
+	fragColor = c;
 }

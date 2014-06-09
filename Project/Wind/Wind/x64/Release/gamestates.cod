@@ -4,14 +4,16 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
+PUBLIC	?newPendingAvailable@GameStates@@3_NA		; GameStates::newPendingAvailable
 PUBLIC	?renderingState@GameStates@@3PEAVGameState@1@EA	; GameStates::renderingState
 PUBLIC	?processedState@GameStates@@3PEAVGameState@1@EA	; GameStates::processedState
 PUBLIC	?pendingState@GameStates@@3PEAVGameState@1@EA	; GameStates::pendingState
-PUBLIC	?newPendingAvailable@GameStates@@3_NA		; GameStates::newPendingAvailable
+?newPendingAvailable@GameStates@@3_NA DB 01H DUP (?)	; GameStates::newPendingAvailable
+	ALIGN	8
+
 ?renderingState@GameStates@@3PEAVGameState@1@EA DQ 01H DUP (?) ; GameStates::renderingState
 ?processedState@GameStates@@3PEAVGameState@1@EA DQ 01H DUP (?) ; GameStates::processedState
 ?pendingState@GameStates@@3PEAVGameState@1@EA DQ 01H DUP (?) ; GameStates::pendingState
-?newPendingAvailable@GameStates@@3_NA DB 01H DUP (?)	; GameStates::newPendingAvailable
 _BSS	ENDS
 PUBLIC	?swap@@YAXAEAPEAVGameState@GameStates@@0@Z	; swap
 PUBLIC	??_GGameState@GameStates@@QEAAPEAXI@Z		; GameStates::GameState::`scalar deleting destructor'
@@ -20,7 +22,7 @@ PUBLIC	??0GameState@GameStates@@QEAA@XZ		; GameStates::GameState::GameState
 PUBLIC	??0Camera@GameStates@@QEAA@XZ			; GameStates::Camera::Camera
 PUBLIC	?cleanup@GameStates@@YAXXZ			; GameStates::cleanup
 PUBLIC	?swapProcessedPending@GameStates@@YAXXZ		; GameStates::swapProcessedPending
-PUBLIC	?init@GameStates@@YAXXZ				; GameStates::init
+PUBLIC	?staticInit@GameStates@@YAXXZ			; GameStates::staticInit
 PUBLIC	?swapPendingRendering@GameStates@@YAXXZ		; GameStates::swapPendingRendering
 PUBLIC	?mut@GameStates@@3Vmutex@std@@A			; GameStates::mut
 	ALIGN	4
@@ -65,9 +67,9 @@ $pdata$?swapProcessedPending@GameStates@@YAXXZ DD imagerel $LN20
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?init@GameStates@@YAXXZ DD imagerel $LN37
+$pdata$?staticInit@GameStates@@YAXXZ DD imagerel $LN37
 	DD	imagerel $LN37+215
-	DD	imagerel $unwind$?init@GameStates@@YAXXZ
+	DD	imagerel $unwind$?staticInit@GameStates@@YAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -81,7 +83,7 @@ $unwind$?swapPendingRendering@GameStates@@YAXXZ DD 010401H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?init@GameStates@@YAXXZ DD 020601H
+$unwind$?staticInit@GameStates@@YAXXZ DD 020601H
 	DD	030023206H
 xdata	ENDS
 ;	COMDAT xdata
@@ -258,9 +260,9 @@ _TEXT	ENDS
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\gamestates.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\gamestates.cpp
-;	COMDAT ?init@GameStates@@YAXXZ
+;	COMDAT ?staticInit@GameStates@@YAXXZ
 _TEXT	SEGMENT
-?init@GameStates@@YAXXZ PROC				; GameStates::init, COMDAT
+?staticInit@GameStates@@YAXXZ PROC			; GameStates::staticInit, COMDAT
 
 ; 34   : {
 
@@ -282,7 +284,7 @@ $LN37:
 ; 35   : 	GameStates::processedState = new GameState();
 
   00012	48 85 c0	 test	 rax, rax
-  00015	74 22		 je	 SHORT $LN3@init
+  00015	74 22		 je	 SHORT $LN3@staticInit
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 16   : {
@@ -303,10 +305,10 @@ $LN37:
 
 ; 35   : 	GameStates::processedState = new GameState();
 
-  00037	eb 03		 jmp	 SHORT $LN4@init
-$LN3@init:
+  00037	eb 03		 jmp	 SHORT $LN4@staticInit
+$LN3@staticInit:
   00039	48 8b c3	 mov	 rax, rbx
-$LN4@init:
+$LN4@staticInit:
 
 ; 36   : 	GameStates::pendingState = new GameState();
 
@@ -315,7 +317,7 @@ $LN4@init:
 	00 00		 mov	 QWORD PTR ?processedState@GameStates@@3PEAVGameState@1@EA, rax ; GameStates::processedState
   00048	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
   0004d	48 85 c0	 test	 rax, rax
-  00050	74 2a		 je	 SHORT $LN5@init
+  00050	74 2a		 je	 SHORT $LN5@staticInit
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 16   : {
@@ -338,10 +340,10 @@ $LN4@init:
 
 ; 36   : 	GameStates::pendingState = new GameState();
 
-  0007a	eb 03		 jmp	 SHORT $LN6@init
-$LN5@init:
+  0007a	eb 03		 jmp	 SHORT $LN6@staticInit
+$LN5@staticInit:
   0007c	48 8b c3	 mov	 rax, rbx
-$LN6@init:
+$LN6@staticInit:
 
 ; 37   : 	GameStates::renderingState = new GameState();
 
@@ -350,7 +352,7 @@ $LN6@init:
 	00 00		 mov	 QWORD PTR ?pendingState@GameStates@@3PEAVGameState@1@EA, rax ; GameStates::pendingState
   0008b	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
   00090	48 85 c0	 test	 rax, rax
-  00093	74 35		 je	 SHORT $LN7@init
+  00093	74 35		 je	 SHORT $LN7@staticInit
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 16   : {
@@ -381,7 +383,7 @@ $LN6@init:
   000c4	48 83 c4 20	 add	 rsp, 32			; 00000020H
   000c8	5b		 pop	 rbx
   000c9	c3		 ret	 0
-$LN7@init:
+$LN7@staticInit:
 
 ; 37   : 	GameStates::renderingState = new GameState();
 
@@ -393,7 +395,7 @@ $LN7@init:
   000d1	48 83 c4 20	 add	 rsp, 32			; 00000020H
   000d5	5b		 pop	 rbx
   000d6	c3		 ret	 0
-?init@GameStates@@YAXXZ ENDP				; GameStates::init
+?staticInit@GameStates@@YAXXZ ENDP			; GameStates::staticInit
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\gamestates.cpp

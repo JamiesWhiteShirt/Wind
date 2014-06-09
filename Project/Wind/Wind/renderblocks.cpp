@@ -8,6 +8,8 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 {
 	if(!world->getBlock(x, y, z - 1)->solidFace(world, x, y, z - 1, Relatives::N))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::S));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -57,21 +59,35 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
+		
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(0.5f, 0.5f, 0.0f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
 
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, f2, f2, f2, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 					
 	if(!world->getBlock(x, y, z + 1)->solidFace(world, x, y, z + 1, Relatives::S))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::N));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -121,21 +137,35 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
-
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
+		
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(0.5f, 0.5f, 1.0f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 1.0f, 1.0f, f4, f4, f4, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 0.0f, 1.0f, f3, f3, f3, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 0.0f, 1.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 0.0f, 0.0f, f2, f2, f2, 1.0f));
+		vStream->put(center);
+
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 0.0f, 0.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 
 	if(!world->getBlock(x, y - 1, z)->solidFace(world, x, y - 1, z, Relatives::U))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::D));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -185,21 +215,35 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
-
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
+		
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(0.5f, 0.0f, 0.5f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 0.0f, 1.0f, f1, f1, f1, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, f4, f4, f4, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f3, f3, f3, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 0.0f, 1.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, f2, f2, f2, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 1.0f, 1.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 0.0f, 1.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 
 	if(!world->getBlock(x, y + 1, z)->solidFace(world, x, y, z, Relatives::D))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::U));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -249,21 +293,35 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
+
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(0.5f, 1.0f, 0.5f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
 
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 0.0f, f2, f2, f2, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 1.0f, 0.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 0.0f, 1.0f, f4, f4, f4, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 
 	if(!world->getBlock(x - 1, y, z)->solidFace(world, x - 1, y, z, Relatives::E))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::W));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -313,21 +371,36 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
 
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(0.0f, 0.5f, 0.5f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
+		
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, f2, f2, f2, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 0.0f, 1.0f, f3, f3, f3, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 1.0f, 1.0f, 0.0f, 1.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, f4, f4, f4, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 
 	if(!world->getBlock(x + 1, y, z)->solidFace(world, x, y, z, Relatives::W))
 	{
+		TiledTexture::Icon* i = block->getIcon(world, x, y, z, Relatives::S);
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::E));
+
 		int i1 = 0;
 		int i2 = 0;
 		int i3 = 0;
@@ -377,17 +450,29 @@ bool BlockRenderers::renderOrdinaryBlock(World* world, int x, int y, int z, Bloc
 			i4++;
 		}
 
-		float f1 = 1.0F - i1 * 0.1f;
-		float f2 = 1.0F - i2 * 0.1f;
-		float f3 = 1.0F - i3 * 0.1f;
-		float f4 = 1.0F - i4 * 0.1f;
+		float f1 = 1.0F - i1 * 0.15f;
+		float f2 = 1.0F - i2 * 0.15f;
+		float f3 = 1.0F - i3 * 0.15f;
+		float f4 = 1.0F - i4 * 0.15f;
 
+		float avg = (f1 + f2 + f3 + f4) / 4.0f;
+		gfxu::VertexUVRGBA center(1.0f, 0.5f, 0.5f, 0.5f, 0.5f, avg, avg, avg, 1.0f);
+		
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f4, f4, f4, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f4, f4, f4, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
-		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
+		
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 0.0f, 1.0f, f2, f2, f2, 1.0f));
+		vStream->put(center);
+		
+		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 0.0f, 1.0f, f2, f2, f2, 1.0f));
 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
+		vStream->put(center);
 	}
 
 	return true;
@@ -400,11 +485,13 @@ bool BlockRenderers::renderInvisibleBlock(World* world, int x, int y, int z, Blo
 
 bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* block, VertexStream* vStream)
 {
-	vStream->setColor(16, 64, 224, 127);
+	vStream->setColor(255, 255, 255, 127);
 
 	Block* b = world->getBlock(x, y, z - 1);
-	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::N))
+	if(b != block && !b->solidFace(world, x, y, z - 1, Relatives::N))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::S));
+
 		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 1.0f));
@@ -421,8 +508,10 @@ bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* 
 	}
 
 	b = world->getBlock(x, y, z + 1);
-	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::S))
+	if(b != block && !b->solidFace(world, x, y, z + 1, Relatives::S))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::N));
+
 		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
@@ -439,8 +528,10 @@ bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* 
 	}
 
 	b = world->getBlock(x, y - 1, z);
-	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::U))
+	if(b != block && !b->solidFace(world, x, y - 1, z, Relatives::U))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::D));
+
 		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 1.0f));
@@ -459,6 +550,8 @@ bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* 
 	b = world->getBlock(x, y + 1, z);
 	if(b != block && !b->solidFace(world, x, y + 1, z, Relatives::D))
 	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::U));
+
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
@@ -472,6 +565,46 @@ bool BlockRenderers::renderFluidBlock(World* world, int x, int y, int z, Block* 
 		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 0.0f));
 		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f));
 		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+	}
+
+	b = world->getBlock(x - 1, y, z);
+	if(b != block && !b->solidFace(world, x - 1, y, z, Relatives::E))
+	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::W));
+
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(0.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+	}
+
+	b = world->getBlock(x + 1, y, z);
+	if(b != block && !b->solidFace(world, x + 1, y, z, Relatives::W))
+	{
+		vStream->setIcon(block->getIcon(world, x, y, z, Relatives::E));
+
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 0.0f, 0.0f));
+
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 1.0f, 1.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 0.0f, 0.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 1.0f, 1.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 1.0f, 0.0f, 0.0f, 1.0f));
+		vStream->put(gfxu::VertexUV(1.0f, 0.0f, 0.0f, 0.0f, 0.0f));
 	}
 
 	return true;

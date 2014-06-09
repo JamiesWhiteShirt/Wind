@@ -133,6 +133,8 @@
     <None Include="..\..\..\..\..\Visual Studio 2012\Projects\DynamicLibrary\OpenGLGraphics\OpenGLGraphics.vcxproj.filters" />
     <None Include="..\x64\Release\programs\frustumclip.cl" />
     <None Include="..\x64\Release\programs\generation.cl" />
+    <None Include="..\x64\Release\programs\noise.cl" />
+    <None Include="..\x64\Release\shaders\curve.vert" />
     <None Include="..\x64\Release\shaders\normal.frag" />
     <None Include="..\x64\Release\shaders\normal.geom" />
     <None Include="..\x64\Release\shaders\normal.vert" />
@@ -141,7 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blocks.h" />
+    <ClInclude Include="generation.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="globalutil.h" />
     <ClInclude Include="mutexpool.h" />
     <ClInclude Include="opencl.h" />
     <ClInclude Include="task.h" />
@@ -154,10 +158,7 @@
     <ClInclude Include="list.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="memutil.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="noise.h" />
-    <ClInclude Include="settings.h" />
     <ClInclude Include="wglew.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClCompile Include="chunkdrawthread.cpp" />
     <ClCompile Include="chunkloadthread.cpp" />
     <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="globalutil.cpp" />
     <ClCompile Include="intersection.cpp" />
     <ClCompile Include="opencl.cpp" />
     <ClCompile Include="renderblocks.cpp" />

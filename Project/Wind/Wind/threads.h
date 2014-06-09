@@ -36,7 +36,7 @@ class LimitedThread : public Thread
 {
 private:
 	std::chrono::system_clock::time_point startTime;
-	int lastTick;
+	__int64 lastTick;
 	int tickTime;
 protected:
 	virtual bool shouldTick();
@@ -50,6 +50,8 @@ class ChunkDrawThread : public Thread
 protected:
 	virtual bool tick();
 public:
+	static void staticInit();
+
 	std::queue<std::shared_ptr<ChunkBase>> drawFirstQueue;
 	std::queue<std::shared_ptr<ChunkBase>> drawQueue;
 	std::queue<std::shared_ptr<ChunkBase>> drawLaterQueue;
@@ -61,16 +63,28 @@ class ChunkLoadThread : public Thread
 protected:
 	cl::CommandQueue queue;
 	cl::Buffer blockBuffer;
+	cl::Buffer minHeightNoiseBuffer;
+	cl::Buffer maxHeightNoiseBuffer;
+	cl::Buffer smoothnessNoiseBuffer;
+	cl::Buffer solidNoiseBuffer;
+	cl::Buffer stoneNoiseBuffer;
+	cl::Buffer temperatureNoiseBuffer;
+	cl::Buffer humidityNoiseBuffer;
 
 	virtual void preStart();
 	virtual bool tick();
 public:
-	static Noise::NoiseGenerator3D noise;
-	static Noise::NoiseGenerator3D noise2;
+	static void staticInit();
 
-	static cl::Program program;
-	static cl::Buffer noiseBuffer;
-	static cl::Buffer noise2Buffer;
+	static Noise::NoiseGenerator2D minHeightNoise;
+	static Noise::NoiseGenerator2D maxHeightNoise;
+	static Noise::NoiseGenerator3D smoothnessNoise;
+	static Noise::NoiseGenerator3D solidNoise;
+	static Noise::NoiseGenerator3D stoneNoise;
+	static Noise::NoiseGenerator2D temperatureNoise;
+	static Noise::NoiseGenerator2D humidityNoise;
+	
+	static cl::Program chunkGenProgram;
 
 	std::queue<std::shared_ptr<ChunkBase>> loadQueue;
 	std::mutex queueMut;
@@ -81,6 +95,8 @@ class RenderThread : public Thread
 private:
 	virtual bool tick();
 public:
+	static gfxu::TiledTexture* blocksTexture;
+
 	static bool skipRender;
 
 	virtual void preStart();

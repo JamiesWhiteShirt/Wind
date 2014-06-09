@@ -14,5 +14,12 @@ void main()
 	{
 		discard;
 	}
-	fragColor = mix(color, fog_color, f);
+
+	vec4 c = mix(color, fog_color, f * f);
+	if(c.a <= 0.0)
+	{
+		discard;
+	}
+
+	fragColor = c;
 }

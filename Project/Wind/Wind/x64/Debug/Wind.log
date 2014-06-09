@@ -1,10 +1,9 @@
-﻿Build started 29.04.2014 00:17:52.
+﻿Build started 30.05.2014 23:28:26.
      1>Project "C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\Wind\Wind.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5/include" /Zi /nologo /W3 /WX- /Od /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt chunkdrawthread.cpp
-         chunkdrawthread.cpp
-     1>chunkdrawthread.cpp(45): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>chunkdrawthread.cpp(48): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5/include" /Zi /nologo /W3 /WX- /Od /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt noise.cpp
+         noise.cpp
+     1>noise.cpp(18): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.5/lib/x64" OpenCL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Glenn\Documents\GitHub\Wind\Project\Wind\x64\Debug\Wind.lib" /MACHINE:X64 x64\Debug\blocks.obj
          x64\Debug\chunkdrawthread.obj
@@ -33,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.57
+Time Elapsed 00:00:00.96

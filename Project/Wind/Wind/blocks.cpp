@@ -1,4 +1,6 @@
 #include "blocks.h"
+#include "ioutil.h"
+#include "threads.h"
 
 using namespace Blocks;
 
@@ -55,14 +57,14 @@ BlockCorner* Relatives::EDN;
 BlockCorner* Relatives::WUN;
 BlockCorner* Relatives::EUN;
 
-Block::Block(unsigned short id)
-	: id(id), firstPassRenderer(&BlockRenderers::renderOrdinaryBlock), secondPassRenderer(&BlockRenderers::renderInvisibleBlock)
+Block::Block(unsigned short id, std::wstring texture)
+	: id(id), texturePath(texture), firstPassRenderer(&BlockRenderers::renderOrdinaryBlock), secondPassRenderer(&BlockRenderers::renderInvisibleBlock)
 {
 	Blocks::blockArray[id] = this;
 }
 
-Block::Block(unsigned short id, BLOCK_RENDER_FUNC firstPassRenderer, BLOCK_RENDER_FUNC secondPassRenderer)
-	: id(id), firstPassRenderer(firstPassRenderer), secondPassRenderer(secondPassRenderer)
+Block::Block(unsigned short id, std::wstring texture, BLOCK_RENDER_FUNC firstPassRenderer, BLOCK_RENDER_FUNC secondPassRenderer)
+	: id(id), texturePath(texture), firstPassRenderer(firstPassRenderer), secondPassRenderer(secondPassRenderer)
 {
 	Blocks::blockArray[id] = this;
 }
@@ -72,28 +74,41 @@ Block::~Block()
 
 }
 
+void Block::registerIcons(gfxu::TiledTexture* texture)
+{
+	if(!texturePath.empty())
+	{
+		icon = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\" + texturePath + L".png");
+	}
+}
+
+gfxu::TiledTexture::Icon* Block::getIcon(World* world, int x, int y, int z, const BlockFace* face)
+{
+	return icon;
+}
+
 bool Block::solidCube(World* world, int x, int y, int z)
 {
 	return true;
 }
 
-bool Block::solidFace(World* world, int x, int y, int z, BlockFace* face)
+bool Block::solidFace(World* world, int x, int y, int z, const BlockFace* face)
 {
 	return solidCube(world, x, y, z);
 }
 
-bool Block::solidEdge(World* world, int x, int y, int z, BlockEdge* face)
+bool Block::solidEdge(World* world, int x, int y, int z, const BlockEdge* face)
 {
 	return solidCube(world, x, y, z);
 }
 
-bool Block::solidCorner(World* world, int x, int y, int z, BlockCorner* face)
+bool Block::solidCorner(World* world, int x, int y, int z, const BlockCorner* face)
 {
 	return solidCube(world, x, y, z);
 }
 
 BlockAir::BlockAir(unsigned short id)
-	: Block(id, &BlockRenderers::renderInvisibleBlock, &BlockRenderers::renderInvisibleBlock)
+	: Block(id, L"", &BlockRenderers::renderInvisibleBlock, &BlockRenderers::renderInvisibleBlock)
 {
 
 }
@@ -103,8 +118,8 @@ bool BlockAir::solidCube(World* world, int x, int y, int z)
 	return false;
 }
 
-BlockFluid::BlockFluid(unsigned short id)
-	: Block(id, &BlockRenderers::renderInvisibleBlock, &BlockRenderers::renderFluidBlock)
+BlockFluid::BlockFluid(unsigned short id, std::wstring texture)
+	: Block(id, texture, &BlockRenderers::renderInvisibleBlock, &BlockRenderers::renderFluidBlock)
 {
 
 }
@@ -114,13 +129,47 @@ bool BlockFluid::solidCube(World* world, int x, int y, int z)
 	return false;
 }
 
+BlockGrass::BlockGrass(unsigned short id, std::wstring texture)
+	: Block(id, texture)
+{
+
+}
+
+void BlockGrass::registerIcons(gfxu::TiledTexture* texture)
+{
+	icon = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\" + texturePath + L"_side.png");
+	iconTop = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\" + texturePath + L"_top.png");
+	iconBottom = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\dirt.png");
+}
+
+gfxu::TiledTexture::Icon* BlockGrass::getIcon(World* world, int x, int y, int z, const BlockFace* face)
+{
+	if(face == Relatives::U)
+	{
+		return iconTop;
+	}
+	else if(face == Relatives::D)
+	{
+		return iconBottom;
+	}
+	else
+	{
+		return icon;
+	}
+}
+
 Block* Blocks::blockArray[4096];
 
 BlockAir* Blocks::air;
 Block* Blocks::stone;
 BlockFluid* Blocks::water;
+Block* Blocks::dirt;
+BlockGrass* Blocks::grass;
+Block* Blocks::fineGravel;
+Block* Blocks::gravel;
+Block* Blocks::sand;
 
-void Blocks::initialize()
+void Blocks::staticInit()
 {
 	Relatives::E = new BlockFace(-1, 0, 0);
 	Relatives::W = new BlockFace(1, 0, 0);
@@ -157,8 +206,26 @@ void Blocks::initialize()
 	}
 
 	air = new BlockAir(0);
-	stone = new Block(1);
-	water = new BlockFluid(2);
+	stone = new Block(1, L"stone");
+	water = new BlockFluid(2, L"water");
+	dirt = new Block(3, L"dirt");
+	grass = new BlockGrass(4, L"grass");
+	fineGravel = new Block(5, L"gravel_fine");
+	gravel = new Block(6, L"gravel");
+	sand = new Block(7, L"sand");
+
+	RenderThread::blocksTexture = new gfxu::TiledTexture(GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
+
+	for(int i = 0; i < 4096; i++)
+	{
+		Block* b = blockArray[i];
+		if(b != nullptr)
+		{
+			b->registerIcons(RenderThread::blocksTexture);
+		}
+	}
+
+	RenderThread::blocksTexture->compile();
 }
 
 void Blocks::destroy()
@@ -195,4 +262,9 @@ void Blocks::destroy()
 	delete air;
 	delete stone;
 	delete water;
+	delete dirt;
+	delete grass;
+	delete fineGravel;
+	delete gravel;
+	delete sand;
 }

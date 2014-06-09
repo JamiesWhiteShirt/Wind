@@ -4,7 +4,6 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
-PUBLIC	?stop@GlobalThread@@3_NA			; GlobalThread::stop
 PUBLIC	??_R4ChunkDrawThread@@6B@			; ChunkDrawThread::`RTTI Complete Object Locator'
 PUBLIC	??_7Thread@@6B@					; Thread::`vftable'
 PUBLIC	??_R2?$_LaunchPad@V?$_Bind@$00XQ6AXPEAVThread@@@ZV?$reference_wrapper@PEAVThread@@@std@@U_Nil@3@U43@U43@U43@U43@U43@@std@@@std@@8 ; std::_LaunchPad<std::_Bind<1,void,void (__cdecl*const)(Thread * __ptr64),std::reference_wrapper<Thread * __ptr64>,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil> >::`RTTI Base Class Array'
@@ -41,6 +40,7 @@ PUBLIC	??_R3RenderThread@@8				; RenderThread::`RTTI Class Hierarchy Descriptor'
 PUBLIC	??_R4RenderThread@@6B@				; RenderThread::`RTTI Complete Object Locator'
 PUBLIC	??_R4?$_LaunchPad@V?$_Bind@$00XQ6AXPEAVThread@@@ZV?$reference_wrapper@PEAVThread@@@std@@U_Nil@3@U43@U43@U43@U43@U43@@std@@@std@@6B@ ; std::_LaunchPad<std::_Bind<1,void,void (__cdecl*const)(Thread * __ptr64),std::reference_wrapper<Thread * __ptr64>,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil> >::`RTTI Complete Object Locator'
 PUBLIC	??_R2LimitedThread@@8				; LimitedThread::`RTTI Base Class Array'
+PUBLIC	?stop@GlobalThread@@3_NA			; GlobalThread::stop
 EXTRN	??_L@YAXPEAX_KHP6AX0@Z2@Z:PROC			; `eh vector constructor iterator'
 EXTRN	_Thrd_current:PROC
 EXTRN	_Thrd_join:PROC
@@ -450,9 +450,9 @@ allocator_arg DB 01H DUP (?)
 piecewise_construct DB 01H DUP (?)
 	ALIGN	4
 
-?chunkLoadThreads@@3PAVChunkLoadThread@@A DB 0890H DUP (?) ; chunkLoadThreads
+?chunkLoadThreads@@3PAVChunkLoadThread@@A DB 0950H DUP (?) ; chunkLoadThreads
 ?chunkDrawThreads@@3PAVChunkDrawThread@@A DB 08b8H DUP (?) ; chunkDrawThreads
-?world@GlobalThread@@3VWorld@@A DB 0a8H DUP (?)		; GlobalThread::world
+?world@GlobalThread@@3VWorld@@A DB 0e8H DUP (?)		; GlobalThread::world
 _BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -589,7 +589,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?shouldTick@LimitedThread@@MEAA_NXZ DD imagerel $LN47
-	DD	imagerel $LN47+79
+	DD	imagerel $LN47+85
 	DD	imagerel $unwind$?shouldTick@LimitedThread@@MEAA_NXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -648,14 +648,14 @@ $pdata$??__ErenderThread@@YAXXZ DD imagerel ??__ErenderThread@@YAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??1ChunkLoadThread@@QEAA@XZ DD imagerel $LN47
-	DD	imagerel $LN47+178
+$pdata$??1ChunkLoadThread@@QEAA@XZ DD imagerel $LN95
+	DD	imagerel $LN95+545
 	DD	imagerel $unwind$??1ChunkLoadThread@@QEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0ChunkLoadThread@@QEAA@XZ DD imagerel $LN86
-	DD	imagerel $LN86+207
+$pdata$??0ChunkLoadThread@@QEAA@XZ DD imagerel $LN115
+	DD	imagerel $LN115+277
 	DD	imagerel $unwind$??0ChunkLoadThread@@QEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -863,32 +863,60 @@ $ip2state$??0ChunkLoadThread@@QEAA@XZ DD imagerel ??0ChunkLoadThread@@QEAA@XZ
 	DD	00H
 	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+74
 	DD	01H
-	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+91
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+112
 	DD	02H
-	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+98
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+119
 	DD	03H
-	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+188
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+126
+	DD	04H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+133
+	DD	05H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+140
+	DD	06H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+147
+	DD	07H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+154
+	DD	08H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+161
+	DD	09H
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+168
+	DD	0aH
+	DD	imagerel ??0ChunkLoadThread@@QEAA@XZ+258
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $stateUnwindMap$??0ChunkLoadThread@@QEAA@XZ DD 0ffffffffH
-	DD	imagerel ?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$12@?0???0ChunkLoadThread@@QEAA@XZ@4HA
 	DD	0ffffffffH
 	DD	imagerel ?dtor$0@?0???0ChunkLoadThread@@QEAA@XZ@4HA
 	DD	01H
 	DD	imagerel ?dtor$1@?0???0ChunkLoadThread@@QEAA@XZ@4HA
 	DD	02H
 	DD	imagerel ?dtor$2@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	03H
+	DD	imagerel ?dtor$3@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	04H
+	DD	imagerel ?dtor$4@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	05H
+	DD	imagerel ?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	06H
+	DD	imagerel ?dtor$6@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	07H
+	DD	imagerel ?dtor$7@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	08H
+	DD	imagerel ?dtor$8@?0???0ChunkLoadThread@@QEAA@XZ@4HA
+	DD	09H
+	DD	imagerel ?dtor$9@?0???0ChunkLoadThread@@QEAA@XZ@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
 $cppxdata$??0ChunkLoadThread@@QEAA@XZ DD 019930522H
-	DD	04H
+	DD	0bH
 	DD	imagerel $stateUnwindMap$??0ChunkLoadThread@@QEAA@XZ
 	DD	00H
 	DD	00H
-	DD	06H
+	DD	0dH
 	DD	imagerel $ip2state$??0ChunkLoadThread@@QEAA@XZ
 	DD	020H
 	DD	00H
@@ -907,11 +935,25 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$??1ChunkLoadThread@@QEAA@XZ DD imagerel ??1ChunkLoadThread@@QEAA@XZ
 	DD	0ffffffffH
-	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+27
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+32
+	DD	08H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+123
+	DD	07H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+169
+	DD	06H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+215
+	DD	05H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+261
+	DD	04H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+307
+	DD	03H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+353
+	DD	02H
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+399
 	DD	01H
-	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+120
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+445
 	DD	00H
-	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+143
+	DD	imagerel ??1ChunkLoadThread@@QEAA@XZ+505
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -920,15 +962,29 @@ $stateUnwindMap$??1ChunkLoadThread@@QEAA@XZ DD 0ffffffffH
 	DD	imagerel ?dtor$0@?0???1ChunkLoadThread@@QEAA@XZ@4HA
 	DD	00H
 	DD	imagerel ?dtor$1@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	01H
+	DD	imagerel ?dtor$2@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	02H
+	DD	imagerel ?dtor$3@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	03H
+	DD	imagerel ?dtor$4@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	04H
+	DD	imagerel ?dtor$5@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	05H
+	DD	imagerel ?dtor$6@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	06H
+	DD	imagerel ?dtor$7@?0???1ChunkLoadThread@@QEAA@XZ@4HA
+	DD	07H
+	DD	imagerel ?dtor$8@?0???1ChunkLoadThread@@QEAA@XZ@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
 $cppxdata$??1ChunkLoadThread@@QEAA@XZ DD 019930522H
-	DD	02H
+	DD	09H
 	DD	imagerel $stateUnwindMap$??1ChunkLoadThread@@QEAA@XZ
 	DD	00H
 	DD	00H
-	DD	04H
+	DD	0bH
 	DD	imagerel $ip2state$??1ChunkLoadThread@@QEAA@XZ
 	DD	020H
 	DD	00H
@@ -936,7 +992,8 @@ $cppxdata$??1ChunkLoadThread@@QEAA@XZ DD 019930522H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??1ChunkLoadThread@@QEAA@XZ DD 041811H
+$unwind$??1ChunkLoadThread@@QEAA@XZ DD 061d11H
+	DD	0a641dH
 	DD	093418H
 	DD	07006520aH
 	DD	imagerel __CxxFrameHandler3
@@ -2217,7 +2274,7 @@ text$yc	SEGMENT
 	00 00		 lea	 r9, OFFSET FLAT:??0ChunkLoadThread@@QEAA@XZ
   00012	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A ; chunkLoadThreads
-  00019	ba 90 08 00 00	 mov	 edx, 2192		; 00000890H
+  00019	ba 50 09 00 00	 mov	 edx, 2384		; 00000950H
   0001e	41 b8 01 00 00
 	00		 mov	 r8d, 1
   00024	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
@@ -2236,7 +2293,7 @@ text$yd	SEGMENT
 	00 00		 lea	 r9, OFFSET FLAT:??1ChunkLoadThread@@QEAA@XZ
   00007	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A ; chunkLoadThreads
-  0000e	ba 90 08 00 00	 mov	 edx, 2192		; 00000890H
+  0000e	ba 50 09 00 00	 mov	 edx, 2384		; 00000950H
   00013	41 b8 01 00 00
 	00		 mov	 r8d, 1
   00019	e9 00 00 00 00	 jmp	 ??_M@YAXPEAX_KHP6AX0@Z@Z
@@ -2245,6 +2302,7 @@ text$yd	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
@@ -2258,7 +2316,7 @@ _TEXT	SEGMENT
 $T1 = 32
 this$ = 64
 ??0ChunkLoadThread@@QEAA@XZ PROC			; ChunkLoadThread::ChunkLoadThread, COMDAT
-$LN86:
+$LN115:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	57		 push	 rdi
   00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
@@ -2289,12 +2347,28 @@ $LN86:
   0004a	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7ChunkLoadThread@@6B@
   00051	48 89 03	 mov	 QWORD PTR [rbx], rax
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
+
+; 486  : 		_Myfirst = pointer();
+
+  00054	48 89 b3 40 08
+	00 00		 mov	 QWORD PTR [rbx+2112], rsi
+
+; 487  : 		_Mylast = pointer();
+
+  0005b	48 89 b3 48 08
+	00 00		 mov	 QWORD PTR [rbx+2120], rsi
+
+; 488  : 		_Myend = pointer();
+
+  00062	48 89 b3 50 08
+	00 00		 mov	 QWORD PTR [rbx+2128], rsi
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 43   : {
 
-  00054	40 88 b3 40 08
-	00 00		 mov	 BYTE PTR [rbx+2112], sil
+  00069	40 88 b3 58 08
+	00 00		 mov	 BYTE PTR [rbx+2136], sil
 
 ; 44   : 
 ; 45   : }
@@ -2318,267 +2392,301 @@ $LN86:
 ; 63   : 	return true;
 ; 64   : }
 ; 65   : 
-; 66   : cl::Program::Program()
-; 67   : 	: okay(false)
-; 68   : {
-; 69   : 
-; 70   : }
-; 71   : 
-; 72   : cl::Program::Program(std::wstring fileName)
-; 73   : 	: okay(false), preparedKernel(0)
-; 74   : {
-; 75   : 	create(fileName);
-; 76   : }
-; 77   : 
-; 78   : bool cl::Program::create(std::wstring fileName)
-; 79   : {
-; 80   : 	cl_int error = 0;
-; 81   : 
-; 82   : 	std::ifstream file(fileName);
-; 83   : 
-; 84   : 	if(!file.good())
-; 85   : 	{
-; 86   : 		GLWindow::instance->postError("Invalid/missing file", "OpenCL program creation error");
-; 87   : 		file.close();
-; 88   : 		return false;
-; 89   : 	}
-; 90   : 
-; 91   : 	std::string source_str = std::string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-; 92   : 	file.close();
-; 93   : 	const char* source = source_str.c_str();
+; 66   : bool cl::CommandQueue::sync()
+; 67   : {
+; 68   : 	cl_int error = clWaitForEvents(lastEvents.size(), &lastEvents[0]);
+; 69   : 	if(error != CL_SUCCESS)
+; 70   : 	{
+; 71   : 		GLWindow::instance->postError("Failed to wait for events to finish", "OpenCL sync error");
+; 72   : 		return false;
+; 73   : 	}
+; 74   : 
+; 75   : 	for(auto iter = lastEvents.begin(); iter != lastEvents.end(); ++iter)
+; 76   : 	{
+; 77   : 		error = clReleaseEvent(*iter);
+; 78   : 		if(error != CL_SUCCESS)
+; 79   : 		{
+; 80   : 			GLWindow::instance->postError("Failed to release event", "OpenCL sync error");
+; 81   : 			return false;
+; 82   : 		}
+; 83   : 	}
+; 84   : 
+; 85   : 	lastEvents.clear();
+; 86   : 
+; 87   : 	return true;
+; 88   : }
+; 89   : 
+; 90   : void cl::CommandQueue::addSyncEvent(cl_event event)
+; 91   : {
+; 92   : 	lastEvents.push_back(event);
+; 93   : }
 ; 94   : 
-; 95   : 	program = clCreateProgramWithSource(context, 1, &source, NULL, &error);
-; 96   : 	if(error != CL_SUCCESS)
-; 97   : 	{
-; 98   : 		GLWindow::instance->postError("Could not create program", "OpenCL program creation error");
-; 99   : 		return false;
-; 100  : 	}
-; 101  : 
-; 102  : 	error = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
-; 103  : 	if(error != CL_SUCCESS)
-; 104  : 	{
-; 105  : 		size_t log_size;
-; 106  : 		clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &log_size);
-; 107  : 		char* log_msg = new char[log_size + 1];
-; 108  : 		clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, log_size, log_msg, NULL);
-; 109  : 
-; 110  : 		GLWindow::instance->postError(log_msg, "OpenCL program compilation error");
-; 111  : 
-; 112  : 		delete[] log_msg;
-; 113  : 		return false;
-; 114  : 	}
-; 115  : 
-; 116  : 	okay = true;
-; 117  : 	return true;
-; 118  : }
+; 95   : cl::Program::Program()
+; 96   : 	: okay(false)
+; 97   : {
+; 98   : 
+; 99   : }
+; 100  : 
+; 101  : cl::Program::Program(std::wstring fileName)
+; 102  : 	: okay(false), preparedKernel(0), argIndex(0)
+; 103  : {
+; 104  : 	create(fileName);
+; 105  : }
+; 106  : 
+; 107  : bool cl::Program::create(std::wstring fileName)
+; 108  : {
+; 109  : 	cl_int error = 0;
+; 110  : 
+; 111  : 	std::ifstream file(fileName);
+; 112  : 
+; 113  : 	if(!file.good())
+; 114  : 	{
+; 115  : 		GLWindow::instance->postError("Invalid/missing file", "OpenCL program creation error");
+; 116  : 		file.close();
+; 117  : 		return false;
+; 118  : 	}
 ; 119  : 
-; 120  : cl::Program::~Program()
-; 121  : {
-; 122  : 	if(okay)
-; 123  : 	{
-; 124  : 		cl_int error;
-; 125  : 
-; 126  : 		for(map<std::string, cl_kernel>::const_iterator iter = kernels.begin(); iter != kernels.end(); ++iter)
-; 127  : 		{
-; 128  : 			error = clReleaseKernel(iter->second);
-; 129  : 			if(error != CL_SUCCESS)
-; 130  : 			{
-; 131  : 				GLWindow::instance->postError("Could not release kernel", "OpenCL program deletion error");
-; 132  : 			}
-; 133  : 		}
-; 134  : 		error = clReleaseProgram(program);
-; 135  : 		if(error != CL_SUCCESS)
-; 136  : 		{
-; 137  : 			GLWindow::instance->postError("Could not release program", "OpenCL program deletion error");
-; 138  : 		}
-; 139  : 	}
-; 140  : }
-; 141  : 
-; 142  : cl_kernel cl::Program::getKernel(std::string kernel)
-; 143  : {
-; 144  : 	if(!okay) return 0;
-; 145  : 	map<std::string, cl_kernel>::iterator it = kernels.find(kernel);
-; 146  : 	if(it != kernels.end())
-; 147  : 	{
-; 148  : 		return it->second;
-; 149  : 	}
-; 150  : 
-; 151  : 	cl_int error = 0;
-; 152  : 	cl_kernel k = clCreateKernel(program, kernel.c_str(), &error);
-; 153  : 
-; 154  : 	if(error == CL_SUCCESS)
-; 155  : 	{
-; 156  : 		kernels[kernel] = k;
-; 157  : 		return k;
-; 158  : 	}
-; 159  : 
-; 160  : 	GLWindow::instance->postError("Tried to use nonexistant kernel", "OpenCL kernel error");
-; 161  : 	return 0;
-; 162  : }
-; 163  : 
-; 164  : bool cl::Program::prepare(std::string kernel)
-; 165  : {
-; 166  : 	cl_kernel k = getKernel(kernel);
-; 167  : 
-; 168  : 	if(k)
-; 169  : 	{
-; 170  : 		mut.lock();
-; 171  : 		preparedKernel = k;
-; 172  : 		return true;
-; 173  : 	}
-; 174  : 	else
-; 175  : 	{
-; 176  : 		return false;
-; 177  : 	}
-; 178  : }
-; 179  : 
-; 180  : bool cl::Program::setArgument(int index, size_t size, const void* value)
-; 181  : {
-; 182  : 	if(!preparedKernel)
-; 183  : 	{
-; 184  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
-; 185  : 		return false;
-; 186  : 	}
-; 187  : 	cl_int error = clSetKernelArg(preparedKernel, index, size, value);
-; 188  : 	if(error != CL_SUCCESS)
-; 189  : 	{
-; 190  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
-; 191  : 		return false;
-; 192  : 	}
-; 193  : 	return true;
-; 194  : }
-; 195  : 
-; 196  : bool cl::Program::setArgument(int index, size_t size, Buffer* value)
-; 197  : {
-; 198  : 	return setArgument(index, size, &value->mem);
-; 199  : }
-; 200  : 
-; 201  : bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
-; 202  : {
-; 203  : 	if(!preparedKernel)
-; 204  : 	{
-; 205  : 		GLWindow::instance->postError("Tried to execute unprepared kernel", "OpenCL program execution error");
-; 206  : 		return false;
-; 207  : 	}
-; 208  : 
-; 209  : 	cl_int error;
-; 210  : 	cl_event event;
+; 120  : 	std::string source_str = std::string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+; 121  : 	file.close();
+; 122  : 	const char* source = source_str.c_str();
+; 123  : 
+; 124  : 	program = clCreateProgramWithSource(context, 1, &source, NULL, &error);
+; 125  : 	if(error != CL_SUCCESS)
+; 126  : 	{
+; 127  : 		GLWindow::instance->postError("Could not create program", "OpenCL program creation error");
+; 128  : 		return false;
+; 129  : 	}
+; 130  : 
+; 131  : 	error = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
+; 132  : 	if(error != CL_SUCCESS)
+; 133  : 	{
+; 134  : 		size_t log_size;
+; 135  : 		clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &log_size);
+; 136  : 		char* log_msg = new char[log_size + 1];
+; 137  : 		clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, log_size, log_msg, NULL);
+; 138  : 
+; 139  : 		GLWindow::instance->postError(log_msg, "OpenCL program compilation error");
+; 140  : 
+; 141  : 		delete[] log_msg;
+; 142  : 		return false;
+; 143  : 	}
+; 144  : 
+; 145  : 	okay = true;
+; 146  : 	return true;
+; 147  : }
+; 148  : 
+; 149  : cl::Program::~Program()
+; 150  : {
+; 151  : 	if(okay)
+; 152  : 	{
+; 153  : 		cl_int error;
+; 154  : 
+; 155  : 		for(map<std::string, cl_kernel>::const_iterator iter = kernels.begin(); iter != kernels.end(); ++iter)
+; 156  : 		{
+; 157  : 			error = clReleaseKernel(iter->second);
+; 158  : 			if(error != CL_SUCCESS)
+; 159  : 			{
+; 160  : 				GLWindow::instance->postError("Could not release kernel", "OpenCL program deletion error");
+; 161  : 				return;
+; 162  : 			}
+; 163  : 		}
+; 164  : 		error = clReleaseProgram(program);
+; 165  : 		if(error != CL_SUCCESS)
+; 166  : 		{
+; 167  : 			GLWindow::instance->postError("Could not release program", "OpenCL program deletion error");
+; 168  : 		}
+; 169  : 	}
+; 170  : }
+; 171  : 
+; 172  : cl_kernel cl::Program::getKernel(std::string kernel)
+; 173  : {
+; 174  : 	if(!okay) return 0;
+; 175  : 	map<std::string, cl_kernel>::iterator it = kernels.find(kernel);
+; 176  : 	if(it != kernels.end())
+; 177  : 	{
+; 178  : 		return it->second;
+; 179  : 	}
+; 180  : 
+; 181  : 	cl_int error = 0;
+; 182  : 	cl_kernel k = clCreateKernel(program, kernel.c_str(), &error);
+; 183  : 
+; 184  : 	if(error == CL_SUCCESS)
+; 185  : 	{
+; 186  : 		kernels[kernel] = k;
+; 187  : 		return k;
+; 188  : 	}
+; 189  : 
+; 190  : 	GLWindow::instance->postError("Tried to use nonexistant kernel", "OpenCL kernel error");
+; 191  : 	return 0;
+; 192  : }
+; 193  : 
+; 194  : bool cl::Program::prepare(std::string kernel)
+; 195  : {
+; 196  : 	cl_kernel k = getKernel(kernel);
+; 197  : 
+; 198  : 	if(k)
+; 199  : 	{
+; 200  : 		mut.lock();
+; 201  : 		preparedKernel = k;
+; 202  : 		argIndex = 0;
+; 203  : 		return true;
+; 204  : 	}
+; 205  : 	else
+; 206  : 	{
+; 207  : 		GLWindow::instance->postError("Could not prepare kernel for execution", "OpenCL kernel error");
+; 208  : 		return false;
+; 209  : 	}
+; 210  : }
 ; 211  : 
-; 212  : 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
-; 213  : 	if(error != CL_SUCCESS)
-; 214  : 	{
-; 215  : 		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
-; 216  : 		return false;
-; 217  : 	}
-; 218  : 
-; 219  : 	error = clWaitForEvents(1, &event);
+; 212  : bool cl::Program::setArgument(size_t size, const void* value)
+; 213  : {
+; 214  : 	if(!preparedKernel)
+; 215  : 	{
+; 216  : 		GLWindow::instance->postError("Tried to set argument for unprepared kernel", "OpenCL kernel argument error");
+; 217  : 		return false;
+; 218  : 	}
+; 219  : 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
 ; 220  : 	if(error != CL_SUCCESS)
 ; 221  : 	{
-; 222  : 		GLWindow::instance->postError("Failed to wait for kernel finish event", "OpenCL program execution error");
+; 222  : 		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
 ; 223  : 		return false;
 ; 224  : 	}
-; 225  : 
-; 226  : 	error = clReleaseEvent(event);
-; 227  : 	if(error != CL_SUCCESS)
-; 228  : 	{
-; 229  : 		GLWindow::instance->postError("Failed to release kernel finish event", "OpenCL program execution error");
-; 230  : 		return false;
-; 231  : 	}
+; 225  : 	return true;
+; 226  : }
+; 227  : 
+; 228  : bool cl::Program::setArgument(size_t size, Buffer* value)
+; 229  : {
+; 230  : 	return setArgument(size, &value->mem);
+; 231  : }
 ; 232  : 
-; 233  : 	preparedKernel = 0;
-; 234  : 	mut.unlock();
-; 235  : 
-; 236  : 	return true;
-; 237  : }
-; 238  : 
-; 239  : cl::Buffer::Buffer()
-; 240  : 	: okay(false)
-; 241  : {
+; 233  : bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize)
+; 234  : {
+; 235  : 	if(!preparedKernel)
+; 236  : 	{
+; 237  : 		GLWindow::instance->postError("Tried to execute unprepared kernel", "OpenCL program execution error");
+; 238  : 		return false;
+; 239  : 	}
+; 240  : 
+; 241  : 	cl_int error;
+; 242  : 	cl_event event;
+; 243  : 
+; 244  : 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
+; 245  : 	if(error != CL_SUCCESS)
+; 246  : 	{
+; 247  : 		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
+; 248  : 		return false;
+; 249  : 	}
+; 250  : 
+; 251  : 	queue.addSyncEvent(event);
+; 252  : 
+; 253  : 	preparedKernel = 0;
+; 254  : 	mut.unlock();
+; 255  : 
+; 256  : 	return true;
+; 257  : }
+; 258  : 
+; 259  : cl::Buffer::Buffer()
+; 260  : 	: okay(false)
+; 261  : {
 
-  0005b	40 88 b3 48 08
-	00 00		 mov	 BYTE PTR [rbx+2120], sil
-  00062	48 8d bb 60 08
-	00 00		 lea	 rdi, QWORD PTR [rbx+2144]
+  00070	40 88 b3 60 08
+	00 00		 mov	 BYTE PTR [rbx+2144], sil
+  00077	40 88 b3 78 08
+	00 00		 mov	 BYTE PTR [rbx+2168], sil
+  0007e	40 88 b3 90 08
+	00 00		 mov	 BYTE PTR [rbx+2192], sil
+  00085	40 88 b3 a8 08
+	00 00		 mov	 BYTE PTR [rbx+2216], sil
+  0008c	40 88 b3 c0 08
+	00 00		 mov	 BYTE PTR [rbx+2240], sil
+  00093	40 88 b3 d8 08
+	00 00		 mov	 BYTE PTR [rbx+2264], sil
+  0009a	40 88 b3 f0 08
+	00 00		 mov	 BYTE PTR [rbx+2288], sil
+  000a1	40 88 b3 08 09
+	00 00		 mov	 BYTE PTR [rbx+2312], sil
+  000a8	48 8d bb 20 09
+	00 00		 lea	 rdi, QWORD PTR [rbx+2336]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 
 ; 79   : 		{	// construct childless container
 
-  00069	48 89 37	 mov	 QWORD PTR [rdi], rsi
+  000af	48 89 37	 mov	 QWORD PTR [rdi], rsi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 778  : 		_Map = _Mapptr();
 
-  0006c	48 89 77 08	 mov	 QWORD PTR [rdi+8], rsi
+  000b2	48 89 77 08	 mov	 QWORD PTR [rdi+8], rsi
 
 ; 779  : 		_Mapsize = 0;
 
-  00070	48 89 77 10	 mov	 QWORD PTR [rdi+16], rsi
+  000b6	48 89 77 10	 mov	 QWORD PTR [rdi+16], rsi
 
 ; 780  : 		_Myoff = 0;
 
-  00074	48 89 77 18	 mov	 QWORD PTR [rdi+24], rsi
+  000ba	48 89 77 18	 mov	 QWORD PTR [rdi+24], rsi
 
 ; 781  : 		_Mysize = 0;
 
-  00078	48 89 77 20	 mov	 QWORD PTR [rdi+32], rsi
+  000be	48 89 77 20	 mov	 QWORD PTR [rdi+32], rsi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
 
-  0007c	8d 4e 10	 lea	 ecx, QWORD PTR [rsi+16]
-  0007f	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
-  00084	48 85 c0	 test	 rax, rax
-  00087	75 06		 jne	 SHORT $LN46@ChunkLoadT
+  000c2	8d 4e 10	 lea	 ecx, QWORD PTR [rsi+16]
+  000c5	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
+  000ca	48 85 c0	 test	 rax, rax
+  000cd	75 06		 jne	 SHORT $LN75@ChunkLoadT
 
 ; 29   : 		_Xbad_alloc();	// report no memory
 
-  00089	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
-  0008e	cc		 int	 3
-$LN46@ChunkLoadT:
+  000cf	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
+  000d4	cc		 int	 3
+$LN75@ChunkLoadT:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 900  : 		this->_Myproxy = _Alproxy.allocate(1);
 
-  0008f	48 89 07	 mov	 QWORD PTR [rdi], rax
+  000d5	48 89 07	 mov	 QWORD PTR [rdi], rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 617  : _VARIADIC_EXPAND_0X(_ALLOC_MEMBER_CONSTRUCT, , , , )
 
-  00092	48 89 30	 mov	 QWORD PTR [rax], rsi
-  00095	48 89 70 08	 mov	 QWORD PTR [rax+8], rsi
+  000d8	48 89 30	 mov	 QWORD PTR [rax], rsi
+  000db	48 89 70 08	 mov	 QWORD PTR [rax+8], rsi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 902  : 		this->_Myproxy->_Mycont = this;
 
-  00099	48 8b 07	 mov	 rax, QWORD PTR [rdi]
-  0009c	48 89 38	 mov	 QWORD PTR [rax], rdi
-  0009f	48 8d 8b 88 08
-	00 00		 lea	 rcx, QWORD PTR [rbx+2184]
+  000df	48 8b 07	 mov	 rax, QWORD PTR [rdi]
+  000e2	48 89 38	 mov	 QWORD PTR [rax], rdi
+  000e5	48 8d 8b 48 09
+	00 00		 lea	 rcx, QWORD PTR [rbx+2376]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
 
-  000a6	ba 02 00 00 00	 mov	 edx, 2
-  000ab	e8 00 00 00 00	 call	 _Mtx_init
+  000ec	ba 02 00 00 00	 mov	 edx, 2
+  000f1	e8 00 00 00 00	 call	 _Mtx_init
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  000b0	85 c0		 test	 eax, eax
-  000b2	74 08		 je	 SHORT $LN82@ChunkLoadT
+  000f6	85 c0		 test	 eax, eax
+  000f8	74 08		 je	 SHORT $LN111@ChunkLoadT
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  000b4	8b c8		 mov	 ecx, eax
-  000b6	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  000bb	90		 npad	 1
-$LN82@ChunkLoadT:
-  000bc	48 8b c3	 mov	 rax, rbx
-  000bf	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  000c4	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
-  000c9	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  000cd	5f		 pop	 rdi
-  000ce	c3		 ret	 0
-$LN85@ChunkLoadT:
+  000fa	8b c8		 mov	 ecx, eax
+  000fc	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00101	90		 npad	 1
+$LN111@ChunkLoadT:
+  00102	48 8b c3	 mov	 rax, rbx
+  00105	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0010a	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
+  0010f	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  00113	5f		 pop	 rdi
+  00114	c3		 ret	 0
+$LN114@ChunkLoadT:
 ??0ChunkLoadThread@@QEAA@XZ ENDP			; ChunkLoadThread::ChunkLoadThread
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -2586,12 +2694,12 @@ _TEXT	ENDS
 text$x	SEGMENT
 $T1 = 32
 this$ = 64
-?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$5
+?dtor$12@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC	; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$12
   00000	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
   00007	48 83 c1 08	 add	 rcx, 8
   0000b	e9 00 00 00 00	 jmp	 ??1thread@std@@QEAA@XZ	; std::thread::~thread
-?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$5
+?dtor$12@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP	; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$12
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
@@ -2625,10 +2733,101 @@ this$ = 64
 ?dtor$2@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$2
   0002f	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00036	48 81 c1 48 08
-	00 00		 add	 rcx, 2120		; 00000848H
+  00036	48 81 c1 60 08
+	00 00		 add	 rcx, 2144		; 00000860H
   0003d	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
 ?dtor$2@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$2
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$3@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$3
+  00042	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00049	48 81 c1 78 08
+	00 00		 add	 rcx, 2168		; 00000878H
+  00050	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$3@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$3
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$4@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$4
+  00055	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  0005c	48 81 c1 90 08
+	00 00		 add	 rcx, 2192		; 00000890H
+  00063	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$4@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$4
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$5
+  00068	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  0006f	48 81 c1 a8 08
+	00 00		 add	 rcx, 2216		; 000008a8H
+  00076	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$5@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$5
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$6@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$6
+  0007b	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00082	48 81 c1 c0 08
+	00 00		 add	 rcx, 2240		; 000008c0H
+  00089	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$6@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$6
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$7@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$7
+  0008e	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00095	48 81 c1 d8 08
+	00 00		 add	 rcx, 2264		; 000008d8H
+  0009c	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$7@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$7
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$8@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$8
+  000a1	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  000a8	48 81 c1 f0 08
+	00 00		 add	 rcx, 2288		; 000008f0H
+  000af	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$8@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$8
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$9@?0???0ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$9
+  000b4	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  000bb	48 81 c1 08 09
+	00 00		 add	 rcx, 2312		; 00000908H
+  000c2	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$9@?0???0ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::ChunkLoadThread'::`1'::dtor$9
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
@@ -2636,6 +2835,9 @@ text$x	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 ;	COMDAT ??1ChunkLoadThread@@QEAA@XZ
@@ -2643,112 +2845,353 @@ _TEXT	SEGMENT
 $T1 = 32
 this$ = 64
 ??1ChunkLoadThread@@QEAA@XZ PROC			; ChunkLoadThread::~ChunkLoadThread, COMDAT
-$LN47:
+$LN95:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
   00005	57		 push	 rdi
   00006	48 83 ec 30	 sub	 rsp, 48			; 00000030H
   0000a	48 c7 44 24 20
 	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
   00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
-  00018	48 8b f9	 mov	 rdi, rcx
+  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
+  0001d	48 8b f9	 mov	 rdi, rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  0001b	48 81 c1 88 08
-	00 00		 add	 rcx, 2184		; 00000888H
-  00022	e8 00 00 00 00	 call	 _Mtx_destroy
+  00020	48 81 c1 48 09
+	00 00		 add	 rcx, 2376		; 00000948H
+  00027	e8 00 00 00 00	 call	 _Mtx_destroy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 1222 : 		_Tidy();
 
-  00027	48 8d 8f 60 08
-	00 00		 lea	 rcx, QWORD PTR [rdi+2144]
-  0002e	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
+  0002c	48 8d 8f 20 09
+	00 00		 lea	 rcx, QWORD PTR [rdi+2336]
+  00033	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00033	48 8b 8f 60 08
-	00 00		 mov	 rcx, QWORD PTR [rdi+2144]
-  0003a	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00038	48 8b 8f 20 09
+	00 00		 mov	 rcx, QWORD PTR [rdi+2336]
+  0003f	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 912  : 		this->_Myproxy = 0;
 
-  0003f	48 c7 87 60 08
-	00 00 00 00 00
-	00		 mov	 QWORD PTR [rdi+2144], 0
+  00044	33 f6		 xor	 esi, esi
+  00046	48 89 b7 20 09
+	00 00		 mov	 QWORD PTR [rdi+2336], rsi
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
 
-; 247  : 	if(okay)
+; 267  : 	if(okay)
 
-  0004a	80 bf 48 08 00
-	00 00		 cmp	 BYTE PTR [rdi+2120], 0
-  00051	74 25		 je	 SHORT $LN26@ChunkLoadT
+  0004d	40 38 b7 08 09
+	00 00		 cmp	 BYTE PTR [rdi+2312], sil
+  00054	74 25		 je	 SHORT $LN33@ChunkLoadT
 
-; 248  : 	{
-; 249  : 		cl_int error = clReleaseMemObject(mem);
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
 
-  00053	48 8b 8f 50 08
-	00 00		 mov	 rcx, QWORD PTR [rdi+2128]
-  0005a	ff 15 00 00 00
+  00056	48 8b 8f 10 09
+	00 00		 mov	 rcx, QWORD PTR [rdi+2320]
+  0005d	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_clReleaseMemObject
 
-; 250  : 		if(error != CL_SUCCESS)
+; 270  : 		if(error != CL_SUCCESS)
 
-  00060	85 c0		 test	 eax, eax
-  00062	74 14		 je	 SHORT $LN26@ChunkLoadT
+  00063	85 c0		 test	 eax, eax
+  00065	74 14		 je	 SHORT $LN33@ChunkLoadT
 
-; 251  : 		{
-; 252  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
 
-  00064	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294956356
-  0006b	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294956355
-  00072	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
-  00077	90		 npad	 1
-$LN26@ChunkLoadT:
+  00067	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  0006e	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  00075	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  0007a	90		 npad	 1
+$LN33@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  0007b	80 bf f0 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2288], 0
+  00082	74 25		 je	 SHORT $LN37@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  00084	48 8b 8f f8 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2296]
+  0008b	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  00091	85 c0		 test	 eax, eax
+  00093	74 14		 je	 SHORT $LN37@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  00095	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  0009c	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  000a3	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  000a8	90		 npad	 1
+$LN37@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  000a9	80 bf d8 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2264], 0
+  000b0	74 25		 je	 SHORT $LN41@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  000b2	48 8b 8f e0 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2272]
+  000b9	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  000bf	85 c0		 test	 eax, eax
+  000c1	74 14		 je	 SHORT $LN41@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  000c3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  000ca	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  000d1	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  000d6	90		 npad	 1
+$LN41@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  000d7	80 bf c0 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2240], 0
+  000de	74 25		 je	 SHORT $LN45@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  000e0	48 8b 8f c8 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2248]
+  000e7	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  000ed	85 c0		 test	 eax, eax
+  000ef	74 14		 je	 SHORT $LN45@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  000f1	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  000f8	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  000ff	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  00104	90		 npad	 1
+$LN45@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  00105	80 bf a8 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2216], 0
+  0010c	74 25		 je	 SHORT $LN49@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  0010e	48 8b 8f b0 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2224]
+  00115	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  0011b	85 c0		 test	 eax, eax
+  0011d	74 14		 je	 SHORT $LN49@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  0011f	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  00126	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  0012d	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  00132	90		 npad	 1
+$LN49@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  00133	80 bf 90 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2192], 0
+  0013a	74 25		 je	 SHORT $LN53@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  0013c	48 8b 8f 98 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2200]
+  00143	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  00149	85 c0		 test	 eax, eax
+  0014b	74 14		 je	 SHORT $LN53@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  0014d	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  00154	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  0015b	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  00160	90		 npad	 1
+$LN53@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  00161	80 bf 78 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2168], 0
+  00168	74 25		 je	 SHORT $LN57@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  0016a	48 8b 8f 80 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2176]
+  00171	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  00177	85 c0		 test	 eax, eax
+  00179	74 14		 je	 SHORT $LN57@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  0017b	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  00182	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  00189	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  0018e	90		 npad	 1
+$LN57@ChunkLoadT:
+
+; 267  : 	if(okay)
+
+  0018f	80 bf 60 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2144], 0
+  00196	74 25		 je	 SHORT $LN61@ChunkLoadT
+
+; 268  : 	{
+; 269  : 		cl_int error = clReleaseMemObject(mem);
+
+  00198	48 8b 8f 68 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2152]
+  0019f	ff 15 00 00 00
+	00		 call	 QWORD PTR __imp_clReleaseMemObject
+
+; 270  : 		if(error != CL_SUCCESS)
+
+  001a5	85 c0		 test	 eax, eax
+  001a7	74 14		 je	 SHORT $LN61@ChunkLoadT
+
+; 271  : 		{
+; 272  : 			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+
+  001a9	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294952791
+  001b0	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294952790
+  001b7	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  001bc	90		 npad	 1
+$LN61@ChunkLoadT:
 
 ; 49   : 	if(okay) clReleaseCommandQueue(queue);
 
-  00078	80 bf 40 08 00
-	00 00		 cmp	 BYTE PTR [rdi+2112], 0
-  0007f	74 0e		 je	 SHORT $LN30@ChunkLoadT
-  00081	48 8b 8f 38 08
+  001bd	80 bf 58 08 00
+	00 00		 cmp	 BYTE PTR [rdi+2136], 0
+  001c4	74 0d		 je	 SHORT $LN65@ChunkLoadT
+  001c6	48 8b 8f 38 08
 	00 00		 mov	 rcx, QWORD PTR [rdi+2104]
-  00088	ff 15 00 00 00
+  001cd	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_clReleaseCommandQueue
-  0008e	90		 npad	 1
-$LN30@ChunkLoadT:
+$LN65@ChunkLoadT:
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
+
+; 1536 : 		if (this->_Myfirst != pointer())
+
+  001d3	48 8b 8f 40 08
+	00 00		 mov	 rcx, QWORD PTR [rdi+2112]
+  001da	48 85 c9	 test	 rcx, rcx
+  001dd	74 1a		 je	 SHORT $LN70@ChunkLoadT
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
+
+; 586  : 		::operator delete(_Ptr);
+
+  001df	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
+
+; 1542 : 			this->_Myfirst = pointer();
+
+  001e4	48 89 b7 40 08
+	00 00		 mov	 QWORD PTR [rdi+2112], rsi
+
+; 1543 : 			this->_Mylast = pointer();
+
+  001eb	48 89 b7 48 08
+	00 00		 mov	 QWORD PTR [rdi+2120], rsi
+
+; 1544 : 			this->_Myend = pointer();
+
+  001f2	48 89 b7 50 08
+	00 00		 mov	 QWORD PTR [rdi+2128], rsi
+$LN70@ChunkLoadT:
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
 
 ; 13   : 	delete[] heap;
 
-  0008f	48 8b 8f 28 08
+  001f9	48 8b 8f 28 08
 	00 00		 mov	 rcx, QWORD PTR [rdi+2088]
-  00096	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00200	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  0009b	83 7f 10 00	 cmp	 DWORD PTR [rdi+16], 0
+  00205	83 7f 10 00	 cmp	 DWORD PTR [rdi+16], 0
 
 ; 57   : 		if (joinable())
 
-  0009f	74 06		 je	 SHORT $LN39@ChunkLoadT
+  00209	74 06		 je	 SHORT $LN87@ChunkLoadT
 
 ; 58   : 			_XSTD terminate();
 
-  000a1	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
-  000a6	cc		 int	 3
-$LN39@ChunkLoadT:
-  000a7	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  000ac	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  000b0	5f		 pop	 rdi
-  000b1	c3		 ret	 0
-$LN46@ChunkLoadT:
+  0020b	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
+  00210	cc		 int	 3
+$LN87@ChunkLoadT:
+  00211	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  00216	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
+  0021b	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  0021f	5f		 pop	 rdi
+  00220	c3		 ret	 0
+$LN94@ChunkLoadT:
 ??1ChunkLoadThread@@QEAA@XZ ENDP			; ChunkLoadThread::~ChunkLoadThread
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -2774,6 +3217,97 @@ this$ = 64
 	00 00		 add	 rcx, 2104		; 00000838H
   0001a	e9 00 00 00 00	 jmp	 ??1CommandQueue@cl@@QEAA@XZ ; cl::CommandQueue::~CommandQueue
 ?dtor$1@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$1
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$2@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$2
+  0001f	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00026	48 81 c1 60 08
+	00 00		 add	 rcx, 2144		; 00000860H
+  0002d	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$2@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$2
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$3@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$3
+  00032	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00039	48 81 c1 78 08
+	00 00		 add	 rcx, 2168		; 00000878H
+  00040	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$3@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$3
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$4@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$4
+  00045	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  0004c	48 81 c1 90 08
+	00 00		 add	 rcx, 2192		; 00000890H
+  00053	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$4@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$4
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$5@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$5
+  00058	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  0005f	48 81 c1 a8 08
+	00 00		 add	 rcx, 2216		; 000008a8H
+  00066	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$5@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$5
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$6@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$6
+  0006b	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00072	48 81 c1 c0 08
+	00 00		 add	 rcx, 2240		; 000008c0H
+  00079	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$6@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$6
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$7@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$7
+  0007e	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00085	48 81 c1 d8 08
+	00 00		 add	 rcx, 2264		; 000008d8H
+  0008c	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$7@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$7
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+$T1 = 32
+this$ = 64
+?dtor$8@?0???1ChunkLoadThread@@QEAA@XZ@4HA PROC		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$8
+  00091	48 8b 8a 40 00
+	00 00		 mov	 rcx, QWORD PTR this$[rdx]
+  00098	48 81 c1 f0 08
+	00 00		 add	 rcx, 2288		; 000008f0H
+  0009f	e9 00 00 00 00	 jmp	 ??1Buffer@cl@@QEAA@XZ	; cl::Buffer::~Buffer
+?dtor$8@?0???1ChunkLoadThread@@QEAA@XZ@4HA ENDP		; `ChunkLoadThread::~ChunkLoadThread'::`1'::dtor$8
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
@@ -3322,10 +3856,10 @@ $LN47:
   00009	e8 00 00 00 00	 call	 _Xtime_get_ticks
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
 
-; 70   : 	int tick = difference / tickTime;
+; 70   : 	__int64 tick = difference / tickTime;
 
-  0000e	4c 63 83 44 08
-	00 00		 movsxd	 r8, DWORD PTR [rbx+2116]
+  0000e	4c 63 83 48 08
+	00 00		 movsxd	 r8, DWORD PTR [rbx+2120]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
 
 ; 105  : 		{	// construct from representation
@@ -3775,56 +4309,56 @@ $LN47:
   0001c	48 6b c0 64	 imul	 rax, 100		; 00000064H
 ; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
 
-; 70   : 	int tick = difference / tickTime;
+; 70   : 	__int64 tick = difference / tickTime;
 
   00020	48 99		 cdq
   00022	49 f7 f8	 idiv	 r8
 
-; 71   : 	int ticksToProcess = tick - lastTick;
+; 71   : 	__int64 ticksToProcess = tick - lastTick;
 
-  00025	8b c8		 mov	 ecx, eax
-  00027	2b 8b 40 08 00
-	00		 sub	 ecx, DWORD PTR [rbx+2112]
+  00025	48 8b c8	 mov	 rcx, rax
+  00028	48 2b 8b 40 08
+	00 00		 sub	 rcx, QWORD PTR [rbx+2112]
 
 ; 72   : 	lastTick = tick;
 
-  0002d	89 83 40 08 00
-	00		 mov	 DWORD PTR [rbx+2112], eax
+  0002f	48 89 83 40 08
+	00 00		 mov	 QWORD PTR [rbx+2112], rax
 
 ; 73   : 
 ; 74   : 	if(ticksToProcess > 0)
 
-  00033	85 c9		 test	 ecx, ecx
-  00035	7e 10		 jle	 SHORT $LN1@shouldTick
+  00036	48 85 c9	 test	 rcx, rcx
+  00039	7e 12		 jle	 SHORT $LN1@shouldTick
 
 ; 75   : 	{
 ; 76   : 		lastTick++;
 
-  00037	ff c0		 inc	 eax
-  00039	89 83 40 08 00
-	00		 mov	 DWORD PTR [rbx+2112], eax
+  0003b	48 ff c0	 inc	 rax
+  0003e	48 89 83 40 08
+	00 00		 mov	 QWORD PTR [rbx+2112], rax
 
 ; 77   : 		return true;
 
-  0003f	b0 01		 mov	 al, 1
+  00045	b0 01		 mov	 al, 1
 
 ; 80   : }
 
-  00041	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  00045	5b		 pop	 rbx
-  00046	c3		 ret	 0
+  00047	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  0004b	5b		 pop	 rbx
+  0004c	c3		 ret	 0
 $LN1@shouldTick:
 
 ; 78   : 	}
 ; 79   : 	return false;
 
-  00047	32 c0		 xor	 al, al
+  0004d	32 c0		 xor	 al, al
 
 ; 80   : }
 
-  00049	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  0004d	5b		 pop	 rbx
-  0004e	c3		 ret	 0
+  0004f	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00053	5b		 pop	 rbx
+  00054	c3		 ret	 0
 ?shouldTick@LimitedThread@@MEAA_NXZ ENDP		; LimitedThread::shouldTick
 _TEXT	ENDS
 ; Function compile flags: /Ogtp

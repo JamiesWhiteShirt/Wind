@@ -30,7 +30,7 @@ GameState* GameStates::processedState;
 GameState* GameStates::pendingState;
 GameState* GameStates::renderingState;
 
-void GameStates::init()
+void GameStates::staticInit()
 {
 	GameStates::processedState = new GameState();
 	GameStates::pendingState = new GameState();

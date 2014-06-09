@@ -160,8 +160,16 @@ void VertexStream::setColor(unsigned char r, unsigned char g, unsigned char b, u
 }
 void VertexStream::setUV(float u, float v)
 {
-	vertex.u = u;
-	vertex.v = v;
+	if(icon != nullptr)
+	{
+		vertex.u = icon->u(u);
+		vertex.v = icon->v(v);
+	}
+	else
+	{
+		vertex.u = u;
+		vertex.v = v;
+	}
 }
 
 void VertexStream::setTranslation(float x, float y, float z)
@@ -171,6 +179,16 @@ void VertexStream::setTranslation(float x, float y, float z)
 void VertexStream::setTranslation(Vertex vertex)
 {
 	translation = vertex;
+}
+
+void VertexStream::setIcon(TiledTexture::Icon* icon)
+{
+	this->icon = icon;
+}
+
+void VertexStream::unbindIcon()
+{
+	setIcon(nullptr);
 }
 
 void VertexStream::reserveAdditional(int size)
@@ -193,7 +211,7 @@ VertexUVRGBA* VertexStream::ptr()
 {
 	return &vertices[0];
 }
-int VertexStream::length()
+size_t VertexStream::length()
 {
 	return vertices.size();
 }
@@ -706,8 +724,8 @@ void Texture2D::bind()
 	}
 }
 
-TiledTexture::TiledTexture()
-	: Texture2D()
+TiledTexture::TiledTexture(TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped)
+	: Texture2D(1, 1, magFilter, minFilter, wrap, mipmapped)
 {
 
 }
@@ -717,13 +735,13 @@ TiledTexture::~TiledTexture()
 
 }
 
-TiledTexture::Icon* TiledTexture::icon(wstring file)
+TiledTexture::Icon* TiledTexture::getIcon(wstring file)
 {
 	auto iconIter = icons.find(file);
 
 	if(iconIter == icons.end())
 	{
-		Icon* icon = new TiledTexture::Icon(file);
+		Icon* icon = new TiledTexture::Icon(this, file);
 
 		icons[file] = icon;
 		return icon;
@@ -734,15 +752,124 @@ TiledTexture::Icon* TiledTexture::icon(wstring file)
 	}
 }
 
-TiledTexture::Icon::Icon(wstring file)
-	: file(file), x(0), y(0)
+bool compareIcon(const TiledTexture::Icon* first, const TiledTexture::Icon* second)
 {
+	return first->size > second->size;
+}
+
+inline unsigned int coord_decode(unsigned int coord)
+{
+	unsigned int res = 0;
+	for(unsigned int i = 0; i < 16; i++)
+	{
+		res |= (coord & 1) << i;
+		coord >>= 2;
+	}
+
+	return res;
+}
+
+bool TiledTexture::compile()
+{
+	vector<TiledTexture::Icon*> sortedIcons;
+
+	for(auto iter = icons.begin(); iter != icons.end(); ++iter)
+	{
+		sortedIcons.push_back(iter->second);
+	}
+
+	std::sort(sortedIcons.begin(), sortedIcons.end(), compareIcon);
+
+	unsigned int area = 0;
+	for(auto iter = sortedIcons.begin(); iter != sortedIcons.end(); ++iter)
+	{
+		Icon* icon = *iter;
+
+		area += icon->size * icon->size;
+	}
+
+	width = 1;
+	height = 1;
+
+	while(width * height < area)
+	{
+		if(width <= height)
+		{
+			width *= 2;
+		}
+		else
+		{
+			height *= 2;
+		}
+	}
+
+	data = new unsigned char[width * height * 4];
+
+	for(unsigned int i = 0; i < width * height * 4; i++)
+	{
+		data[i] = 0;
+	}
+
+	int index = 0;
+
+	for(auto iter = sortedIcons.begin(); iter != sortedIcons.end(); ++iter)
+	{
+		Icon* icon = *iter;
+
+		icon->x = coord_decode(index);
+		icon->y = coord_decode(index >> 1);
+
+		index += icon->size * icon->size;
+
+		for(unsigned int x = 0; x < icon->size; x++)
+		{
+			for(unsigned int y = 0; y < icon->size; y++)
+			{
+				unsigned int iconIndex = (x + (icon->size - y - 1) * icon->size) * 4;
+				unsigned int textureIndex = (x + icon->x + (height - y - icon->y - 1) * width) * 4;
+
+				data[textureIndex] = icon->data[iconIndex];
+				data[textureIndex + 1] = icon->data[iconIndex + 1];
+				data[textureIndex + 2] = icon->data[iconIndex + 2];
+				data[textureIndex + 3] = icon->data[iconIndex + 3];
+			}
+		}
+	}
+
+	return true;
+}
+
+TiledTexture::Icon::Icon(TiledTexture* texture, wstring file)
+	: texture(texture), file(file), x(0), y(0)
+{
+	unsigned int width;
+	unsigned int height;
+
 	data = IOUtil::readPNG(file, width, height);
+
+	if(((width & (width - 1)) != 0) | ((height & (height - 1)) != 0) | (width != height))
+	{
+		GLWindow::instance->postError("Invalid icon proportions", "Icon load error");
+	}
+	else
+	{
+		size = width;
+	}
 }
 
 TiledTexture::Icon::~Icon()
 {
 	delete[] data;
+}
+
+float TiledTexture::Icon::u(float f)
+{
+	return (x + f * size) / texture->width;
+}
+
+float TiledTexture::Icon::v(float f)
+{
+	return (texture->height - y - size + f * size) / texture->height;
 }
 
 

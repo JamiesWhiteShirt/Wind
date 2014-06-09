@@ -103,11 +103,67 @@ namespace gfxu
 		VertexUVRGBA(const VertexUVRGBA& v);
 	};
 
+	class Texture2D
+	{
+	private:
+		void init(wstring fileName);
+	protected:
+		TEXTURE_OBJECT object;
+		TEXTURE_PARAMETER magFilter;
+		TEXTURE_PARAMETER minFilter;
+		TEXTURE_PARAMETER wrap;
+		bool mipmapped;
+		bool uploaded;
+		unsigned char* data;
+		Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
+	public:
+		unsigned int width, height;
+		Texture2D();
+		Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a);
+		Texture2D(wstring fileName);
+		Texture2D(wstring fileName, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
+		~Texture2D();
+
+		bool upload();
+		void bind();
+	};
+
+	class TiledTexture : public Texture2D
+	{
+	public:
+		class Icon
+		{
+		public:
+			TiledTexture* texture;
+
+			wstring file;
+			unsigned int x;
+			unsigned int y;
+			unsigned int size;
+			unsigned char* data;
+
+			Icon(TiledTexture* texture, wstring file);
+			~Icon();
+
+			float u(float f);
+			float v(float f);
+		};
+
+		TiledTexture(TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
+		~TiledTexture();
+
+		Icon* getIcon(wstring file);
+		bool compile();
+	private:
+		std::map<wstring, Icon*> icons;
+	};
+
 	class VertexStream
 	{
 	protected:
 		vector<VertexUVRGBA> vertices;
 		Vertex translation;
+		TiledTexture::Icon* icon;
 		VertexUVRGBA vertex;
 		GLuint vao;
 		GLuint vbo;
@@ -134,6 +190,8 @@ namespace gfxu
 		void setUV(float u, float v);
 		void setTranslation(float x, float y, float z);
 		void setTranslation(Vertex v);
+		void setIcon(TiledTexture::Icon* icon);
+		void unbindIcon();
 		void reserveAdditional(int size);
 
 		void lock();
@@ -145,7 +203,7 @@ namespace gfxu
 		bool isReleased();
 
 		VertexUVRGBA* ptr();
-		int length();
+		size_t length();
 	};
 
 	class Shader
@@ -272,57 +330,6 @@ namespace gfxu
 		static void setForceUpload();
 	};
 
-	class Texture2D
-	{
-	private:
-		void init(wstring fileName);
-	protected:
-		TEXTURE_OBJECT object;
-		TEXTURE_PARAMETER magFilter;
-		TEXTURE_PARAMETER minFilter;
-		TEXTURE_PARAMETER wrap;
-		bool mipmapped;
-		bool uploaded;
-		unsigned char* data;
-		Texture2D(unsigned int width, unsigned int height, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
-	public:
-		unsigned int width, height;
-		Texture2D();
-		Texture2D(unsigned int width, unsigned int height, Noise::NoiseGenerator2D* r, Noise::NoiseGenerator2D* g, Noise::NoiseGenerator2D* b, Noise::NoiseGenerator2D* a);
-		Texture2D(wstring fileName);
-		Texture2D(wstring fileName, TEXTURE_PARAMETER magFilter, TEXTURE_PARAMETER minFilter, TEXTURE_PARAMETER wrap, bool mipmapped);
-		~Texture2D();
-
-		bool upload();
-		void bind();
-	};
-
-	class TiledTexture : public Texture2D
-	{
-	public:
-		class Icon
-		{
-		public:
-			wstring file;
-			unsigned int x;
-			unsigned int y;
-			unsigned int width;
-			unsigned int height;
-			unsigned char* data;
-
-			Icon(wstring file);
-			~Icon();
-		};
-
-		TiledTexture();
-		~TiledTexture();
-
-		Icon* icon(wstring file);
-		bool upload();
-	private:
-		std::map<wstring, Icon*> icons;
-	};
-
 	bool getError(const char* message = "OpenGL error");
 
 	VertexStream& operator<<(VertexStream& vStream, const Vertex& v);
@@ -363,7 +370,7 @@ namespace GameStates
 	extern GameState* pendingState;
 	extern GameState* renderingState;
 
-	void init();
+	void staticInit();
 	void cleanup();
 	void swapProcessedPending();
 	void swapPendingRendering();

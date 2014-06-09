@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <map>
 #include <iostream>
 #include <mutex>
@@ -11,19 +12,22 @@ namespace cl
 	extern cl_device_id device;
 	extern cl_context context;
 
-	bool load();
+	bool staticInit();
 	void unload();
 
 	class CommandQueue
 	{
 	public:
 		cl_command_queue queue;
+		std::vector<cl_event> lastEvents;
 		bool okay;
 
 		CommandQueue();
 		~CommandQueue();
 
 		bool create();
+		bool sync();
+		void addSyncEvent(cl_event event);
 	};
 
 	class Buffer
@@ -41,6 +45,7 @@ namespace cl
 		bool write(CommandQueue& queue, const void* data);
 		bool read(CommandQueue& queue, size_t offset, size_t cb, void* data);
 		bool read(CommandQueue& queue, void* data);
+		bool copyTo(CommandQueue& queue, Buffer& buffer);
 	};
 
 	class Program
@@ -49,6 +54,7 @@ namespace cl
 		cl_program program;
 		std::map<std::string, cl_kernel> kernels;
 		std::mutex mut;
+		unsigned int argIndex;
 	public:
 		cl_kernel preparedKernel;
 		bool okay;
@@ -60,8 +66,8 @@ namespace cl
 		bool create(std::wstring filename);
 		cl_kernel getKernel(std::string kernel);
 		bool prepare(std::string kernel);
-		bool setArgument(int index, size_t size, const void* value);
-		bool setArgument(int index, size_t size, Buffer* value);
+		bool setArgument(size_t size, const void* value);
+		bool setArgument(size_t size, Buffer* value);
 		bool invoke(CommandQueue& queue, cl_uint dimensions, const size_t* globalWorkSize, const size_t* localWorkSize);
 	};
 };

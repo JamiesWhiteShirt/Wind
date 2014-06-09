@@ -67,8 +67,8 @@ bool LimitedThread::shouldTick()
 	std::chrono::system_clock::time_point now = std::chrono::high_resolution_clock::now();
 	long long difference = std::chrono::duration_cast<std::chrono::nanoseconds>(now - startTime).count();
 
-	int tick = difference / tickTime;
-	int ticksToProcess = tick - lastTick;
+	__int64 tick = difference / tickTime;
+	__int64 ticksToProcess = tick - lastTick;
 	lastTick = tick;
 
 	if(ticksToProcess > 0)

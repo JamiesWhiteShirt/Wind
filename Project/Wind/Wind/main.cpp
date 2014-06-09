@@ -16,7 +16,7 @@ int ticks = 0;
 int camX, camY, camZ;
 int prevCamX = 0, prevCamY = 0, prevCamZ = 0;
 
-const int renderDistance = 8;
+const int renderDistance = 10;
 
 bool mainLoop()
 {
@@ -87,8 +87,19 @@ bool mainLoop()
 
 	if(Keyboard::getKey(17)) //CTRL
 	{
-		GlobalThread::world.setBlock(floorf(cam->pos.x), floorf(cam->pos.y), floorf(cam->pos.z), Blocks::air);
+		for(int i = -1; i < 2; i++)
+		{
+			for(int j = -1; j < 2; j++)
+			{
+				for(int k = -1; k < 2; k++)
+				{
+					GlobalThread::world.setBlock(floorf(cam->pos.x) + i, floorf(cam->pos.y) + j, floorf(cam->pos.z) + k, Blocks::air);
+				}
+			}
+		}
 	}
+
+	GlobalThread::world.tick();
 
 	Mouse::actions.clear();
 	Keyboard::actions.clear();
@@ -120,6 +131,8 @@ bool mainLoop()
 					bool in1 = xDist + yDist + zDist <= renderDistance * renderDistance;
 					bool in2 = xPrevDist + yPrevDist + zPrevDist <= renderDistance * renderDistance;
 
+					if(j > 12) continue;
+
 					std::shared_ptr<ChunkBase> c = GlobalThread::world.getChunk(i, j, k);
 
 					if(in1 & !in2)
@@ -138,10 +151,6 @@ bool mainLoop()
 							GlobalThread::world.removalQueue.push(c);
 						}
 					}
-
-					//ChunkBase* c = GlobalThread::world.getChunk(i, j, k);
-					//GlobalThread::world.chunkMap[c->pos] = c;
-					//ChunkLoadThread::loadQueue.push(c);
 				}
 			}
 		}
@@ -200,9 +209,12 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		}
 	}
 
-	IOUtil::init();
-	cl::load();
-	Blocks::initialize();
+	IOUtil::staticInit();
+	cl::staticInit();
+	Noise::staticInit();
+	Blocks::staticInit();
+	ChunkDrawThread::staticInit();
+	ChunkLoadThread::staticInit();
 
 	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 3, 4);
 	GLWindow::instance->initWindow();
@@ -212,10 +224,6 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	{
 
 	}
-
-	ChunkLoadThread::program.create(IOUtil::EXE_DIR + L"\\programs\\generation.cl");
-	ChunkLoadThread::noiseBuffer.create(sizeof(unsigned char) * 16 * 16 * 16, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, ChunkLoadThread::noise.noiseMap);
-	ChunkLoadThread::noise2Buffer.create(sizeof(unsigned char) * 16 * 16 * 16, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, ChunkLoadThread::noise2.noiseMap);
 
 	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
 	{
@@ -227,7 +235,7 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		chunkDrawThreads[i].start();
 	}
 
-	GameStates::init();
+	GameStates::staticInit();
 
 	MSG msg;
 
