@@ -1,7 +1,7 @@
 #pragma once
 
-#include <stdlib.h>
 #include "opencl.h"
+#include "globalutil.h"
 
 namespace Noise
 {
@@ -16,7 +16,8 @@ namespace Noise
 		int size;
 		int octaves;
 		float smoothness;
-		int seed;
+
+		void initNoise(Random& rand);
 
 		unsigned char noiseAt(int &x);
 
@@ -26,6 +27,7 @@ namespace Noise
 
 		NoiseGenerator1D();
 		NoiseGenerator1D(int sizeExponent, int octaves, float smoothness, unsigned int seed);
+		NoiseGenerator1D(int sizeExponent, int octaves, float smoothness, Random& rand);
 		~NoiseGenerator1D();
 
 		float getNoise(float x);
@@ -44,7 +46,8 @@ namespace Noise
 		int size;
 		int octaves;
 		float smoothness;
-		int seed;
+
+		void initNoise(Random& rand);
 
 		unsigned char noiseAt(int &x, int &y);
 
@@ -54,6 +57,7 @@ namespace Noise
 
 		NoiseGenerator2D();
 		NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, unsigned int seed);
+		NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, Random& rand);
 		~NoiseGenerator2D();
 
 		float getNoise(float x, float y);
@@ -72,7 +76,8 @@ namespace Noise
 		int size;
 		int octaves;
 		float smoothness;
-		int seed;
+
+		void initNoise(Random& rand);
 
 		unsigned char noiseAt(int &x, int &y, int &z);
 
@@ -82,6 +87,7 @@ namespace Noise
 
 		NoiseGenerator3D();
 		NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, unsigned int seed);
+		NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, Random& rand);
 		~NoiseGenerator3D();
 
 		float getNoise(float x, float y, float z);

@@ -82,4 +82,4 @@ bool LimitedThread::shouldTick()
 
 
 bool GlobalThread::stop = false;
-World GlobalThread::world;
+World GlobalThread::world(time(0));

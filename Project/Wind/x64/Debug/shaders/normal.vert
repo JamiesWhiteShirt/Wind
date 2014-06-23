@@ -22,5 +22,5 @@ void main()
 	
 	color = color_in * const_color;
 	
-	pos_out = vec3(vertex_in * modelview - cam_pos) * vec3(1.0, 2.0, 1.0) / fog_dist;
+	pos_out = vec3(vertex_in * modelview - cam_pos) / fog_dist;
 }

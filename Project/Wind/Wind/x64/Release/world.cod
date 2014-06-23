@@ -4,7 +4,6 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
-PUBLIC	??_C@_0BB@MOGOBHAF@list?$DMT?$DO?5too?5long?$AA@ ; `string'
 PUBLIC	??_R2ChunkBase@@8				; ChunkBase::`RTTI Base Class Array'
 PUBLIC	??_R1A@?0A@EA@?$_Ref_count@VEmptyChunk@@@std@@8	; std::_Ref_count<EmptyChunk>::`RTTI Base Class Descriptor at (0,-1,0,64)'
 PUBLIC	??_R1A@?0A@EA@EmptyChunk@@8			; EmptyChunk::`RTTI Base Class Descriptor at (0,-1,0,64)'
@@ -217,12 +216,7 @@ rdata$r	ENDS
 rdata$r	SEGMENT
 ??_R2ChunkBase@@8 DD imagerel ??_R1A@?0A@EA@ChunkBase@@8 ; ChunkBase::`RTTI Base Class Array'
 	ORG $+3
-rdata$r	ENDS
-;	COMDAT ??_C@_0BB@MOGOBHAF@list?$DMT?$DO?5too?5long?$AA@
-CONST	SEGMENT
-??_C@_0BB@MOGOBHAF@list?$DMT?$DO?5too?5long?$AA@ DB 'list<T> too long', 00H ; `string'
 PUBLIC	??$construct@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@V12@@?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAXPEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@1@$$QEAV21@@Z ; std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >::construct<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
-PUBLIC	??$forward@VChunkPosition@@@std@@YA$$QEAVChunkPosition@@AEAV1@@Z ; std::forward<ChunkPosition>
 PUBLIC	??$construct@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@V12@@?$allocator_traits@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@SAXAEAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@1@PEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@1@$$QEAV31@@Z ; std::allocator_traits<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > > >::construct<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
 PUBLIC	??$destroy@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAXPEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@1@@Z ; std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >::destroy<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
 PUBLIC	??$?0VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@QEAA@$$QEAU?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@1@PEAPEAX@Z ; std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> ><ChunkPosition,std::shared_ptr<ChunkBase> >
@@ -303,7 +297,6 @@ PUBLIC	??$?0V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVCh
 PUBLIC	??$_Insert@AEAU?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@_N@1@AEAU?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@1@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@1@@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Insert<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > & __ptr64,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
 PUBLIC	??$emplace_front@U?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAX$$QEAU?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@1@@Z ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::emplace_front<std::pair<ChunkPosition,std::shared_ptr<ChunkBase> > >
 PUBLIC	??$forward@U?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@YA$$QEAU?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@0@AEAU10@@Z ; std::forward<std::pair<ChunkPosition,std::shared_ptr<ChunkBase> > >
-PUBLIC	??$forward@AEBVChunkPosition@@@std@@YAAEBVChunkPosition@@AEBV1@@Z ; std::forward<ChunkPosition const & __ptr64>
 PUBLIC	??$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyChunk@@@Z ; std::shared_ptr<ChunkBase>::_Resetp<EmptyChunk>
 PUBLIC	?max_size@?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@QEBA_KXZ ; std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >::max_size
 PUBLIC	?max_size@?$allocator_traits@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@SA_KAEBV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@2@@Z ; std::allocator_traits<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > > >::max_size
@@ -383,7 +376,6 @@ PUBLIC	?begin@?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_
 PUBLIC	?deallocate@?$allocator@U?$_List_node@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@PEAX@std@@@std@@QEAAXPEAU?$_List_node@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@PEAX@2@_K@Z ; std::allocator<std::_List_node<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,void * __ptr64> >::deallocate
 PUBLIC	??0?$_Wrap_alloc@V?$allocator@U?$_List_node@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@PEAX@std@@@std@@@std@@QEAA@XZ ; std::_Wrap_alloc<std::allocator<std::_List_node<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,void * __ptr64> > >::_Wrap_alloc<std::allocator<std::_List_node<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,void * __ptr64> > >
 PUBLIC	??0?$_List_alloc@$0A@U?$_List_base_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@@std@@QEAA@AEBV?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@1@@Z ; std::_List_alloc<0,std::_List_base_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >::_List_alloc<0,std::_List_base_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >
-PUBLIC	?_Gethash@?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA?AU?$hash@VChunkPosition@@@2@XZ ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Gethash
 PUBLIC	??E?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >,std::_Iterator_base0>::operator++
 PUBLIC	??D?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEBAAEBU?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@1@XZ ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >,std::_Iterator_base0>::operator*
 PUBLIC	?deallocate@?$_Wrap_alloc@U?$_Wrap_alloc@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@QEAAXPEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ; std::_Wrap_alloc<std::_Wrap_alloc<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > > > >::deallocate
@@ -399,10 +391,6 @@ PUBLIC	?erase@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@
 PUBLIC	?_Make_iter@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEBA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@V?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@U_Iterator_base0@2@@2@@Z ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::_Make_iter
 PUBLIC	?_Make_iter@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEBA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@@Z ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::_Make_iter
 PUBLIC	?_Unchecked_end@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@XZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::_Unchecked_end
-PUBLIC	?_Getkeyeq@?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEBA?AU?$equal_to@VChunkPosition@@@2@XZ ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Getkeyeq
-PUBLIC	??0?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEAA@U?$equal_to@VChunkPosition@@@1@@Z ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >
-PUBLIC	??R?$equal_to@VChunkPosition@@@std@@QEBA_NAEBVChunkPosition@@0@Z ; std::equal_to<ChunkPosition>::operator()
-PUBLIC	??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_KAEBVChunkPosition@@@Z ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator()
 PUBLIC	?_Erase_bucket@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAXV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Erase_bucket
 PUBLIC	?_Vec_hi@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAAEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Vec_hi
 PUBLIC	?_Vec_lo@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAAEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Vec_lo
@@ -419,8 +407,6 @@ PUBLIC	??1?$_List_alloc@$0A@U?$_List_base_types@U?$pair@$$CBVChunkPosition@@V?$s
 PUBLIC	?_Freenode@?$_List_buy@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXPEAU?$_List_node@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@PEAX@2@@Z ; std::_List_buy<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::_Freenode
 PUBLIC	?_Tidy@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXXZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::_Tidy
 PUBLIC	??0?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAA@AEBV?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@1@@Z ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
-PUBLIC	??0?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >
-PUBLIC	??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_NAEBVChunkPosition@@0@Z ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator()
 PUBLIC	??0?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@QEAA@AEBV?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@1@@Z ; std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0>::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0>
 PUBLIC	?_Hashval@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEBA_KAEBVChunkPosition@@@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Hashval
 PUBLIC	?_End@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_End
@@ -436,7 +422,6 @@ PUBLIC	??1?$vector@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_type
 PUBLIC	??0?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@QEAA@XZ ; std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >
 PUBLIC	?clear@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXXZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::clear
 PUBLIC	??1?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAA@XZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::~list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
-PUBLIC	??0?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >
 PUBLIC	?_Init@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAX_K@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Init
 PUBLIC	?equal_range@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@QEAA?AU?$pair@V?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@V12@@2@AEBVChunkPosition@@@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::equal_range
 PUBLIC	?lower_bound@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@AEBVChunkPosition@@@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::lower_bound
@@ -451,8 +436,6 @@ PUBLIC	??1?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std
 PUBLIC	??A?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAAAEAV?$shared_ptr@VChunkBase@@@1@AEBVChunkPosition@@@Z ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::operator[]
 PUBLIC	??0?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
 PUBLIC	??0?$shared_ptr@VVertexStream@gfxu@@@std@@QEAA@$$T@Z ; std::shared_ptr<gfxu::VertexStream>::shared_ptr<gfxu::VertexStream>
-PUBLIC	??R?$_Bitwise_hash@H@std@@QEBA_KAEBH@Z		; std::_Bitwise_hash<int>::operator()
-PUBLIC	??8@YA_NAEBVChunkPosition@@0@Z			; operator==
 PUBLIC	?setBlock@World@@QEAAXHHHPEAVBlock@@@Z		; World::setBlock
 PUBLIC	?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunkFromBlockCoordinate
 PUBLIC	?tick@World@@QEAAXXZ				; World::tick
@@ -476,16 +459,17 @@ PUBLIC	?shouldRender@ChunkBase@@UEAA_NXZ		; ChunkBase::shouldRender
 PUBLIC	?dataPtr@ChunkBase@@UEAAPEAGXZ			; ChunkBase::dataPtr
 PUBLIC	??1ChunkBase@@QEAA@XZ				; ChunkBase::~ChunkBase
 PUBLIC	??0ChunkBase@@QEAA@AEAVWorld@@HHH@Z		; ChunkBase::ChunkBase
-PUBLIC	??0ChunkPosition@@QEAA@HHH@Z			; ChunkPosition::ChunkPosition
 PUBLIC	?toIndex@@YAIAEAI00@Z				; toIndex
-PUBLIC	??R?$hash@VChunkPosition@@@std@@QEBA_KAEBVChunkPosition@@@Z ; std::hash<ChunkPosition>::operator()
 PUBLIC	?_Getcont@_Iterator_base0@std@@QEBAPEBU_Container_base0@2@XZ ; std::_Iterator_base0::_Getcont
-PUBLIC	?_Hash_seq@std@@YA_KPEBE_K@Z			; std::_Hash_seq
 PUBLIC	??1World@@QEAA@XZ				; World::~World
-PUBLIC	??0World@@QEAA@XZ				; World::World
+PUBLIC	??0World@@QEAA@I@Z				; World::World
 PUBLIC	?removeChunk@World@@QEAAXVChunkPosition@@@Z	; World::removeChunk
 PUBLIC	?addChunk@World@@QEAA_NV?$shared_ptr@VChunkBase@@@std@@@Z ; World::addChunk
 PUBLIC	?setUnloaded@ChunkBase@@QEAAXXZ			; ChunkBase::setUnloaded
+PUBLIC	?getSeed@World@@QEAAIXZ				; World::getSeed
+PUBLIC	??8@YA_NAEBVChunkPosition@@0@Z			; operator==
+PUBLIC	??0ChunkPosition@@QEAA@HHH@Z			; ChunkPosition::ChunkPosition
+PUBLIC	?getBoundingBox@ChunkBase@@QEAA?AVAxisAlignedCube@geom@@XZ ; ChunkBase::getBoundingBox
 PUBLIC	?setLoaded@ChunkBase@@QEAAXXZ			; ChunkBase::setLoaded
 PUBLIC	?getBlock@World@@QEAAPEAVBlock@@HHH@Z		; World::getBlock
 PUBLIC	?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunk
@@ -1132,14 +1116,14 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??1World@@QEAA@XZ DD imagerel $LN138
-	DD	imagerel $LN138+216
+	DD	imagerel $LN138+229
 	DD	imagerel $unwind$??1World@@QEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0World@@QEAA@XZ DD imagerel $LN139
-	DD	imagerel $LN139+277
-	DD	imagerel $unwind$??0World@@QEAA@XZ
+$pdata$??0World@@QEAA@I@Z DD imagerel $LN139
+	DD	imagerel $LN139+341
+	DD	imagerel $unwind$??0World@@QEAA@I@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1162,15 +1146,15 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z DD imagerel $LN248
-	DD	imagerel $LN248+614
+	DD	imagerel $LN248+617
 	DD	imagerel $unwind$?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z
 ;	COMDAT xdata
 xdata	SEGMENT
 $ip2state$?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z DD imagerel ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z
 	DD	0ffffffffH
-	DD	imagerel ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z+492
+	DD	imagerel ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z+495
 	DD	00H
-	DD	imagerel ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z+538
+	DD	imagerel ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z+541
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -1285,66 +1269,63 @@ $unwind$?removeChunk@World@@QEAAXVChunkPosition@@@Z DD 020601H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$??0World@@QEAA@XZ DD imagerel ??0World@@QEAA@XZ
+$ip2state$??0World@@QEAA@I@Z DD imagerel ??0World@@QEAA@I@Z
 	DD	0ffffffffH
-	DD	imagerel ??0World@@QEAA@XZ+38
+	DD	imagerel ??0World@@QEAA@I@Z+47
 	DD	00H
-	DD	imagerel ??0World@@QEAA@XZ+64
+	DD	imagerel ??0World@@QEAA@I@Z+82
 	DD	01H
-	DD	imagerel ??0World@@QEAA@XZ+74
+	DD	imagerel ??0World@@QEAA@I@Z+95
 	DD	02H
-	DD	imagerel ??0World@@QEAA@XZ+103
+	DD	imagerel ??0World@@QEAA@I@Z+124
 	DD	03H
-	DD	imagerel ??0World@@QEAA@XZ+166
+	DD	imagerel ??0World@@QEAA@I@Z+211
 	DD	04H
-	DD	imagerel ??0World@@QEAA@XZ+195
+	DD	imagerel ??0World@@QEAA@I@Z+240
 	DD	05H
-	DD	imagerel ??0World@@QEAA@XZ+258
+	DD	imagerel ??0World@@QEAA@I@Z+327
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$??0World@@QEAA@XZ DD 0ffffffffH
-	DD	imagerel ?dtor$0@?0???0World@@QEAA@XZ@4HA
+$stateUnwindMap$??0World@@QEAA@I@Z DD 0ffffffffH
+	DD	imagerel ?dtor$0@?0???0World@@QEAA@I@Z@4HA
 	DD	00H
-	DD	imagerel ?dtor$1@?0???0World@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$1@?0???0World@@QEAA@I@Z@4HA
 	DD	01H
-	DD	imagerel ?dtor$2@?0???0World@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$2@?0???0World@@QEAA@I@Z@4HA
 	DD	02H
-	DD	imagerel ?dtor$3@?0???0World@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$3@?0???0World@@QEAA@I@Z@4HA
 	DD	03H
-	DD	imagerel ?dtor$4@?0???0World@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$4@?0???0World@@QEAA@I@Z@4HA
 	DD	04H
-	DD	imagerel ?dtor$5@?0???0World@@QEAA@XZ@4HA
+	DD	imagerel ?dtor$5@?0???0World@@QEAA@I@Z@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-$cppxdata$??0World@@QEAA@XZ DD 019930522H
+$cppxdata$??0World@@QEAA@I@Z DD 019930522H
 	DD	06H
-	DD	imagerel $stateUnwindMap$??0World@@QEAA@XZ
+	DD	imagerel $stateUnwindMap$??0World@@QEAA@I@Z
 	DD	00H
 	DD	00H
 	DD	08H
-	DD	imagerel $ip2state$??0World@@QEAA@XZ
+	DD	imagerel $ip2state$??0World@@QEAA@I@Z
 	DD	020H
 	DD	00H
 	DD	01H
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0World@@QEAA@XZ DD 061d11H
-	DD	0a641dH
+$unwind$??0World@@QEAA@I@Z DD 041811H
 	DD	093418H
 	DD	07006520aH
 	DD	imagerel __CxxFrameHandler3
-	DD	imagerel $cppxdata$??0World@@QEAA@XZ
+	DD	imagerel $cppxdata$??0World@@QEAA@I@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??1World@@QEAA@XZ DD 060f01H
-	DD	07640fH
-	DD	06340fH
-	DD	0700b320fH
+$unwind$??1World@@QEAA@XZ DD 020601H
+	DD	030023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -2258,7 +2239,7 @@ xdata	SEGMENT
 $unwind$??$_Buynode@U?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@?$_List_buy@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAPEAU?$_List_node@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@PEAX@1@PEAU21@0$$QEAU?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@1@@Z DD 020601H
 	DD	030023206H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?isLoaded@ChunkBase@@QEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -2274,7 +2255,7 @@ this$ = 8
 ?isLoaded@ChunkBase@@QEAA_NXZ ENDP			; ChunkBase::isLoaded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?isUnloaded@ChunkBase@@QEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -2290,7 +2271,7 @@ this$ = 8
 ?isUnloaded@ChunkBase@@QEAA_NXZ ENDP			; ChunkBase::isUnloaded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setRenderUpdateNeeded@ChunkBase@@QEAAX_N@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -2307,7 +2288,7 @@ flag$ = 16
 ?setRenderUpdateNeeded@ChunkBase@@QEAAX_N@Z ENDP	; ChunkBase::setRenderUpdateNeeded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?isRenderUpdateNeeded@ChunkBase@@QEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -2323,10 +2304,10 @@ this$ = 8
 ?isRenderUpdateNeeded@ChunkBase@@QEAA_NXZ ENDP		; ChunkBase::isRenderUpdateNeeded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.h
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -2338,21 +2319,21 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z
 _TEXT	SEGMENT
 $T1 = 48
@@ -2367,7 +2348,7 @@ y$ = 152
 z$ = 160
 ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z PROC ; World::getChunk, COMDAT
 
-; 212  : {
+; 218  : {
 
 $LN248:
   00000	48 8b c4	 mov	 rax, rsp
@@ -2545,13 +2526,13 @@ $LN248:
 
 ; 1003 : 		size_type _Num = ((_Traits&)*this)(_Keyval) & _Mask;
 
-  00114	4d 8b 4b 70	 mov	 r9, QWORD PTR [r11+112]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
+  00114	4d 8b 4b 78	 mov	 r9, QWORD PTR [r11+120]
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.h
 
-; 30   : 			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
+; 30   : 			return (hash<int>()(key.x) >> 8) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 8);
 
-  00118	49 c1 e0 04	 shl	 r8, 4
-  0011c	48 c1 ea 04	 shr	 rdx, 4
+  00118	49 c1 e0 08	 shl	 r8, 8
+  0011c	48 c1 ea 08	 shr	 rdx, 8
   00120	4c 33 c2	 xor	 r8, rdx
   00123	4c 33 c1	 xor	 r8, rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -2562,149 +2543,150 @@ $LN248:
 
 ; 1004 : 		if (_Maxidx <= _Num)
 
-  00129	4d 39 43 78	 cmp	 QWORD PTR [r11+120], r8
-  0012d	77 0d		 ja	 SHORT $LN22@getChunk
+  00129	4d 39 83 80 00
+	00 00		 cmp	 QWORD PTR [r11+128], r8
+  00130	77 0d		 ja	 SHORT $LN22@getChunk
 
 ; 1005 : 			_Num -= (_Mask >> 1) + 1;
 
-  0012f	49 d1 e9	 shr	 r9, 1
-  00132	48 83 c8 ff	 or	 rax, -1
-  00136	49 2b c1	 sub	 rax, r9
-  00139	4c 03 c0	 add	 r8, rax
+  00132	49 d1 e9	 shr	 r9, 1
+  00135	48 83 c8 ff	 or	 rax, -1
+  00139	49 2b c1	 sub	 rax, r9
+  0013c	4c 03 c0	 add	 r8, rax
 $LN22@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1148 : 		return (*(this->_Myfirst + _Pos));
 
-  0013c	49 c1 e0 04	 shl	 r8, 4
-  00140	4d 8b 53 58	 mov	 r10, QWORD PTR [r11+88]
-  00144	4d 03 d0	 add	 r10, r8
+  0013f	49 c1 e0 04	 shl	 r8, 4
+  00143	4d 8b 53 60	 mov	 r10, QWORD PTR [r11+96]
+  00147	4d 03 d0	 add	 r10, r8
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 926  : 		return (_Vec_lo(_Bucket));
 
-  00147	4d 8b 0a	 mov	 r9, QWORD PTR [r10]
-  0014a	49 8b c1	 mov	 rax, r9
-  0014d	49 8b 53 48	 mov	 rdx, QWORD PTR [r11+72]
+  0014a	4d 8b 0a	 mov	 r9, QWORD PTR [r10]
+  0014d	49 8b c1	 mov	 rax, r9
+  00150	49 8b 53 50	 mov	 rdx, QWORD PTR [r11+80]
 $LL60@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 86   : 		return (_Ptr == _Right._Ptr);
 
-  00151	4c 3b ca	 cmp	 r9, rdx
+  00154	4c 3b ca	 cmp	 r9, rdx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 936  : 		if (_Vec_lo(_Bucket) == _Unchecked_end())
 
-  00154	75 0d		 jne	 SHORT $LN65@getChunk
+  00157	75 0d		 jne	 SHORT $LN65@getChunk
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 44   : 		{	// construct with node pointer _Pnode
 
-  00156	48 8b ca	 mov	 rcx, rdx
-  00159	48 89 94 24 80
+  00159	48 8b ca	 mov	 rcx, rdx
+  0015c	48 89 94 24 80
 	00 00 00	 mov	 QWORD PTR $T4[rsp], rdx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 937  : 			return (_Unchecked_end());
 
-  00161	eb 0f		 jmp	 SHORT $LN64@getChunk
+  00164	eb 0f		 jmp	 SHORT $LN64@getChunk
 $LN65@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 537  : 		return ((_Nodepref)_Pnode->_Next);
 
-  00163	49 8b 4a 08	 mov	 rcx, QWORD PTR [r10+8]
+  00166	49 8b 4a 08	 mov	 rcx, QWORD PTR [r10+8]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 941  : 			return (++_Ans);
 
-  00167	48 8b 09	 mov	 rcx, QWORD PTR [rcx]
-  0016a	48 89 8c 24 80
+  0016a	48 8b 09	 mov	 rcx, QWORD PTR [rcx]
+  0016d	48 89 8c 24 80
 	00 00 00	 mov	 QWORD PTR $T4[rsp], rcx
 $LN64@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 86   : 		return (_Ptr == _Right._Ptr);
 
-  00172	48 3b c1	 cmp	 rax, rcx
+  00175	48 3b c1	 cmp	 rax, rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 748  : 			_Where != _End(_Bucket); ++_Where)
 
-  00175	74 58		 je	 SHORT $LN15@getChunk
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+  00178	74 58		 je	 SHORT $LN15@getChunk
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
-  00177	39 70 14	 cmp	 DWORD PTR [rax+20], esi
-  0017a	41 0f 94 c0	 sete	 r8b
-  0017e	44 39 70 18	 cmp	 DWORD PTR [rax+24], r14d
-  00182	0f 94 c1	 sete	 cl
-  00185	44 22 c1	 and	 r8b, cl
-  00188	39 68 10	 cmp	 DWORD PTR [rax+16], ebp
-  0018b	0f 94 c1	 sete	 cl
-  0018e	44 84 c1	 test	 r8b, cl
+  0017a	39 70 14	 cmp	 DWORD PTR [rax+20], esi
+  0017d	41 0f 94 c0	 sete	 r8b
+  00181	44 39 70 18	 cmp	 DWORD PTR [rax+24], r14d
+  00185	0f 94 c1	 sete	 cl
+  00188	44 22 c1	 and	 r8b, cl
+  0018b	39 68 10	 cmp	 DWORD PTR [rax+16], ebp
+  0018e	0f 94 c1	 sete	 cl
+  00191	44 84 c1	 test	 r8b, cl
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 749  : 			if (!((_Traits&)*this)(this->_Kfn(*_Where), _Keyval))
 
-  00191	75 05		 jne	 SHORT $LN224@getChunk
+  00194	75 05		 jne	 SHORT $LN224@getChunk
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 60   : 		_Ptr = _Mylist::_Nextnode(_Ptr);
 
-  00193	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  00196	eb b9		 jmp	 SHORT $LL60@getChunk
+  00196	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  00199	eb b9		 jmp	 SHORT $LL60@getChunk
 $LN224@getChunk:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
-  00198	3b 70 14	 cmp	 esi, DWORD PTR [rax+20]
-  0019b	41 0f 94 c0	 sete	 r8b
-  0019f	44 3b 70 18	 cmp	 r14d, DWORD PTR [rax+24]
-  001a3	0f 94 c1	 sete	 cl
-  001a6	44 22 c1	 and	 r8b, cl
-  001a9	3b 68 10	 cmp	 ebp, DWORD PTR [rax+16]
-  001ac	0f 94 c1	 sete	 cl
-  001af	44 84 c1	 test	 r8b, cl
+  0019b	3b 70 14	 cmp	 esi, DWORD PTR [rax+20]
+  0019e	41 0f 94 c0	 sete	 r8b
+  001a2	44 3b 70 18	 cmp	 r14d, DWORD PTR [rax+24]
+  001a6	0f 94 c1	 sete	 cl
+  001a9	44 22 c1	 and	 r8b, cl
+  001ac	3b 68 10	 cmp	 ebp, DWORD PTR [rax+16]
+  001af	0f 94 c1	 sete	 cl
+  001b2	44 84 c1	 test	 r8b, cl
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 751  : 					this->_Kfn(*_Where)) ? end() : _Make_iter(_Where));
 
-  001b2	75 0c		 jne	 SHORT $LN20@getChunk
+  001b5	75 0c		 jne	 SHORT $LN20@getChunk
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 44   : 		{	// construct with node pointer _Pnode
 
-  001b4	48 89 54 24 38	 mov	 QWORD PTR $T2[rsp], rdx
+  001b7	48 89 54 24 38	 mov	 QWORD PTR $T2[rsp], rdx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 751  : 					this->_Kfn(*_Where)) ? end() : _Make_iter(_Where));
 
-  001b9	48 8d 44 24 38	 lea	 rax, QWORD PTR $T2[rsp]
-  001be	eb 0a		 jmp	 SHORT $LN21@getChunk
+  001bc	48 8d 44 24 38	 lea	 rax, QWORD PTR $T2[rsp]
+  001c1	eb 0a		 jmp	 SHORT $LN21@getChunk
 $LN20@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 44   : 		{	// construct with node pointer _Pnode
 
-  001c0	48 89 44 24 40	 mov	 QWORD PTR $T3[rsp], rax
+  001c3	48 89 44 24 40	 mov	 QWORD PTR $T3[rsp], rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 751  : 					this->_Kfn(*_Where)) ? end() : _Make_iter(_Where));
 
-  001c5	48 8d 44 24 40	 lea	 rax, QWORD PTR $T3[rsp]
+  001c8	48 8d 44 24 40	 lea	 rax, QWORD PTR $T3[rsp]
 $LN21@getChunk:
-  001ca	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  001cd	eb 03		 jmp	 SHORT $LN174@getChunk
+  001cd	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  001d0	eb 03		 jmp	 SHORT $LN174@getChunk
 $LN15@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 44   : 		{	// construct with node pointer _Pnode
 
-  001cf	48 8b c2	 mov	 rax, rdx
+  001d2	48 8b c2	 mov	 rax, rdx
 $LN174@getChunk:
 
 ; 87   : 		}
@@ -2920,48 +2902,48 @@ $LN174@getChunk:
 ; 297  : 
 ; 298  : 		return (this->_Ptr == _Right._Ptr);
 
-  001d2	48 3b c2	 cmp	 rax, rdx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+  001d5	48 3b c2	 cmp	 rax, rdx
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 215  : 	if(chunk == chunkMap.end())
+; 221  : 	if(chunk == chunkMap.end())
 
-  001d5	75 57		 jne	 SHORT $LN2@getChunk
+  001d8	75 57		 jne	 SHORT $LN2@getChunk
 
-; 217  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
+; 223  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
 
-  001d7	b9 58 00 00 00	 mov	 ecx, 88			; 00000058H
-  001dc	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
-  001e1	48 8b f8	 mov	 rdi, rax
-  001e4	48 89 84 24 80
+  001da	b9 58 00 00 00	 mov	 ecx, 88			; 00000058H
+  001df	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
+  001e4	48 8b f8	 mov	 rdi, rax
+  001e7	48 89 84 24 80
 	00 00 00	 mov	 QWORD PTR $T5[rsp], rax
-  001ec	48 85 c0	 test	 rax, rax
-  001ef	74 26		 je	 SHORT $LN5@getChunk
+  001ef	48 85 c0	 test	 rax, rax
+  001f2	74 26		 je	 SHORT $LN5@getChunk
 
-; 107  : {
+; 112  : {
 
-  001f1	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
-  001f6	44 8b ce	 mov	 r9d, esi
-  001f9	44 8b c5	 mov	 r8d, ebp
-  001fc	48 8d 15 00 00
+  001f4	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
+  001f9	44 8b ce	 mov	 r9d, esi
+  001fc	44 8b c5	 mov	 r8d, ebp
+  001ff	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
-  00203	48 8b c8	 mov	 rcx, rax
-  00206	e8 00 00 00 00	 call	 ??0ChunkBase@@QEAA@AEAVWorld@@HHH@Z ; ChunkBase::ChunkBase
-  0020b	48 8d 05 00 00
+  00206	48 8b c8	 mov	 rcx, rax
+  00209	e8 00 00 00 00	 call	 ??0ChunkBase@@QEAA@AEAVWorld@@HHH@Z ; ChunkBase::ChunkBase
+  0020e	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
-  00212	48 89 07	 mov	 QWORD PTR [rdi], rax
+  00215	48 89 07	 mov	 QWORD PTR [rdi], rax
 
-; 217  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
+; 223  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
 
-  00215	eb 03		 jmp	 SHORT $LN6@getChunk
+  00218	eb 03		 jmp	 SHORT $LN6@getChunk
 $LN5@getChunk:
-  00217	49 8b ff	 mov	 rdi, r15
+  0021a	49 8b ff	 mov	 rdi, r15
 $LN6@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 282  : 		{	// construct
 
-  0021a	4c 89 3b	 mov	 QWORD PTR [rbx], r15
-  0021d	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
+  0021d	4c 89 3b	 mov	 QWORD PTR [rbx], r15
+  00220	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
 
 ; 410  : 		}
 ; 411  : 
@@ -3042,21 +3024,21 @@ $LN6@getChunk:
 ; 486  : 		{	// construct shared_ptr object that owns _Px
 ; 487  : 		_Resetp(_Px);
 
-  00221	48 8b d7	 mov	 rdx, rdi
-  00224	48 8b cb	 mov	 rcx, rbx
-  00227	e8 00 00 00 00	 call	 ??$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyChunk@@@Z ; std::shared_ptr<ChunkBase>::_Resetp<EmptyChunk>
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+  00224	48 8b d7	 mov	 rdx, rdi
+  00227	48 8b cb	 mov	 rcx, rbx
+  0022a	e8 00 00 00 00	 call	 ??$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyChunk@@@Z ; std::shared_ptr<ChunkBase>::_Resetp<EmptyChunk>
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 217  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
+; 223  : 		return shared_ptr<ChunkBase>(new EmptyChunk(GlobalThread::world, x, y, z));
 
-  0022c	eb 21		 jmp	 SHORT $LN247@getChunk
+  0022f	eb 21		 jmp	 SHORT $LN247@getChunk
 $LN2@getChunk:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 282  : 		{	// construct
 
-  0022e	4c 89 3b	 mov	 QWORD PTR [rbx], r15
-  00231	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
+  00231	4c 89 3b	 mov	 QWORD PTR [rbx], r15
+  00234	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
 
 ; 283  : 		}
 ; 284  : 
@@ -3134,8 +3116,8 @@ $LN2@getChunk:
 ; 356  : 		{	// release resource and take ownership of _Other._Ptr
 ; 357  : 		_Reset(_Other._Ptr, _Other._Rep);
 
-  00235	4c 8b 40 28	 mov	 r8, QWORD PTR [rax+40]
-  00239	48 8b 50 20	 mov	 rdx, QWORD PTR [rax+32]
+  00238	4c 8b 40 28	 mov	 r8, QWORD PTR [rax+40]
+  0023c	48 8b 50 20	 mov	 rdx, QWORD PTR [rax+32]
 
 ; 358  : 		}
 ; 359  : 
@@ -3188,38 +3170,38 @@ $LN2@getChunk:
 ; 406  : 		{	// release resource and take _Other_ptr through _Other_rep
 ; 407  : 		if (_Other_rep)
 
-  0023d	4d 85 c0	 test	 r8, r8
-  00240	74 05		 je	 SHORT $LN218@getChunk
+  00240	4d 85 c0	 test	 r8, r8
+  00243	74 05		 je	 SHORT $LN218@getChunk
 
 ; 108  : 		_MT_INCR(_Ignored, _Uses);
 
-  00242	f0 41 ff 40 08	 lock inc DWORD PTR [r8+8]
+  00245	f0 41 ff 40 08	 lock inc DWORD PTR [r8+8]
 $LN218@getChunk:
 
 ; 408  : 			_Other_rep->_Incref();
 ; 409  : 		_Reset0(_Other_ptr, _Other_rep);
 
-  00247	48 8b cb	 mov	 rcx, rbx
-  0024a	e8 00 00 00 00	 call	 ?_Reset0@?$_Ptr_base@VChunkBase@@@std@@QEAAXPEAVChunkBase@@PEAV_Ref_count_base@2@@Z ; std::_Ptr_base<ChunkBase>::_Reset0
+  0024a	48 8b cb	 mov	 rcx, rbx
+  0024d	e8 00 00 00 00	 call	 ?_Reset0@?$_Ptr_base@VChunkBase@@@std@@QEAAXPEAVChunkBase@@PEAV_Ref_count_base@2@@Z ; std::_Ptr_base<ChunkBase>::_Reset0
 $LN247@getChunk:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 221  : 		return chunk->second;
+; 227  : 		return chunk->second;
 
-  0024f	48 8b c3	 mov	 rax, rbx
+  00252	48 8b c3	 mov	 rax, rbx
 
-; 222  : 	}
-; 223  : }
+; 228  : 	}
+; 229  : }
 
-  00252	48 8b 9c 24 88
+  00255	48 8b 9c 24 88
 	00 00 00	 mov	 rbx, QWORD PTR [rsp+136]
-  0025a	48 83 c4 50	 add	 rsp, 80			; 00000050H
-  0025e	41 5f		 pop	 r15
-  00260	41 5e		 pop	 r14
-  00262	5f		 pop	 rdi
-  00263	5e		 pop	 rsi
-  00264	5d		 pop	 rbp
-  00265	c3		 ret	 0
+  0025d	48 83 c4 50	 add	 rsp, 80			; 00000050H
+  00261	41 5f		 pop	 r15
+  00263	41 5e		 pop	 r14
+  00265	5f		 pop	 rdi
+  00266	5e		 pop	 rsi
+  00267	5d		 pop	 rbp
+  00268	c3		 ret	 0
 ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ENDP ; World::getChunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -3242,11 +3224,11 @@ z$ = 160
 ?dtor$0@?0??getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z@4HA ENDP ; `World::getChunk'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?getBlock@World@@QEAAPEAVBlock@@HHH@Z
 _TEXT	SEGMENT
 $T1 = 48
@@ -3257,7 +3239,7 @@ y$ = 112
 z$ = 120
 ?getBlock@World@@QEAAPEAVBlock@@HHH@Z PROC		; World::getBlock, COMDAT
 
-; 243  : {
+; 249  : {
 
 $LN50:
   00000	40 57		 push	 rdi
@@ -3271,7 +3253,7 @@ $LN50:
   00021	41 8b f0	 mov	 esi, r8d
   00024	8b ea		 mov	 ebp, edx
 
-; 244  : 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
+; 250  : 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
 
   00026	44 89 4c 24 20	 mov	 DWORD PTR [rsp+32], r9d
   0002b	45 8b c8	 mov	 r9d, r8d
@@ -3285,9 +3267,9 @@ $LN50:
 
   0003c	48 8b 5c 24 38	 mov	 rbx, QWORD PTR chunk$[rsp]
   00041	48 85 db	 test	 rbx, rbx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 246  : 	if(chunk == nullptr || chunk->isEmpty() || !chunk->isLoaded())
+; 252  : 	if(chunk == nullptr || chunk->isEmpty() || !chunk->isLoaded())
 
   00044	74 30		 je	 SHORT $LN1@getBlock
   00046	48 8b 03	 mov	 rax, QWORD PTR [rbx]
@@ -3298,7 +3280,7 @@ $LN50:
   00053	38 43 09	 cmp	 BYTE PTR [rbx+9], al
   00056	74 1e		 je	 SHORT $LN1@getBlock
 
-; 251  : 	return chunk->getBlock(x & 0xf, y & 0xf, z & 0xf);
+; 257  : 	return chunk->getBlock(x & 0xf, y & 0xf, z & 0xf);
 
   00058	48 8b 03	 mov	 rax, QWORD PTR [rbx]
   0005b	83 e7 0f	 and	 edi, 15
@@ -3353,13 +3335,13 @@ $LN6@getBlock:
   000a5	48 8b 01	 mov	 rax, QWORD PTR [rcx]
   000a8	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN49@getBlock:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 251  : 	return chunk->getBlock(x & 0xf, y & 0xf, z & 0xf);
+; 257  : 	return chunk->getBlock(x & 0xf, y & 0xf, z & 0xf);
 
   000ab	48 8b c7	 mov	 rax, rdi
 
-; 252  : }
+; 258  : }
 
   000ae	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   000b3	48 8b 6c 24 68	 mov	 rbp, QWORD PTR [rsp+104]
@@ -3385,7 +3367,7 @@ z$ = 120
 ?dtor$0@?0??getBlock@World@@QEAAPEAVBlock@@HHH@Z@4HA ENDP ; `World::getBlock'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setLoaded@ChunkBase@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -3401,7 +3383,141 @@ this$ = 8
 ?setLoaded@ChunkBase@@QEAAXXZ ENDP			; ChunkBase::setLoaded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ?getBoundingBox@ChunkBase@@QEAA?AVAxisAlignedCube@geom@@XZ
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+?getBoundingBox@ChunkBase@@QEAA?AVAxisAlignedCube@geom@@XZ PROC ; ChunkBase::getBoundingBox, COMDAT
+
+; 104  : {
+
+  00000	66 0f 6e 49 18	 movd	 xmm1, DWORD PTR [rcx+24]
+  00005	66 0f 6e 51 1c	 movd	 xmm2, DWORD PTR [rcx+28]
+  0000a	66 0f 6e 59 20	 movd	 xmm3, DWORD PTR [rcx+32]
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  0000f	f3 0f 10 05 00
+	00 00 00	 movss	 xmm0, DWORD PTR __real@41800000
+
+; 10   : {
+
+  00017	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+
+; 105  : 	return geom::AxisAlignedCube(geom::Vector(pos.x, pos.y, pos.z) * 16.0f, geom::Vector(16.0f, 16.0f, 16.0f));
+
+  0001e	48 8b c2	 mov	 rax, rdx
+  00021	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  00024	0f 5b d2	 cvtdq2ps xmm2, xmm2
+  00027	0f 5b db	 cvtdq2ps xmm3, xmm3
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  0002a	f3 0f 59 c8	 mulss	 xmm1, xmm0
+  0002e	f3 0f 59 d0	 mulss	 xmm2, xmm0
+  00032	f3 0f 59 d8	 mulss	 xmm3, xmm0
+
+; 10   : {
+
+  00036	f3 0f 11 0a	 movss	 DWORD PTR [rdx], xmm1
+  0003a	f3 0f 11 52 04	 movss	 DWORD PTR [rdx+4], xmm2
+  0003f	f3 0f 11 5a 08	 movss	 DWORD PTR [rdx+8], xmm3
+  00044	c7 42 10 00 00
+	80 41		 mov	 DWORD PTR [rdx+16], 1098907648 ; 41800000H
+  0004b	c7 42 14 00 00
+	80 41		 mov	 DWORD PTR [rdx+20], 1098907648 ; 41800000H
+  00052	c7 42 18 00 00
+	80 41		 mov	 DWORD PTR [rdx+24], 1098907648 ; 41800000H
+  00059	c7 42 1c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+28], 1065353216 ; 3f800000H
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+
+; 106  : }
+
+  00060	c3		 ret	 0
+?getBoundingBox@ChunkBase@@QEAA?AVAxisAlignedCube@geom@@XZ ENDP ; ChunkBase::getBoundingBox
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ??0ChunkPosition@@QEAA@HHH@Z
+_TEXT	SEGMENT
+this$ = 8
+x$ = 16
+y$ = 24
+z$ = 32
+??0ChunkPosition@@QEAA@HHH@Z PROC			; ChunkPosition::ChunkPosition, COMDAT
+
+; 11   : {
+
+  00000	89 11		 mov	 DWORD PTR [rcx], edx
+  00002	44 89 41 04	 mov	 DWORD PTR [rcx+4], r8d
+  00006	44 89 49 08	 mov	 DWORD PTR [rcx+8], r9d
+
+; 12   : 
+; 13   : }
+
+  0000a	48 8b c1	 mov	 rax, rcx
+  0000d	c3		 ret	 0
+??0ChunkPosition@@QEAA@HHH@Z ENDP			; ChunkPosition::ChunkPosition
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ??8@YA_NAEBVChunkPosition@@0@Z
+_TEXT	SEGMENT
+cp1$ = 8
+cp2$ = 16
+??8@YA_NAEBVChunkPosition@@0@Z PROC			; operator==, COMDAT
+
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+
+  00000	44 8b 42 08	 mov	 r8d, DWORD PTR [rdx+8]
+  00004	45 33 d2	 xor	 r10d, r10d
+  00007	44 39 41 08	 cmp	 DWORD PTR [rcx+8], r8d
+  0000b	44 8b 42 04	 mov	 r8d, DWORD PTR [rdx+4]
+  0000f	8b 12		 mov	 edx, DWORD PTR [rdx]
+  00011	41 8b c2	 mov	 eax, r10d
+  00014	0f 94 c0	 sete	 al
+  00017	44 39 41 04	 cmp	 DWORD PTR [rcx+4], r8d
+  0001b	45 8b ca	 mov	 r9d, r10d
+  0001e	41 0f 94 c1	 sete	 r9b
+  00022	41 23 c1	 and	 eax, r9d
+  00025	39 11		 cmp	 DWORD PTR [rcx], edx
+  00027	41 0f 94 c2	 sete	 r10b
+  0002b	41 23 c2	 and	 eax, r10d
+
+; 331  : }
+
+  0002e	c3		 ret	 0
+??8@YA_NAEBVChunkPosition@@0@Z ENDP			; operator==
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ?getSeed@World@@QEAAIXZ
+_TEXT	SEGMENT
+this$dead$ = 8
+?getSeed@World@@QEAAIXZ PROC				; World::getSeed, COMDAT
+
+; 304  : 	return seed;
+
+  00000	8b 05 40 00 00
+	00		 mov	 eax, DWORD PTR ?world@GlobalThread@@3VWorld@@A+64
+
+; 305  : }
+
+  00006	c3		 ret	 0
+?getSeed@World@@QEAAIXZ ENDP				; World::getSeed
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setUnloaded@ChunkBase@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -3417,18 +3533,18 @@ this$ = 8
 ?setUnloaded@ChunkBase@@QEAAXXZ ENDP			; ChunkBase::setUnloaded
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?addChunk@World@@QEAA_NV?$shared_ptr@VChunkBase@@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -3437,7 +3553,7 @@ this$ = 80
 chunk$ = 88
 ?addChunk@World@@QEAA_NV?$shared_ptr@VChunkBase@@@std@@@Z PROC ; World::addChunk, COMDAT
 
-; 280  : {
+; 286  : {
 
 $LN53:
   00000	48 89 54 24 10	 mov	 QWORD PTR [rsp+16], rdx
@@ -3453,7 +3569,7 @@ $LN53:
 
 ; 439  : 		return (_List.end());
 
-  0001d	48 8d 71 48	 lea	 rsi, QWORD PTR [rcx+72]
+  0001d	48 8d 71 50	 lea	 rsi, QWORD PTR [rcx+80]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 44   : 		{	// construct with node pointer _Pnode
@@ -3464,9 +3580,9 @@ $LN53:
 ; 335  : 		return (_Ptr);
 
   00024	48 8b 2a	 mov	 rbp, QWORD PTR [rdx]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 281  : 	if(chunkMap.find(chunk->pos) != chunkMap.end())
+; 287  : 	if(chunkMap.find(chunk->pos) != chunkMap.end())
 
   00027	4c 8d 45 18	 lea	 r8, QWORD PTR [rbp+24]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -3481,9 +3597,9 @@ $LN53:
 ; 298  : 		return (this->_Ptr == _Right._Ptr);
 
   00038	48 39 5c 24 50	 cmp	 QWORD PTR $T2[rsp], rbx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 281  : 	if(chunkMap.find(chunk->pos) != chunkMap.end())
+; 287  : 	if(chunkMap.find(chunk->pos) != chunkMap.end())
 
   0003d	74 30		 je	 SHORT $LN1@addChunk
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
@@ -3525,17 +3641,17 @@ $LN53:
   00065	48 8b cf	 mov	 rcx, rdi
   00068	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN35@addChunk:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 283  : 		return false;
+; 289  : 		return false;
 
   0006b	32 c0		 xor	 al, al
   0006d	eb 46		 jmp	 SHORT $LN2@addChunk
 $LN1@addChunk:
 
-; 284  : 	}
-; 285  : 	
-; 286  : 	chunkMap[chunk->pos] = chunk;
+; 290  : 	}
+; 291  : 	
+; 292  : 	chunkMap[chunk->pos] = chunk;
 
   0006f	48 8d 55 18	 lea	 rdx, QWORD PTR [rbp+24]
   00073	48 8b ce	 mov	 rcx, rsi
@@ -3583,14 +3699,14 @@ $LN1@addChunk:
   000ad	48 8b cf	 mov	 rcx, rdi
   000b0	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN50@addChunk:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 288  : 	return true;
+; 294  : 	return true;
 
   000b3	b0 01		 mov	 al, 1
 $LN2@addChunk:
 
-; 289  : }
+; 295  : }
 
   000b5	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   000ba	48 83 c4 30	 add	 rsp, 48			; 00000030H
@@ -3614,7 +3730,7 @@ chunk$ = 88
 ?dtor$0@?0??addChunk@World@@QEAA_NV?$shared_ptr@VChunkBase@@@std@@@Z@4HA ENDP ; `World::addChunk'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\utility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
@@ -3623,7 +3739,7 @@ text$x	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?removeChunk@World@@QEAAXVChunkPosition@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -3632,15 +3748,15 @@ this$ = 64
 cp$ = 72
 ?removeChunk@World@@QEAAXVChunkPosition@@@Z PROC	; World::removeChunk, COMDAT
 
-; 292  : {
+; 298  : {
 
 $LN34:
   00000	40 53		 push	 rbx
   00002	48 83 ec 30	 sub	 rsp, 48			; 00000030H
 
-; 293  : 	chunkMap.erase(cp);
+; 299  : 	chunkMap.erase(cp);
 
-  00006	48 8d 59 48	 lea	 rbx, QWORD PTR [rcx+72]
+  00006	48 8d 59 50	 lea	 rbx, QWORD PTR [rcx+80]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 
 ; 713  : 		_Pairii _Where = equal_range(_Keyval);
@@ -3695,9 +3811,9 @@ $LN15@removeChun:
   00038	48 8d 54 24 40	 lea	 rdx, QWORD PTR $T2[rsp]
   0003d	48 8b cb	 mov	 rcx, rbx
   00040	e8 00 00 00 00	 call	 ?erase@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@0@Z ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::erase
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 294  : }
+; 300  : }
 
   00045	48 83 c4 30	 add	 rsp, 48			; 00000030H
   00049	5b		 pop	 rbx
@@ -3705,34 +3821,33 @@ $LN15@removeChun:
 ?removeChunk@World@@QEAAXVChunkPosition@@@Z ENDP	; World::removeChunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-;	COMDAT ??0World@@QEAA@XZ
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ??0World@@QEAA@I@Z
 _TEXT	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-??0World@@QEAA@XZ PROC					; World::World, COMDAT
+seed$ = 72
+??0World@@QEAA@I@Z PROC					; World::World, COMDAT
 
-; 187  : {
+; 193  : {
 
 $LN139:
   00000	48 89 4c 24 08	 mov	 QWORD PTR [rsp+8], rcx
@@ -3741,288 +3856,308 @@ $LN139:
   0000a	48 c7 44 24 20
 	fe ff ff ff	 mov	 QWORD PTR $T1[rsp], -2
   00013	48 89 5c 24 48	 mov	 QWORD PTR [rsp+72], rbx
-  00018	48 89 74 24 50	 mov	 QWORD PTR [rsp+80], rsi
-  0001d	48 8b f9	 mov	 rdi, rcx
-  00020	e8 00 00 00 00	 call	 ??0?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
-  00025	90		 npad	 1
-  00026	48 8d 4f 40	 lea	 rcx, QWORD PTR [rdi+64]
+  00018	8b da		 mov	 ebx, edx
+  0001a	48 8d 3d 00 00
+	00 00		 lea	 rdi, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
+  00021	48 89 7c 24 40	 mov	 QWORD PTR this$[rsp], rdi
+  00026	48 8b cf	 mov	 rcx, rdi
+  00029	e8 00 00 00 00	 call	 ??0?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
+  0002e	90		 npad	 1
+  0002f	89 1d 40 00 00
+	00		 mov	 DWORD PTR ?world@GlobalThread@@3VWorld@@A+64, ebx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
 
-  0002a	ba 02 00 00 00	 mov	 edx, 2
-  0002f	e8 00 00 00 00	 call	 _Mtx_init
+  00035	ba 02 00 00 00	 mov	 edx, 2
+  0003a	48 8d 0d 48 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+72
+  00041	e8 00 00 00 00	 call	 _Mtx_init
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00034	85 c0		 test	 eax, eax
-  00036	74 08		 je	 SHORT $LN16@World
+  00046	85 c0		 test	 eax, eax
+  00048	74 08		 je	 SHORT $LN16@World
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00038	8b c8		 mov	 ecx, eax
-  0003a	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  0003f	90		 npad	 1
+  0004a	8b c8		 mov	 ecx, eax
+  0004c	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00051	90		 npad	 1
 $LN16@World:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 187  : {
+; 193  : {
 
-  00040	48 8d 4f 48	 lea	 rcx, QWORD PTR [rdi+72]
-  00044	e8 00 00 00 00	 call	 ??0?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
-  00049	90		 npad	 1
-  0004a	48 8d 8f 88 00
-	00 00		 lea	 rcx, QWORD PTR [rdi+136]
+  00052	48 8d 0d 50 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+80
+  00059	e8 00 00 00 00	 call	 ??0?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
+  0005e	90		 npad	 1
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
 
-  00051	ba 02 00 00 00	 mov	 edx, 2
-  00056	e8 00 00 00 00	 call	 _Mtx_init
+  0005f	ba 02 00 00 00	 mov	 edx, 2
+  00064	48 8d 0d 90 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+144
+  0006b	e8 00 00 00 00	 call	 _Mtx_init
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  0005b	85 c0		 test	 eax, eax
-  0005d	74 08		 je	 SHORT $LN25@World
+  00070	85 c0		 test	 eax, eax
+  00072	74 08		 je	 SHORT $LN25@World
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  0005f	8b c8		 mov	 ecx, eax
-  00061	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  00066	90		 npad	 1
+  00074	8b c8		 mov	 ecx, eax
+  00076	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  0007b	90		 npad	 1
 $LN25@World:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-
-; 187  : {
-
-  00067	48 8d 9f 90 00
-	00 00		 lea	 rbx, QWORD PTR [rdi+144]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 
 ; 79   : 		{	// construct childless container
 
-  0006e	33 f6		 xor	 esi, esi
-  00070	48 89 33	 mov	 QWORD PTR [rbx], rsi
+  0007c	33 db		 xor	 ebx, ebx
+  0007e	48 89 1d 98 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+152, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 778  : 		_Map = _Mapptr();
 
-  00073	48 89 73 08	 mov	 QWORD PTR [rbx+8], rsi
+  00085	48 89 1d a0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+160, rbx
 
 ; 779  : 		_Mapsize = 0;
 
-  00077	48 89 73 10	 mov	 QWORD PTR [rbx+16], rsi
+  0008c	48 89 1d a8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+168, rbx
 
 ; 780  : 		_Myoff = 0;
 
-  0007b	48 89 73 18	 mov	 QWORD PTR [rbx+24], rsi
+  00093	48 89 1d b0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+176, rbx
 
 ; 781  : 		_Mysize = 0;
 
-  0007f	48 89 73 20	 mov	 QWORD PTR [rbx+32], rsi
+  0009a	48 89 1d b8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+184, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
 
-  00083	8d 4e 10	 lea	 ecx, QWORD PTR [rsi+16]
-  00086	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
-  0008b	48 85 c0	 test	 rax, rax
-  0008e	75 06		 jne	 SHORT $LN49@World
+  000a1	8d 4b 10	 lea	 ecx, QWORD PTR [rbx+16]
+  000a4	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
+  000a9	48 85 c0	 test	 rax, rax
+  000ac	75 06		 jne	 SHORT $LN49@World
 
 ; 29   : 		_Xbad_alloc();	// report no memory
 
-  00090	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
-  00095	cc		 int	 3
+  000ae	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
+  000b3	cc		 int	 3
 $LN49@World:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 900  : 		this->_Myproxy = _Alproxy.allocate(1);
 
-  00096	48 89 03	 mov	 QWORD PTR [rbx], rax
+  000b4	48 89 05 98 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+152, rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 617  : _VARIADIC_EXPAND_0X(_ALLOC_MEMBER_CONSTRUCT, , , , )
 
-  00099	48 89 30	 mov	 QWORD PTR [rax], rsi
-  0009c	48 89 70 08	 mov	 QWORD PTR [rax+8], rsi
+  000bb	48 89 18	 mov	 QWORD PTR [rax], rbx
+  000be	48 89 58 08	 mov	 QWORD PTR [rax+8], rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 902  : 		this->_Myproxy->_Mycont = this;
 
-  000a0	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000a3	48 89 18	 mov	 QWORD PTR [rax], rbx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-
-; 187  : {
-
-  000a6	48 8d 8f b8 00
-	00 00		 lea	 rcx, QWORD PTR [rdi+184]
+  000c2	48 8d 0d 98 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+152
+  000c9	48 8b 05 98 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+152
+  000d0	48 89 08	 mov	 QWORD PTR [rax], rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
 
-  000ad	ba 02 00 00 00	 mov	 edx, 2
-  000b2	e8 00 00 00 00	 call	 _Mtx_init
+  000d3	ba 02 00 00 00	 mov	 edx, 2
+  000d8	48 8d 0d c0 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+192
+  000df	e8 00 00 00 00	 call	 _Mtx_init
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  000b7	85 c0		 test	 eax, eax
-  000b9	74 08		 je	 SHORT $LN85@World
+  000e4	85 c0		 test	 eax, eax
+  000e6	74 08		 je	 SHORT $LN85@World
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  000bb	8b c8		 mov	 ecx, eax
-  000bd	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
-  000c2	90		 npad	 1
+  000e8	8b c8		 mov	 ecx, eax
+  000ea	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  000ef	90		 npad	 1
 $LN85@World:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-
-; 187  : {
-
-  000c3	48 8d 9f c0 00
-	00 00		 lea	 rbx, QWORD PTR [rdi+192]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 
 ; 79   : 		{	// construct childless container
 
-  000ca	48 89 33	 mov	 QWORD PTR [rbx], rsi
+  000f0	48 89 1d c8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+200, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 778  : 		_Map = _Mapptr();
 
-  000cd	48 89 73 08	 mov	 QWORD PTR [rbx+8], rsi
+  000f7	48 89 1d d0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+208, rbx
 
 ; 779  : 		_Mapsize = 0;
 
-  000d1	48 89 73 10	 mov	 QWORD PTR [rbx+16], rsi
+  000fe	48 89 1d d8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+216, rbx
 
 ; 780  : 		_Myoff = 0;
 
-  000d5	48 89 73 18	 mov	 QWORD PTR [rbx+24], rsi
+  00105	48 89 1d e0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+224, rbx
 
 ; 781  : 		_Mysize = 0;
 
-  000d9	48 89 73 20	 mov	 QWORD PTR [rbx+32], rsi
+  0010c	48 89 1d e8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+232, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
 
-  000dd	b9 10 00 00 00	 mov	 ecx, 16
-  000e2	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
-  000e7	48 85 c0	 test	 rax, rax
-  000ea	75 06		 jne	 SHORT $LN109@World
+  00113	b9 10 00 00 00	 mov	 ecx, 16
+  00118	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
+  0011d	48 85 c0	 test	 rax, rax
+  00120	75 06		 jne	 SHORT $LN109@World
 
 ; 29   : 		_Xbad_alloc();	// report no memory
 
-  000ec	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
-  000f1	cc		 int	 3
+  00122	e8 00 00 00 00	 call	 ?_Xbad_alloc@std@@YAXXZ	; std::_Xbad_alloc
+  00127	cc		 int	 3
 $LN109@World:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 900  : 		this->_Myproxy = _Alproxy.allocate(1);
 
-  000f2	48 89 03	 mov	 QWORD PTR [rbx], rax
+  00128	48 89 05 c8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+200, rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 617  : _VARIADIC_EXPAND_0X(_ALLOC_MEMBER_CONSTRUCT, , , , )
 
-  000f5	48 89 30	 mov	 QWORD PTR [rax], rsi
-  000f8	48 89 70 08	 mov	 QWORD PTR [rax+8], rsi
+  0012f	48 89 18	 mov	 QWORD PTR [rax], rbx
+  00132	48 89 58 08	 mov	 QWORD PTR [rax+8], rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 902  : 		this->_Myproxy->_Mycont = this;
 
-  000fc	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  000ff	48 89 18	 mov	 QWORD PTR [rax], rbx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+  00136	48 8d 15 c8 00
+	00 00		 lea	 rdx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+200
+  0013d	48 8b 0d c8 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+200
+  00144	48 89 11	 mov	 QWORD PTR [rcx], rdx
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 189  : }
+; 195  : }
 
-  00102	48 8b c7	 mov	 rax, rdi
-  00105	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
-  0010a	48 8b 74 24 50	 mov	 rsi, QWORD PTR [rsp+80]
-  0010f	48 83 c4 30	 add	 rsp, 48			; 00000030H
-  00113	5f		 pop	 rdi
-  00114	c3		 ret	 0
+  00147	48 8b c7	 mov	 rax, rdi
+  0014a	48 8b 5c 24 48	 mov	 rbx, QWORD PTR [rsp+72]
+  0014f	48 83 c4 30	 add	 rsp, 48			; 00000030H
+  00153	5f		 pop	 rdi
+  00154	c3		 ret	 0
 $LN138@World:
-??0World@@QEAA@XZ ENDP					; World::World
+??0World@@QEAA@I@Z ENDP					; World::World
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$0@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$0
+seed$ = 72
+?dtor$0@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$0
   00000	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
   00007	e9 00 00 00 00	 jmp	 ??1?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ
-?dtor$0@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$0
+?dtor$0@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$1@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$1
+seed$ = 72
+?dtor$1@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$1
   0000c	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00013	48 83 c1 40	 add	 rcx, 64			; 00000040H
+  00013	48 83 c1 48	 add	 rcx, 72			; 00000048H
   00017	e9 00 00 00 00	 jmp	 ??1mutex@std@@QEAA@XZ
-?dtor$1@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$1
+?dtor$1@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$2@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$2
+seed$ = 72
+?dtor$2@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$2
   0001c	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00023	48 83 c1 48	 add	 rcx, 72			; 00000048H
+  00023	48 83 c1 50	 add	 rcx, 80			; 00000050H
   00027	e9 00 00 00 00	 jmp	 ??1?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ
-?dtor$2@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$2
+?dtor$2@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$3@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$3
+seed$ = 72
+?dtor$3@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$3
   0002c	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00033	48 81 c1 88 00
-	00 00		 add	 rcx, 136		; 00000088H
+  00033	48 81 c1 90 00
+	00 00		 add	 rcx, 144		; 00000090H
   0003a	e9 00 00 00 00	 jmp	 ??1mutex@std@@QEAA@XZ
-?dtor$3@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$3
+?dtor$3@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$3
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$4@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$4
+seed$ = 72
+?dtor$4@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$4
   0003f	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00046	48 81 c1 90 00
-	00 00		 add	 rcx, 144		; 00000090H
+  00046	48 81 c1 98 00
+	00 00		 add	 rcx, 152		; 00000098H
   0004d	e9 00 00 00 00	 jmp	 ??1?$queue@V?$shared_ptr@VChunkBase@@@std@@V?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@2@@std@@QEAA@XZ
-?dtor$4@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$4
+?dtor$4@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$4
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ;	COMDAT text$x
 text$x	SEGMENT
 $T1 = 32
+this$dead$ = 64
 this$ = 64
-?dtor$5@?0???0World@@QEAA@XZ@4HA PROC			; `World::World'::`1'::dtor$5
+seed$ = 72
+?dtor$5@?0???0World@@QEAA@I@Z@4HA PROC			; `World::World'::`1'::dtor$5
   00052	48 8b 8a 40 00
 	00 00		 mov	 rcx, QWORD PTR this$[rdx]
-  00059	48 81 c1 b8 00
-	00 00		 add	 rcx, 184		; 000000b8H
+  00059	48 81 c1 c0 00
+	00 00		 add	 rcx, 192		; 000000c0H
   00060	e9 00 00 00 00	 jmp	 ??1mutex@std@@QEAA@XZ
-?dtor$5@?0???0World@@QEAA@XZ@4HA ENDP			; `World::World'::`1'::dtor$5
+?dtor$5@?0???0World@@QEAA@I@Z@4HA ENDP			; `World::World'::`1'::dtor$5
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
@@ -4044,247 +4179,174 @@ text$x	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??1World@@QEAA@XZ
 _TEXT	SEGMENT
-this$ = 48
+this$dead$ = 48
 ??1World@@QEAA@XZ PROC					; World::~World, COMDAT
 
-; 192  : {
+; 198  : {
 
 $LN138:
-  00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
-  00005	48 89 74 24 10	 mov	 QWORD PTR [rsp+16], rsi
-  0000a	57		 push	 rdi
-  0000b	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-  0000f	48 8b f9	 mov	 rdi, rcx
+  00000	40 53		 push	 rbx
+  00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 1222 : 		_Tidy();
 
-  00012	48 81 c1 c0 00
-	00 00		 add	 rcx, 192		; 000000c0H
-  00019	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
+  00006	48 8d 0d c8 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+200
+  0000d	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  0001e	48 8b 8f c0 00
-	00 00		 mov	 rcx, QWORD PTR [rdi+192]
-  00025	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00012	48 8b 0d c8 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+200
+  00019	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  0002a	48 8d 8f b8 00
-	00 00		 lea	 rcx, QWORD PTR [rdi+184]
+  0001e	48 8d 0d c0 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+192
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 912  : 		this->_Myproxy = 0;
 
-  00031	33 f6		 xor	 esi, esi
-  00033	48 89 b7 c0 00
-	00 00		 mov	 QWORD PTR [rdi+192], rsi
+  00025	33 db		 xor	 ebx, ebx
+  00027	48 89 1d c8 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+200, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  0003a	e8 00 00 00 00	 call	 _Mtx_destroy
+  0002e	e8 00 00 00 00	 call	 _Mtx_destroy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 1222 : 		_Tidy();
 
-  0003f	48 8d 8f 90 00
-	00 00		 lea	 rcx, QWORD PTR [rdi+144]
-  00046	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
+  00033	48 8d 0d 98 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+152
+  0003a	e8 00 00 00 00	 call	 ?_Tidy@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Tidy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  0004b	48 8b 8f 90 00
-	00 00		 mov	 rcx, QWORD PTR [rdi+144]
-  00052	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0003f	48 8b 0d 98 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+152
+  00046	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  00057	48 8d 8f 88 00
-	00 00		 lea	 rcx, QWORD PTR [rdi+136]
+  0004b	48 8d 0d 90 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+144
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 912  : 		this->_Myproxy = 0;
 
-  0005e	48 89 b7 90 00
-	00 00		 mov	 QWORD PTR [rdi+144], rsi
+  00052	48 89 1d 98 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+152, rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  00065	e8 00 00 00 00	 call	 _Mtx_destroy
+  00059	e8 00 00 00 00	 call	 _Mtx_destroy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  0006a	48 8b 4f 58	 mov	 rcx, QWORD PTR [rdi+88]
-  0006e	48 85 c9	 test	 rcx, rcx
-  00071	74 11		 je	 SHORT $LN45@World
+  0005e	48 8b 0d 60 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+96
+  00065	48 85 c9	 test	 rcx, rcx
+  00068	74 17		 je	 SHORT $LN45@World
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00073	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0006a	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0006f	0f 57 c0	 xorps	 xmm0, xmm0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-
-; 1542 : 			this->_Myfirst = pointer();
-
-  00078	48 89 77 58	 mov	 QWORD PTR [rdi+88], rsi
-
-; 1543 : 			this->_Mylast = pointer();
-
-  0007c	48 89 77 60	 mov	 QWORD PTR [rdi+96], rsi
 
 ; 1544 : 			this->_Myend = pointer();
 
-  00080	48 89 77 68	 mov	 QWORD PTR [rdi+104], rsi
+  00072	48 89 1d 70 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+112, rbx
+  00079	66 0f 7f 05 60
+	00 00 00	 movdqa	 XMMWORD PTR ?world@GlobalThread@@3VWorld@@A+96, xmm0
 $LN45@World:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 1927 : 		clear();
 
-  00084	48 8d 4f 48	 lea	 rcx, QWORD PTR [rdi+72]
+  00081	48 8d 0d 50 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+80
   00088	e8 00 00 00 00	 call	 ?clear@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXXZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::clear
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  0008d	48 8b 4f 48	 mov	 rcx, QWORD PTR [rdi+72]
-  00091	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0008d	48 8b 0d 50 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+80
+  00094	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  00096	48 8d 4f 40	 lea	 rcx, QWORD PTR [rdi+64]
-  0009a	e8 00 00 00 00	 call	 _Mtx_destroy
+  00099	48 8d 0d 48 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+72
+  000a0	e8 00 00 00 00	 call	 _Mtx_destroy
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  0009f	48 8b 4f 10	 mov	 rcx, QWORD PTR [rdi+16]
-  000a3	48 85 c9	 test	 rcx, rcx
-  000a6	74 11		 je	 SHORT $LN96@World
+  000a5	48 8b 0d 10 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+16
+  000ac	48 85 c9	 test	 rcx, rcx
+  000af	74 17		 je	 SHORT $LN96@World
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  000a8	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  000b1	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  000b6	0f 57 c0	 xorps	 xmm0, xmm0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-
-; 1542 : 			this->_Myfirst = pointer();
-
-  000ad	48 89 77 10	 mov	 QWORD PTR [rdi+16], rsi
-
-; 1543 : 			this->_Mylast = pointer();
-
-  000b1	48 89 77 18	 mov	 QWORD PTR [rdi+24], rsi
 
 ; 1544 : 			this->_Myend = pointer();
 
-  000b5	48 89 77 20	 mov	 QWORD PTR [rdi+32], rsi
+  000b9	48 89 1d 20 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+32, rbx
+  000c0	66 0f 7f 05 10
+	00 00 00	 movdqa	 XMMWORD PTR ?world@GlobalThread@@3VWorld@@A+16, xmm0
 $LN96@World:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 
 ; 1927 : 		clear();
 
-  000b9	48 8b cf	 mov	 rcx, rdi
-  000bc	e8 00 00 00 00	 call	 ?clear@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXXZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::clear
+  000c8	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
+  000cf	e8 00 00 00 00	 call	 ?clear@?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAAXXZ ; std::list<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::clear
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  000c1	48 8b 0f	 mov	 rcx, QWORD PTR [rdi]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+  000d4	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 194  : }
+; 200  : }
 
-  000c4	48 8b 5c 24 30	 mov	 rbx, QWORD PTR [rsp+48]
-  000c9	48 8b 74 24 38	 mov	 rsi, QWORD PTR [rsp+56]
-  000ce	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  000d2	5f		 pop	 rdi
+  000db	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  000df	5b		 pop	 rbx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  000d3	e9 00 00 00 00	 jmp	 ??3@YAXPEAX@Z		; operator delete
+  000e0	e9 00 00 00 00	 jmp	 ??3@YAXPEAX@Z		; operator delete
 ??1World@@QEAA@XZ ENDP					; World::~World
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-;	COMDAT ?_Hash_seq@std@@YA_KPEBE_K@Z
-_TEXT	SEGMENT
-_First$ = 8
-_Count$ = 16
-?_Hash_seq@std@@YA_KPEBE_K@Z PROC			; std::_Hash_seq, COMDAT
-
-; 191  :  #ifdef _M_X64
-; 192  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 193  : 	const size_t _FNV_offset_basis = 14695981039346656037ULL;
-; 194  : 	const size_t _FNV_prime = 1099511628211ULL;
-; 195  : 
-; 196  :  #else /* _M_X64 */
-; 197  : 	static_assert(sizeof(size_t) == 4, "This code is for 32-bit size_t.");
-; 198  : 	const size_t _FNV_offset_basis = 2166136261U;
-; 199  : 	const size_t _FNV_prime = 16777619U;
-; 200  :  #endif /* _M_X64 */
-; 201  : 
-; 202  : 	size_t _Val = _FNV_offset_basis;
-; 203  : 	for (size_t _Next = 0; _Next < _Count; ++_Next)
-
-  00000	45 33 c9	 xor	 r9d, r9d
-  00003	48 b8 25 23 22
-	84 e4 9c f2 cb	 mov	 rax, -3750763034362895579 ; cbf29ce484222325H
-  0000d	48 85 d2	 test	 rdx, rdx
-  00010	74 22		 je	 SHORT $LN1@Hash_seq
-  00012	49 ba b3 01 00
-	00 00 01 00 00	 mov	 r10, 1099511628211	; 00000100000001b3H
-  0001c	0f 1f 40 00	 npad	 4
-$LL8@Hash_seq:
-
-; 204  : 		{	// fold in another byte
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00020	45 0f b6 04 09	 movzx	 r8d, BYTE PTR [r9+rcx]
-  00025	49 ff c1	 inc	 r9
-  00028	49 33 c0	 xor	 rax, r8
-
-; 206  : 		_Val *= _FNV_prime;
-
-  0002b	49 0f af c2	 imul	 rax, r10
-  0002f	4c 3b ca	 cmp	 r9, rdx
-  00032	72 ec		 jb	 SHORT $LL8@Hash_seq
-$LN1@Hash_seq:
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  00034	48 8b c8	 mov	 rcx, rax
-  00037	48 c1 e9 20	 shr	 rcx, 32			; 00000020H
-  0003b	48 33 c1	 xor	 rax, rcx
-
-; 212  : 
-; 213  :  #else /* _M_X64 */
-; 214  : 	static_assert(sizeof(size_t) == 4, "This code is for 32-bit size_t.");
-; 215  :  #endif /* _M_X64 */
-; 216  : 
-; 217  : 	return (_Val);
-; 218  : 	}
-
-  0003e	c3		 ret	 0
-?_Hash_seq@std@@YA_KPEBE_K@Z ENDP			; std::_Hash_seq
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
@@ -4303,160 +4365,7 @@ this$dead$ = 8
 ?_Getcont@_Iterator_base0@std@@QEBAPEBU_Container_base0@2@XZ ENDP ; std::_Iterator_base0::_Getcont
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-;	COMDAT ??R?$hash@VChunkPosition@@@std@@QEBA_KAEBVChunkPosition@@@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-key$ = 16
-??R?$hash@VChunkPosition@@@std@@QEBA_KAEBVChunkPosition@@@Z PROC ; std::hash<ChunkPosition>::operator(), COMDAT
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00000	0f b6 42 01	 movzx	 eax, BYTE PTR [rdx+1]
-  00004	44 0f b6 0a	 movzx	 r9d, BYTE PTR [rdx]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-
-; 26   : 		{
-
-  00008	4c 8b c2	 mov	 r8, rdx
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  0000b	41 0f b6 48 08	 movzx	 ecx, BYTE PTR [r8+8]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00010	49 bb b3 01 00
-	00 00 01 00 00	 mov	 r11, 1099511628211	; 00000100000001b3H
-  0001a	49 ba 25 23 22
-	84 e4 9c f2 cb	 mov	 r10, -3750763034362895579 ; cbf29ce484222325H
-  00024	4d 33 ca	 xor	 r9, r10
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00027	49 33 ca	 xor	 rcx, r10
-
-; 206  : 		_Val *= _FNV_prime;
-
-  0002a	4d 0f af cb	 imul	 r9, r11
-  0002e	49 0f af cb	 imul	 rcx, r11
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00032	4c 33 c8	 xor	 r9, rax
-  00035	0f b6 42 02	 movzx	 eax, BYTE PTR [rdx+2]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00039	4d 0f af cb	 imul	 r9, r11
-  0003d	4c 33 c8	 xor	 r9, rax
-  00040	0f b6 42 03	 movzx	 eax, BYTE PTR [rdx+3]
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00044	0f b6 52 04	 movzx	 edx, BYTE PTR [rdx+4]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00048	4d 0f af cb	 imul	 r9, r11
-  0004c	4c 33 c8	 xor	 r9, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  0004f	49 33 d2	 xor	 rdx, r10
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00052	49 0f af d3	 imul	 rdx, r11
-  00056	4d 0f af cb	 imul	 r9, r11
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  0005a	49 8b c1	 mov	 rax, r9
-  0005d	48 c1 e8 20	 shr	 rax, 32			; 00000020H
-  00061	4c 33 c8	 xor	 r9, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00064	41 0f b6 40 05	 movzx	 eax, BYTE PTR [r8+5]
-  00069	48 33 d0	 xor	 rdx, rax
-  0006c	41 0f b6 40 06	 movzx	 eax, BYTE PTR [r8+6]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00071	49 0f af d3	 imul	 rdx, r11
-  00075	48 33 d0	 xor	 rdx, rax
-  00078	41 0f b6 40 07	 movzx	 eax, BYTE PTR [r8+7]
-  0007d	49 0f af d3	 imul	 rdx, r11
-  00081	48 33 d0	 xor	 rdx, rax
-  00084	49 0f af d3	 imul	 rdx, r11
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  00088	48 8b c2	 mov	 rax, rdx
-  0008b	48 c1 e8 20	 shr	 rax, 32			; 00000020H
-  0008f	48 33 d0	 xor	 rdx, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00092	41 0f b6 40 09	 movzx	 eax, BYTE PTR [r8+9]
-  00097	48 33 c8	 xor	 rcx, rax
-  0009a	41 0f b6 40 0a	 movzx	 eax, BYTE PTR [r8+10]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  0009f	49 0f af cb	 imul	 rcx, r11
-  000a3	48 33 c8	 xor	 rcx, rax
-  000a6	41 0f b6 40 0b	 movzx	 eax, BYTE PTR [r8+11]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-
-; 30   : 			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
-
-  000ab	49 b8 00 ff ff
-	ff ff 00 00 00	 mov	 r8, 1099511627520	; 000000ffffffff00H
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 206  : 		_Val *= _FNV_prime;
-
-  000b5	49 0f af cb	 imul	 rcx, r11
-  000b9	48 33 c8	 xor	 rcx, rax
-  000bc	49 0f af cb	 imul	 rcx, r11
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-
-; 30   : 			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
-
-  000c0	48 8b c1	 mov	 rax, rcx
-  000c3	48 c1 e1 04	 shl	 rcx, 4
-  000c7	48 c1 e8 18	 shr	 rax, 24
-  000cb	49 23 c0	 and	 rax, r8
-  000ce	49 33 c1	 xor	 rax, r9
-  000d1	48 c1 e8 04	 shr	 rax, 4
-  000d5	48 33 c1	 xor	 rax, rcx
-  000d8	48 33 c2	 xor	 rax, rdx
-
-; 31   : 		}
-
-  000db	c3		 ret	 0
-??R?$hash@VChunkPosition@@@std@@QEBA_KAEBVChunkPosition@@@Z ENDP ; std::hash<ChunkPosition>::operator()
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?toIndex@@YAIAEAI00@Z
 _TEXT	SEGMENT
 x$ = 8
@@ -4478,38 +4387,15 @@ z$ = 24
 ?toIndex@@YAIAEAI00@Z ENDP				; toIndex
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-;	COMDAT ??0ChunkPosition@@QEAA@HHH@Z
-_TEXT	SEGMENT
-this$ = 8
-x$ = 16
-y$ = 24
-z$ = 32
-??0ChunkPosition@@QEAA@HHH@Z PROC			; ChunkPosition::ChunkPosition, COMDAT
-
-; 11   : {
-
-  00000	89 11		 mov	 DWORD PTR [rcx], edx
-  00002	44 89 41 04	 mov	 DWORD PTR [rcx+4], r8d
-  00006	44 89 49 08	 mov	 DWORD PTR [rcx+8], r9d
-
-; 12   : 
-; 13   : }
-
-  0000a	48 8b c1	 mov	 rax, rcx
-  0000d	c3		 ret	 0
-??0ChunkPosition@@QEAA@HHH@Z ENDP			; ChunkPosition::ChunkPosition
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??0ChunkBase@@QEAA@AEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -4566,7 +4452,7 @@ $LN35:
   00056	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
   0005b	90		 npad	 1
 $LN15@ChunkBase:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -4589,7 +4475,7 @@ $LN15@ChunkBase:
   00070	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
   00075	90		 npad	 1
 $LN24@ChunkBase:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -4825,7 +4711,7 @@ $LN24@ChunkBase:
   00083	33 d2		 xor	 edx, edx
   00085	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
   0008a	90		 npad	 1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -5060,7 +4946,7 @@ $LN24@ChunkBase:
   00096	33 d2		 xor	 edx, edx
   00098	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
   0009d	90		 npad	 1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 56   : }
 
@@ -5120,12 +5006,12 @@ zPos$ = 96
 ?dtor$2@?0???0ChunkBase@@QEAA@AEAVWorld@@HHH@Z@4HA ENDP	; `ChunkBase::ChunkBase'::`1'::dtor$2
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??1ChunkBase@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 48
@@ -5222,7 +5108,7 @@ $LN22@ChunkBase:
   00068	48 8d 4e 30	 lea	 rcx, QWORD PTR [rsi+48]
   0006c	e8 00 00 00 00	 call	 _Mtx_destroy
   00071	48 8d 4e 28	 lea	 rcx, QWORD PTR [rsi+40]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 61   : }
 
@@ -5238,7 +5124,7 @@ $LN22@ChunkBase:
 ??1ChunkBase@@QEAA@XZ ENDP				; ChunkBase::~ChunkBase
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?dataPtr@ChunkBase@@UEAAPEAGXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -5254,7 +5140,7 @@ this$ = 8
 ?dataPtr@ChunkBase@@UEAAPEAGXZ ENDP			; ChunkBase::dataPtr
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?shouldRender@ChunkBase@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -5270,7 +5156,7 @@ this$ = 8
 ?shouldRender@ChunkBase@@UEAA_NXZ ENDP			; ChunkBase::shouldRender
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??0EmptyChunk@@QEAA@AEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -5280,7 +5166,7 @@ yPos$ = 88
 zPos$ = 96
 ??0EmptyChunk@@QEAA@AEAVWorld@@HHH@Z PROC		; EmptyChunk::EmptyChunk, COMDAT
 
-; 107  : {
+; 112  : {
 
 $LN5:
   00000	40 53		 push	 rbx
@@ -5295,8 +5181,8 @@ $LN5:
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
   00024	48 89 03	 mov	 QWORD PTR [rbx], rax
 
-; 108  : 
-; 109  : }
+; 113  : 
+; 114  : }
 
   00027	48 8b c3	 mov	 rax, rbx
   0002a	48 83 c4 30	 add	 rsp, 48			; 00000030H
@@ -5305,26 +5191,26 @@ $LN5:
 ??0EmptyChunk@@QEAA@AEAVWorld@@HHH@Z ENDP		; EmptyChunk::EmptyChunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??1EmptyChunk@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8
 ??1EmptyChunk@@QEAA@XZ PROC				; EmptyChunk::~EmptyChunk, COMDAT
 
-; 112  : {
+; 117  : {
 
   00000	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
   00007	48 89 01	 mov	 QWORD PTR [rcx], rax
 
-; 113  : 
-; 114  : }
+; 118  : 
+; 119  : }
 
   0000a	e9 00 00 00 00	 jmp	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
 ??1EmptyChunk@@QEAA@XZ ENDP				; EmptyChunk::~EmptyChunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?getBlock@EmptyChunk@@UEAAPEAVBlock@@III@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5333,18 +5219,18 @@ y$ = 24
 z$ = 32
 ?getBlock@EmptyChunk@@UEAAPEAVBlock@@III@Z PROC		; EmptyChunk::getBlock, COMDAT
 
-; 118  : 	return Blocks::air;
+; 123  : 	return Blocks::air;
 
   00000	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?air@Blocks@@3PEAVBlockAir@@EA ; Blocks::air
 
-; 119  : }
+; 124  : }
 
   00007	c3		 ret	 0
 ?getBlock@EmptyChunk@@UEAAPEAVBlock@@III@Z ENDP		; EmptyChunk::getBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setBlock@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5354,14 +5240,14 @@ z$ = 32
 block$ = 40
 ?setBlock@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z PROC	; EmptyChunk::setBlock, COMDAT
 
-; 123  : 
-; 124  : }
+; 128  : 
+; 129  : }
 
   00000	c2 00 00	 ret	 0
 ?setBlock@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z ENDP	; EmptyChunk::setBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setBlockRaw@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5371,46 +5257,46 @@ z$ = 32
 block$ = 40
 ?setBlockRaw@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z PROC	; EmptyChunk::setBlockRaw, COMDAT
 
-; 128  : 
-; 129  : }
+; 133  : 
+; 134  : }
 
   00000	c2 00 00	 ret	 0
 ?setBlockRaw@EmptyChunk@@UEAAXIIIPEAVBlock@@@Z ENDP	; EmptyChunk::setBlockRaw
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?isEmpty@EmptyChunk@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
 ?isEmpty@EmptyChunk@@UEAA_NXZ PROC			; EmptyChunk::isEmpty, COMDAT
 
-; 133  : 	return true;
+; 138  : 	return true;
 
   00000	b0 01		 mov	 al, 1
 
-; 134  : }
+; 139  : }
 
   00002	c3		 ret	 0
 ?isEmpty@EmptyChunk@@UEAA_NXZ ENDP			; EmptyChunk::isEmpty
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?shouldRender@EmptyChunk@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
 ?shouldRender@EmptyChunk@@UEAA_NXZ PROC			; EmptyChunk::shouldRender, COMDAT
 
-; 138  : 	return false;
+; 143  : 	return false;
 
   00000	32 c0		 xor	 al, al
 
-; 139  : }
+; 144  : }
 
   00002	c3		 ret	 0
 ?shouldRender@EmptyChunk@@UEAA_NXZ ENDP			; EmptyChunk::shouldRender
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??0Chunk@@QEAA@AEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 this$ = 64
@@ -5420,7 +5306,7 @@ yPos$ = 88
 zPos$ = 96
 ??0Chunk@@QEAA@AEAVWorld@@HHH@Z PROC			; Chunk::Chunk, COMDAT
 
-; 145  : {
+; 150  : {
 
 $LN5:
   00000	40 53		 push	 rbx
@@ -5435,8 +5321,8 @@ $LN5:
   00020	33 c0		 xor	 eax, eax
   00022	48 89 43 58	 mov	 QWORD PTR [rbx+88], rax
 
-; 146  : 
-; 147  : }
+; 151  : 
+; 152  : }
 
   00026	48 8b c3	 mov	 rax, rbx
   00029	48 83 c4 30	 add	 rsp, 48			; 00000030H
@@ -5445,26 +5331,26 @@ $LN5:
 ??0Chunk@@QEAA@AEAVWorld@@HHH@Z ENDP			; Chunk::Chunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??1Chunk@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8
 ??1Chunk@@QEAA@XZ PROC					; Chunk::~Chunk, COMDAT
 
-; 150  : {
+; 155  : {
 
   00000	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
   00007	48 89 01	 mov	 QWORD PTR [rcx], rax
 
-; 151  : 
-; 152  : }
+; 156  : 
+; 157  : }
 
   0000a	e9 00 00 00 00	 jmp	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
 ??1Chunk@@QEAA@XZ ENDP					; Chunk::~Chunk
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?getBlock@Chunk@@UEAAPEAVBlock@@III@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5473,7 +5359,7 @@ y$ = 24
 z$ = 32
 ?getBlock@Chunk@@UEAAPEAVBlock@@III@Z PROC		; Chunk::getBlock, COMDAT
 
-; 156  : 	return Blocks::blockArray[data[toIndex(x, y, z)]];
+; 161  : 	return Blocks::blockArray[data[toIndex(x, y, z)]];
 
   00000	c1 e2 04	 shl	 edx, 4
   00003	41 8b c1	 mov	 eax, r9d
@@ -5484,20 +5370,20 @@ z$ = 32
   00009	c1 e2 04	 shl	 edx, 4
   0000c	48 0b d0	 or	 rdx, rax
 
-; 156  : 	return Blocks::blockArray[data[toIndex(x, y, z)]];
+; 161  : 	return Blocks::blockArray[data[toIndex(x, y, z)]];
 
   0000f	0f b7 44 51 60	 movzx	 eax, WORD PTR [rcx+rdx*2+96]
   00014	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?blockArray@Blocks@@3PAPEAVBlock@@A ; Blocks::blockArray
   0001b	48 8b 04 c1	 mov	 rax, QWORD PTR [rcx+rax*8]
 
-; 157  : }
+; 162  : }
 
   0001f	c3		 ret	 0
 ?getBlock@Chunk@@UEAAPEAVBlock@@III@Z ENDP		; Chunk::getBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setBlock@Chunk@@UEAAXIIIPEAVBlock@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -5506,40 +5392,6 @@ y$ = 24
 z$ = 32
 block$ = 40
 ?setBlock@Chunk@@UEAAXIIIPEAVBlock@@@Z PROC		; Chunk::setBlock, COMDAT
-
-; 161  : 	data[toIndex(x, y, z)] = block->id;
-
-  00000	c1 e2 04	 shl	 edx, 4
-  00003	41 8b c1	 mov	 eax, r9d
-  00006	44 0b c2	 or	 r8d, edx
-
-; 6    : 	return x << 8 | y << 4 | z;
-
-  00009	41 c1 e0 04	 shl	 r8d, 4
-  0000d	4c 0b c0	 or	 r8, rax
-
-; 161  : 	data[toIndex(x, y, z)] = block->id;
-
-  00010	48 8b 44 24 28	 mov	 rax, QWORD PTR block$[rsp]
-  00015	0f b7 50 30	 movzx	 edx, WORD PTR [rax+48]
-  00019	66 42 89 54 41
-	60		 mov	 WORD PTR [rcx+r8*2+96], dx
-
-; 162  : }
-
-  0001f	c3		 ret	 0
-?setBlock@Chunk@@UEAAXIIIPEAVBlock@@@Z ENDP		; Chunk::setBlock
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-;	COMDAT ?setBlockRaw@Chunk@@UEAAXIIIPEAVBlock@@@Z
-_TEXT	SEGMENT
-this$ = 8
-x$ = 16
-y$ = 24
-z$ = 32
-block$ = 40
-?setBlockRaw@Chunk@@UEAAXIIIPEAVBlock@@@Z PROC		; Chunk::setBlockRaw, COMDAT
 
 ; 166  : 	data[toIndex(x, y, z)] = block->id;
 
@@ -5562,52 +5414,86 @@ block$ = 40
 ; 167  : }
 
   0001f	c3		 ret	 0
+?setBlock@Chunk@@UEAAXIIIPEAVBlock@@@Z ENDP		; Chunk::setBlock
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+;	COMDAT ?setBlockRaw@Chunk@@UEAAXIIIPEAVBlock@@@Z
+_TEXT	SEGMENT
+this$ = 8
+x$ = 16
+y$ = 24
+z$ = 32
+block$ = 40
+?setBlockRaw@Chunk@@UEAAXIIIPEAVBlock@@@Z PROC		; Chunk::setBlockRaw, COMDAT
+
+; 171  : 	data[toIndex(x, y, z)] = block->id;
+
+  00000	c1 e2 04	 shl	 edx, 4
+  00003	41 8b c1	 mov	 eax, r9d
+  00006	44 0b c2	 or	 r8d, edx
+
+; 6    : 	return x << 8 | y << 4 | z;
+
+  00009	41 c1 e0 04	 shl	 r8d, 4
+  0000d	4c 0b c0	 or	 r8, rax
+
+; 171  : 	data[toIndex(x, y, z)] = block->id;
+
+  00010	48 8b 44 24 28	 mov	 rax, QWORD PTR block$[rsp]
+  00015	0f b7 50 30	 movzx	 edx, WORD PTR [rax+48]
+  00019	66 42 89 54 41
+	60		 mov	 WORD PTR [rcx+r8*2+96], dx
+
+; 172  : }
+
+  0001f	c3		 ret	 0
 ?setBlockRaw@Chunk@@UEAAXIIIPEAVBlock@@@Z ENDP		; Chunk::setBlockRaw
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?isEmpty@Chunk@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
 ?isEmpty@Chunk@@UEAA_NXZ PROC				; Chunk::isEmpty, COMDAT
 
-; 171  : 	return false;
+; 176  : 	return false;
 
   00000	32 c0		 xor	 al, al
 
-; 172  : }
+; 177  : }
 
   00002	c3		 ret	 0
 ?isEmpty@Chunk@@UEAA_NXZ ENDP				; Chunk::isEmpty
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?dataPtr@Chunk@@UEAAPEAGXZ
 _TEXT	SEGMENT
 this$ = 8
 ?dataPtr@Chunk@@UEAAPEAGXZ PROC				; Chunk::dataPtr, COMDAT
 
-; 176  : 	return data;
+; 181  : 	return data;
 
   00000	48 8d 41 60	 lea	 rax, QWORD PTR [rcx+96]
 
-; 177  : }
+; 182  : }
 
   00004	c3		 ret	 0
 ?dataPtr@Chunk@@UEAAPEAGXZ ENDP				; Chunk::dataPtr
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?shouldRender@Chunk@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
 ?shouldRender@Chunk@@UEAA_NXZ PROC			; Chunk::shouldRender, COMDAT
 
-; 181  : 	return true;
+; 186  : 	return true;
 
   00000	b0 01		 mov	 al, 1
 
-; 182  : }
+; 187  : }
 
   00002	c3		 ret	 0
 ?shouldRender@Chunk@@UEAA_NXZ ENDP			; Chunk::shouldRender
@@ -5670,20 +5556,20 @@ $LN7@unordered_:
 ??1?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAA@XZ ENDP ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::~unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?tick@World@@QEAAXXZ
 _TEXT	SEGMENT
 $T1 = 48
@@ -5694,7 +5580,7 @@ this$ = 144
 $T5 = 152
 ?tick@World@@QEAAXXZ PROC				; World::tick, COMDAT
 
-; 197  : {
+; 203  : {
 
 $LN249:
   00000	40 55		 push	 rbp
@@ -5778,9 +5664,9 @@ $LN249:
 ; 298  : 		return (this->_Ptr == _Right._Ptr);
 
   00026	48 3b d8	 cmp	 rbx, rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 198  : 	for(auto iter = redrawQuicklyAfterTick.begin(); iter != redrawQuicklyAfterTick.end(); ++iter)
+; 204  : 	for(auto iter = redrawQuicklyAfterTick.begin(); iter != redrawQuicklyAfterTick.end(); ++iter)
 
   00029	0f 84 ac 00 00
 	00		 je	 $LN2@tick
@@ -5860,9 +5746,9 @@ $LN74@tick:
 ; 427  : 		_Ptr = _Other_ptr;
 
   00047	4c 89 74 24 48	 mov	 QWORD PTR c$3[rsp], r14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 201  : 		if(!c->isEmpty())
+; 207  : 		if(!c->isEmpty())
 
   0004c	49 8b 06	 mov	 rax, QWORD PTR [r14]
   0004f	49 8b ce	 mov	 rcx, r14
@@ -6007,9 +5893,9 @@ $LN104@tick:
 ; 427  : 		_Ptr = _Other_ptr;
 
   0009d	4c 89 74 24 38	 mov	 QWORD PTR $T2[rsp], r14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 204  : 			requestQuickChunkDraw(c);
+; 210  : 			requestQuickChunkDraw(c);
 
   000a2	48 8d 4c 24 38	 lea	 rcx, QWORD PTR $T2[rsp]
   000a7	e8 00 00 00 00	 call	 ?requestQuickChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ; requestQuickChunkDraw
@@ -6126,9 +6012,9 @@ $LN3@tick:
 ; 298  : 		return (this->_Ptr == _Right._Ptr);
 
   000d2	49 3b 1f	 cmp	 rbx, QWORD PTR [r15]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 198  : 	for(auto iter = redrawQuicklyAfterTick.begin(); iter != redrawQuicklyAfterTick.end(); ++iter)
+; 204  : 	for(auto iter = redrawQuicklyAfterTick.begin(); iter != redrawQuicklyAfterTick.end(); ++iter)
 
   000d5	0f 85 56 ff ff
 	ff		 jne	 $LL25@tick
@@ -6631,9 +6517,9 @@ $LN2@tick:
 
   00121	49 c7 47 30 08
 	00 00 00	 mov	 QWORD PTR [r15+48], 8
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 209  : }
+; 215  : }
 
   00129	48 8b 9c 24 a0
 	00 00 00	 mov	 rbx, QWORD PTR [rsp+160]
@@ -6662,7 +6548,7 @@ $T5 = 152
 ?dtor$0@?0??tick@World@@QEAAXXZ@4HA ENDP		; `World::tick'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z
 _TEXT	SEGMENT
 $T1 = 48
@@ -6673,13 +6559,13 @@ y$ = 104
 z$ = 112
 ?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z PROC ; World::getChunkFromBlockCoordinate, COMDAT
 
-; 226  : {
+; 232  : {
 
 $LN6:
   00000	40 53		 push	 rbx
   00002	48 83 ec 40	 sub	 rsp, 64			; 00000040H
 
-; 227  : 	return getChunk(x >> 4, y >> 4, z >> 4);
+; 233  : 	return getChunk(x >> 4, y >> 4, z >> 4);
 
   00006	8b 44 24 70	 mov	 eax, DWORD PTR z$[rsp]
   0000a	41 c1 f9 04	 sar	 r9d, 4
@@ -6692,7 +6578,7 @@ $LN6:
   00024	e8 00 00 00 00	 call	 ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunk
   00029	48 8b c3	 mov	 rax, rbx
 
-; 228  : }
+; 234  : }
 
   0002c	48 83 c4 40	 add	 rsp, 64			; 00000040H
   00030	5b		 pop	 rbx
@@ -6700,13 +6586,13 @@ $LN6:
 ?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ENDP ; World::getChunkFromBlockCoordinate
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\utility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ?setBlock@World@@QEAAXHHHPEAVBlock@@@Z
 _TEXT	SEGMENT
 i$1$ = 48
@@ -6722,7 +6608,7 @@ z$ = 216
 block$ = 224
 ?setBlock@World@@QEAAXHHHPEAVBlock@@@Z PROC		; World::setBlock, COMDAT
 
-; 255  : {
+; 261  : {
 
 $LN123:
   00000	48 8b c4	 mov	 rax, rsp
@@ -6744,7 +6630,7 @@ $LN123:
   0002c	45 8b e0	 mov	 r12d, r8d
   0002f	44 8b ea	 mov	 r13d, edx
 
-; 256  : 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
+; 262  : 	std::shared_ptr<ChunkBase> chunk = getChunkFromBlockCoordinate(x, y, z);
 
   00032	44 89 4c 24 20	 mov	 DWORD PTR [rsp+32], r9d
   00037	45 8b c8	 mov	 r9d, r8d
@@ -6753,8 +6639,8 @@ $LN123:
   00041	e8 00 00 00 00	 call	 ?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunkFromBlockCoordinate
   00046	90		 npad	 1
 
-; 257  : 
-; 258  : 	if(!chunk->isEmpty() && chunk->isLoaded())
+; 263  : 
+; 264  : 	if(!chunk->isEmpty() && chunk->isLoaded())
 
   00047	4c 8b 7c 24 58	 mov	 r15, QWORD PTR chunk$[rsp]
   0004c	49 8b 07	 mov	 rax, QWORD PTR [r15]
@@ -6767,8 +6653,8 @@ $LN123:
   00061	0f 84 90 01 00
 	00		 je	 $LN7@setBlock
 
-; 259  : 	{
-; 260  : 		bool sameBlock = chunk->getBlock(x & 0xf, y & 0xf, z & 0xf) == block;
+; 265  : 	{
+; 266  : 		bool sameBlock = chunk->getBlock(x & 0xf, y & 0xf, z & 0xf) == block;
 
   00067	83 e5 0f	 and	 ebp, 15
   0006a	41 8b f4	 mov	 esi, r12d
@@ -6786,7 +6672,7 @@ $LN123:
   0008e	49 3b c2	 cmp	 rax, r10
   00091	0f 94 c3	 sete	 bl
 
-; 261  : 		chunk->setBlock(x & 0xf, y & 0xf, z & 0xf, block);
+; 267  : 		chunk->setBlock(x & 0xf, y & 0xf, z & 0xf, block);
 
   00094	49 8b 07	 mov	 rax, QWORD PTR [r15]
   00097	4c 89 54 24 20	 mov	 QWORD PTR [rsp+32], r10
@@ -6796,14 +6682,14 @@ $LN123:
   000a4	49 8b cf	 mov	 rcx, r15
   000a7	ff 50 08	 call	 QWORD PTR [rax+8]
 
-; 262  : 		if(!sameBlock)
+; 268  : 		if(!sameBlock)
 
   000aa	84 db		 test	 bl, bl
   000ac	0f 85 45 01 00
 	00		 jne	 $LN7@setBlock
 
-; 263  : 		{
-; 264  : 			for(int i = x - 1; i <= x + 1; i++)
+; 269  : 		{
+; 270  : 			for(int i = x - 1; i <= x + 1; i++)
 
   000b2	41 8d 45 ff	 lea	 eax, DWORD PTR [r13-1]
   000b6	89 44 24 30	 mov	 DWORD PTR i$1$[rsp], eax
@@ -6819,8 +6705,8 @@ $LN123:
 	00 00 00 00 00	 npad	 10
 $LL9@setBlock:
 
-; 265  : 			{
-; 266  : 				for(int j = y - 1; j <= y + 1; j++)
+; 271  : 			{
+; 272  : 				for(int j = y - 1; j <= y + 1; j++)
 
   000e0	8b f2		 mov	 esi, edx
   000e2	41 3b d4	 cmp	 edx, r12d
@@ -6834,7 +6720,7 @@ $LL9@setBlock:
 	00 00		 npad	 7
 $LL6@setBlock:
 
-; 268  : 					for(int k = z - 1; k <= z + 1; k++)
+; 274  : 					for(int k = z - 1; k <= z + 1; k++)
 
   00100	41 8b dd	 mov	 ebx, r13d
   00103	44 3b ed	 cmp	 r13d, ebp
@@ -6847,8 +6733,8 @@ $LL6@setBlock:
 	00 00		 npad	 12
 $LL3@setBlock:
 
-; 269  : 					{
-; 270  : 						std::shared_ptr<ChunkBase> c = getChunkFromBlockCoordinate(i, j, k);
+; 275  : 					{
+; 276  : 						std::shared_ptr<ChunkBase> c = getChunkFromBlockCoordinate(i, j, k);
 
   00120	89 5c 24 20	 mov	 DWORD PTR [rsp+32], ebx
   00124	44 8b ce	 mov	 r9d, esi
@@ -6858,7 +6744,7 @@ $LL3@setBlock:
   00132	e8 00 00 00 00	 call	 ?getChunkFromBlockCoordinate@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunkFromBlockCoordinate
   00137	90		 npad	 1
 
-; 271  : 						redrawQuicklyAfterTick[c->pos] = c;
+; 277  : 						redrawQuicklyAfterTick[c->pos] = c;
 
   00138	48 8b 7c 24 48	 mov	 rdi, QWORD PTR c$1[rsp]
   0013d	48 8d 57 18	 lea	 rdx, QWORD PTR [rdi+24]
@@ -6982,9 +6868,9 @@ $LN88@setBlock:
   001c2	48 8b 01	 mov	 rax, QWORD PTR [rcx]
   001c5	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN2@setBlock:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 268  : 					for(int k = z - 1; k <= z + 1; k++)
+; 274  : 					for(int k = z - 1; k <= z + 1; k++)
 
   001c8	ff c3		 inc	 ebx
   001ca	3b dd		 cmp	 ebx, ebp
@@ -6993,8 +6879,8 @@ $LN2@setBlock:
 	ff		 jle	 $LL3@setBlock
 $LN5@setBlock:
 
-; 265  : 			{
-; 266  : 				for(int j = y - 1; j <= y + 1; j++)
+; 271  : 			{
+; 272  : 				for(int j = y - 1; j <= y + 1; j++)
 
   001d6	ff c6		 inc	 esi
   001d8	41 3b f4	 cmp	 esi, r12d
@@ -7004,8 +6890,8 @@ $LN5@setBlock:
   001e5	8b 54 24 38	 mov	 edx, DWORD PTR tv604[rsp]
 $LN8@setBlock:
 
-; 263  : 		{
-; 264  : 			for(int i = x - 1; i <= x + 1; i++)
+; 269  : 		{
+; 270  : 			for(int i = x - 1; i <= x + 1; i++)
 
   001e9	ff c0		 inc	 eax
   001eb	89 44 24 30	 mov	 DWORD PTR i$1$[rsp], eax
@@ -7060,9 +6946,9 @@ $LN7@setBlock:
   0021f	48 8b 01	 mov	 rax, QWORD PTR [rcx]
   00222	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN110@setBlock:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 277  : }
+; 283  : }
 
   00225	48 8b 9c 24 c8
 	00 00 00	 mov	 rbx, QWORD PTR [rsp+200]
@@ -7118,82 +7004,6 @@ block$ = 224
   00013	e9 00 00 00 00	 jmp	 ??1?$shared_ptr@VChunkBase@@@std@@QEAA@XZ ; std::shared_ptr<ChunkBase>::~shared_ptr<ChunkBase>
 ?dtor$1@?0??setBlock@World@@QEAAXHHHPEAVBlock@@@Z@4HA ENDP ; `World::setBlock'::`1'::dtor$1
 text$x	ENDS
-; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-;	COMDAT ??8@YA_NAEBVChunkPosition@@0@Z
-_TEXT	SEGMENT
-cp1$ = 8
-cp2$ = 16
-??8@YA_NAEBVChunkPosition@@0@Z PROC			; operator==, COMDAT
-
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
-
-  00000	44 8b 42 08	 mov	 r8d, DWORD PTR [rdx+8]
-  00004	45 33 d2	 xor	 r10d, r10d
-  00007	44 39 41 08	 cmp	 DWORD PTR [rcx+8], r8d
-  0000b	44 8b 42 04	 mov	 r8d, DWORD PTR [rdx+4]
-  0000f	8b 12		 mov	 edx, DWORD PTR [rdx]
-  00011	41 8b c2	 mov	 eax, r10d
-  00014	0f 94 c0	 sete	 al
-  00017	44 39 41 04	 cmp	 DWORD PTR [rcx+4], r8d
-  0001b	45 8b ca	 mov	 r9d, r10d
-  0001e	41 0f 94 c1	 sete	 r9b
-  00022	41 23 c1	 and	 eax, r9d
-  00025	39 11		 cmp	 DWORD PTR [rcx], edx
-  00027	41 0f 94 c2	 sete	 r10b
-  0002b	41 23 c2	 and	 eax, r10d
-
-; 320  : }
-
-  0002e	c3		 ret	 0
-??8@YA_NAEBVChunkPosition@@0@Z ENDP			; operator==
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-;	COMDAT ??R?$_Bitwise_hash@H@std@@QEBA_KAEBH@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-_Keyval$ = 16
-??R?$_Bitwise_hash@H@std@@QEBA_KAEBH@Z PROC		; std::_Bitwise_hash<int>::operator(), COMDAT
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00000	0f b6 0a	 movzx	 ecx, BYTE PTR [rdx]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00003	49 b8 b3 01 00
-	00 00 01 00 00	 mov	 r8, 1099511628211	; 00000100000001b3H
-  0000d	48 b8 25 23 22
-	84 e4 9c f2 cb	 mov	 rax, -3750763034362895579 ; cbf29ce484222325H
-  00017	48 33 c8	 xor	 rcx, rax
-  0001a	0f b6 42 01	 movzx	 eax, BYTE PTR [rdx+1]
-  0001e	49 0f af c8	 imul	 rcx, r8
-  00022	48 33 c8	 xor	 rcx, rax
-  00025	0f b6 42 02	 movzx	 eax, BYTE PTR [rdx+2]
-  00029	49 0f af c8	 imul	 rcx, r8
-  0002d	48 33 c8	 xor	 rcx, rax
-  00030	0f b6 42 03	 movzx	 eax, BYTE PTR [rdx+3]
-  00034	49 0f af c8	 imul	 rcx, r8
-  00038	48 33 c8	 xor	 rcx, rax
-  0003b	49 0f af c8	 imul	 rcx, r8
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  0003f	48 8b c1	 mov	 rax, rcx
-  00042	48 c1 e8 20	 shr	 rax, 32			; 00000020H
-  00046	48 33 c1	 xor	 rax, rcx
-
-; 227  : 		return (_Hash_seq((const unsigned char *)&_Keyval, sizeof (_Kty)));
-; 228  : 		}
-
-  00049	c3		 ret	 0
-??R?$_Bitwise_hash@H@std@@QEBA_KAEBH@Z ENDP		; std::_Bitwise_hash<int>::operator()
-_TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ;	COMDAT ??0?$shared_ptr@VVertexStream@gfxu@@@std@@QEAA@$$T@Z
@@ -14966,12 +14776,12 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -15270,9 +15080,9 @@ $LN24@lower_boun:
 ; 748  : 			_Where != _End(_Bucket); ++_Where)
 
   0006b	74 5c		 je	 SHORT $LN2@lower_boun
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   0006d	8b 4b 08	 mov	 ecx, DWORD PTR [rbx+8]
   00070	39 48 18	 cmp	 DWORD PTR [rax+24], ecx
@@ -15297,9 +15107,9 @@ $LN24@lower_boun:
   0008d	48 8b 00	 mov	 rax, QWORD PTR [rax]
   00090	eb c5		 jmp	 SHORT $LL20@lower_boun
 $LN137@lower_boun:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   00092	8b 48 18	 mov	 ecx, DWORD PTR [rax+24]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
@@ -15307,9 +15117,9 @@ $LN137@lower_boun:
 ; 44   : 		{	// construct with node pointer _Pnode
 
   00095	4c 89 44 24 30	 mov	 QWORD PTR $T2[rsp], r8
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   0009a	39 4b 08	 cmp	 DWORD PTR [rbx+8], ecx
   0009d	8b 48 14	 mov	 ecx, DWORD PTR [rax+20]
@@ -15372,7 +15182,7 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -15384,7 +15194,7 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -15683,9 +15493,9 @@ $LN27@equal_rang:
 ; 792  : 			_Where != _End(_Bucket); ++_Where)
 
   0006b	74 77		 je	 SHORT $LN7@equal_rang
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   0006d	8b 53 08	 mov	 edx, DWORD PTR [rbx+8]
   00070	39 50 18	 cmp	 DWORD PTR [rax+24], edx
@@ -15761,9 +15571,9 @@ $LN93@equal_rang:
 ; 796  : 				for (; _Where != _End(_Bucket); ++_Where)
 
   000b4	74 20		 je	 SHORT $LN230@equal_rang
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   000b6	3b 70 14	 cmp	 esi, DWORD PTR [rax+20]
   000b9	41 0f 94 c1	 sete	 r9b
@@ -16076,21 +15886,6 @@ $LN128:
   00051	5f		 pop	 rdi
   00052	c3		 ret	 0
 ?_Init@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAX_K@Z ENDP ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Init
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ??0?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z
-_TEXT	SEGMENT
-this$ = 8
-_Hasharg$ = 16
-_Keyeqarg$ = 24
-??0?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z PROC ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >, COMDAT
-
-; 239  : 		}
-
-  00000	48 8b c1	 mov	 rax, rcx
-  00003	c3		 ret	 0
-??0?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z ENDP ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
@@ -18347,57 +18142,6 @@ _Traits$dead$ = 16
 ??0?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@QEAA@AEBV?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@1@@Z ENDP ; std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0>::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_NAEBVChunkPosition@@0@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-_Keyval1$ = 16
-_Keyval2$ = 24
-??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_NAEBVChunkPosition@@0@Z PROC ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator(), COMDAT
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
-
-  00000	41 8b 40 08	 mov	 eax, DWORD PTR [r8+8]
-  00004	39 42 08	 cmp	 DWORD PTR [rdx+8], eax
-  00007	41 8b 40 04	 mov	 eax, DWORD PTR [r8+4]
-  0000b	0f 94 c1	 sete	 cl
-  0000e	39 42 04	 cmp	 DWORD PTR [rdx+4], eax
-  00011	0f 94 c0	 sete	 al
-  00014	22 c8		 and	 cl, al
-  00016	41 8b 00	 mov	 eax, DWORD PTR [r8]
-  00019	39 02		 cmp	 DWORD PTR [rdx], eax
-  0001b	0f 94 c0	 sete	 al
-  0001e	84 c8		 test	 cl, al
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-
-; 253  : 		return (!this->_Getkeyeq()(_Keyval1, _Keyval2));
-
-  00020	0f 94 c0	 sete	 al
-
-; 254  : 		}
-
-  00023	c3		 ret	 0
-??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_NAEBVChunkPosition@@0@Z ENDP ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator()
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ??0?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z
-_TEXT	SEGMENT
-this$ = 8
-__formal$dead$ = 16
-_Keyeqarg$ = 24
-??0?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z PROC ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >, COMDAT
-
-; 211  : 		}
-
-  00000	48 8b c1	 mov	 rax, rcx
-  00003	c3		 ret	 0
-??0?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEAA@U?$hash@VChunkPosition@@@1@U?$equal_to@VChunkPosition@@@1@@Z ENDP ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >
-_TEXT	ENDS
-; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ;	COMDAT ??0?$list@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@2@@std@@QEAA@AEBV?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@1@@Z
 _TEXT	SEGMENT
@@ -20362,233 +20106,6 @@ $LN1@Erase_buck:
 
   00040	f3 c3		 fatret	 0
 ?_Erase_bucket@?$_Hash@V?$_Umap_traits@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@V?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@$0A@@std@@@std@@IEAAXV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@2@_K@Z ENDP ; std::_Hash<std::_Umap_traits<ChunkPosition,std::shared_ptr<ChunkBase>,std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > >,0> >::_Erase_bucket
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_KAEBVChunkPosition@@@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-_Keyval$ = 16
-??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_KAEBVChunkPosition@@@Z PROC ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator(), COMDAT
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00000	0f b6 42 01	 movzx	 eax, BYTE PTR [rdx+1]
-  00004	44 0f b6 0a	 movzx	 r9d, BYTE PTR [rdx]
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-
-; 247  : 		{	// hash _Keyval to size_t value
-
-  00008	4c 8b c2	 mov	 r8, rdx
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  0000b	41 0f b6 48 08	 movzx	 ecx, BYTE PTR [r8+8]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00010	49 bb b3 01 00
-	00 00 01 00 00	 mov	 r11, 1099511628211	; 00000100000001b3H
-  0001a	49 ba 25 23 22
-	84 e4 9c f2 cb	 mov	 r10, -3750763034362895579 ; cbf29ce484222325H
-  00024	4d 33 ca	 xor	 r9, r10
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00027	49 33 ca	 xor	 rcx, r10
-
-; 206  : 		_Val *= _FNV_prime;
-
-  0002a	4d 0f af cb	 imul	 r9, r11
-  0002e	49 0f af cb	 imul	 rcx, r11
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00032	4c 33 c8	 xor	 r9, rax
-  00035	0f b6 42 02	 movzx	 eax, BYTE PTR [rdx+2]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00039	4d 0f af cb	 imul	 r9, r11
-  0003d	4c 33 c8	 xor	 r9, rax
-  00040	0f b6 42 03	 movzx	 eax, BYTE PTR [rdx+3]
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00044	0f b6 52 04	 movzx	 edx, BYTE PTR [rdx+4]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00048	4d 0f af cb	 imul	 r9, r11
-  0004c	4c 33 c8	 xor	 r9, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  0004f	49 33 d2	 xor	 rdx, r10
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00052	49 0f af d3	 imul	 rdx, r11
-  00056	4d 0f af cb	 imul	 r9, r11
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  0005a	49 8b c1	 mov	 rax, r9
-  0005d	48 c1 e8 20	 shr	 rax, 32			; 00000020H
-  00061	4c 33 c8	 xor	 r9, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00064	41 0f b6 40 05	 movzx	 eax, BYTE PTR [r8+5]
-  00069	48 33 d0	 xor	 rdx, rax
-  0006c	41 0f b6 40 06	 movzx	 eax, BYTE PTR [r8+6]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  00071	49 0f af d3	 imul	 rdx, r11
-  00075	48 33 d0	 xor	 rdx, rax
-  00078	41 0f b6 40 07	 movzx	 eax, BYTE PTR [r8+7]
-  0007d	49 0f af d3	 imul	 rdx, r11
-  00081	48 33 d0	 xor	 rdx, rax
-  00084	49 0f af d3	 imul	 rdx, r11
-
-; 207  : 		}
-; 208  : 
-; 209  :  #ifdef _M_X64
-; 210  : 	static_assert(sizeof(size_t) == 8, "This code is for 64-bit size_t.");
-; 211  : 	_Val ^= _Val >> 32;
-
-  00088	48 8b c2	 mov	 rax, rdx
-  0008b	48 c1 e8 20	 shr	 rax, 32			; 00000020H
-  0008f	48 33 d0	 xor	 rdx, rax
-
-; 205  : 		_Val ^= (size_t)_First[_Next];
-
-  00092	41 0f b6 40 09	 movzx	 eax, BYTE PTR [r8+9]
-  00097	48 33 c8	 xor	 rcx, rax
-  0009a	41 0f b6 40 0a	 movzx	 eax, BYTE PTR [r8+10]
-
-; 206  : 		_Val *= _FNV_prime;
-
-  0009f	49 0f af cb	 imul	 rcx, r11
-  000a3	48 33 c8	 xor	 rcx, rax
-  000a6	41 0f b6 40 0b	 movzx	 eax, BYTE PTR [r8+11]
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-
-; 248  : 		return ((size_t)this->_Gethash()(_Keyval));
-
-  000ab	49 b8 00 ff ff
-	ff ff 00 00 00	 mov	 r8, 1099511627520	; 000000ffffffff00H
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 206  : 		_Val *= _FNV_prime;
-
-  000b5	49 0f af cb	 imul	 rcx, r11
-  000b9	48 33 c8	 xor	 rcx, rax
-  000bc	49 0f af cb	 imul	 rcx, r11
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-
-; 248  : 		return ((size_t)this->_Gethash()(_Keyval));
-
-  000c0	48 8b c1	 mov	 rax, rcx
-  000c3	48 c1 e1 04	 shl	 rcx, 4
-  000c7	48 c1 e8 18	 shr	 rax, 24
-  000cb	49 23 c0	 and	 rax, r8
-  000ce	49 33 c1	 xor	 rax, r9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.h
-
-; 30   : 			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
-
-  000d1	48 c1 e8 04	 shr	 rax, 4
-  000d5	48 33 c1	 xor	 rax, rcx
-  000d8	48 33 c2	 xor	 rax, rdx
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-
-; 249  : 		}
-
-  000db	c3		 ret	 0
-??R?$_Uhash_compare@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA_KAEBVChunkPosition@@@Z ENDP ; std::_Uhash_compare<ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::operator()
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-;	COMDAT ??R?$equal_to@VChunkPosition@@@std@@QEBA_NAEBVChunkPosition@@0@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-_Left$ = 16
-_Right$ = 24
-??R?$equal_to@VChunkPosition@@@std@@QEBA_NAEBVChunkPosition@@0@Z PROC ; std::equal_to<ChunkPosition>::operator(), COMDAT
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
-
-  00000	41 8b 48 08	 mov	 ecx, DWORD PTR [r8+8]
-  00004	45 33 d2	 xor	 r10d, r10d
-  00007	39 4a 08	 cmp	 DWORD PTR [rdx+8], ecx
-  0000a	41 8b 48 04	 mov	 ecx, DWORD PTR [r8+4]
-  0000e	41 8b c2	 mov	 eax, r10d
-  00011	0f 94 c0	 sete	 al
-  00014	39 4a 04	 cmp	 DWORD PTR [rdx+4], ecx
-  00017	41 8b 08	 mov	 ecx, DWORD PTR [r8]
-  0001a	45 8b ca	 mov	 r9d, r10d
-  0001d	41 0f 94 c1	 sete	 r9b
-  00021	41 23 c1	 and	 eax, r9d
-  00024	39 0a		 cmp	 DWORD PTR [rdx], ecx
-  00026	41 0f 94 c2	 sete	 r10b
-  0002a	41 23 c2	 and	 eax, r10d
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
-
-; 170  : 		}
-
-  0002d	c3		 ret	 0
-??R?$equal_to@VChunkPosition@@@std@@QEBA_NAEBVChunkPosition@@0@Z ENDP ; std::equal_to<ChunkPosition>::operator()
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ??0?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEAA@U?$equal_to@VChunkPosition@@@1@@Z
-_TEXT	SEGMENT
-this$ = 8
-__formal$dead$ = 16
-??0?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEAA@U?$equal_to@VChunkPosition@@@1@@Z PROC ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >, COMDAT
-
-; 158  : 		{	// construct with comparator
-; 159  : 		}
-
-  00000	48 8b c1	 mov	 rax, rcx
-  00003	c3		 ret	 0
-??0?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEAA@U?$equal_to@VChunkPosition@@@1@@Z ENDP ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ?_Getkeyeq@?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEBA?AU?$equal_to@VChunkPosition@@@2@XZ
-_TEXT	SEGMENT
-this$dead$ = 8
-__$ReturnUdt$ = 16
-?_Getkeyeq@?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEBA?AU?$equal_to@VChunkPosition@@@2@XZ PROC ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Getkeyeq, COMDAT
-
-; 163  : 		return (_Keyeq());
-
-  00000	48 8b c2	 mov	 rax, rdx
-
-; 164  : 		}
-
-  00003	c3		 ret	 0
-?_Getkeyeq@?$_Hash_oper2@$0A@VChunkPosition@@U?$equal_to@VChunkPosition@@@std@@@std@@QEBA?AU?$equal_to@VChunkPosition@@@2@XZ ENDP ; std::_Hash_oper2<0,ChunkPosition,std::equal_to<ChunkPosition> >::_Getkeyeq
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
@@ -23210,23 +22727,6 @@ this$ = 8
 
   0000c	c3		 ret	 0
 ??E?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ ENDP ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >,std::_Iterator_base0>::operator++
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-;	COMDAT ?_Gethash@?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA?AU?$hash@VChunkPosition@@@2@XZ
-_TEXT	SEGMENT
-this$dead$ = 8
-__$ReturnUdt$ = 16
-?_Gethash@?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA?AU?$hash@VChunkPosition@@@2@XZ PROC ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Gethash, COMDAT
-
-; 215  : 		return (hasher());
-
-  00000	48 8b c2	 mov	 rax, rdx
-
-; 216  : 		}
-
-  00003	c3		 ret	 0
-?_Gethash@?$_Hash_oper1@$0A@VChunkPosition@@U?$hash@VChunkPosition@@@std@@U?$equal_to@VChunkPosition@@@3@@std@@QEBA?AU?$hash@VChunkPosition@@@2@XZ ENDP ; std::_Hash_oper1<0,ChunkPosition,std::hash<ChunkPosition>,std::equal_to<ChunkPosition> >::_Gethash
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
@@ -31433,7 +30933,7 @@ $LN30@Resetp:
 ??$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyChunk@@@Z ENDP ; std::shared_ptr<ChunkBase>::_Resetp<EmptyChunk>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -31456,16 +30956,16 @@ __catch$??$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyCh
   0000e	48 8b 5d 48	 mov	 rbx, QWORD PTR _Px$[rbp]
   00012	48 85 db	 test	 rbx, rbx
   00015	74 1a		 je	 SHORT $LN25@catch$0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 112  : {
+; 117  : {
 
   00017	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
   0001e	48 89 03	 mov	 QWORD PTR [rbx], rax
 
-; 113  : 
-; 114  : }
+; 118  : 
+; 119  : }
 
   00021	48 8b cb	 mov	 rcx, rbx
   00024	e8 00 00 00 00	 call	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
@@ -31482,22 +30982,6 @@ $LN25@catch$0:
   0003a	90		 npad	 1
 ?catch$0@?0???$_Resetp@VEmptyChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVEmptyChunk@@@Z@4HA ENDP ; `std::shared_ptr<ChunkBase>::_Resetp<EmptyChunk>'::`1'::catch$0
 text$x	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\type_traits
-;	COMDAT ??$forward@AEBVChunkPosition@@@std@@YAAEBVChunkPosition@@AEBV1@@Z
-_TEXT	SEGMENT
-_Arg$ = 8
-??$forward@AEBVChunkPosition@@@std@@YAAEBVChunkPosition@@AEBV1@@Z PROC ; std::forward<ChunkPosition const & __ptr64>, COMDAT
-
-; 1776 : 	return (static_cast<_Ty&&>(_Arg));
-
-  00000	48 8b c1	 mov	 rax, rcx
-
-; 1777 : 	}
-
-  00003	c3		 ret	 0
-??$forward@AEBVChunkPosition@@@std@@YAAEBVChunkPosition@@AEBV1@@Z ENDP ; std::forward<ChunkPosition const & __ptr64>
-_TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\type_traits
 ;	COMDAT ??$forward@U?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@YA$$QEAU?$pair@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@0@AEAU10@@Z
@@ -34212,11 +33696,11 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\list
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xhash
@@ -34408,9 +33892,9 @@ $LL8@Insert:
 ; 73   : 		_Ptr = _Mylist::_Prevnode(_Ptr);
 
   00080	48 8b 5b 08	 mov	 rbx, QWORD PTR [rbx+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   00084	44 3b 53 14	 cmp	 r10d, DWORD PTR [rbx+20]
   00088	0f 94 c1	 sete	 cl
@@ -34437,9 +33921,9 @@ $LL8@Insert:
   000a2	75 dc		 jne	 SHORT $LL8@Insert
   000a4	eb 3b		 jmp	 SHORT $LN7@Insert
 $LN6@Insert:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 319  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
+; 330  : 	return (cp1.x == cp2.x) & (cp1.y == cp2.y) & (cp1.z == cp2.z);
 
   000a6	44 39 53 14	 cmp	 DWORD PTR [rbx+20], r10d
   000aa	0f 94 c1	 sete	 cl
@@ -36528,7 +36012,7 @@ $LN4@Uninit_fil:
 ??$_Uninit_fill_n@PEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@_KV12@U?$_Wrap_alloc@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@2@V12@@std@@YAXPEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@0@_KPEBV10@AEAU?$_Wrap_alloc@U?$_Wrap_alloc@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@@0@0U_Nonscalar_ptr_iterator_tag@0@@Z ENDP ; std::_Uninit_fill_n<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > * __ptr64,unsigned __int64,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >,std::_Wrap_alloc<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > > >,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??_GEmptyChunk@@QEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 48
@@ -36538,15 +36022,15 @@ $LN7:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
 
-; 112  : {
+; 117  : {
 
   00006	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
   0000d	48 8b d9	 mov	 rbx, rcx
   00010	48 89 01	 mov	 QWORD PTR [rcx], rax
 
-; 113  : 
-; 114  : }
+; 118  : 
+; 119  : }
 
   00013	e8 00 00 00 00	 call	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
   00018	48 8b cb	 mov	 rcx, rbx
@@ -37783,7 +37267,7 @@ _Px$ = 16
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ;	COMDAT ?_Destroy@?$_Ref_count@VEmptyChunk@@@std@@EEAAXXZ
 _TEXT	SEGMENT
@@ -37801,15 +37285,15 @@ $LN11:
   00006	48 8b 59 10	 mov	 rbx, QWORD PTR [rcx+16]
   0000a	48 85 db	 test	 rbx, rbx
   0000d	74 1f		 je	 SHORT $LN5@Destroy
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 112  : {
+; 117  : {
 
   0000f	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7EmptyChunk@@6B@
 
-; 113  : 
-; 114  : }
+; 118  : 
+; 119  : }
 
   00016	48 8b cb	 mov	 rcx, rbx
   00019	48 89 03	 mov	 QWORD PTR [rbx], rax
@@ -42457,22 +41941,6 @@ $LN7@construct:
 
   0000b	f3 c3		 fatret	 0
 ??$construct@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@V12@@?$allocator_traits@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@std@@@std@@SAXAEAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@std@@@1@PEAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@std@@@1@$$QEAV31@@Z ENDP ; std::allocator_traits<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > > >::construct<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > >,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > > > >
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\type_traits
-;	COMDAT ??$forward@VChunkPosition@@@std@@YA$$QEAVChunkPosition@@AEAV1@@Z
-_TEXT	SEGMENT
-_Arg$ = 8
-??$forward@VChunkPosition@@@std@@YA$$QEAVChunkPosition@@AEAV1@@Z PROC ; std::forward<ChunkPosition>, COMDAT
-
-; 1776 : 	return (static_cast<_Ty&&>(_Arg));
-
-  00000	48 8b c1	 mov	 rax, rcx
-
-; 1777 : 	}
-
-  00003	c3		 ret	 0
-??$forward@VChunkPosition@@@std@@YA$$QEAVChunkPosition@@AEAV1@@Z ENDP ; std::forward<ChunkPosition>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0

@@ -1,5 +1,6 @@
 #include "threads.h"
 #include "ioutil.h"
+#include "generation.h"
 
 int loaderThread;
 
@@ -38,6 +39,7 @@ void ChunkLoadThread::preStart()
 	stoneNoiseBuffer.create(sizeof(float) * 18 * 18 * 18, CL_MEM_READ_WRITE);
 	temperatureNoiseBuffer.create(sizeof(float) * 18 * 18, CL_MEM_READ_WRITE);
 	humidityNoiseBuffer.create(sizeof(float) * 18 * 18, CL_MEM_READ_WRITE);
+	caveLinesBuffer.create(sizeof(geom::Line) * 256, CL_MEM_READ_ONLY);
 }
 
 bool ChunkLoadThread::tick()
@@ -56,12 +58,36 @@ bool ChunkLoadThread::tick()
 
 	smoothnessNoise.fillNoiseBuffer(queue, smoothnessNoiseBuffer, 18, 18, 18, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 16.0f, 16.0f, 16.0f);
 	queue.sync();
-	minHeightNoise.fillNoiseBuffer(queue, minHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 20.0f);
-	maxHeightNoise.fillNoiseBuffer(queue, maxHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 20.0f);
+	minHeightNoise.fillNoiseBuffer(queue, minHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
+	maxHeightNoise.fillNoiseBuffer(queue, maxHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 	solidNoise.fillNoiseBufferWithSmoothness(queue, solidNoiseBuffer, 18, 18, 18, smoothnessNoiseBuffer, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 25.0f, 20.0f);
 	stoneNoise.fillNoiseBuffer(queue, stoneNoiseBuffer, 18, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 20.0f, 20.0f);
 	temperatureNoise.fillNoiseBuffer(queue, temperatureNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 	humidityNoise.fillNoiseBuffer(queue, humidityNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
+
+	std::vector<std::shared_ptr<Cave>> caves = CaveCache::getCavesInRegion(chunk->pos);
+	geom::AxisAlignedCube boundingBox = chunk->getBoundingBox().expand(8.0f);
+	std::vector<geom::Line> lines;
+	for(int i = 0; i < caves.size(); i++)
+	{
+		std::shared_ptr<Cave> cave = caves[i];
+		for(int i = 1; i <= cave->length; i++)
+		{
+			geom::Vector& back = cave->nodes[i - 1].pos;
+			geom::Vector& front = cave->nodes[i].pos;
+			if(boundingBox.inside(back) || boundingBox.inside(front))
+			{
+				lines.push_back(geom::Line(back, front));
+			}
+		}
+	}
+
+	const int amountOfLines = lines.size();
+	if(amountOfLines > 0)
+	{
+		caveLinesBuffer.write(queue, 0, sizeof(geom::Line) * amountOfLines, &lines[0]);
+	}
+
 	queue.sync();
 
 	const size_t local_ws[] = {1, 1, 1};
@@ -79,11 +105,41 @@ bool ChunkLoadThread::tick()
 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &stoneNoiseBuffer)) GlobalThread::stop = true;
 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &temperatureNoiseBuffer)) GlobalThread::stop = true;
 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &humidityNoiseBuffer)) GlobalThread::stop = true;
+	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &caveLinesBuffer)) GlobalThread::stop = true;
+	if(!chunkGenProgram.setArgument(sizeof(const int), &amountOfLines)) GlobalThread::stop = true;
 	if(!chunkGenProgram.invoke(queue, 3, global_ws, local_ws)) GlobalThread::stop = true;
 	queue.sync();
 
 	if(!blockBuffer.read(queue, chunk->dataPtr())) GlobalThread::stop = true;
 	queue.sync();
+
+	/*for(int i = 0; i < caves.size(); i++)
+	{
+		std::shared_ptr<Cave> cave = caves[i];
+		for(int i = 1; i <= cave->length; i++)
+		{
+			CaveNode backNode = cave->nodes[i - 1];
+			CaveNode frontNode = cave->nodes[i];
+			int diffX = floorf(frontNode.pos.x) - floorf(backNode.pos.x);
+			int diffY = floorf(frontNode.pos.y) - floorf(backNode.pos.y);
+			int diffZ = floorf(frontNode.pos.z) - floorf(backNode.pos.z);
+			
+			int greatestDiff = abs(diffX) > abs(diffY) ? (abs(diffX) > abs(diffZ) ? abs(diffX) : abs(diffZ)) : (abs(diffY) > abs(diffZ) ? abs(diffY) : abs(diffZ));
+
+			for(int j = 0; j <= greatestDiff; j++)
+			{
+				float t = j == 0 ? 0.0f : ((float)j / (float)greatestDiff);
+				geom::Vector pos = line.trace(t);
+				int x = floorf(pos.x) - chunk->pos.x * 16;
+				int y = floorf(pos.y) - chunk->pos.y * 16;
+				int z = floorf(pos.z) - chunk->pos.z * 16;
+				if(x >= 0 && x < 16 && y >= 0 && y < 16 && z >= 0 && z < 16)
+				{
+					chunk->setBlockRaw(x, y, z, Blocks::sand);
+				}
+			}
+		}
+	}*/
 
 	/*for(unsigned int i = 0; i < 16; i++)
 	{

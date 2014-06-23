@@ -1,14 +1,30 @@
 #include "globalutil.h"
-#include <stdlib.h>
 
 Random::Random(unsigned int seed)
-	: seed(seed), reEntry(0)
+	: seed(seed), randomEngine()
 {
-
+	randomEngine.seed(seed);
 }
 
-int Random::get()
+unsigned int Random::getUint(unsigned int min, unsigned int max)
 {
-	srand(seed);
-	return rand_r(&reEntry);
+	std::uniform_int_distribution<unsigned int> distribution(min, max);
+	return distribution(randomEngine);
+}
+
+unsigned int Random::getUint()
+{
+	return randomEngine();
+}
+
+float Random::getFloat(float min, float max)
+{
+	std::uniform_real_distribution<float> distribution(min, max);
+	return distribution(randomEngine);
+}
+
+double Random::getDouble(double min, double max)
+{
+	std::uniform_real_distribution<double> distribution(min, max);
+	return distribution(randomEngine);
 }

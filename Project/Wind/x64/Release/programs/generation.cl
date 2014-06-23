@@ -1,4 +1,35 @@
-__kernel void generateTerrain_1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const float* minHeightNoise, __global const float* maxHeightNoise, __global const float* smoothnessNoise, __global const float* solidNoise, __global const float* stoneNoise, __global const float* temperatureNoise, __global const float* humidityNoise)
+bool isCave(const float x, const float y, const float z, __global const float* caves, const int amount)
+{
+	for(int i = 0; i < amount; i++)
+	{
+		const float apx = x - caves[i * 8];
+		const float apy = y - caves[i * 8 + 1];
+		const float apz = z - caves[i * 8 + 2];
+		const float abx = caves[i * 8 + 4] - caves[i * 8];
+		const float aby = caves[i * 8 + 4] - caves[i * 8 + 1];
+		const float abz = caves[i * 8 + 4] - caves[i * 8 + 2];
+
+		const float ab2 = sqrt(abx * abx + aby * aby + abz * abz);
+		const float ap_ab = apx * abx + apy * aby + apz * abz;
+		float t = ap_ab / ab2;
+
+		if(t < 0.0) t = 0.0;
+		else if(t > 1.0) t = 1.0;
+
+		const float r = (1.0 - t) * caves[i * 8 + 3] + t * caves[i * 8 + 7];
+		const float pcx = apx + t * abx;
+		const float pcy = apy + t * aby;
+		const float pcz = apz + t * abz;
+		if(pcx * pcx + pcy * pcy + pcz * pcz < r * r)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+__kernel void generateTerrain_1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const float* minHeightNoise, __global const float* maxHeightNoise, __global const float* smoothnessNoise, __global const float* solidNoise, __global const float* stoneNoise, __global const float* temperatureNoise, __global const float* humidityNoise, __global const float* caveLines, const int amountOfLines)
 {
 	const int x = chunkX * 16 + get_global_id(0);
 	const int y = chunkY * 16 + get_global_id(1);
@@ -8,11 +39,7 @@ __kernel void generateTerrain_1(__global ushort* blocks, const int chunkX, const
 	const int index2d = get_global_id(0) * 18 + get_global_id(2);
 	const int index3d = ((get_global_id(0) + 1) * 18 + (get_global_id(1) + 1)) * 18 + get_global_id(2) + 1;
 
-	if(y < -64)
-	{
-		blocks[blockIndex] = 1;
-	}
-	else if(y >= 128)
+	if(y >= 128)
 	{
 		blocks[blockIndex] = 0;
 	}
@@ -37,7 +64,13 @@ __kernel void generateTerrain_1(__global ushort* blocks, const int chunkX, const
 
 		if(tolerance < n2)
 		{
-			if(n3 < stoneChance * (1.0f - gravelChance))
+			const float caveTolerance = y > 4 ? 0.0 : (y > -4 ? ((4.0 - y) / 80.0) : 0.1);
+
+			if(caveTolerance < n2 - tolerance && isCave(x, y, z, caveLines, amountOfLines))
+			{
+				blocks[blockIndex] = 0;
+			}
+			else if(n3 < stoneChance * (1.0f - gravelChance))
 			{
 				blocks[blockIndex] = 1;
 			}

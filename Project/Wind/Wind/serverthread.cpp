@@ -7,7 +7,7 @@ VirtualList<Tasks::Task, 256, 4098> ServerThread::taskList;
 
 bool ServerThread::stop;
 
-World ServerThread::world;
+//World ServerThread::world;
 
 void ServerThread::loop()
 {

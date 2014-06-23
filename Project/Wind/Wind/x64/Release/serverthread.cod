@@ -109,7 +109,6 @@ PUBLIC	??0thread@std@@QEAA@XZ				; std::thread::thread
 PUBLIC	?tie@std@@YA?AV?$tuple@U_Nil@std@@U12@U12@U12@U12@U12@U12@U12@@1@XZ ; std::tie
 PUBLIC	??0?$tuple@U_Nil@std@@U12@U12@U12@U12@U12@U12@U12@@std@@QEAA@AEBV01@@Z ; std::tuple<std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::tuple<std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>
 PUBLIC	??0?$tuple@U_Nil@std@@U12@U12@U12@U12@U12@U12@U12@@std@@QEAA@XZ ; std::tuple<std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>::tuple<std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil,std::_Nil>
-PUBLIC	?world@ServerThread@@3VWorld@@A			; ServerThread::world
 PUBLIC	?thread@ServerThread@@3V0std@@A			; ServerThread::thread
 PUBLIC	?taskList@ServerThread@@3V?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@A ; ServerThread::taskList
 _Tuple_alloc DB	01H DUP (?)
@@ -121,7 +120,6 @@ ignore	DB	01H DUP (?)
 allocator_arg DB 01H DUP (?)
 	ALIGN	4
 
-?world@ServerThread@@3VWorld@@A DB 0e8H DUP (?)		; ServerThread::world
 ?thread@ServerThread@@3V0std@@A DB 010H DUP (?)		; ServerThread::thread
 ?taskList@ServerThread@@3V?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@A DB 0818H DUP (?) ; ServerThread::taskList
 piecewise_construct DB 01H DUP (?)
@@ -143,12 +141,6 @@ pdata	SEGMENT
 $pdata$??0?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ DD imagerel $LN9
 	DD	imagerel $LN9+45
 	DD	imagerel $unwind$??0?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??__Eworld@ServerThread@@YAXXZ DD imagerel ??__Eworld@ServerThread@@YAXXZ
-	DD	imagerel ??__Eworld@ServerThread@@YAXXZ+32
-	DD	imagerel $unwind$??__Eworld@ServerThread@@YAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -206,11 +198,6 @@ $unwind$??__EtaskList@ServerThread@@YAXXZ DD 010401H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??__Eworld@ServerThread@@YAXXZ DD 010401H
-	DD	04204H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$??0?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ DD 020601H
 	DD	030023206H
 xdata	ENDS
@@ -225,7 +212,6 @@ $unwind$?_Run@?$_LaunchPad@V?$_Bind@$00XQ6AXXZU_Nil@std@@U12@U12@U12@U12@U12@U12
 	DD	030023206H
 thread$initializer$ DQ FLAT:??__Ethread@ServerThread@@YAXXZ
 taskList$initializer$ DQ FLAT:??__EtaskList@ServerThread@@YAXXZ
-world$initializer$ DQ FLAT:??__Eworld@ServerThread@@YAXXZ
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\tuple
 ;	COMDAT ??0?$tuple@U_Nil@std@@U12@U12@U12@U12@U12@U12@U12@@std@@QEAA@XZ
@@ -501,7 +487,7 @@ $LN6@Move_threa:
 ?_Move_thread@thread@std@@AEAAAEAV12@AEAV12@@Z ENDP	; std::thread::_Move_thread
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
 ;	COMDAT ??__Ethread@ServerThread@@YAXXZ
 text$yc	SEGMENT
 ??__Ethread@ServerThread@@YAXXZ PROC			; ServerThread::`dynamic initializer for 'thread'', COMDAT
@@ -540,11 +526,11 @@ $LN9@dynamic:
 ??__Fthread@ServerThread@@YAXXZ ENDP			; ServerThread::`dynamic atexit destructor for 'thread''
 text$yd	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
 ;	COMDAT ??__EtaskList@ServerThread@@YAXXZ
 text$yc	SEGMENT
 ??__EtaskList@ServerThread@@YAXXZ PROC			; ServerThread::`dynamic initializer for 'taskList'', COMDAT
@@ -552,19 +538,19 @@ text$yc	SEGMENT
 ; 6    : VirtualList<Tasks::Task, 256, 4098> ServerThread::taskList;
 
   00000	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 
 ; 7    : {
 
   00004	b9 02 10 00 00	 mov	 ecx, 4098		; 00001002H
   00009	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
 
 ; 6    : VirtualList<Tasks::Task, 256, 4098> ServerThread::taskList;
 
   0000e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??__FtaskList@ServerThread@@YAXXZ ; ServerThread::`dynamic atexit destructor for 'taskList''
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 
 ; 7    : {
 
@@ -572,7 +558,7 @@ text$yc	SEGMENT
 	00 02 10 00 00	 mov	 DWORD PTR ?taskList@ServerThread@@3V?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@A+2064, 4098 ; 00001002H
   0001f	48 89 05 08 08
 	00 00		 mov	 QWORD PTR ?taskList@ServerThread@@3V?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@A+2056, rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
 
 ; 6    : VirtualList<Tasks::Task, 256, 4098> ServerThread::taskList;
 
@@ -581,7 +567,7 @@ text$yc	SEGMENT
 ??__EtaskList@ServerThread@@YAXXZ ENDP			; ServerThread::`dynamic initializer for 'taskList''
 text$yc	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 ;	COMDAT ??__FtaskList@ServerThread@@YAXXZ
 text$yd	SEGMENT
 ??__FtaskList@ServerThread@@YAXXZ PROC			; ServerThread::`dynamic atexit destructor for 'taskList'', COMDAT
@@ -594,7 +580,7 @@ text$yd	SEGMENT
 ??__FtaskList@ServerThread@@YAXXZ ENDP			; ServerThread::`dynamic atexit destructor for 'taskList''
 text$yd	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 ;	COMDAT ??1?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8
@@ -608,34 +594,7 @@ this$ = 8
 ??1?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ ENDP ; VirtualList<Tasks::Task,256,4098>::~VirtualList<Tasks::Task,256,4098>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
-;	COMDAT ??__Eworld@ServerThread@@YAXXZ
-text$yc	SEGMENT
-??__Eworld@ServerThread@@YAXXZ PROC			; ServerThread::`dynamic initializer for 'world'', COMDAT
-
-; 10   : World ServerThread::world;
-
-  00000	48 83 ec 28	 sub	 rsp, 40			; 00000028H
-  00004	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@ServerThread@@3VWorld@@A ; ServerThread::world
-  0000b	e8 00 00 00 00	 call	 ??0World@@QEAA@XZ	; World::World
-  00010	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:??__Fworld@ServerThread@@YAXXZ ; ServerThread::`dynamic atexit destructor for 'world''
-  00017	48 83 c4 28	 add	 rsp, 40			; 00000028H
-  0001b	e9 00 00 00 00	 jmp	 atexit
-??__Eworld@ServerThread@@YAXXZ ENDP			; ServerThread::`dynamic initializer for 'world''
-text$yc	ENDS
-; Function compile flags: /Ogtp
-;	COMDAT ??__Fworld@ServerThread@@YAXXZ
-text$yd	SEGMENT
-??__Fworld@ServerThread@@YAXXZ PROC			; ServerThread::`dynamic atexit destructor for 'world'', COMDAT
-  00000	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@ServerThread@@3VWorld@@A ; ServerThread::world
-  00007	e9 00 00 00 00	 jmp	 ??1World@@QEAA@XZ	; World::~World
-??__Fworld@ServerThread@@YAXXZ ENDP			; ServerThread::`dynamic atexit destructor for 'world''
-text$yd	ENDS
-; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\serverthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\serverthread.cpp
 ;	COMDAT ?loop@ServerThread@@YAXXZ
 _TEXT	SEGMENT
 ?loop@ServerThread@@YAXXZ PROC				; ServerThread::loop, COMDAT
@@ -647,9 +606,9 @@ _TEXT	SEGMENT
 ?loop@ServerThread@@YAXXZ ENDP				; ServerThread::loop
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??0?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 48
@@ -661,7 +620,7 @@ $LN9:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8b d9	 mov	 rbx, rcx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 
 ; 7    : {
 
@@ -671,7 +630,7 @@ $LN9:
 	00 02 10 00 00	 mov	 DWORD PTR [rbx+2064], 4098 ; 00001002H
   0001d	48 89 83 08 08
 	00 00		 mov	 QWORD PTR [rbx+2056], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 49   : 	}
 
@@ -682,7 +641,7 @@ $LN9:
 ??0?$VirtualList@VTask@Tasks@@$0BAA@$0BAAC@@@QEAA@XZ ENDP ; VirtualList<Tasks::Task,256,4098>::VirtualList<Tasks::Task,256,4098>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??0?$List@PEAVTask@Tasks@@$0BAA@@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8

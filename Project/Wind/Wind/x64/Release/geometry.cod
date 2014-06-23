@@ -219,8 +219,20 @@ PUBLIC	??AMatrix@geom@@QEAAAEAMH@Z			; geom::Matrix::operator[]
 PUBLIC	??0Matrix@geom@@QEAA@PEAM@Z			; geom::Matrix::Matrix
 PUBLIC	??0Matrix@geom@@QEAA@XZ				; geom::Matrix::Matrix
 PUBLIC	?index@Matrix@geom@@AEBAHHH@Z			; geom::Matrix::index
+PUBLIC	??_0Vector@geom@@QEAA?AV01@M@Z			; geom::Vector::operator/=
+PUBLIC	??SVector@geom@@QEBAMXZ				; geom::Vector::operator~
+PUBLIC	??0AxisAlignedCube@geom@@QEAA@VVector@1@0@Z	; geom::AxisAlignedCube::AxisAlignedCube
+PUBLIC	??YVector@geom@@QEAA?AV01@AEBV01@@Z		; geom::Vector::operator+=
+PUBLIC	??KVector@geom@@QEBA?AV01@M@Z			; geom::Vector::operator/
+PUBLIC	??DVector@geom@@QEBA?AV01@M@Z			; geom::Vector::operator*
+PUBLIC	??GVector@geom@@QEBA?AV01@AEBV01@@Z		; geom::Vector::operator-
+PUBLIC	??HVector@geom@@QEBA?AV01@AEBV01@@Z		; geom::Vector::operator+
+PUBLIC	?normalize@Vector@geom@@QEAA?AV12@XZ		; geom::Vector::normalize
 PUBLIC	??0Vector@geom@@QEAA@MMMM@Z			; geom::Vector::Vector
-PUBLIC	??0Vector@geom@@QEAA@AEAV01@@Z			; geom::Vector::Vector
+PUBLIC	?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z ; geom::AxisAlignedCube::inside
+PUBLIC	?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z	; geom::AxisAlignedCube::expand
+PUBLIC	??0Vector@geom@@QEAA@AEBV01@@Z			; geom::Vector::Vector
+PUBLIC	??0Line@geom@@QEAA@VVector@1@0@Z		; geom::Line::Line
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?perspective@Matrix@geom@@SA?AV12@MMMM@Z DD imagerel $LN12
@@ -238,6 +250,45 @@ pdata	SEGMENT
 $pdata$??DMatrix@geom@@QEBA?AV01@AEBV01@@Z DD imagerel $LN72
 	DD	imagerel $LN72+471
 	DD	imagerel $unwind$??DMatrix@geom@@QEBA?AV01@AEBV01@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?normalize@Vector@geom@@QEAA?AV12@XZ DD imagerel $LN10
+	DD	imagerel $LN10+163
+	DD	imagerel $unwind$?normalize@Vector@geom@@QEAA?AV12@XZ
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z DD imagerel $LN4
+	DD	imagerel $LN4+131
+	DD	imagerel $unwind$?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z DD imagerel $LN24
+	DD	imagerel $LN24+124
+	DD	imagerel $unwind$?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z DD 031201H
+	DD	06812H
+	DD	02204H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z DD 031501H
+	DD	06815H
+	DD	02204H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$?normalize@Vector@geom@@QEAA?AV12@XZ DD 0a2f01H
+	DD	02882fH
+	DD	037819H
+	DD	04680fH
+	DD	0c340aH
+	DD	07006920aH
+xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??DMatrix@geom@@QEBA?AV01@AEBV01@@Z DD 0167601H
@@ -277,12 +328,47 @@ $unwind$?perspective@Matrix@geom@@SA?AV12@MMMM@Z DD 0b2c19H
 	DD	imagerel __GSHandlerCheck
 	DD	060H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
-;	COMDAT ??0Vector@geom@@QEAA@AEAV01@@Z
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??0Line@geom@@QEAA@VVector@1@0@Z
+_TEXT	SEGMENT
+this$ = 8
+vec1$ = 16
+vec2$ = 24
+??0Line@geom@@QEAA@VVector@1@0@Z PROC			; geom::Line::Line, COMDAT
+
+; 10   : {
+
+  00000	8b 02		 mov	 eax, DWORD PTR [rdx]
+  00002	89 01		 mov	 DWORD PTR [rcx], eax
+  00004	8b 42 04	 mov	 eax, DWORD PTR [rdx+4]
+  00007	89 41 04	 mov	 DWORD PTR [rcx+4], eax
+  0000a	8b 42 08	 mov	 eax, DWORD PTR [rdx+8]
+  0000d	89 41 08	 mov	 DWORD PTR [rcx+8], eax
+  00010	8b 42 0c	 mov	 eax, DWORD PTR [rdx+12]
+  00013	89 41 0c	 mov	 DWORD PTR [rcx+12], eax
+  00016	41 8b 00	 mov	 eax, DWORD PTR [r8]
+  00019	89 41 10	 mov	 DWORD PTR [rcx+16], eax
+  0001c	41 8b 40 04	 mov	 eax, DWORD PTR [r8+4]
+  00020	89 41 14	 mov	 DWORD PTR [rcx+20], eax
+  00023	41 8b 40 08	 mov	 eax, DWORD PTR [r8+8]
+  00027	89 41 18	 mov	 DWORD PTR [rcx+24], eax
+  0002a	41 8b 40 0c	 mov	 eax, DWORD PTR [r8+12]
+  0002e	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+
+; 348  : 
+; 349  : }
+
+  00031	48 8b c1	 mov	 rax, rcx
+  00034	c3		 ret	 0
+??0Line@geom@@QEAA@VVector@1@0@Z ENDP			; geom::Line::Line
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??0Vector@geom@@QEAA@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 8
 vec$ = 16
-??0Vector@geom@@QEAA@AEAV01@@Z PROC			; geom::Vector::Vector, COMDAT
+??0Vector@geom@@QEAA@AEBV01@@Z PROC			; geom::Vector::Vector, COMDAT
 
 ; 10   : {
 
@@ -300,10 +386,234 @@ vec$ = 16
 
   00016	48 8b c1	 mov	 rax, rcx
   00019	c3		 ret	 0
-??0Vector@geom@@QEAA@AEAV01@@Z ENDP			; geom::Vector::Vector
+??0Vector@geom@@QEAA@AEBV01@@Z ENDP			; geom::Vector::Vector
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z
+_TEXT	SEGMENT
+this$ = 32
+__$ReturnUdt$ = 40
+f$ = 48
+?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z PROC	; geom::AxisAlignedCube::expand, COMDAT
+
+; 422  : {
+
+$LN24:
+  00000	48 83 ec 18	 sub	 rsp, 24
+
+; 36   : }
+; 37   : 
+; 38   : Vector Vector::operator-(const Vector &vec) const
+; 39   : {
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  00004	f3 0f 10 49 04	 movss	 xmm1, DWORD PTR [rcx+4]
+  00009	f3 0f 10 41 08	 movss	 xmm0, DWORD PTR [rcx+8]
+  0000e	0f 29 34 24	 movaps	 XMMWORD PTR [rsp], xmm6
+
+; 41   : }
+; 42   : 
+; 43   : Vector Vector::operator*(const Vector &vec) const
+; 44   : {
+; 45   : 	return Vector(x * vec.x, y * vec.y, z * vec.z);
+; 46   : }
+; 47   : 
+; 48   : Vector Vector::operator*(const Matrix &mat) const
+; 49   : {
+; 50   : 	Vector result;
+; 51   : 	float f = mat[0];
+; 52   : 
+; 53   : 	result.x = x * mat[0] + y * mat[1] + z * mat[2] + w * mat[3];
+; 54   : 	result.y = x * mat[4] + y * mat[5] + z * mat[6] + w * mat[7];
+; 55   : 	result.z = x * mat[8] + y * mat[9] + z * mat[10] + w * mat[11];
+; 56   : 	result.w = x * mat[12] + y * mat[13] + z * mat[14] + w * mat[15];
+; 57   : 
+; 58   : 	return result;
+; 59   : }
+; 60   : 
+; 61   : Vector Vector::operator*(float f) const
+; 62   : {
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  00012	0f 28 f2	 movaps	 xmm6, xmm2
+
+; 422  : {
+
+  00015	0f 28 e2	 movaps	 xmm4, xmm2
+
+; 423  : 	Vector ex(f, f, f);
+; 424  : 	return AxisAlignedCube(pos - ex, size + ex * 2.0f);
+
+  00018	48 8b c2	 mov	 rax, rdx
+
+; 36   : }
+; 37   : 
+; 38   : Vector Vector::operator-(const Vector &vec) const
+; 39   : {
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  0001b	f3 0f 10 11	 movss	 xmm2, DWORD PTR [rcx]
+  0001f	f3 0f 5c cc	 subss	 xmm1, xmm4
+  00023	f3 0f 5c c4	 subss	 xmm0, xmm4
+
+; 41   : }
+; 42   : 
+; 43   : Vector Vector::operator*(const Vector &vec) const
+; 44   : {
+; 45   : 	return Vector(x * vec.x, y * vec.y, z * vec.z);
+; 46   : }
+; 47   : 
+; 48   : Vector Vector::operator*(const Matrix &mat) const
+; 49   : {
+; 50   : 	Vector result;
+; 51   : 	float f = mat[0];
+; 52   : 
+; 53   : 	result.x = x * mat[0] + y * mat[1] + z * mat[2] + w * mat[3];
+; 54   : 	result.y = x * mat[4] + y * mat[5] + z * mat[6] + w * mat[7];
+; 55   : 	result.z = x * mat[8] + y * mat[9] + z * mat[10] + w * mat[11];
+; 56   : 	result.w = x * mat[12] + y * mat[13] + z * mat[14] + w * mat[15];
+; 57   : 
+; 58   : 	return result;
+; 59   : }
+; 60   : 
+; 61   : Vector Vector::operator*(float f) const
+; 62   : {
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  00027	f3 0f 59 35 00
+	00 00 00	 mulss	 xmm6, DWORD PTR __real@40000000
+
+; 11   : 	
+; 12   : }
+; 13   : 
+; 14   : Vector::Vector(float x, float y, float z, float w)
+; 15   : 	: x(x), y(y), z(z), w(w)
+; 16   : {
+; 17   : 	
+; 18   : }
+; 19   : 
+; 20   : Vector Vector::normalize()
+; 21   : {
+; 22   : 	return *this /= ~*this;
+; 23   : }
+; 24   : 
+; 25   : Vector Vector::wDivide()
+; 26   : {
+; 27   : 	x /= w;
+; 28   : 	y /= w;
+; 29   : 	z /= w;
+; 30   : 	return *this;
+; 31   : }
+; 32   : 
+; 33   : Vector Vector::operator+(const Vector &vec) const
+; 34   : {
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+
+  0002f	0f 28 ee	 movaps	 xmm5, xmm6
+  00032	0f 28 de	 movaps	 xmm3, xmm6
+  00035	f3 0f 58 71 18	 addss	 xmm6, DWORD PTR [rcx+24]
+  0003a	f3 0f 58 69 10	 addss	 xmm5, DWORD PTR [rcx+16]
+  0003f	f3 0f 58 59 14	 addss	 xmm3, DWORD PTR [rcx+20]
+
+; 10   : {
+
+  00044	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+  0004b	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+  00050	f3 0f 11 42 08	 movss	 DWORD PTR [rdx+8], xmm0
+
+; 36   : }
+; 37   : 
+; 38   : Vector Vector::operator-(const Vector &vec) const
+; 39   : {
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  00055	f3 0f 5c d4	 subss	 xmm2, xmm4
+
+; 10   : {
+
+  00059	f3 0f 11 12	 movss	 DWORD PTR [rdx], xmm2
+  0005d	f3 0f 11 72 18	 movss	 DWORD PTR [rdx+24], xmm6
+  00062	f3 0f 11 6a 10	 movss	 DWORD PTR [rdx+16], xmm5
+
+; 425  : }
+
+  00067	0f 28 34 24	 movaps	 xmm6, XMMWORD PTR [rsp]
+
+; 10   : {
+
+  0006b	c7 42 1c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+28], 1065353216 ; 3f800000H
+  00072	f3 0f 11 5a 14	 movss	 DWORD PTR [rdx+20], xmm3
+
+; 425  : }
+
+  00077	48 83 c4 18	 add	 rsp, 24
+  0007b	c3		 ret	 0
+?expand@AxisAlignedCube@geom@@QEAA?AV12@M@Z ENDP	; geom::AxisAlignedCube::expand
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z
+_TEXT	SEGMENT
+this$ = 32
+vec$ = 40
+?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z PROC	; geom::AxisAlignedCube::inside, COMDAT
+
+; 458  : {
+
+$LN4:
+  00000	48 83 ec 18	 sub	 rsp, 24
+
+; 459  : 	return vec.x >= pos.x & vec.x <= pos.x + size.x & vec.y >= pos.y & vec.y <= pos.y + size.y & vec.z >= pos.z & vec.z <= pos.z + size.z;
+
+  00004	f3 0f 10 11	 movss	 xmm2, DWORD PTR [rcx]
+  00008	f3 0f 10 61 04	 movss	 xmm4, DWORD PTR [rcx+4]
+  0000d	f3 0f 10 0a	 movss	 xmm1, DWORD PTR [rdx]
+  00011	0f 29 34 24	 movaps	 XMMWORD PTR [rsp], xmm6
+  00015	0f 28 c2	 movaps	 xmm0, xmm2
+  00018	f3 0f 58 41 10	 addss	 xmm0, DWORD PTR [rcx+16]
+  0001d	f3 0f 10 71 08	 movss	 xmm6, DWORD PTR [rcx+8]
+  00022	f3 0f 10 6a 08	 movss	 xmm5, DWORD PTR [rdx+8]
+  00027	f3 0f 10 5a 04	 movss	 xmm3, DWORD PTR [rdx+4]
+  0002c	33 d2		 xor	 edx, edx
+  0002e	0f 2f c1	 comiss	 xmm0, xmm1
+  00031	8b c2		 mov	 eax, edx
+  00033	44 8b c2	 mov	 r8d, edx
+  00036	0f 28 c4	 movaps	 xmm0, xmm4
+  00039	f3 0f 58 41 14	 addss	 xmm0, DWORD PTR [rcx+20]
+  0003e	41 0f 93 c0	 setae	 r8b
+  00042	0f 2f c3	 comiss	 xmm0, xmm3
+  00045	0f 28 c6	 movaps	 xmm0, xmm6
+  00048	f3 0f 58 41 18	 addss	 xmm0, DWORD PTR [rcx+24]
+  0004d	0f 93 c0	 setae	 al
+  00050	8b ca		 mov	 ecx, edx
+  00052	44 23 c0	 and	 r8d, eax
+  00055	8b c2		 mov	 eax, edx
+  00057	0f 2f c5	 comiss	 xmm0, xmm5
+  0005a	0f 93 c0	 setae	 al
+  0005d	41 23 c0	 and	 eax, r8d
+  00060	0f 2f ca	 comiss	 xmm1, xmm2
+  00063	0f 93 c1	 setae	 cl
+  00066	23 c1		 and	 eax, ecx
+  00068	8b ca		 mov	 ecx, edx
+  0006a	0f 2f dc	 comiss	 xmm3, xmm4
+  0006d	0f 93 c1	 setae	 cl
+  00070	23 c1		 and	 eax, ecx
+  00072	0f 2f ee	 comiss	 xmm5, xmm6
+
+; 460  : }
+
+  00075	0f 28 34 24	 movaps	 xmm6, XMMWORD PTR [rsp]
+  00079	0f 93 c2	 setae	 dl
+  0007c	23 c2		 and	 eax, edx
+  0007e	48 83 c4 18	 add	 rsp, 24
+  00082	c3		 ret	 0
+?inside@AxisAlignedCube@geom@@QEAA_NVVector@2@@Z ENDP	; geom::AxisAlignedCube::inside
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??0Vector@geom@@QEAA@MMMM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -330,7 +640,606 @@ w$ = 40
 ??0Vector@geom@@QEAA@MMMM@Z ENDP			; geom::Vector::Vector
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ?normalize@Vector@geom@@QEAA?AV12@XZ
+_TEXT	SEGMENT
+this$ = 96
+__$ReturnUdt$ = 104
+?normalize@Vector@geom@@QEAA?AV12@XZ PROC		; geom::Vector::normalize, COMDAT
+
+; 21   : {
+
+$LN10:
+  00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
+  00005	57		 push	 rdi
+  00006	48 83 ec 50	 sub	 rsp, 80			; 00000050H
+  0000a	0f 29 74 24 40	 movaps	 XMMWORD PTR [rsp+64], xmm6
+
+; 24   : 
+; 25   : Vector Vector::wDivide()
+; 26   : {
+; 27   : 	x /= w;
+; 28   : 	y /= w;
+; 29   : 	z /= w;
+; 30   : 	return *this;
+; 31   : }
+; 32   : 
+; 33   : Vector Vector::operator+(const Vector &vec) const
+; 34   : {
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+; 36   : }
+; 37   : 
+; 38   : Vector Vector::operator-(const Vector &vec) const
+; 39   : {
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+; 41   : }
+; 42   : 
+; 43   : Vector Vector::operator*(const Vector &vec) const
+; 44   : {
+; 45   : 	return Vector(x * vec.x, y * vec.y, z * vec.z);
+; 46   : }
+; 47   : 
+; 48   : Vector Vector::operator*(const Matrix &mat) const
+; 49   : {
+; 50   : 	Vector result;
+; 51   : 	float f = mat[0];
+; 52   : 
+; 53   : 	result.x = x * mat[0] + y * mat[1] + z * mat[2] + w * mat[3];
+; 54   : 	result.y = x * mat[4] + y * mat[5] + z * mat[6] + w * mat[7];
+; 55   : 	result.z = x * mat[8] + y * mat[9] + z * mat[10] + w * mat[11];
+; 56   : 	result.w = x * mat[12] + y * mat[13] + z * mat[14] + w * mat[15];
+; 57   : 
+; 58   : 	return result;
+; 59   : }
+; 60   : 
+; 61   : Vector Vector::operator*(float f) const
+; 62   : {
+; 63   : 	return Vector(x * f, y * f, z * f);
+; 64   : }
+; 65   : 
+; 66   : Vector Vector::operator/(const Vector &vec) const
+; 67   : {
+; 68   : 	return Vector(x / vec.x, y / vec.y, z / vec.z);
+; 69   : }
+; 70   : 
+; 71   : Vector Vector::operator/(float f) const
+; 72   : {
+; 73   : 	return Vector(x / f, y / f, z / f);
+; 74   : }
+; 75   : 
+; 76   : Vector Vector::operator&(const Vector &vec) const
+; 77   : {
+; 78   : 	return Vector(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
+; 79   : }
+; 80   : 
+; 81   : float Vector::operator|(const Vector &vec) const
+; 82   : {
+; 83   : 	return x * vec.x + y * vec.y + z * vec.z;
+; 84   : }
+; 85   : 
+; 86   : Vector Vector::operator-() const
+; 87   : {
+; 88   : 	return Vector(-x, -y, -z);
+; 89   : }
+; 90   : 
+; 91   : float Vector::operator~() const
+; 92   : {
+; 93   : 	return sqrtf(x * x + y * y + z * z);
+
+  0000f	f3 0f 10 71 08	 movss	 xmm6, DWORD PTR [rcx+8]
+  00014	0f 29 7c 24 30	 movaps	 XMMWORD PTR [rsp+48], xmm7
+  00019	f3 0f 10 39	 movss	 xmm7, DWORD PTR [rcx]
+
+; 21   : {
+
+  0001d	48 8b fa	 mov	 rdi, rdx
+  00020	48 8b d9	 mov	 rbx, rcx
+
+; 24   : 
+; 25   : Vector Vector::wDivide()
+; 26   : {
+; 27   : 	x /= w;
+; 28   : 	y /= w;
+; 29   : 	z /= w;
+; 30   : 	return *this;
+; 31   : }
+; 32   : 
+; 33   : Vector Vector::operator+(const Vector &vec) const
+; 34   : {
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+; 36   : }
+; 37   : 
+; 38   : Vector Vector::operator-(const Vector &vec) const
+; 39   : {
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+; 41   : }
+; 42   : 
+; 43   : Vector Vector::operator*(const Vector &vec) const
+; 44   : {
+; 45   : 	return Vector(x * vec.x, y * vec.y, z * vec.z);
+; 46   : }
+; 47   : 
+; 48   : Vector Vector::operator*(const Matrix &mat) const
+; 49   : {
+; 50   : 	Vector result;
+; 51   : 	float f = mat[0];
+; 52   : 
+; 53   : 	result.x = x * mat[0] + y * mat[1] + z * mat[2] + w * mat[3];
+; 54   : 	result.y = x * mat[4] + y * mat[5] + z * mat[6] + w * mat[7];
+; 55   : 	result.z = x * mat[8] + y * mat[9] + z * mat[10] + w * mat[11];
+; 56   : 	result.w = x * mat[12] + y * mat[13] + z * mat[14] + w * mat[15];
+; 57   : 
+; 58   : 	return result;
+; 59   : }
+; 60   : 
+; 61   : Vector Vector::operator*(float f) const
+; 62   : {
+; 63   : 	return Vector(x * f, y * f, z * f);
+; 64   : }
+; 65   : 
+; 66   : Vector Vector::operator/(const Vector &vec) const
+; 67   : {
+; 68   : 	return Vector(x / vec.x, y / vec.y, z / vec.z);
+; 69   : }
+; 70   : 
+; 71   : Vector Vector::operator/(float f) const
+; 72   : {
+; 73   : 	return Vector(x / f, y / f, z / f);
+; 74   : }
+; 75   : 
+; 76   : Vector Vector::operator&(const Vector &vec) const
+; 77   : {
+; 78   : 	return Vector(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
+; 79   : }
+; 80   : 
+; 81   : float Vector::operator|(const Vector &vec) const
+; 82   : {
+; 83   : 	return x * vec.x + y * vec.y + z * vec.z;
+; 84   : }
+; 85   : 
+; 86   : Vector Vector::operator-() const
+; 87   : {
+; 88   : 	return Vector(-x, -y, -z);
+; 89   : }
+; 90   : 
+; 91   : float Vector::operator~() const
+; 92   : {
+; 93   : 	return sqrtf(x * x + y * y + z * z);
+
+  00023	0f 28 c7	 movaps	 xmm0, xmm7
+  00026	0f 28 d6	 movaps	 xmm2, xmm6
+  00029	44 0f 29 44 24
+	20		 movaps	 XMMWORD PTR [rsp+32], xmm8
+  0002f	f3 44 0f 10 41
+	04		 movss	 xmm8, DWORD PTR [rcx+4]
+  00035	f3 0f 59 c7	 mulss	 xmm0, xmm7
+  00039	f3 0f 59 d6	 mulss	 xmm2, xmm6
+  0003d	41 0f 28 c8	 movaps	 xmm1, xmm8
+  00041	f3 41 0f 59 c8	 mulss	 xmm1, xmm8
+  00046	f3 0f 58 c1	 addss	 xmm0, xmm1
+  0004a	f3 0f 58 c2	 addss	 xmm0, xmm2
+  0004e	e8 00 00 00 00	 call	 sqrtf
+
+; 16   : {
+
+  00053	c7 47 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdi+12], 1065353216 ; 3f800000H
+
+; 22   : 	return *this /= ~*this;
+
+  0005a	48 8b c7	 mov	 rax, rdi
+
+; 94   : }
+; 95   : 
+; 96   : Vector Vector::operator+=(const Vector &vec)
+; 97   : {
+; 98   : 	return Vector(x += vec.x, y += vec.y, z += vec.z);
+; 99   : }
+; 100  : 
+; 101  : Vector Vector::operator-=(const Vector &vec)
+; 102  : {
+; 103  : 	return Vector(x -= vec.x, y -= vec.y, z -= vec.z);
+; 104  : }
+; 105  : 
+; 106  : Vector Vector::operator*=(const Vector &vec)
+; 107  : {
+; 108  : 	return Vector(x *= vec.x, y *= vec.y, z *= vec.z);
+; 109  : }
+; 110  : 
+; 111  : Vector Vector::operator*=(const Matrix &mat)
+; 112  : {
+; 113  : 	//return Vector(x * vec.x, y * vec.y, z * vec.z, w * vec.w);
+; 114  : 	return *this;
+; 115  : }
+; 116  : 
+; 117  : Vector Vector::operator*=(float f)
+; 118  : {
+; 119  : 	return Vector(x *= f, y *= f, z *= f);
+; 120  : }
+; 121  : 
+; 122  : Vector Vector::operator/=(const Vector &vec)
+; 123  : {
+; 124  : 	return Vector(x /= vec.x, y /= vec.y, z /= vec.z);
+; 125  : }
+; 126  : 
+; 127  : Vector Vector::operator/=(float f)
+; 128  : {
+; 129  : 	return Vector(x /= f, y /= f, z /= f);
+
+  0005d	f3 0f 5e f0	 divss	 xmm6, xmm0
+  00061	f3 44 0f 5e c0	 divss	 xmm8, xmm0
+  00066	f3 0f 5e f8	 divss	 xmm7, xmm0
+  0006a	f3 0f 11 73 08	 movss	 DWORD PTR [rbx+8], xmm6
+  0006f	f3 44 0f 11 43
+	04		 movss	 DWORD PTR [rbx+4], xmm8
+  00075	f3 0f 11 3b	 movss	 DWORD PTR [rbx], xmm7
+
+; 23   : }
+
+  00079	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
+
+; 16   : {
+
+  0007e	f3 0f 11 3f	 movss	 DWORD PTR [rdi], xmm7
+  00082	f3 44 0f 11 47
+	04		 movss	 DWORD PTR [rdi+4], xmm8
+  00088	f3 0f 11 77 08	 movss	 DWORD PTR [rdi+8], xmm6
+
+; 23   : }
+
+  0008d	0f 28 74 24 40	 movaps	 xmm6, XMMWORD PTR [rsp+64]
+  00092	0f 28 7c 24 30	 movaps	 xmm7, XMMWORD PTR [rsp+48]
+  00097	44 0f 28 44 24
+	20		 movaps	 xmm8, XMMWORD PTR [rsp+32]
+  0009d	48 83 c4 50	 add	 rsp, 80			; 00000050H
+  000a1	5f		 pop	 rdi
+  000a2	c3		 ret	 0
+?normalize@Vector@geom@@QEAA?AV12@XZ ENDP		; geom::Vector::normalize
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??HVector@geom@@QEBA?AV01@AEBV01@@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+vec$ = 24
+??HVector@geom@@QEBA?AV01@AEBV01@@Z PROC		; geom::Vector::operator+, COMDAT
+
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+
+  00000	f3 41 0f 10 00	 movss	 xmm0, DWORD PTR [r8]
+  00005	f3 41 0f 10 48
+	04		 movss	 xmm1, DWORD PTR [r8+4]
+
+; 16   : {
+
+  0000b	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+
+  00012	48 8b c2	 mov	 rax, rdx
+  00015	f3 0f 58 01	 addss	 xmm0, DWORD PTR [rcx]
+  00019	f3 0f 58 49 04	 addss	 xmm1, DWORD PTR [rcx+4]
+
+; 16   : {
+
+  0001e	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+
+  00022	f3 41 0f 10 40
+	08		 movss	 xmm0, DWORD PTR [r8+8]
+
+; 16   : {
+
+  00028	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+
+; 35   : 	return Vector(x + vec.x, y + vec.y, z + vec.z);
+
+  0002d	f3 0f 58 41 08	 addss	 xmm0, DWORD PTR [rcx+8]
+
+; 16   : {
+
+  00032	f3 0f 11 42 08	 movss	 DWORD PTR [rdx+8], xmm0
+
+; 36   : }
+
+  00037	c3		 ret	 0
+??HVector@geom@@QEBA?AV01@AEBV01@@Z ENDP		; geom::Vector::operator+
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??GVector@geom@@QEBA?AV01@AEBV01@@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+vec$ = 24
+??GVector@geom@@QEBA?AV01@AEBV01@@Z PROC		; geom::Vector::operator-, COMDAT
+
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  00000	f3 0f 10 01	 movss	 xmm0, DWORD PTR [rcx]
+  00004	f3 0f 10 49 04	 movss	 xmm1, DWORD PTR [rcx+4]
+
+; 16   : {
+
+  00009	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  00010	48 8b c2	 mov	 rax, rdx
+  00013	f3 41 0f 5c 00	 subss	 xmm0, DWORD PTR [r8]
+  00018	f3 41 0f 5c 48
+	04		 subss	 xmm1, DWORD PTR [r8+4]
+
+; 16   : {
+
+  0001e	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  00022	f3 0f 10 41 08	 movss	 xmm0, DWORD PTR [rcx+8]
+
+; 16   : {
+
+  00027	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+
+; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
+
+  0002c	f3 41 0f 5c 40
+	08		 subss	 xmm0, DWORD PTR [r8+8]
+
+; 16   : {
+
+  00032	f3 0f 11 42 08	 movss	 DWORD PTR [rdx+8], xmm0
+
+; 41   : }
+
+  00037	c3		 ret	 0
+??GVector@geom@@QEBA?AV01@AEBV01@@Z ENDP		; geom::Vector::operator-
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??DVector@geom@@QEBA?AV01@M@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+f$ = 24
+??DVector@geom@@QEBA?AV01@M@Z PROC			; geom::Vector::operator*, COMDAT
+
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  00000	0f 28 c2	 movaps	 xmm0, xmm2
+  00003	0f 28 ca	 movaps	 xmm1, xmm2
+  00006	f3 0f 59 51 08	 mulss	 xmm2, DWORD PTR [rcx+8]
+
+; 16   : {
+
+  0000b	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 63   : 	return Vector(x * f, y * f, z * f);
+
+  00012	48 8b c2	 mov	 rax, rdx
+  00015	f3 0f 59 01	 mulss	 xmm0, DWORD PTR [rcx]
+  00019	f3 0f 59 49 04	 mulss	 xmm1, DWORD PTR [rcx+4]
+
+; 16   : {
+
+  0001e	f3 0f 11 52 08	 movss	 DWORD PTR [rdx+8], xmm2
+  00023	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+  00027	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+
+; 64   : }
+
+  0002c	c3		 ret	 0
+??DVector@geom@@QEBA?AV01@M@Z ENDP			; geom::Vector::operator*
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??KVector@geom@@QEBA?AV01@M@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+f$ = 24
+??KVector@geom@@QEBA?AV01@M@Z PROC			; geom::Vector::operator/, COMDAT
+
+; 73   : 	return Vector(x / f, y / f, z / f);
+
+  00000	f3 0f 10 01	 movss	 xmm0, DWORD PTR [rcx]
+  00004	f3 0f 10 49 04	 movss	 xmm1, DWORD PTR [rcx+4]
+
+; 16   : {
+
+  00009	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 73   : 	return Vector(x / f, y / f, z / f);
+
+  00010	48 8b c2	 mov	 rax, rdx
+  00013	f3 0f 5e c2	 divss	 xmm0, xmm2
+  00017	f3 0f 5e ca	 divss	 xmm1, xmm2
+
+; 16   : {
+
+  0001b	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+
+; 73   : 	return Vector(x / f, y / f, z / f);
+
+  0001f	f3 0f 10 41 08	 movss	 xmm0, DWORD PTR [rcx+8]
+
+; 16   : {
+
+  00024	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+
+; 73   : 	return Vector(x / f, y / f, z / f);
+
+  00029	f3 0f 5e c2	 divss	 xmm0, xmm2
+
+; 16   : {
+
+  0002d	f3 0f 11 42 08	 movss	 DWORD PTR [rdx+8], xmm0
+
+; 74   : }
+
+  00032	c3		 ret	 0
+??KVector@geom@@QEBA?AV01@M@Z ENDP			; geom::Vector::operator/
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??YVector@geom@@QEAA?AV01@AEBV01@@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+vec$ = 24
+??YVector@geom@@QEAA?AV01@AEBV01@@Z PROC		; geom::Vector::operator+=, COMDAT
+
+; 98   : 	return Vector(x += vec.x, y += vec.y, z += vec.z);
+
+  00000	f3 41 0f 10 50
+	08		 movss	 xmm2, DWORD PTR [r8+8]
+
+; 16   : {
+
+  00006	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 98   : 	return Vector(x += vec.x, y += vec.y, z += vec.z);
+
+  0000d	48 8b c2	 mov	 rax, rdx
+  00010	f3 0f 58 51 08	 addss	 xmm2, DWORD PTR [rcx+8]
+  00015	f3 0f 11 51 08	 movss	 DWORD PTR [rcx+8], xmm2
+  0001a	f3 41 0f 10 48
+	04		 movss	 xmm1, DWORD PTR [r8+4]
+
+; 16   : {
+
+  00020	f3 0f 11 52 08	 movss	 DWORD PTR [rdx+8], xmm2
+
+; 98   : 	return Vector(x += vec.x, y += vec.y, z += vec.z);
+
+  00025	f3 0f 58 49 04	 addss	 xmm1, DWORD PTR [rcx+4]
+  0002a	f3 0f 11 49 04	 movss	 DWORD PTR [rcx+4], xmm1
+  0002f	f3 41 0f 10 00	 movss	 xmm0, DWORD PTR [r8]
+
+; 16   : {
+
+  00034	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+
+; 98   : 	return Vector(x += vec.x, y += vec.y, z += vec.z);
+
+  00039	f3 0f 58 01	 addss	 xmm0, DWORD PTR [rcx]
+  0003d	f3 0f 11 01	 movss	 DWORD PTR [rcx], xmm0
+
+; 16   : {
+
+  00041	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+
+; 99   : }
+
+  00045	c3		 ret	 0
+??YVector@geom@@QEAA?AV01@AEBV01@@Z ENDP		; geom::Vector::operator+=
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??0AxisAlignedCube@geom@@QEAA@VVector@1@0@Z
+_TEXT	SEGMENT
+this$ = 8
+pos$ = 16
+size$ = 24
+??0AxisAlignedCube@geom@@QEAA@VVector@1@0@Z PROC	; geom::AxisAlignedCube::AxisAlignedCube, COMDAT
+
+; 10   : {
+
+  00000	8b 02		 mov	 eax, DWORD PTR [rdx]
+  00002	89 01		 mov	 DWORD PTR [rcx], eax
+  00004	8b 42 04	 mov	 eax, DWORD PTR [rdx+4]
+  00007	89 41 04	 mov	 DWORD PTR [rcx+4], eax
+  0000a	8b 42 08	 mov	 eax, DWORD PTR [rdx+8]
+  0000d	89 41 08	 mov	 DWORD PTR [rcx+8], eax
+  00010	8b 42 0c	 mov	 eax, DWORD PTR [rdx+12]
+  00013	89 41 0c	 mov	 DWORD PTR [rcx+12], eax
+  00016	41 8b 00	 mov	 eax, DWORD PTR [r8]
+  00019	89 41 10	 mov	 DWORD PTR [rcx+16], eax
+  0001c	41 8b 40 04	 mov	 eax, DWORD PTR [r8+4]
+  00020	89 41 14	 mov	 DWORD PTR [rcx+20], eax
+  00023	41 8b 40 08	 mov	 eax, DWORD PTR [r8+8]
+  00027	89 41 18	 mov	 DWORD PTR [rcx+24], eax
+  0002a	41 8b 40 0c	 mov	 eax, DWORD PTR [r8+12]
+  0002e	89 41 1c	 mov	 DWORD PTR [rcx+28], eax
+
+; 418  : 
+; 419  : }
+
+  00031	48 8b c1	 mov	 rax, rcx
+  00034	c3		 ret	 0
+??0AxisAlignedCube@geom@@QEAA@VVector@1@0@Z ENDP	; geom::AxisAlignedCube::AxisAlignedCube
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??SVector@geom@@QEBAMXZ
+_TEXT	SEGMENT
+this$ = 8
+??SVector@geom@@QEBAMXZ PROC				; geom::Vector::operator~, COMDAT
+
+; 93   : 	return sqrtf(x * x + y * y + z * z);
+
+  00000	f3 0f 10 49 04	 movss	 xmm1, DWORD PTR [rcx+4]
+  00005	f3 0f 10 01	 movss	 xmm0, DWORD PTR [rcx]
+  00009	f3 0f 10 51 08	 movss	 xmm2, DWORD PTR [rcx+8]
+  0000e	f3 0f 59 c0	 mulss	 xmm0, xmm0
+  00012	f3 0f 59 c9	 mulss	 xmm1, xmm1
+  00016	f3 0f 59 d2	 mulss	 xmm2, xmm2
+  0001a	f3 0f 58 c1	 addss	 xmm0, xmm1
+  0001e	f3 0f 58 c2	 addss	 xmm0, xmm2
+  00022	e9 00 00 00 00	 jmp	 sqrtf
+??SVector@geom@@QEBAMXZ ENDP				; geom::Vector::operator~
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
+;	COMDAT ??_0Vector@geom@@QEAA?AV01@M@Z
+_TEXT	SEGMENT
+this$ = 8
+__$ReturnUdt$ = 16
+f$ = 24
+??_0Vector@geom@@QEAA?AV01@M@Z PROC			; geom::Vector::operator/=, COMDAT
+
+; 129  : 	return Vector(x /= f, y /= f, z /= f);
+
+  00000	f3 0f 10 59 08	 movss	 xmm3, DWORD PTR [rcx+8]
+  00005	f3 0f 10 49 04	 movss	 xmm1, DWORD PTR [rcx+4]
+  0000a	f3 0f 10 01	 movss	 xmm0, DWORD PTR [rcx]
+
+; 16   : {
+
+  0000e	c7 42 0c 00 00
+	80 3f		 mov	 DWORD PTR [rdx+12], 1065353216 ; 3f800000H
+
+; 129  : 	return Vector(x /= f, y /= f, z /= f);
+
+  00015	48 8b c2	 mov	 rax, rdx
+  00018	f3 0f 5e da	 divss	 xmm3, xmm2
+  0001c	f3 0f 5e ca	 divss	 xmm1, xmm2
+  00020	f3 0f 5e c2	 divss	 xmm0, xmm2
+  00024	f3 0f 11 59 08	 movss	 DWORD PTR [rcx+8], xmm3
+  00029	f3 0f 11 49 04	 movss	 DWORD PTR [rcx+4], xmm1
+  0002e	f3 0f 11 01	 movss	 DWORD PTR [rcx], xmm0
+
+; 16   : {
+
+  00032	f3 0f 11 02	 movss	 DWORD PTR [rdx], xmm0
+  00036	f3 0f 11 4a 04	 movss	 DWORD PTR [rdx+4], xmm1
+  0003b	f3 0f 11 5a 08	 movss	 DWORD PTR [rdx+8], xmm3
+
+; 130  : }
+
+  00040	c3		 ret	 0
+??_0Vector@geom@@QEAA?AV01@M@Z ENDP			; geom::Vector::operator/=
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?index@Matrix@geom@@AEBAHHH@Z
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -348,7 +1257,7 @@ y$ = 24
 ?index@Matrix@geom@@AEBAHHH@Z ENDP			; geom::Matrix::index
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??0Matrix@geom@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8
@@ -376,7 +1285,7 @@ this$ = 8
 ??0Matrix@geom@@QEAA@XZ ENDP				; geom::Matrix::Matrix
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??0Matrix@geom@@QEAA@PEAM@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -412,7 +1321,7 @@ data$ = 16
 ??0Matrix@geom@@QEAA@PEAM@Z ENDP			; geom::Matrix::Matrix
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??AMatrix@geom@@QEAAAEAMH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -430,7 +1339,7 @@ index$ = 16
 ??AMatrix@geom@@QEAAAEAMH@Z ENDP			; geom::Matrix::operator[]
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??DMatrix@geom@@QEBA?AV01@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 176
@@ -608,7 +1517,7 @@ $LL9@operator:
 ??DMatrix@geom@@QEBA?AV01@AEBV01@@Z ENDP		; geom::Matrix::operator*
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??4Matrix@geom@@QEAAAEAV01@AEBV01@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -659,7 +1568,7 @@ $LL3@operator:
 ??4Matrix@geom@@QEAAAEAV01@AEBV01@@Z ENDP		; geom::Matrix::operator=
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?identity@Matrix@geom@@SA?AV12@XZ
 _TEXT	SEGMENT
 __$ReturnUdt$ = 8
@@ -709,7 +1618,7 @@ __$ReturnUdt$ = 8
 ?identity@Matrix@geom@@SA?AV12@XZ ENDP			; geom::Matrix::identity
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?scale@Matrix@geom@@SA?AV12@MMM@Z
 _TEXT	SEGMENT
 __$ReturnUdt$ = 8
@@ -753,7 +1662,7 @@ z$ = 32
 ?scale@Matrix@geom@@SA?AV12@MMM@Z ENDP			; geom::Matrix::scale
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?translate@Matrix@geom@@SA?AV12@MMM@Z
 _TEXT	SEGMENT
 __$ReturnUdt$ = 8
@@ -897,7 +1806,7 @@ z$ = 32
 ?translate@Matrix@geom@@SA?AV12@MMM@Z ENDP		; geom::Matrix::translate
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?rotate@Matrix@geom@@SA?AV12@MMMM@Z
 _TEXT	SEGMENT
 matData$ = 32
@@ -1101,7 +2010,7 @@ $LN12:
 ?rotate@Matrix@geom@@SA?AV12@MMMM@Z ENDP		; geom::Matrix::rotate
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?perspective@Matrix@geom@@SA?AV12@MMMM@Z
 _TEXT	SEGMENT
 matData$ = 32
@@ -1267,7 +2176,7 @@ $LN12:
 ?perspective@Matrix@geom@@SA?AV12@MMMM@Z ENDP		; geom::Matrix::perspective
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?getNormal@AxisAlignedXY@geom@@UEAA?AVVector@2@XZ
 _TEXT	SEGMENT
 this$ = 8
@@ -1293,7 +2202,7 @@ __$ReturnUdt$ = 16
 ?getNormal@AxisAlignedXY@geom@@UEAA?AVVector@2@XZ ENDP	; geom::AxisAlignedXY::getNormal
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?inside@AxisAlignedXY@geom@@UEAA_NVVector@2@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -1332,7 +2241,7 @@ vec$ = 16
 ?inside@AxisAlignedXY@geom@@UEAA_NVVector@2@@Z ENDP	; geom::AxisAlignedXY::inside
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?getNormal@AxisAlignedXZ@geom@@UEAA?AVVector@2@XZ
 _TEXT	SEGMENT
 this$ = 8
@@ -1358,7 +2267,7 @@ __$ReturnUdt$ = 16
 ?getNormal@AxisAlignedXZ@geom@@UEAA?AVVector@2@XZ ENDP	; geom::AxisAlignedXZ::getNormal
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?inside@AxisAlignedXZ@geom@@UEAA_NVVector@2@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -1397,7 +2306,7 @@ vec$ = 16
 ?inside@AxisAlignedXZ@geom@@UEAA_NVVector@2@@Z ENDP	; geom::AxisAlignedXZ::inside
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?getNormal@AxisAlignedYZ@geom@@UEAA?AVVector@2@XZ
 _TEXT	SEGMENT
 this$ = 8
@@ -1423,7 +2332,7 @@ __$ReturnUdt$ = 16
 ?getNormal@AxisAlignedYZ@geom@@UEAA?AVVector@2@XZ ENDP	; geom::AxisAlignedYZ::getNormal
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ?inside@AxisAlignedYZ@geom@@UEAA_NVVector@2@@Z
 _TEXT	SEGMENT
 this$ = 8

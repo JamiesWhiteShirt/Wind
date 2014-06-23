@@ -175,5 +175,8 @@
     <ClCompile Include="globalutil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="generation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

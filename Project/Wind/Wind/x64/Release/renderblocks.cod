@@ -88,7 +88,7 @@ $unwind$?renderOrdinaryBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVe
 	DD	060147015H
 	DD	05013H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 ;	COMDAT ?renderInvisibleBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 _TEXT	SEGMENT
 world$ = 8
@@ -109,23 +109,23 @@ vStream$ = 48
 ?renderInvisibleBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z ENDP ; BlockRenderers::renderInvisibleBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 ;	COMDAT ?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 _TEXT	SEGMENT
 world$ = 128
@@ -148,13 +148,13 @@ $LN458:
   00014	41 56		 push	 r14
   00016	41 57		 push	 r15
   00018	48 83 ec 50	 sub	 rsp, 80			; 00000050H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 156  : 	vertex.r = r;
 
   0001c	48 8b b4 24 a8
 	00 00 00	 mov	 rsi, QWORD PTR vStream$[rsp]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 490  : 	Block* b = world->getBlock(x, y, z - 1);
 
@@ -165,13 +165,13 @@ $LN458:
   00035	44 8b cb	 mov	 r9d, ebx
   00038	45 8b f8	 mov	 r15d, r8d
   0003b	44 8b ea	 mov	 r13d, edx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 156  : 	vertex.r = r;
 
   0003e	c7 46 4c ff ff
 	ff 7f		 mov	 DWORD PTR [rsi+76], 2147483647 ; 7fffffffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 487  : {
 
@@ -218,7 +218,7 @@ $LN458:
   000ad	49 8b cc	 mov	 rcx, r12
   000b0	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   000b5	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -622,7 +622,7 @@ $LN458:
   0043b	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN83@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 510  : 	b = world->getBlock(x, y, z + 1);
 
@@ -665,7 +665,7 @@ $LN83@renderFlui:
   004a3	49 8b cc	 mov	 rcx, r12
   004a6	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   004ab	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -1069,7 +1069,7 @@ $LN83@renderFlui:
   00831	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN157@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 530  : 	b = world->getBlock(x, y - 1, z);
 
@@ -1111,7 +1111,7 @@ $LN157@renderFlui:
   00898	49 8b cc	 mov	 rcx, r12
   0089b	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   008a0	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -1512,7 +1512,7 @@ $LN157@renderFlui:
   00c26	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN231@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 550  : 	b = world->getBlock(x, y + 1, z);
 
@@ -1554,7 +1554,7 @@ $LN231@renderFlui:
   00c8d	49 8b cc	 mov	 rcx, r12
   00c90	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   00c95	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -1958,7 +1958,7 @@ $LN231@renderFlui:
   0101b	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN305@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 570  : 	b = world->getBlock(x - 1, y, z);
 
@@ -2000,7 +2000,7 @@ $LN305@renderFlui:
   01082	49 8b cc	 mov	 rcx, r12
   01085	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   0108a	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -2404,7 +2404,7 @@ $LN305@renderFlui:
   01410	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN379@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 590  : 	b = world->getBlock(x + 1, y, z);
 
@@ -2446,7 +2446,7 @@ $LN379@renderFlui:
   01477	49 8b cc	 mov	 rcx, r12
   0147a	44 89 74 24 20	 mov	 DWORD PTR [rsp+32], r14d
   0147f	41 ff 52 08	 call	 QWORD PTR [r10+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 127  : 	setUV(v.u, v.v);
 
@@ -2850,7 +2850,7 @@ $LN379@renderFlui:
   01805	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
 $LN455@renderFlui:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 611  : }
 
@@ -2871,101 +2871,101 @@ $LN455@renderFlui:
 ?renderFluidBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z ENDP ; BlockRenderers::renderFluidBlock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 ;	COMDAT ?renderOrdinaryBlock@BlockRenderers@@YA_NPEAVWorld@@HHHPEAVBlock@@PEAVVertexStream@gfxu@@@Z
 _TEXT	SEGMENT
 i2$1$ = 48
@@ -3114,12 +3114,12 @@ $LN536:
 
   0010a	44 8b cb	 mov	 r9d, ebx
   0010d	45 8b c6	 mov	 r8d, r14d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   00110	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 18   : 		if(world->getBlock(x - 1, y, z - 1)->solidEdge(world, x - 1, y, z - 1, Relatives::EN))
 
@@ -3383,12 +3383,12 @@ $LN46@renderOrdi:
 
   00364	41 0f 28 d1	 movaps	 xmm2, xmm9
   00368	66 0f 6e ce	 movd	 xmm1, esi
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   0036c	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 62   : 		float f1 = 1.0F - i1 * 0.15f;
 
@@ -3422,18 +3422,18 @@ $LN46@renderOrdi:
   003ab	0f 28 c6	 movaps	 xmm0, xmm6
   003ae	f3 0f 58 c2	 addss	 xmm0, xmm2
   003b2	f3 41 0f 59 cd	 mulss	 xmm1, xmm13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   003b7	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 67   : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   003bc	f3 0f 58 c7	 addss	 xmm0, xmm7
   003c0	f3 44 0f 5c c1	 subss	 xmm8, xmm1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -3443,13 +3443,13 @@ $LN46@renderOrdi:
 
   003ca	41 0f 28 d2	 movaps	 xmm2, xmm10
   003ce	41 0f 28 ca	 movaps	 xmm1, xmm10
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 67   : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   003d2	f3 41 0f 58 c0	 addss	 xmm0, xmm8
   003d7	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -5135,7 +5135,7 @@ $LN46@renderOrdi:
   008d4	44 8b 7d 78	 mov	 r15d, DWORD PTR z$[rbp-256]
   008d8	33 ff		 xor	 edi, edi
 $LN147@renderOrdi:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 87   : 	if(!world->getBlock(x, y, z + 1)->solidFace(world, x, y, z + 1, Relatives::S))
 
@@ -5179,12 +5179,12 @@ $LN147@renderOrdi:
 
   00945	44 8b cb	 mov	 r9d, ebx
   00948	45 8b c6	 mov	 r8d, r14d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   0094b	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 96   : 		if(world->getBlock(x - 1, y, z + 1)->solidEdge(world, x - 1, y, z + 1, Relatives::ES))
 
@@ -5448,12 +5448,12 @@ $LN37@renderOrdi:
 
   00b9f	41 0f 28 d1	 movaps	 xmm2, xmm9
   00ba3	66 0f 6e ce	 movd	 xmm1, esi
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   00ba7	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 140  : 		float f1 = 1.0F - i1 * 0.15f;
 
@@ -5487,18 +5487,18 @@ $LN37@renderOrdi:
   00be7	41 0f 28 c0	 movaps	 xmm0, xmm8
   00beb	f3 0f 58 c2	 addss	 xmm0, xmm2
   00bef	f3 41 0f 59 cd	 mulss	 xmm1, xmm13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   00bf4	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 145  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   00bf9	f3 0f 58 c7	 addss	 xmm0, xmm7
   00bfd	f3 0f 5c f1	 subss	 xmm6, xmm1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -5508,13 +5508,13 @@ $LN37@renderOrdi:
 
   00c06	41 0f 28 d2	 movaps	 xmm2, xmm10
   00c0a	41 0f 28 c9	 movaps	 xmm1, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 145  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   00c0e	f3 0f 58 c6	 addss	 xmm0, xmm6
   00c12	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -7203,7 +7203,7 @@ $LN37@renderOrdi:
   0110f	44 8b 75 70	 mov	 r14d, DWORD PTR y$[rbp-256]
   01113	44 8b 7d 78	 mov	 r15d, DWORD PTR z$[rbp-256]
 $LN239@renderOrdi:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 165  : 	if(!world->getBlock(x, y - 1, z)->solidFace(world, x, y - 1, z, Relatives::U))
 
@@ -7260,12 +7260,12 @@ $LN239@renderOrdi:
   011a5	8b d7		 mov	 edx, edi
   011a7	49 8b cc	 mov	 rcx, r12
   011aa	45 8b c6	 mov	 r8d, r14d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   011ad	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 174  : 		if(world->getBlock(x - 1, y - 1, z)->solidEdge(world, x - 1, y - 1, z, Relatives::EU))
 
@@ -7531,12 +7531,12 @@ $LN28@renderOrdi:
 ; 218  : 		float f1 = 1.0F - i1 * 0.15f;
 
   013f6	41 0f 28 d1	 movaps	 xmm2, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   013fa	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 219  : 		float f2 = 1.0F - i2 * 0.15f;
 
@@ -7567,27 +7567,27 @@ $LN28@renderOrdi:
 ; 223  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01442	41 0f 28 c0	 movaps	 xmm0, xmm8
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   01446	41 0f 28 ca	 movaps	 xmm1, xmm10
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 223  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   0144a	f3 0f 58 c2	 addss	 xmm0, xmm2
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   0144e	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 223  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01453	f3 0f 58 c7	 addss	 xmm0, xmm7
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -7596,13 +7596,13 @@ $LN28@renderOrdi:
 ; 137  : 	setUV(v.u, v.v);
 
   0145c	41 0f 28 d1	 movaps	 xmm2, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 223  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01460	f3 0f 58 c6	 addss	 xmm0, xmm6
   01464	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -9284,7 +9284,7 @@ $LN28@renderOrdi:
   0195d	44 8b 75 70	 mov	 r14d, DWORD PTR y$[rbp-256]
   01961	44 8b 7d 78	 mov	 r15d, DWORD PTR z$[rbp-256]
 $LN331@renderOrdi:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 243  : 	if(!world->getBlock(x, y + 1, z)->solidFace(world, x, y, z, Relatives::D))
 
@@ -9332,12 +9332,12 @@ $LN331@renderOrdi:
 
   019d1	44 8b 74 24 40	 mov	 r14d, DWORD PTR tv7153[rsp]
   019d6	8d 7e ff	 lea	 edi, DWORD PTR [rsi-1]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   019d9	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 247  : 		int i1 = 0;
 
@@ -9625,12 +9625,12 @@ $LN19@renderOrdi:
 ; 296  : 		float f1 = 1.0F - i1 * 0.15f;
 
   01c4d	41 0f 28 d1	 movaps	 xmm2, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   01c51	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 297  : 		float f2 = 1.0F - i2 * 0.15f;
 
@@ -9661,27 +9661,27 @@ $LN19@renderOrdi:
 ; 301  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01c99	0f 28 c6	 movaps	 xmm0, xmm6
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   01c9c	41 0f 28 ca	 movaps	 xmm1, xmm10
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 301  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01ca0	f3 0f 58 c2	 addss	 xmm0, xmm2
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   01ca4	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 301  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01ca9	f3 0f 58 c7	 addss	 xmm0, xmm7
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -9690,13 +9690,13 @@ $LN19@renderOrdi:
 ; 137  : 	setUV(v.u, v.v);
 
   01cb2	41 0f 28 d2	 movaps	 xmm2, xmm10
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 301  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   01cb6	f3 41 0f 58 c0	 addss	 xmm0, xmm8
   01cbb	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -11385,7 +11385,7 @@ $LN19@renderOrdi:
   021b8	44 8b 7d 78	 mov	 r15d, DWORD PTR z$[rbp-256]
   021bc	8b 5c 24 40	 mov	 ebx, DWORD PTR tv7153[rsp]
 $LN423@renderOrdi:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 321  : 	if(!world->getBlock(x - 1, y, z)->solidFace(world, x - 1, y, z, Relatives::E))
 
@@ -11433,12 +11433,12 @@ $LN423@renderOrdi:
 
   0222b	41 8d 76 ff	 lea	 esi, DWORD PTR [r14-1]
   0222f	45 8b cf	 mov	 r9d, r15d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   02232	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 325  : 		int i1 = 0;
 
@@ -11716,7 +11716,7 @@ $LN10@renderOrdi:
   02488	66 0f 6e 4c 24
 	30		 movd	 xmm1, DWORD PTR i2$1$[rsp]
   0248e	41 0f 28 d1	 movaps	 xmm2, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -11727,7 +11727,7 @@ $LN10@renderOrdi:
   024a2	c7 44 24 50 00
 	00 00 3f	 mov	 DWORD PTR center$9[rsp+8], 1056964608 ; 3f000000H
   024aa	66 0f 6e c1	 movd	 xmm0, ecx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 375  : 		float f2 = 1.0F - i2 * 0.15f;
 
@@ -11738,7 +11738,7 @@ $LN10@renderOrdi:
   024b2	41 0f 28 f9	 movaps	 xmm7, xmm9
   024b6	0f 5b c9	 cvtdq2ps xmm1, xmm1
   024b9	8b 4c 24 34	 mov	 ecx, DWORD PTR i3$1$[rsp]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -11746,7 +11746,7 @@ $LN10@renderOrdi:
 	00 00 3f	 mov	 DWORD PTR center$9[rsp+12], 1056964608 ; 3f000000H
   024c5	c7 44 24 58 00
 	00 00 3f	 mov	 DWORD PTR center$9[rsp+16], 1056964608 ; 3f000000H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 375  : 		float f2 = 1.0F - i2 * 0.15f;
 
@@ -11758,12 +11758,12 @@ $LN10@renderOrdi:
 ; 377  : 		float f4 = 1.0F - i4 * 0.15f;
 
   024dd	45 0f 28 c1	 movaps	 xmm8, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   024e1	c6 44 24 5f ff	 mov	 BYTE PTR center$9[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 374  : 		float f1 = 1.0F - i1 * 0.15f;
 
@@ -11774,12 +11774,12 @@ $LN10@renderOrdi:
 ; 377  : 		float f4 = 1.0F - i4 * 0.15f;
 
   024f3	0f 5b c9	 cvtdq2ps xmm1, xmm1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   024f6	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 377  : 		float f4 = 1.0F - i4 * 0.15f;
 
@@ -11787,12 +11787,12 @@ $LN10@renderOrdi:
   024fe	0f 5b c0	 cvtdq2ps xmm0, xmm0
   02501	f3 44 0f 5c c1	 subss	 xmm8, xmm1
   02506	f3 41 0f 59 c5	 mulss	 xmm0, xmm13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 137  : 	setUV(v.u, v.v);
 
   0250b	41 0f 28 c9	 movaps	 xmm1, xmm9
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 376  : 		float f3 = 1.0F - i3 * 0.15f;
 
@@ -11802,17 +11802,17 @@ $LN10@renderOrdi:
 
   02513	0f 28 c6	 movaps	 xmm0, xmm6
   02516	f3 0f 58 c2	 addss	 xmm0, xmm2
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   0251a	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 379  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   0251f	f3 0f 58 c7	 addss	 xmm0, xmm7
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -11821,13 +11821,13 @@ $LN10@renderOrdi:
 ; 137  : 	setUV(v.u, v.v);
 
   02528	41 0f 28 d2	 movaps	 xmm2, xmm10
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 379  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   0252c	f3 41 0f 58 c0	 addss	 xmm0, xmm8
   02531	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13207,13 +13207,13 @@ $LN10@renderOrdi:
 
   02962	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?vs@@3HA	; vs
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 395  : 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
 
   02968	48 8d 54 24 70	 lea	 rdx, QWORD PTR $T11[rsp]
   0296d	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13227,7 +13227,7 @@ $LN10@renderOrdi:
   0298e	44 88 7d 85	 mov	 BYTE PTR $T11[rbp-235], r15b
   02992	44 88 7d 86	 mov	 BYTE PTR $T11[rbp-234], r15b
   02996	c6 45 87 ff	 mov	 BYTE PTR $T11[rbp-233], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 395  : 		vStream->put(gfxu::VertexUVRGBA(0.0f, 0.0f, 0.0f, 1.0f, 0.0f, f1, f1, f1, 1.0f));
 
@@ -13315,12 +13315,12 @@ $LN18@renderOrdi:
   02a6c	8b d7		 mov	 edx, edi
   02a6e	49 8b cc	 mov	 rcx, r12
   02a71	44 8b c6	 mov	 r8d, esi
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 186  : 	this->icon = icon;
 
   02a74	49 89 45 30	 mov	 QWORD PTR [r13+48], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 405  : 		int i2 = 0;
 
@@ -13603,7 +13603,7 @@ $LN1@renderOrdi:
 
   02cb5	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T8[rsp]
   02cba	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13615,7 +13615,7 @@ $LN1@renderOrdi:
 	00 00 3f	 mov	 DWORD PTR center$10[rsp+8], 1056964608 ; 3f000000H
   02cd5	c7 44 24 7c 00
 	00 00 3f	 mov	 DWORD PTR center$10[rsp+12], 1056964608 ; 3f000000H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 454  : 		float f2 = 1.0F - i2 * 0.15f;
 
@@ -13626,7 +13626,7 @@ $LN1@renderOrdi:
 
   02ce5	41 0f 28 f1	 movaps	 xmm6, xmm9
   02ce9	f3 41 0f 59 cd	 mulss	 xmm1, xmm13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13635,14 +13635,14 @@ $LN1@renderOrdi:
   02cf5	c6 45 87 ff	 mov	 BYTE PTR center$10[rbp-233], 255 ; 000000ffH
   02cf9	48 c7 44 24 48
 	00 00 80 3f	 mov	 QWORD PTR $T8[rsp], 1065353216 ; 3f800000H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 454  : 		float f2 = 1.0F - i2 * 0.15f;
 
   02d02	f3 0f 5c f9	 subss	 xmm7, xmm1
   02d06	0f 5b c0	 cvtdq2ps xmm0, xmm0
   02d09	66 41 0f 6e cf	 movd	 xmm1, r15d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13651,7 +13651,7 @@ $LN1@renderOrdi:
   02d17	c7 44 24 58 00
 	00 00 00	 mov	 DWORD PTR $T8[rsp+16], 0
   02d1f	c6 44 24 5f ff	 mov	 BYTE PTR $T8[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 453  : 		float f1 = 1.0F - i1 * 0.15f;
 
@@ -13672,17 +13672,17 @@ $LN1@renderOrdi:
 
   02d4b	0f 28 c7	 movaps	 xmm0, xmm7
   02d4e	f3 0f 58 c2	 addss	 xmm0, xmm2
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   02d52	f3 41 0f 59 d4	 mulss	 xmm2, xmm12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 458  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   02d57	f3 0f 58 c6	 addss	 xmm0, xmm6
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13690,13 +13690,13 @@ $LN1@renderOrdi:
   02d60	40 88 7c 24 5c	 mov	 BYTE PTR $T8[rsp+20], dil
   02d65	40 88 7c 24 5d	 mov	 BYTE PTR $T8[rsp+21], dil
   02d6a	40 88 7c 24 5e	 mov	 BYTE PTR $T8[rsp+22], dil
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 458  : 		float avg = (f1 + f2 + f3 + f4) / 4.0f;
 
   02d6f	f3 41 0f 58 c1	 addss	 xmm0, xmm9
   02d74	f3 41 0f 59 c6	 mulss	 xmm0, xmm14
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13705,7 +13705,7 @@ $LN1@renderOrdi:
   02d83	88 45 84	 mov	 BYTE PTR center$10[rbp-236], al
   02d86	88 45 85	 mov	 BYTE PTR center$10[rbp-235], al
   02d89	88 45 86	 mov	 BYTE PTR center$10[rbp-234], al
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 461  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
 
@@ -13715,7 +13715,7 @@ $LN1@renderOrdi:
 
   02d91	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T7[rsp]
   02d96	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13731,7 +13731,7 @@ $LN1@renderOrdi:
   02dc1	88 5c 24 5d	 mov	 BYTE PTR $T7[rsp+21], bl
   02dc5	88 5c 24 5e	 mov	 BYTE PTR $T7[rsp+22], bl
   02dc9	c6 44 24 5f ff	 mov	 BYTE PTR $T7[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 462  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f4, f4, f4, 1.0f));
 
@@ -13747,7 +13747,7 @@ $LN1@renderOrdi:
 
   02de0	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T6[rsp]
   02de5	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13761,12 +13761,12 @@ $LN1@renderOrdi:
   02e06	88 5c 24 5d	 mov	 BYTE PTR $T6[rsp+21], bl
   02e0a	88 5c 24 5e	 mov	 BYTE PTR $T6[rsp+22], bl
   02e0e	c6 44 24 5f ff	 mov	 BYTE PTR $T6[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 465  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 1.0f, 1.0f, 0.0f, f4, f4, f4, 1.0f));
 
   02e13	e8 00 00 00 00	 call	 ?put@VertexStream@gfxu@@QEAAXAEBVVertexUVRGBA@2@@Z ; gfxu::VertexStream::put
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13784,19 +13784,19 @@ $LN1@renderOrdi:
   02e46	88 5c 24 5d	 mov	 BYTE PTR $T5[rsp+21], bl
   02e4a	c7 44 24 58 00
 	00 80 3f	 mov	 DWORD PTR $T5[rsp+16], 1065353216 ; 3f800000H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 466  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 
   02e52	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T5[rsp]
   02e57	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
   02e5a	88 5c 24 5e	 mov	 BYTE PTR $T5[rsp+22], bl
   02e5e	c6 44 24 5f ff	 mov	 BYTE PTR $T5[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 466  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 
@@ -13812,7 +13812,7 @@ $LN1@renderOrdi:
 
   02e75	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T4[rsp]
   02e7a	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13830,7 +13830,7 @@ $LN1@renderOrdi:
   02ea9	88 5c 24 5d	 mov	 BYTE PTR $T4[rsp+21], bl
   02ead	88 5c 24 5e	 mov	 BYTE PTR $T4[rsp+22], bl
   02eb1	c6 44 24 5f ff	 mov	 BYTE PTR $T4[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 469  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, f3, f3, f3, 1.0f));
 
@@ -13840,7 +13840,7 @@ $LN1@renderOrdi:
 
   02ebb	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T3[rsp]
   02ec0	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13858,7 +13858,7 @@ $LN1@renderOrdi:
   02ef3	88 5c 24 5c	 mov	 BYTE PTR $T3[rsp+20], bl
   02ef7	88 5c 24 5d	 mov	 BYTE PTR $T3[rsp+21], bl
   02efb	88 5c 24 5e	 mov	 BYTE PTR $T3[rsp+22], bl
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 470  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 0.0f, 1.0f, f2, f2, f2, 1.0f));
 
@@ -13874,7 +13874,7 @@ $LN1@renderOrdi:
 
   02f11	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T2[rsp]
   02f16	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13890,7 +13890,7 @@ $LN1@renderOrdi:
   02f3e	88 5c 24 5d	 mov	 BYTE PTR $T2[rsp+21], bl
   02f42	88 5c 24 5e	 mov	 BYTE PTR $T2[rsp+22], bl
   02f46	c6 44 24 5f ff	 mov	 BYTE PTR $T2[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 473  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 1.0f, 0.0f, 0.0f, 1.0f, f2, f2, f2, 1.0f));
 
@@ -13900,7 +13900,7 @@ $LN1@renderOrdi:
 
   02f50	48 8d 54 24 48	 lea	 rdx, QWORD PTR $T1[rsp]
   02f55	49 8b cd	 mov	 rcx, r13
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 70   : {}
 
@@ -13914,7 +13914,7 @@ $LN1@renderOrdi:
   02f77	40 88 7c 24 5d	 mov	 BYTE PTR $T1[rsp+21], dil
   02f7c	40 88 7c 24 5e	 mov	 BYTE PTR $T1[rsp+22], dil
   02f81	c6 44 24 5f ff	 mov	 BYTE PTR $T1[rsp+23], 255 ; 000000ffH
-; File c:\users\glenn\documents\github\wind\project\wind\wind\renderblocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\renderblocks.cpp
 
 ; 474  : 		vStream->put(gfxu::VertexUVRGBA(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, f1, f1, f1, 1.0f));
 

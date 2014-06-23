@@ -27,7 +27,7 @@ namespace std
 			using std::size_t;
 			using std::hash;
 
-			return (hash<int>()(key.x) >> 4) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 4);
+			return (hash<int>()(key.x) >> 8) ^ hash<int>()(key.y) ^ (hash<int>()(key.z) << 8);
 		}
 	};
 };
@@ -80,6 +80,8 @@ public:
 
 	void setRenderUpdateNeeded(bool flag);
 	bool isRenderUpdateNeeded();
+
+	geom::AxisAlignedCube getBoundingBox();
 };
 
 class EmptyChunk : public ChunkBase
@@ -116,6 +118,7 @@ class World
 {
 private:
 	std::unordered_map<ChunkPosition, std::shared_ptr<ChunkBase>> redrawQuicklyAfterTick;
+	unsigned int seed;
 public:
 	std::mutex chunkMapLock;
 	std::unordered_map<ChunkPosition, std::shared_ptr<ChunkBase>> chunkMap;
@@ -125,7 +128,7 @@ public:
 	std::mutex removalQueueLock;
 	std::queue<std::shared_ptr<ChunkBase>> removalQueue;
 
-	World();
+	World(unsigned int seed);
 	~World();
 
 	void tick();
@@ -139,6 +142,8 @@ public:
 
 	bool addChunk(std::shared_ptr<ChunkBase> chunk);
 	void removeChunk(ChunkPosition cp);
+
+	unsigned int getSeed();
 };
 
 bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2);

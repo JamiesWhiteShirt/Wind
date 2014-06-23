@@ -6,6 +6,7 @@
 #define INTERSECTION_TRIANGLE 0x3
 #define INTERSECTION_QUAD 0x4
 #define INTERSECTION_RAY 0x5
+#define INTERSECTION_CUBE 0x6
 
 namespace geom
 {
@@ -24,7 +25,7 @@ namespace geom
 		float z;
 		float w;
 
-		Vector(Vector &vec);
+		Vector(const Vector &vec);
 		Vector(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 1.0f);
 
 		Vector normalize();
@@ -173,13 +174,15 @@ namespace geom
 		bool inside(Vector vec);
 	};
 
-	class AxisAlignedCube
+	class AxisAlignedCube : public Intersectable
 	{
 	public:
 		Vector pos;
 		Vector size;
 
 		AxisAlignedCube(Vector pos = Vector(), Vector size = Vector());
+
+		AxisAlignedCube expand(float f);
 
 		AxisAlignedYZ getLeft();
 		AxisAlignedYZ getRight();
@@ -211,6 +214,7 @@ namespace geom
 		Intersection(AxisAlignedXZ face, Ray ray);
 		Intersection(AxisAlignedYZ face, Ray ray);
 		Intersection(AxisAlignedCube cube, Ray ray);
+		Intersection(AxisAlignedCube cube1, AxisAlignedCube cube2);
 	};
 
 	class TracedIntersection : public Intersection
@@ -234,6 +238,7 @@ namespace geom
 		TracedIntersection(AxisAlignedXZ face, Ray ray);
 		TracedIntersection(AxisAlignedYZ face, Ray ray);
 		TracedIntersection(AxisAlignedCube cube, Ray ray);
+		TracedIntersection(AxisAlignedCube cube1, AxisAlignedCube cube2);
 
 		~TracedIntersection();
 	};

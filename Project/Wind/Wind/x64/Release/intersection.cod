@@ -4,22 +4,9 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
-PUBLIC	??_H@YAXPEAX_KHP6APEAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	??_FVector@geom@@QEAAXXZ			; geom::Vector::`default constructor closure'
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??_H@YAXPEAX_KHP6APEAX0@Z@Z DD imagerel $LN9
-	DD	imagerel $LN9+69
-	DD	imagerel $unwind$??_H@YAXPEAX_KHP6APEAX0@Z@Z
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??_H@YAXPEAX_KHP6APEAX0@Z@Z DD 081401H
-	DD	086414H
-	DD	075414H
-	DD	063414H
-	DD	070103214H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\geometry.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 ;	COMDAT ??_FVector@geom@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -34,40 +21,5 @@ this$ = 8
   0000c	89 41 08	 mov	 DWORD PTR [rcx+8], eax
   0000f	c3		 ret	 0
 ??_FVector@geom@@QEAAXXZ ENDP				; geom::Vector::`default constructor closure'
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-;	COMDAT ??_H@YAXPEAX_KHP6APEAX0@Z@Z
-_TEXT	SEGMENT
-__t$ = 48
-__s$ = 56
-__n$ = 64
-__f$ = 72
-??_H@YAXPEAX_KHP6APEAX0@Z@Z PROC			; `vector constructor iterator', COMDAT
-$LN9:
-  00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
-  00005	48 89 6c 24 10	 mov	 QWORD PTR [rsp+16], rbp
-  0000a	48 89 74 24 18	 mov	 QWORD PTR [rsp+24], rsi
-  0000f	57		 push	 rdi
-  00010	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-  00014	41 8b f8	 mov	 edi, r8d
-  00017	49 8b f1	 mov	 rsi, r9
-  0001a	48 8b ea	 mov	 rbp, rdx
-  0001d	ff cf		 dec	 edi
-  0001f	48 8b d9	 mov	 rbx, rcx
-  00022	78 0c		 js	 SHORT $LN1@vector
-$LL2@vector:
-  00024	48 8b cb	 mov	 rcx, rbx
-  00027	ff d6		 call	 rsi
-  00029	48 03 dd	 add	 rbx, rbp
-  0002c	ff cf		 dec	 edi
-  0002e	79 f4		 jns	 SHORT $LL2@vector
-$LN1@vector:
-  00030	48 8b 5c 24 30	 mov	 rbx, QWORD PTR [rsp+48]
-  00035	48 8b 6c 24 38	 mov	 rbp, QWORD PTR [rsp+56]
-  0003a	48 8b 74 24 40	 mov	 rsi, QWORD PTR [rsp+64]
-  0003f	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  00043	5f		 pop	 rdi
-  00044	c3		 ret	 0
-??_H@YAXPEAX_KHP6APEAX0@Z@Z ENDP			; `vector constructor iterator'
 _TEXT	ENDS
 END

@@ -100,6 +100,11 @@ bool ChunkBase::isRenderUpdateNeeded()
 	return renderUpdateNeeded;
 }
 
+geom::AxisAlignedCube ChunkBase::getBoundingBox()
+{
+	return geom::AxisAlignedCube(geom::Vector(pos.x, pos.y, pos.z) * 16.0f, geom::Vector(16.0f, 16.0f, 16.0f));
+}
+
 
 
 EmptyChunk::EmptyChunk(World& world, int xPos, int yPos, int zPos)
@@ -183,7 +188,8 @@ bool Chunk::shouldRender()
 
 
 
-World::World()
+World::World(unsigned int seed)
+	: seed(seed)
 {
 
 }
@@ -291,6 +297,11 @@ bool World::addChunk(std::shared_ptr<ChunkBase> chunk)
 void World::removeChunk(ChunkPosition cp)
 {
 	chunkMap.erase(cp);
+}
+
+unsigned int World::getSeed()
+{
+	return seed;
 }
 
 bool operator<(const ChunkPosition& cp1, const ChunkPosition& cp2)

@@ -25,7 +25,7 @@ gfxu::VertexShader* noTexVShader;
 gfxu::FragmentShader* noTexFShader;
 gfxu::ShaderProgram* noTexShaderProgram;
 
-const int renderDistance = 10;
+const int renderDistance = 8;
 bool bGrid[renderDistance * 2 + 1][renderDistance * 2 + 1][renderDistance * 2 + 1];
 
 bool RenderThread::tick()
@@ -49,8 +49,6 @@ bool RenderThread::tick()
 
 	GameStates::GameState* state = GameStates::renderingState;
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	if(GLWindow::instance->rescaled)
 	{
 		glViewport(0, 0, GLWindow::instance->width, GLWindow::instance->height);
@@ -60,8 +58,18 @@ bool RenderThread::tick()
 	normalShaderProgram->bind();
 	gfxu::Uniforms::camPos.set(state->cam.pos);
 	gfxu::Uniforms::setColor(1.0f, 1.0f, 1.0f, 1.0f);
-	gfxu::Uniforms::setFogColor(0.5f, 0.875f, 1.0f, 1.0f);
-	gfxu::Uniforms::fogDist.set(16.0f * renderDistance);
+	if(GlobalThread::world.getBlock(floorf(state->cam.pos.x), floorf(state->cam.pos.y), floorf(state->cam.pos.z)) != Blocks::water)
+	{
+		glClearColor(0.5f, 0.875f, 1.0f, 1.0f);
+		gfxu::Uniforms::setFogColor(0.5f, 0.875f, 1.0f, 1.0f);
+		gfxu::Uniforms::fogDist.set(16.0f * renderDistance);
+	}
+	else
+	{
+		glClearColor(0.0f, 0.0f, 0.1f, 1.0f);
+		gfxu::Uniforms::setFogColor(0.0f, 0.0f, 0.1f, 1.0f);
+		gfxu::Uniforms::fogDist.set(16.0f);
+	}
 	gfxu::Uniforms::reset();
 	gfxu::Uniforms::PMS.mult(geom::Matrix::perspective(state->FOV, (float)GLWindow::instance->width / (float)GLWindow::instance->height, 0.1f, 16.0f * renderDistance));
 	gfxu::Uniforms::PMS.mult(geom::Matrix::rotate(state->cam.rot.x, 1.0f, 0.0f, 0.0f));
@@ -153,6 +161,7 @@ bool RenderThread::tick()
 	}
 	GlobalThread::world.chunkMapLock.unlock();
 	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	blocksTexture->bind();
 
 	glEnable(GL_BLEND);
@@ -279,7 +288,6 @@ void RenderThread::preStart()
 
 	gfxu::Uniforms::reset();
 
-	glClearColor(0.5f, 0.875f, 1.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

@@ -5,7 +5,7 @@
 
 using namespace geom;
 
-Vector::Vector(Vector &vec)
+Vector::Vector(const Vector &vec)
 	: x(vec.x), y(vec.y), z(vec.z), w(vec.w)
 {
 	
@@ -416,6 +416,12 @@ AxisAlignedCube::AxisAlignedCube(Vector pos, Vector size)
 	: pos(pos), size(size)
 {
 
+}
+
+AxisAlignedCube AxisAlignedCube::expand(float f)
+{
+	Vector ex(f, f, f);
+	return AxisAlignedCube(pos - ex, size + ex * 2.0f);
 }
 
 AxisAlignedYZ AxisAlignedCube::getLeft()

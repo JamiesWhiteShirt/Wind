@@ -151,7 +151,7 @@ Intersection::Intersection(AxisAlignedXY face, Line line)
 		}
 		else
 		{
-			Vector vec = line.trace(t);
+			const Vector vec = line.trace(t);
 			if(face.inside(vec))
 			{
 				type = INTERSECTION_VECTOR;
@@ -190,7 +190,7 @@ Intersection::Intersection(AxisAlignedXZ face, Line line)
 		}
 		else
 		{
-			Vector vec = line.trace(t);
+			const Vector vec = line.trace(t);
 			if(face.inside(vec))
 			{
 				type = INTERSECTION_VECTOR;
@@ -229,7 +229,7 @@ Intersection::Intersection(AxisAlignedYZ face, Line line)
 		}
 		else
 		{
-			Vector vec = line.trace(t);
+			const Vector vec = line.trace(t);
 			if(face.inside(vec))
 			{
 				type = INTERSECTION_VECTOR;
@@ -453,7 +453,7 @@ Intersection::Intersection(AxisAlignedXY face, Ray ray)
 	else
 	{
 		float t = f1 / f2;
-		Vector vec = ray.trace(t);
+		const Vector vec = ray.trace(t);
 
 		if(face.inside(vec))
 		{
@@ -485,7 +485,7 @@ Intersection::Intersection(AxisAlignedXZ face, Ray ray)
 	else
 	{
 		float t = f1 / f2;
-		Vector vec = ray.trace(t);
+		const Vector vec = ray.trace(t);
 
 		if(face.inside(vec))
 		{
@@ -517,7 +517,7 @@ Intersection::Intersection(AxisAlignedYZ face, Ray ray)
 	else
 	{
 		float t = f1 / f2;
-		Vector vec = ray.trace(t);
+		const Vector vec = ray.trace(t);
 
 		if(face.inside(vec))
 		{
@@ -593,6 +593,18 @@ Intersection::Intersection(AxisAlignedCube cube, Ray ray)
 			type = INTERSECTION_LINE;
 			return;
 		}
+	}
+}
+
+Intersection::Intersection(AxisAlignedCube cube1, AxisAlignedCube cube2)
+{
+	if(cube1.pos.x + cube1.size.x > cube2.pos.x & cube2.pos.x + cube2.size.x > cube1.pos.x & cube1.pos.y + cube1.size.y > cube2.pos.y & cube2.pos.y + cube2.size.y > cube1.pos.y & cube1.pos.z + cube1.size.z > cube2.pos.z & cube2.pos.z + cube2.size.z > cube1.pos.z)
+	{
+		type = INTERSECTION_CUBE;
+	}
+	else
+	{
+		type = INTERSECTION_NONE;
 	}
 }
 
@@ -1244,6 +1256,28 @@ TracedIntersection::TracedIntersection(AxisAlignedCube cube, Ray ray)
 			result = new Line(vecs[0], vecs[1]);
 			amount = 1;
 		}
+	}
+}
+
+TracedIntersection::TracedIntersection(AxisAlignedCube cube1, AxisAlignedCube cube2)
+{
+	if(cube1.pos.x + cube1.size.x > cube2.pos.x & cube2.pos.x + cube2.size.x > cube1.pos.x & cube1.pos.y + cube1.size.y > cube2.pos.y & cube2.pos.y + cube2.size.y > cube1.pos.y & cube1.pos.z + cube1.size.z > cube2.pos.z & cube2.pos.z + cube2.size.z > cube1.pos.z)
+	{
+		type = INTERSECTION_CUBE;
+		
+		float minX = cube1.pos.x > cube2.pos.x ? cube1.pos.x : cube2.pos.x;
+		float minY = cube1.pos.y > cube2.pos.y ? cube1.pos.y : cube2.pos.y;
+		float minZ = cube1.pos.z > cube2.pos.z ? cube1.pos.z : cube2.pos.z;
+		float sizeX = cube1.size.x < cube2.size.x ? cube1.size.x : cube2.size.x;
+		float sizeY = cube1.size.y < cube2.size.y ? cube1.size.y : cube2.size.y;
+		float sizeZ = cube1.size.z < cube2.size.z ? cube1.size.z : cube2.size.z;
+
+		result = new AxisAlignedCube(Vector(minX, minY, minZ), Vector(sizeX, sizeY, sizeZ));
+		amount = 1;
+	}
+	else
+	{
+		type = INTERSECTION_NONE;
 	}
 }
 

@@ -1992,6 +1992,7 @@ PUBLIC	?id@?$num_put@DV?$back_insert_iterator@V?$basic_string@DU?$char_traits@D@
 PUBLIC	?_Iostream_object@?$_Error_objects@H@std@@2V_Iostream_error_category@2@A ; std::_Error_objects<int>::_Iostream_object
 PUBLIC	?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A ; std::_Error_objects<int>::_Generic_object
 PUBLIC	?id@?$numpunct@D@std@@2V0locale@2@A		; std::numpunct<char>::id
+PUBLIC	__real@3c800000
 PUBLIC	__real@3d800000
 PUBLIC	__real@3dcccccd
 PUBLIC	__real@3e000000
@@ -2004,16 +2005,21 @@ PUBLIC	__real@3f800000
 PUBLIC	__real@40000000
 PUBLIC	__real@400921fb54442d18
 PUBLIC	__real@40200000
+PUBLIC	__real@40400000
 PUBLIC	__real@4066800000000000
 PUBLIC	__real@4076800000000000
 PUBLIC	__real@40800000
 PUBLIC	__real@41000000
+PUBLIC	__real@41200000
 PUBLIC	__real@41800000
 PUBLIC	__real@41a00000
+PUBLIC	__real@41c00000
 PUBLIC	__real@41c80000
+PUBLIC	__real@42000000
 PUBLIC	__real@43000000
-PUBLIC	__real@43200000
 PUBLIC	__real@437f0000
+PUBLIC	__real@43800000
+PUBLIC	__real@4f800000
 PUBLIC	__real@5f800000
 PUBLIC	__xmm@000000003f8000000000000000000000
 PUBLIC	__xmm@3f800000000000000000000000000000
@@ -2026,12 +2032,14 @@ EXTRN	_CxxThrowException:PROC
 EXTRN	__CxxFrameHandler3:PROC
 EXTRN	__GSHandlerCheck:PROC
 EXTRN	__GSHandlerCheck_EH:PROC
+EXTRN	__chkstk:PROC
 EXTRN	cos:PROC
 EXTRN	floorf:PROC
 EXTRN	memcmp:PROC
 EXTRN	memcpy:PROC
 EXTRN	memset:PROC
 EXTRN	sin:PROC
+EXTRN	sqrtf:PROC
 EXTRN	tan:PROC
 EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
@@ -2643,21 +2651,33 @@ CONST	ENDS
 CONST	SEGMENT
 __real@5f800000 DD 05f800000r			; 1.84467e+019
 CONST	ENDS
+;	COMDAT __real@4f800000
+CONST	SEGMENT
+__real@4f800000 DD 04f800000r			; 4.29497e+009
+CONST	ENDS
+;	COMDAT __real@43800000
+CONST	SEGMENT
+__real@43800000 DD 043800000r			; 256
+CONST	ENDS
 ;	COMDAT __real@437f0000
 CONST	SEGMENT
 __real@437f0000 DD 0437f0000r			; 255
-CONST	ENDS
-;	COMDAT __real@43200000
-CONST	SEGMENT
-__real@43200000 DD 043200000r			; 160
 CONST	ENDS
 ;	COMDAT __real@43000000
 CONST	SEGMENT
 __real@43000000 DD 043000000r			; 128
 CONST	ENDS
+;	COMDAT __real@42000000
+CONST	SEGMENT
+__real@42000000 DD 042000000r			; 32
+CONST	ENDS
 ;	COMDAT __real@41c80000
 CONST	SEGMENT
 __real@41c80000 DD 041c80000r			; 25
+CONST	ENDS
+;	COMDAT __real@41c00000
+CONST	SEGMENT
+__real@41c00000 DD 041c00000r			; 24
 CONST	ENDS
 ;	COMDAT __real@41a00000
 CONST	SEGMENT
@@ -2666,6 +2686,10 @@ CONST	ENDS
 ;	COMDAT __real@41800000
 CONST	SEGMENT
 __real@41800000 DD 041800000r			; 16
+CONST	ENDS
+;	COMDAT __real@41200000
+CONST	SEGMENT
+__real@41200000 DD 041200000r			; 10
 CONST	ENDS
 ;	COMDAT __real@41000000
 CONST	SEGMENT
@@ -2682,6 +2706,10 @@ CONST	ENDS
 ;	COMDAT __real@4066800000000000
 CONST	SEGMENT
 __real@4066800000000000 DQ 04066800000000000r	; 180
+CONST	ENDS
+;	COMDAT __real@40400000
+CONST	SEGMENT
+__real@40400000 DD 040400000r			; 3
 CONST	ENDS
 ;	COMDAT __real@40200000
 CONST	SEGMENT
@@ -2730,6 +2758,10 @@ CONST	ENDS
 ;	COMDAT __real@3d800000
 CONST	SEGMENT
 __real@3d800000 DD 03d800000r			; 0.0625
+CONST	ENDS
+;	COMDAT __real@3c800000
+CONST	SEGMENT
+__real@3c800000 DD 03c800000r			; 0.015625
 CONST	ENDS
 ;	COMDAT ?_Generic_object@?$_Error_objects@H@std@@2V_Generic_error_category@2@A
 _DATA	SEGMENT
@@ -3802,6 +3834,8 @@ CRT$XCU	ENDS
 ;	COMDAT CRT$XCU
 CRT$XCU	SEGMENT
 ?_System_object$initializer$@?$_Error_objects@H@std@@2P6AXXZEA DQ FLAT:??__E?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ ; std::_Error_objects<int>::_System_object$initializer$
+CRT$XCU	ENDS
+CRT$XCU	ENDS
 CRT$XCU	ENDS
 CRT$XCU	ENDS
 CRT$XCU	ENDS
@@ -6347,7 +6381,7 @@ this$ = 8
 ??0_Ignore@std@@QEAA@XZ ENDP				; std::_Ignore::_Ignore
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockRelative@@IEAA@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -6370,7 +6404,7 @@ z$ = 32
 ??0BlockRelative@@IEAA@HHH@Z ENDP			; BlockRelative::BlockRelative
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockFace@@QEAA@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -6393,7 +6427,7 @@ z$ = 32
 ??0BlockFace@@QEAA@HHH@Z ENDP				; BlockFace::BlockFace
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockEdge@@QEAA@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -6416,7 +6450,7 @@ z$ = 32
 ??0BlockEdge@@QEAA@HHH@Z ENDP				; BlockEdge::BlockEdge
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockCorner@@QEAA@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -6439,16 +6473,16 @@ z$ = 32
 ??0BlockCorner@@QEAA@HHH@Z ENDP				; BlockCorner::BlockCorner
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0Block@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -7987,7 +8021,7 @@ $LN83:
   00056	45 33 c0	 xor	 r8d, r8d
   00059	48 8b d7	 mov	 rdx, rdi
   0005c	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@_K1@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 62   : {
 
@@ -9514,7 +9548,7 @@ $LN71@Block:
 ; 347  : 		_Left = _Right;
 
   000a1	66 89 2f	 mov	 WORD PTR [rdi], bp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 64   : }
 
@@ -9546,16 +9580,16 @@ texture$ = 112
 ?dtor$0@?0???0Block@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `Block::Block'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0Block@@IEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@P6A_NPEAVWorld@@HHHPEAV0@PEAVVertexStream@gfxu@@@Z4@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -11096,7 +11130,7 @@ $LN83:
   00056	45 33 c0	 xor	 r8d, r8d
   00059	48 8b d7	 mov	 rdx, rdi
   0005c	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@_K1@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 68   : {
 
@@ -12623,7 +12657,7 @@ $LN71@Block:
 ; 347  : 		_Left = _Right;
 
   000a2	66 89 2f	 mov	 WORD PTR [rdi], bp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 70   : }
 
@@ -12657,12 +12691,12 @@ secondPassRenderer$ = 128
 ?dtor$0@?0???0Block@@IEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@P6A_NPEAVWorld@@HHHPEAV0@PEAVVertexStream@gfxu@@@Z4@Z@4HA ENDP ; `Block::Block'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??1Block@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 48
@@ -12717,7 +12751,7 @@ $LN25@Block:
 ; 347  : 		_Left = _Right;
 
   00031	66 89 43 10	 mov	 WORD PTR [rbx+16], ax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 75   : }
 
@@ -12727,16 +12761,16 @@ $LN25@Block:
 ??1Block@@QEAA@XZ ENDP					; Block::~Block
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?registerIcons@Block@@UEAAXPEAVTiledTexture@gfxu@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -12770,7 +12804,7 @@ $LN77:
 ; 1772 : 		return (this->_Mysize == 0);
 
   00032	48 83 79 20 00	 cmp	 QWORD PTR [rcx+32], 0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 79   : 	if(!texturePath.empty())
 
@@ -13288,7 +13322,7 @@ $LN31@registerIc:
   000b6	48 8b 4c 24 68	 mov	 rcx, QWORD PTR $T4[rsp]
   000bb	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN65@registerIc:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 83   : }
 
@@ -13337,7 +13371,7 @@ texture$ = 168
 ?dtor$1@?0??registerIcons@Block@@UEAAXPEAVTiledTexture@gfxu@@@Z@4HA ENDP ; `Block::registerIcons'::`1'::dtor$1
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?getIcon@Block@@UEAAPEAVIcon@TiledTexture@gfxu@@PEAVWorld@@HHHPEBVBlockFace@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13358,7 +13392,7 @@ face$ = 48
 ?getIcon@Block@@UEAAPEAVIcon@TiledTexture@gfxu@@PEAVWorld@@HHHPEBVBlockFace@@@Z ENDP ; Block::getIcon
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidCube@Block@@UEAA_NPEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13378,7 +13412,7 @@ z$ = 40
 ?solidCube@Block@@UEAA_NPEAVWorld@@HHH@Z ENDP		; Block::solidCube
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidFace@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockFace@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13396,7 +13430,7 @@ face$ = 48
 ?solidFace@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockFace@@@Z ENDP ; Block::solidFace
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidEdge@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockEdge@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13414,7 +13448,7 @@ face$ = 48
 ?solidEdge@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockEdge@@@Z ENDP ; Block::solidEdge
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidCorner@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockCorner@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13432,13 +13466,13 @@ face$ = 48
 ?solidCorner@Block@@UEAA_NPEAVWorld@@HHHPEBVBlockCorner@@@Z ENDP ; Block::solidCorner
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockAir@@QEAA@G@Z
 _TEXT	SEGMENT
 $T1 = 48
@@ -13456,7 +13490,7 @@ $LN52:
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
   00006	33 c0		 xor	 eax, eax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 112  : {
 
@@ -13534,7 +13568,7 @@ $LN52:
 ; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
 
   0002d	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 112  : {
 
@@ -13559,7 +13593,7 @@ $LN52:
 ??0BlockAir@@QEAA@G@Z ENDP				; BlockAir::BlockAir
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidCube@BlockAir@@UEAA_NPEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -13579,16 +13613,16 @@ z$ = 40
 ?solidCube@BlockAir@@UEAA_NPEAVWorld@@HHH@Z ENDP	; BlockAir::solidCube
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockFluid@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 48
@@ -15123,7 +15157,7 @@ $LN84:
   0004b	48 8b d3	 mov	 rdx, rbx
   0004e	49 8d 4b b8	 lea	 rcx, QWORD PTR [r11-72]
   00052	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@_K1@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 123  : {
 
@@ -16647,7 +16681,7 @@ $LN72@BlockFluid:
 ; 347  : 		_Left = _Right;
 
   00098	66 89 33	 mov	 WORD PTR [rbx], si
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 125  : }
 
@@ -16679,7 +16713,7 @@ texture$ = 144
 ?dtor$0@?0???0BlockFluid@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `BlockFluid::BlockFluid'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?solidCube@BlockFluid@@UEAA_NPEAVWorld@@HHH@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -16699,16 +16733,16 @@ z$ = 40
 ?solidCube@BlockFluid@@UEAA_NPEAVWorld@@HHH@Z ENDP	; BlockFluid::solidCube
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ??0BlockGrass@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -18243,7 +18277,7 @@ $LN84:
   0004b	48 8b d3	 mov	 rdx, rbx
   0004e	49 8d 4b b8	 lea	 rcx, QWORD PTR [r11-72]
   00052	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@_K1@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 134  : {
 
@@ -19764,7 +19798,7 @@ $LN72@BlockGrass:
 ; 347  : 		_Left = _Right;
 
   0008c	66 89 33	 mov	 WORD PTR [rbx], si
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 136  : }
 
@@ -19796,21 +19830,21 @@ texture$ = 128
 ?dtor$0@?0???0BlockGrass@@QEAA@GV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z@4HA ENDP ; `BlockGrass::BlockGrass'::`1'::dtor$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?registerIcons@BlockGrass@@UEAAXPEAVTiledTexture@gfxu@@@Z
 _TEXT	SEGMENT
 $T1 = 32
@@ -19911,7 +19945,7 @@ $LN32@registerIc:
   000ad	48 8b 4c 24 68	 mov	 rcx, QWORD PTR $T8[rsp]
   000b2	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN66@registerIc:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 141  : 	iconTop = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\" + texturePath + L"_top.png");
 
@@ -19977,7 +20011,7 @@ $LN100@registerIc:
   0012e	48 8b 4c 24 68	 mov	 rcx, QWORD PTR $T7[rsp]
   00133	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN134@registerIc:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 142  : 	iconBottom = texture->getIcon(IOUtil::EXE_DIR + L"\\textures\\blocks\\dirt.png");
 
@@ -20087,7 +20121,7 @@ texture$ = 184
 ?dtor$4@?0??registerIcons@BlockGrass@@UEAAXPEAVTiledTexture@gfxu@@@Z@4HA ENDP ; `BlockGrass::registerIcons'::`1'::dtor$4
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?getIcon@BlockGrass@@UEAAPEAVIcon@TiledTexture@gfxu@@PEAVWorld@@HHHPEBVBlockFace@@@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -20148,49 +20182,49 @@ $LN2@getIcon:
 ?getIcon@BlockGrass@@UEAAPEAVIcon@TiledTexture@gfxu@@PEAVWorld@@HHHPEBVBlockFace@@@Z ENDP ; BlockGrass::getIcon
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xtree
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?staticInit@Blocks@@YAXXZ
 _TEXT	SEGMENT
 $T1 = 32
@@ -21981,7 +22015,7 @@ $LL710@staticInit:
   004d0	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
   004d5	48 8d 45 d8	 lea	 rax, QWORD PTR $T2[rbp-80]
   004d9	48 89 45 28	 mov	 QWORD PTR $T19[rbp-80], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 68   : {
 
@@ -23085,7 +23119,7 @@ $LL710@staticInit:
   004fe	45 33 c0	 xor	 r8d, r8d
   00501	48 8d 55 d8	 lea	 rdx, QWORD PTR $T2[rbp-80]
   00505	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@AEBV12@_K1@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 68   : {
 
@@ -23112,7 +23146,7 @@ $LL710@staticInit:
   0052b	48 8b 4d d8	 mov	 rcx, QWORD PTR $T2[rbp-80]
   0052f	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN346@staticInit:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 112  : {
 
@@ -24237,7 +24271,7 @@ $LN63@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967181
   0057d	48 8d 4d d8	 lea	 rcx, QWORD PTR $T9[rbp-80]
   00581	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 209  : 	stone = new Block(1, L"stone");
 
@@ -25358,7 +25392,7 @@ $LN65@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967180
   005d6	48 8d 4d d8	 lea	 rcx, QWORD PTR $T8[rbp-80]
   005da	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 210  : 	water = new BlockFluid(2, L"water");
 
@@ -26478,7 +26512,7 @@ $LN67@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967179
   0062a	48 8d 4d d8	 lea	 rcx, QWORD PTR $T7[rbp-80]
   0062e	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 211  : 	dirt = new Block(3, L"dirt");
 
@@ -27599,7 +27633,7 @@ $LN69@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967178
   00683	48 8d 4d d8	 lea	 rcx, QWORD PTR $T6[rbp-80]
   00687	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 212  : 	grass = new BlockGrass(4, L"grass");
 
@@ -28719,7 +28753,7 @@ $LN71@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967177
   006d7	48 8d 4d d8	 lea	 rcx, QWORD PTR $T5[rbp-80]
   006db	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 213  : 	fineGravel = new Block(5, L"gravel_fine");
 
@@ -29840,7 +29874,7 @@ $LN73@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967176
   00730	48 8d 4d d8	 lea	 rcx, QWORD PTR $T4[rbp-80]
   00734	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 214  : 	gravel = new Block(6, L"gravel");
 
@@ -30961,7 +30995,7 @@ $LN75@staticInit:
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294967175
   00789	48 8d 4d d8	 lea	 rcx, QWORD PTR $T3[rbp-80]
   0078d	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 215  : 	sand = new Block(7, L"sand");
 
@@ -30984,7 +31018,7 @@ $LN77@staticInit:
   007bc	48 89 45 20	 mov	 QWORD PTR $T10[rbp-80], rax
   007c0	48 85 c0	 test	 rax, rax
   007c3	74 4c		 je	 SHORT $LN78@staticInit
-; File c:\users\glenn\documents\github\wind\project\wind\wind\graphics.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\graphics.cpp
 
 ; 644  : {
 
@@ -31221,7 +31255,7 @@ $LN77@staticInit:
 
   00806	e8 00 00 00 00	 call	 ?_Buyheadnode@?$_Tree_alloc@$0A@U?$_Tree_base_types@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVIcon@TiledTexture@gfxu@@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVIcon@TiledTexture@gfxu@@@std@@@2@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEAVIcon@TiledTexture@gfxu@@@std@@PEAX@2@XZ ; std::_Tree_alloc<0,std::_Tree_base_types<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,gfxu::TiledTexture::Icon * __ptr64>,std::allocator<std::pair<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > const ,gfxu::TiledTexture::Icon * __ptr64> > > >::_Buyheadnode
   0080b	48 89 47 28	 mov	 QWORD PTR [rdi+40], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 217  : 	RenderThread::blocksTexture = new gfxu::TiledTexture(GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, false);
 
@@ -31588,47 +31622,47 @@ $T19 = 120
 ?dtor$46@?0??staticInit@Blocks@@YAXXZ@4HA ENDP		; `Blocks::staticInit'::`1'::dtor$46
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ;	COMDAT ?destroy@Blocks@@YAXXZ
 _TEXT	SEGMENT
 ?destroy@Blocks@@YAXXZ PROC				; Blocks::destroy, COMDAT
@@ -31844,7 +31878,7 @@ $LN48@destroy:
   0017e	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   00182	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN19@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 263  : 	delete stone;
 
@@ -31887,7 +31921,7 @@ $LN87@destroy:
   001b5	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   001b9	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN60@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 264  : 	delete water;
 
@@ -31930,7 +31964,7 @@ $LN128@destroy:
   001ec	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   001f0	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN99@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 265  : 	delete dirt;
 
@@ -31973,7 +32007,7 @@ $LN167@destroy:
   00223	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   00227	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN140@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 266  : 	delete grass;
 
@@ -32016,7 +32050,7 @@ $LN208@destroy:
   0025a	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   0025e	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN179@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 267  : 	delete fineGravel;
 
@@ -32059,7 +32093,7 @@ $LN247@destroy:
   00291	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   00295	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN220@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 268  : 	delete gravel;
 
@@ -32102,7 +32136,7 @@ $LN286@destroy:
   002c8	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   002cc	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN259@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 269  : 	delete sand;
 
@@ -32145,7 +32179,7 @@ $LN325@destroy:
   002ff	66 89 7b 10	 mov	 WORD PTR [rbx+16], di
   00303	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN298@destroy:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 270  : }
 
@@ -32157,7 +32191,7 @@ $LN298@destroy:
 ?destroy@Blocks@@YAXXZ ENDP				; Blocks::destroy
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32170,7 +32204,7 @@ __flags$dead$ = 56
 $LN43:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32227,7 +32261,7 @@ $LN30@scalar:
 ??_GBlockAir@@QEAAPEAXI@Z ENDP				; BlockAir::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32240,7 +32274,7 @@ __flags$dead$ = 56
 $LN41:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32297,7 +32331,7 @@ $LN28@scalar:
 ??_GBlock@@QEAAPEAXI@Z ENDP				; Block::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32310,7 +32344,7 @@ __flags$dead$ = 56
 $LN43:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32367,7 +32401,7 @@ $LN30@scalar:
 ??_GBlockFluid@@QEAAPEAXI@Z ENDP			; BlockFluid::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32380,7 +32414,7 @@ __flags$dead$ = 56
 $LN43:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32437,7 +32471,7 @@ $LN30@scalar:
 ??_GBlockGrass@@QEAAPEAXI@Z ENDP			; BlockGrass::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32449,7 +32483,7 @@ this$ = 48
 $LN40:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32503,7 +32537,7 @@ $LN27@BlockAir:
 ??1BlockAir@@QEAA@XZ ENDP				; BlockAir::~BlockAir
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32515,7 +32549,7 @@ this$ = 48
 $LN40:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 
@@ -32569,7 +32603,7 @@ $LN27@BlockFluid:
 ??1BlockFluid@@QEAA@XZ ENDP				; BlockFluid::~BlockFluid
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -32581,7 +32615,7 @@ this$ = 48
 $LN40:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\blocks.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\blocks.cpp
 
 ; 73   : {
 

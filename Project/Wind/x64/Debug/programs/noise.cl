@@ -3,10 +3,45 @@ float interpolate(float f)
 	return 1.0f - f * f * (3.0f - f * 2.0f);
 }
 
-float noise2d(__global const uchar* noiseMap, float x, float y, uint octaves, const float smoothness)
+float noise1d(__global const uchar* noiseMap, const uint sizeExponent, float x, uint octaves, const float smoothness)
 {
-	const int andField = 0b1111;
-	const int sizeExponent = 4;
+	const int andField = (1 << sizeExponent) - 1;
+
+	float noise = 0.0f;
+	float value = 1.0f;
+	float maxValue = 0.0f;
+
+	int ix;
+	int ix1;
+	float xMix;
+	float xMixi;
+
+	for(int i = 0; i < octaves; i++)
+	{
+		maxValue += value;
+
+		ix = floor(x);
+		ix1 = ix + 1;
+		xMix = interpolate(x - ix);
+		xMixi = 1.0f - xMix;
+
+		ix = ix & andField;
+		ix1 = ix1 & andField;
+
+		noise += (noiseMap[ix] * xMix
+			+ noiseMap[ix1] * xMixi)
+			* value;
+
+		x *= 0.5f;
+		value *= smoothness;
+	}
+
+	return noise / maxValue;
+}
+
+float noise2d(__global const uchar* noiseMap, const uint sizeExponent, float x, float y, uint octaves, const float smoothness)
+{
+	const int andField = (1 << sizeExponent) - 1;
 
 	float noise = 0.0f;
 	float value = 1.0f;
@@ -53,10 +88,9 @@ float noise2d(__global const uchar* noiseMap, float x, float y, uint octaves, co
 	return noise / maxValue;
 }
 
-float noise3d(__global const uchar* noiseMap, float x, float y, float z, uint octaves, const float smoothness)
+float noise3d(__global const uchar* noiseMap, const uint sizeExponent, float x, float y, float z, uint octaves, const float smoothness)
 {
-	const int andField = 0b1111;
-	const int sizeExponent = 4;
+	const int andField = (1 << sizeExponent) - 1;
 
 	float noise = 0.0f;
 	float value = 1.0f;
@@ -118,40 +152,56 @@ float noise3d(__global const uchar* noiseMap, float x, float y, float z, uint oc
 	return noise / maxValue;
 }
 
-__kernel void fillNoiseBuffer2d(__global float* buffer, __global const uchar* noiseMap, const float smoothness, const uint octaves, const float xo, const float yo, const float xd, const float yd, const int xs, const int ys)
+__kernel void fillNoiseBuffer1d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const float smoothness, const uint octaves, const float xo, const float xd, const int xs)
+{
+	const int index = get_global_id(0);
+	const float x = (xo + get_global_id(0)) * xd;
+
+	buffer[index] = noise1d(noiseMap, sizeExponent, x, octaves, smoothness);
+}
+
+__kernel void fillNoiseBufferWithSmoothness1d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const __global float* smoothness, const uint octaves, const float xo, const float xd, const int xs)
+{
+	const int index = get_global_id(0);
+	const float x = (xo + get_global_id(0)) * xd;
+
+	buffer[index] = noise1d(noiseMap, sizeExponent, x, octaves, 2.0f + smoothness[index]);
+}
+
+__kernel void fillNoiseBuffer2d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const float smoothness, const uint octaves, const float xo, const float yo, const float xd, const float yd, const int xs, const int ys)
 {
 	const int index = get_global_id(0) * xs + get_global_id(1);
-	const float x = (get_global_id(0)) * xd + xo;
-	const float y = (get_global_id(1)) * yd + yo;
+	const float x = (xo + get_global_id(0)) * xd;
+	const float y = (yo + get_global_id(1)) * yd;
 
-	buffer[index] = noise2d(noiseMap, x, y, octaves, smoothness);
+	buffer[index] = noise2d(noiseMap, sizeExponent, x, y, octaves, smoothness);
 }
 
-__kernel void fillNoiseBufferWithSmoothness2d(__global float* buffer, __global const uchar* noiseMap, const __global float* smoothness, const uint octaves, const float xo, const float yo, const float xd, const float yd, const int xs, const int ys)
+__kernel void fillNoiseBufferWithSmoothness2d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const __global float* smoothness, const uint octaves, const float xo, const float yo, const float xd, const float yd, const int xs, const int ys)
 {
 	const int index = get_global_id(0) * xs + get_global_id(1);
-	const float x = (get_global_id(0)) * xd + xo;
-	const float y = (get_global_id(1)) * yd + yo;
+	const float x = (xo + get_global_id(0)) * xd;
+	const float y = (yo + get_global_id(1)) * yd;
 
-	buffer[index] = noise2d(noiseMap, x, y, octaves, 2.0f + smoothness[index]);
+	buffer[index] = noise2d(noiseMap, sizeExponent, x, y, octaves, 2.0f + smoothness[index]);
 }
 
-__kernel void fillNoiseBuffer3d(__global float* buffer, __global const uchar* noiseMap, const float smoothness, const uint octaves, const float xo, const float yo, const float zo, const float xd, const float yd, const float zd, const int xs, const int ys, const int zs)
+__kernel void fillNoiseBuffer3d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const float smoothness, const uint octaves, const float xo, const float yo, const float zo, const float xd, const float yd, const float zd, const int xs, const int ys, const int zs)
 {
 	const int index = (get_global_id(0) * ys + get_global_id(1)) * xs + get_global_id(2);
-	const float x = (get_global_id(0)) * xd + xo;
-	const float y = (get_global_id(1)) * yd + yo;
-	const float z = (get_global_id(2)) * zd + zo;
+	const float x = (xo + get_global_id(0)) * xd;
+	const float y = (yo + get_global_id(1)) * yd;
+	const float z = (zo + get_global_id(2)) * zd;
 
-	buffer[index] = noise3d(noiseMap, x, y, z, octaves, smoothness);
+	buffer[index] = noise3d(noiseMap, sizeExponent, x, y, z, octaves, smoothness);
 }
 
-__kernel void fillNoiseBufferWithSmoothness3d(__global float* buffer, __global const uchar* noiseMap, const __global float* smoothness, const uint octaves, const float xo, const float yo, const float zo, const float xd, const float yd, const float zd, const int xs, const int ys, const int zs)
+__kernel void fillNoiseBufferWithSmoothness3d(__global float* buffer, __global const uchar* noiseMap, const uint sizeExponent, const __global float* smoothness, const uint octaves, const float xo, const float yo, const float zo, const float xd, const float yd, const float zd, const int xs, const int ys, const int zs)
 {
 	const int index = (get_global_id(0) * ys + get_global_id(1)) * xs + get_global_id(2);
-	const float x = (get_global_id(0)) * xd + xo;
-	const float y = (get_global_id(1)) * yd + yo;
-	const float z = (get_global_id(2)) * zd + zo;
+	const float x = (xo + get_global_id(0)) * xd;
+	const float y = (yo + get_global_id(1)) * yd;
+	const float z = (zo + get_global_id(2)) * zd;
 
-	buffer[index] = noise3d(noiseMap, x, y, z, octaves, 2.0f + smoothness[index]);
+	buffer[index] = noise3d(noiseMap, sizeExponent, x, y, z, octaves, 2.0f + smoothness[index]);
 }

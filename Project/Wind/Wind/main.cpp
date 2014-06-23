@@ -16,7 +16,7 @@ int ticks = 0;
 int camX, camY, camZ;
 int prevCamX = 0, prevCamY = 0, prevCamZ = 0;
 
-const int renderDistance = 10;
+const int renderDistance = 8;
 
 bool mainLoop()
 {
@@ -273,7 +273,6 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		}
 	}
 
-	renderThread.stop();
 	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
 	{
 		chunkLoadThreads[i].stop();
@@ -282,6 +281,8 @@ int WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	{
 		chunkDrawThreads[i].stop();
 	}
+	
+	renderThread.stop();
 
 	delete GLWindow::instance;
 	GameStates::cleanup();

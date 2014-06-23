@@ -33,12 +33,29 @@ NoiseGenerator1D::NoiseGenerator1D()
 }
 
 NoiseGenerator1D::NoiseGenerator1D(int sizeExponent, int octaves, float smoothness, unsigned int seed)
-	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), seed(seed), noiseMap(new unsigned char[size])
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size])
 {
-	srand(seed);
-	for(int i = 0; i < size; i++)
+	Random rand(seed);
+	initNoise(rand);
+}
+
+NoiseGenerator1D::NoiseGenerator1D(int sizeExponent, int octaves, float smoothness, Random& rand)
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size * size * size])
+{
+	initNoise(rand);
+}
+
+void NoiseGenerator1D::initNoise(Random& rand)
+{
+	const int chunk_size = 32;
+	for(int i = 0; i < size; i += chunk_size)
 	{
-		noiseMap[i] = rand() & 1;
+		unsigned int r = rand.getUint();
+		for(int j = 0; j < chunk_size; j++)
+		{
+			noiseMap[i + j] = r & 0x1;
+			r >>= 1;
+		}
 	}
 }
 
@@ -139,12 +156,29 @@ NoiseGenerator2D::NoiseGenerator2D()
 }
 
 NoiseGenerator2D::NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, unsigned int seed)
-	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), seed(seed), noiseMap(new unsigned char[size * size])
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size * size])
 {
-	srand(seed);
-	for(int i = 0; i < size * size; i++)
+	Random rand(seed);
+	initNoise(rand);
+}
+
+NoiseGenerator2D::NoiseGenerator2D(int sizeExponent, int octaves, float smoothness, Random& rand)
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size * size])
+{
+	initNoise(rand);
+}
+
+void NoiseGenerator2D::initNoise(Random& rand)
+{
+	const int chunk_size = 32;
+	for(int i = 0; i < size * size; i += chunk_size)
 	{
-		noiseMap[i] = rand() & 1;
+		unsigned int r = rand.getUint();
+		for(int j = 0; j < chunk_size; j++)
+		{
+			noiseMap[i + j] = r & 0x1;
+			r >>= 1;
+		}
 	}
 }
 
@@ -262,12 +296,29 @@ NoiseGenerator3D::NoiseGenerator3D()
 }
 
 NoiseGenerator3D::NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, unsigned int seed)
-	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), seed(seed), noiseMap(new unsigned char[size * size * size])
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size * size * size])
 {
-	srand(seed);
-	for(int i = 0; i < size * size * size; i++)
+	Random rand(seed);
+	initNoise(rand);
+}
+
+NoiseGenerator3D::NoiseGenerator3D(int sizeExponent, int octaves, float smoothness, Random& rand)
+	: sizeExponent(sizeExponent), size(1 << sizeExponent), octaves(octaves), smoothness(smoothness), noiseMap(new unsigned char[size * size * size])
+{
+	initNoise(rand);
+}
+
+void NoiseGenerator3D::initNoise(Random& rand)
+{
+	const int chunk_size = 32;
+	for(int i = 0; i < size * size * size; i += chunk_size)
 	{
-		noiseMap[i] = rand() & 1;
+		unsigned int r = rand.getUint();
+		for(int j = 0; j < chunk_size; j++)
+		{
+			noiseMap[i + j] = r & 0x1;
+			r >>= 1;
+		}
 	}
 }
 

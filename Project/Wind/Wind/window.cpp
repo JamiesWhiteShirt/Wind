@@ -209,7 +209,14 @@ HWND GLWindow::getHWnd()
 
 void GLWindow::messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 {
+	//msgBoxMutex.lock();
 	MessageBox(hWnd, lpText, lpCaption, uType);
+	//msgBoxMutex.unlock();
+}
+
+void GLWindow::postError(std::string text, std::string caption)
+{
+	postError(text.c_str(), caption.c_str());
 }
 
 void GLWindow::postError(const char* text, const char* caption)

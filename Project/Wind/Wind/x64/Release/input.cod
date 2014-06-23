@@ -113,7 +113,7 @@ $unwind$?getMB@Mouse@@SA_NH@Z DD 020601H
 ?actions$initializer$@Mouse@@2P6AXXZEA DQ FLAT:??__E?actions@Mouse@@2V?$List@VMouseAction@@$0BA@@@A@@YAXXZ ; Mouse::actions$initializer$
 ?mut$initializer$@Mouse@@2P6AXXZEA DQ FLAT:??__E?mut@Mouse@@2Vmutex@std@@A@@YAXXZ ; Mouse::mut$initializer$
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??0KeyboardAction@@QEAA@H_N@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -134,13 +134,13 @@ released$ = 24
 ??0KeyboardAction@@QEAA@H_N@Z ENDP			; KeyboardAction::KeyboardAction
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??__E?actions@Keyboard@@2V?$List@VKeyboardAction@@$0BA@@@A@@YAXXZ
 text$yc	SEGMENT
 ??__E?actions@Keyboard@@2V?$List@VKeyboardAction@@$0BA@@@A@@YAXXZ PROC ; `dynamic initializer for 'Keyboard::actions'', COMDAT
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 12   : 	List()
 
@@ -150,7 +150,7 @@ text$yc	SEGMENT
   0000c	0f 1f 40 00	 npad	 4
 $LL6@actions:
   00010	ff c9		 dec	 ecx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 5    : {
 
@@ -166,9 +166,9 @@ $LL6@actions:
 ??__E?actions@Keyboard@@2V?$List@VKeyboardAction@@$0BA@@@A@@YAXXZ ENDP ; `dynamic initializer for 'Keyboard::actions''
 text$yc	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??__E?mut@Keyboard@@2Vmutex@std@@A@@YAXXZ
 text$yc	SEGMENT
 ??__E?mut@Keyboard@@2Vmutex@std@@A@@YAXXZ PROC		; `dynamic initializer for 'Keyboard::mut'', COMDAT
@@ -195,7 +195,7 @@ text$yc	SEGMENT
   00019	8b c8		 mov	 ecx, eax
   0001b	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN9@mut:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 11   : std::mutex Keyboard::mut;
 
@@ -219,15 +219,15 @@ text$yd	SEGMENT
 ??__F?mut@Keyboard@@2Vmutex@std@@A@@YAXXZ ENDP		; `dynamic atexit destructor for 'Keyboard::mut''
 text$yd	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ?setKey@Keyboard@@SAXH_N@Z
 _TEXT	SEGMENT
 index$ = 48
@@ -247,7 +247,7 @@ $LN18:
 
   0000d	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?mut@Keyboard@@2Vmutex@std@@A ; Keyboard::mut
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 14   : {
 
@@ -268,7 +268,7 @@ $LN18:
   00020	8b c8		 mov	 ecx, eax
   00022	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN7@setKey:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 16   : 	keys[index] = value;
 
@@ -280,7 +280,7 @@ $LN7@setKey:
 
   0002e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?mut@Keyboard@@2Vmutex@std@@A ; Keyboard::mut
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 16   : 	keys[index] = value;
 
@@ -301,7 +301,7 @@ $LN7@setKey:
   00041	8b c8		 mov	 ecx, eax
   00043	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN14@setKey:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 18   : }
 
@@ -312,13 +312,13 @@ $LN14@setKey:
 ?setKey@Keyboard@@SAXH_N@Z ENDP				; Keyboard::setKey
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ?getKey@Keyboard@@SA_NH@Z
 _TEXT	SEGMENT
 index$ = 48
@@ -348,7 +348,7 @@ $LN19:
   00019	8b c8		 mov	 ecx, eax
   0001b	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN7@getKey:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -360,7 +360,7 @@ $LN7@getKey:
 
   00027	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?mut@Keyboard@@2Vmutex@std@@A ; Keyboard::mut
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -381,7 +381,7 @@ $LN7@getKey:
   0003b	8b c8		 mov	 ecx, eax
   0003d	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN17@getKey:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 25   : 	return value;
 
@@ -395,7 +395,7 @@ $LN17@getKey:
 ?getKey@Keyboard@@SA_NH@Z ENDP				; Keyboard::getKey
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??0MouseAction@@QEAA@HHHH_N@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -424,9 +424,9 @@ released$ = 48
 ??0MouseAction@@QEAA@HHHH_N@Z ENDP			; MouseAction::MouseAction
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??__E?actions@Mouse@@2V?$List@VMouseAction@@$0BA@@@A@@YAXXZ
 text$yc	SEGMENT
 ??__E?actions@Mouse@@2V?$List@VMouseAction@@$0BA@@@A@@YAXXZ PROC ; `dynamic initializer for 'Mouse::actions'', COMDAT
@@ -434,7 +434,7 @@ text$yc	SEGMENT
 ; 35   : List<MouseAction, 16> Mouse::actions;
 
   00000	b9 0f 00 00 00	 mov	 ecx, 15
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 12   : 	List()
 
@@ -444,7 +444,7 @@ text$yc	SEGMENT
   0000e	66 90		 npad	 2
 $LL6@actions:
   00010	ff c9		 dec	 ecx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 30   : {
 
@@ -462,9 +462,9 @@ $LL6@actions:
 ??__E?actions@Mouse@@2V?$List@VMouseAction@@$0BA@@@A@@YAXXZ ENDP ; `dynamic initializer for 'Mouse::actions''
 text$yc	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??__E?mut@Mouse@@2Vmutex@std@@A@@YAXXZ
 text$yc	SEGMENT
 ??__E?mut@Mouse@@2Vmutex@std@@A@@YAXXZ PROC		; `dynamic initializer for 'Mouse::mut'', COMDAT
@@ -491,7 +491,7 @@ text$yc	SEGMENT
   00019	8b c8		 mov	 ecx, eax
   0001b	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN9@mut:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 36   : std::mutex Mouse::mut;
 
@@ -515,15 +515,15 @@ text$yd	SEGMENT
 ??__F?mut@Mouse@@2Vmutex@std@@A@@YAXXZ ENDP		; `dynamic atexit destructor for 'Mouse::mut''
 text$yd	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ?setMB@Mouse@@SAXH_N@Z
 _TEXT	SEGMENT
 index$ = 48
@@ -543,7 +543,7 @@ $LN18:
 
   0000d	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?mut@Mouse@@2Vmutex@std@@A ; Mouse::mut
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 39   : {
 
@@ -564,7 +564,7 @@ $LN18:
   00020	8b c8		 mov	 ecx, eax
   00022	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN7@setMB:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 41   : 	mbs[index] = value;
 
@@ -576,7 +576,7 @@ $LN7@setMB:
 
   0002e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?mut@Mouse@@2Vmutex@std@@A ; Mouse::mut
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 41   : 	mbs[index] = value;
 
@@ -597,7 +597,7 @@ $LN7@setMB:
   00041	8b c8		 mov	 ecx, eax
   00043	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN14@setMB:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 43   : }
 
@@ -608,11 +608,11 @@ $LN14@setMB:
 ?setMB@Mouse@@SAXH_N@Z ENDP				; Mouse::setMB
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ?getMB@Mouse@@SA_NH@Z
 _TEXT	SEGMENT
 index$dead$ = 48
@@ -641,7 +641,7 @@ $LN19:
   00016	8b c8		 mov	 ecx, eax
   00018	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN7@getMB:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 48   : 	bool value = mbs[index];
 
@@ -665,7 +665,7 @@ $LN7@getMB:
   00034	8b c8		 mov	 ecx, eax
   00036	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN17@getMB:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 50   : 	return value;
 
@@ -679,9 +679,9 @@ $LN17@getMB:
 ?getMB@Mouse@@SA_NH@Z ENDP				; Mouse::getMB
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??0?$List@VKeyboardAction@@$0BA@@@QEAA@XZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -695,7 +695,7 @@ this$dead$ = 8
   0000c	0f 1f 40 00	 npad	 4
 $LL4@List:
   00010	ff ca		 dec	 edx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 5    : {
 
@@ -704,7 +704,7 @@ $LL4@List:
   00018	c6 41 04 00	 mov	 BYTE PTR [rcx+4], 0
   0001c	48 8d 49 08	 lea	 rcx, QWORD PTR [rcx+8]
   00020	79 ee		 jns	 SHORT $LL4@List
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 15   : 	}
 
@@ -714,9 +714,9 @@ $LL4@List:
 ??0?$List@VKeyboardAction@@$0BA@@@QEAA@XZ ENDP		; List<KeyboardAction,16>::List<KeyboardAction,16>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??0?$List@VMouseAction@@$0BA@@@QEAA@XZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -731,7 +731,7 @@ this$dead$ = 8
   0000e	66 90		 npad	 2
 $LL4@List:
   00010	ff c9		 dec	 ecx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 30   : {
 
@@ -742,7 +742,7 @@ $LL4@List:
   0001f	88 50 08	 mov	 BYTE PTR [rax+8], dl
   00022	48 8d 40 14	 lea	 rax, QWORD PTR [rax+20]
   00026	79 e8		 jns	 SHORT $LL4@List
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 15   : 	}
 
@@ -752,7 +752,7 @@ $LL4@List:
 ??0?$List@VMouseAction@@$0BA@@@QEAA@XZ ENDP		; List<MouseAction,16>::List<MouseAction,16>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??_FKeyboardAction@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -767,7 +767,7 @@ this$ = 8
 ??_FKeyboardAction@@QEAAXXZ ENDP			; KeyboardAction::`default constructor closure'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ;	COMDAT ??_FMouseAction@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8

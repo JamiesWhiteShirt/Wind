@@ -8,11 +8,11 @@ EXTRN	wcstombs:PROC
 EXTRN	__report_rangecheckfailure:PROC
 EXTRN	__imp_GetModuleFileNameW:PROC
 	ORG $+3
-$SG4294915601 DB '\', 00H, '/', 00H, 00H, 00H
+$SG4294905964 DB '\', 00H, '/', 00H, 00H, 00H
 	ORG $+6
-$SG4294915600 DB 'PNG load error', 00H
+$SG4294905963 DB 'PNG load error', 00H
 	ORG $+1
-$SG4294915599 DB 'PNG file not found.', 00H
+$SG4294905962 DB 'PNG file not found.', 00H
 PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<unsigned char> > >
 PUBLIC	??$_Ptr_cat@EE@std@@YA?AU_Scalar_ptr_iterator_tag@0@PEAE0@Z ; std::_Ptr_cat<unsigned char,unsigned char>
 PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@E@std@@@std@@@std@@YAXPEAE0AEAU?$_Wrap_alloc@V?$allocator@E@std@@@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<unsigned char> > >
@@ -37,6 +37,12 @@ PUBLIC	?find@?$char_traits@_W@std@@SAPEB_WPEB_W_KAEB_W@Z ; std::char_traits<wcha
 PUBLIC	wmemchr
 PUBLIC	?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z ; IOUtil::readPNG
 PUBLIC	?EXE_DIR@IOUtil@@3V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@A ; IOUtil::EXE_DIR
+_Tuple_alloc DB	01H DUP (?)
+	ALIGN	4
+
+ignore	DB	01H DUP (?)
+	ALIGN	4
+
 allocator_arg DB 01H DUP (?)
 	ALIGN	4
 
@@ -87,7 +93,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z DD imagerel $LN241
-	DD	imagerel $LN241+567
+	DD	imagerel $LN241+574
 	DD	imagerel $unwind$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -111,9 +117,9 @@ $ip2state$?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$all
 	DD	0ffffffffH
 	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+464
 	DD	01H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+484
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+491
 	DD	00H
-	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+500
+	DD	imagerel ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z+507
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -204,46 +210,46 @@ $unwind$?_Tidy@?$vector@EV?$allocator@E@std@@@std@@IEAAXXZ DD 020601H
 	DQ	0000000000000007H
 EXE_DIR$initializer$ DQ FLAT:??__EEXE_DIR@IOUtil@@YAXXZ
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstddef
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ;	COMDAT ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z
 _TEXT	SEGMENT
 buffer$1 = 64
@@ -285,7 +291,7 @@ $LN241:
 ; 1728 : 		return (this->_Mysize);
 
   0003b	48 8b 49 10	 mov	 rcx, QWORD PTR [rcx+16]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 25   : 	char* nFileName = new char[file.length() + 1];
 
@@ -315,7 +321,7 @@ $LN241:
 $LN18@readPNG:
   0005a	48 8b d3	 mov	 rdx, rbx
 $LN19@readPNG:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 26   : 	std::wcstombs(nFileName, file.c_str(), sizeof(char) * (file.length() + 1));
 
@@ -1054,7 +1060,7 @@ $LN73@readPNG:
 ; 488  : 		_Myend = pointer();
 
   000c9	4c 89 64 24 50	 mov	 QWORD PTR buffer$1[rsp+16], r12
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6194 :   load_file(buffer, filename);
 
@@ -1073,7 +1079,7 @@ $LN73@readPNG:
 
   000e8	48 8b 44 24 48	 mov	 rax, QWORD PTR buffer$1[rsp+8]
   000ed	48 3b f8	 cmp	 rdi, rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6164 :   return decode(out, w, h, in.empty() ? 0 : &in[0], (unsigned)in.size(), colortype, bitdepth);
 
@@ -1083,7 +1089,7 @@ $LN73@readPNG:
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
   000f4	48 2b c7	 sub	 rax, rdi
-; File c:\users\glenn\documents\github\wind\project\wind\wind\lodepng.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\lodepng.cpp
 
 ; 6164 :   return decode(out, w, h, in.empty() ? 0 : &in[0], (unsigned)in.size(), colortype, bitdepth);
 
@@ -1107,7 +1113,7 @@ $LN73@readPNG:
   00115	48 8b cf	 mov	 rcx, rdi
   00118	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN97@readPNG:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 28   : 	if(!lodepng::decode(image, width, height, nFileName))
 
@@ -1635,7 +1641,7 @@ $LN128@readPNG:
 
   0014f	c6 84 24 80 00
 	00 00 00	 mov	 BYTE PTR $T3[rsp], 0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 28   : 	if(!lodepng::decode(image, width, height, nFileName))
 
@@ -1676,7 +1682,7 @@ $LL3@readPNG:
 ; 1148 : 		return (*(this->_Myfirst + _Pos));
 
   00194	48 03 d6	 add	 rdx, rsi
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 34   : 			memcpy(&data[i * width * 4], &image[(height - 1 - i) * width * 4], sizeof(unsigned char) * width * 4);
 
@@ -1720,12 +1726,12 @@ $LN144@readPNG:
   001c3	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
   001c6	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN177@readPNG:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 37   : 		return data;
 
   001cb	48 8b c5	 mov	 rax, rbp
-  001ce	eb 35		 jmp	 SHORT $LN240@readPNG
+  001ce	eb 3c		 jmp	 SHORT $LN240@readPNG
 $LN4@readPNG:
 
 ; 38   : 	}
@@ -1733,49 +1739,51 @@ $LN4@readPNG:
 ; 40   : 	GLWindow::instance->postError("PNG file not found.", "PNG load error");
 
   001d0	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294915600
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294905963
   001d7	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294915599
-  001de	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
-  001e3	90		 npad	 1
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294905962
+  001de	48 8b 0d 00 00
+	00 00		 mov	 rcx, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
+  001e5	e8 00 00 00 00	 call	 ?postError@GLWindow@@QEAAXPEBD0@Z ; GLWindow::postError
+  001ea	90		 npad	 1
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  001e4	48 8b 4c 24 58	 mov	 rcx, QWORD PTR image$[rsp]
-  001e9	48 85 c9	 test	 rcx, rcx
-  001ec	74 06		 je	 SHORT $LN191@readPNG
+  001eb	48 8b 4c 24 58	 mov	 rcx, QWORD PTR image$[rsp]
+  001f0	48 85 c9	 test	 rcx, rcx
+  001f3	74 06		 je	 SHORT $LN191@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001ee	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  001f3	90		 npad	 1
+  001f5	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  001fa	90		 npad	 1
 $LN191@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  001f4	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
-  001f9	72 08		 jb	 SHORT $LN224@readPNG
+  001fb	48 83 7b 18 08	 cmp	 QWORD PTR [rbx+24], 8
+  00200	72 08		 jb	 SHORT $LN224@readPNG
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  001fb	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
-  001fe	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00202	48 8b 0b	 mov	 rcx, QWORD PTR [rbx]
+  00205	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN224@readPNG:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 42   : 	return nullptr;
 
-  00203	33 c0		 xor	 eax, eax
+  0020a	33 c0		 xor	 eax, eax
 $LN240@readPNG:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  00205	48 c7 43 18 07
+  0020c	48 c7 43 18 07
 	00 00 00	 mov	 QWORD PTR [rbx+24], 7
 
 ; 1729 : 		}
@@ -2269,30 +2277,30 @@ $LN240@readPNG:
 ; 2217 : 		{	// set new length and null terminator
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  0020d	4c 89 63 10	 mov	 QWORD PTR [rbx+16], r12
+  00214	4c 89 63 10	 mov	 QWORD PTR [rbx+16], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 347  : 		_Left = _Right;
 
-  00211	66 44 89 23	 mov	 WORD PTR [rbx], r12w
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+  00218	66 44 89 23	 mov	 WORD PTR [rbx], r12w
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 43   : }
 
-  00215	48 8b 8c 24 a0
+  0021c	48 8b 8c 24 a0
 	00 00 00	 mov	 rcx, QWORD PTR __$ArrayPad$[rsp]
-  0021d	48 33 cc	 xor	 rcx, rsp
-  00220	e8 00 00 00 00	 call	 __security_check_cookie
-  00225	48 81 c4 b0 00
+  00224	48 33 cc	 xor	 rcx, rsp
+  00227	e8 00 00 00 00	 call	 __security_check_cookie
+  0022c	48 81 c4 b0 00
 	00 00		 add	 rsp, 176		; 000000b0H
-  0022c	41 5f		 pop	 r15
-  0022e	41 5e		 pop	 r14
-  00230	41 5c		 pop	 r12
-  00232	5f		 pop	 rdi
-  00233	5e		 pop	 rsi
-  00234	5d		 pop	 rbp
-  00235	5b		 pop	 rbx
-  00236	c3		 ret	 0
+  00233	41 5f		 pop	 r15
+  00235	41 5e		 pop	 r14
+  00237	41 5c		 pop	 r12
+  00239	5f		 pop	 rdi
+  0023a	5e		 pop	 rsi
+  0023b	5d		 pop	 rbp
+  0023c	5b		 pop	 rbx
+  0023d	c3		 ret	 0
 ?readPNG@IOUtil@@YAPEAEV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@AEAI1@Z ENDP ; IOUtil::readPNG
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -2379,7 +2387,7 @@ wmemchr	PROC						; COMDAT
 ; 1241 :         {for (; 0 < _N; ++_S, --_N)
 
   00000	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294915601
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294905964
   00007	4d 85 c0	 test	 r8, r8
   0000a	74 12		 je	 SHORT $LN2@wmemchr
   0000c	0f 1f 40 00	 npad	 4
@@ -2422,7 +2430,7 @@ _Ch$ = 24
   00003	74 19		 je	 SHORT $LN6@find
   00005	41 0f b7 08	 movzx	 ecx, WORD PTR [r8]
   00009	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294915601
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294905964
 $LL8@find:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\wchar.h
 
@@ -2450,7 +2458,7 @@ $LN9@find:
 ?find@?$char_traits@_W@std@@SAPEB_WPEB_W_KAEB_W@Z ENDP	; std::char_traits<wchar_t>::find
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ;	COMDAT ??__EEXE_DIR@IOUtil@@YAXXZ
 text$yc	SEGMENT
 ??__EEXE_DIR@IOUtil@@YAXXZ PROC				; IOUtil::`dynamic initializer for 'EXE_DIR'', COMDAT
@@ -2547,15 +2555,15 @@ $LN25@dynamic:
 ??__FEXE_DIR@IOUtil@@YAXXZ ENDP				; IOUtil::`dynamic atexit destructor for 'EXE_DIR''
 text$yd	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 ;	COMDAT ?staticInit@IOUtil@@YAXXZ
 _TEXT	SEGMENT
 $T1 = 32
@@ -4490,7 +4498,7 @@ $LN51@staticInit:
   00094	48 8b 4c 24 20	 mov	 rcx, QWORD PTR $T1[rsp]
   00099	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN80@staticInit:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 14   : 	buffer[pos] = 0;
 
@@ -4522,7 +4530,7 @@ $LN99@staticInit:
 	00 00		 lea	 rcx, OFFSET FLAT:?EXE_DIR@IOUtil@@3V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@A ; IOUtil::EXE_DIR
   000d6	4c 8b c3	 mov	 r8, rbx
   000d9	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\ioutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\ioutil.cpp
 
 ; 16   : }
 
@@ -5449,7 +5457,7 @@ $LL6@find_last_:
   00045	0f b7 13	 movzx	 edx, WORD PTR [rbx]
   00048	48 8b ce	 mov	 rcx, rsi
   0004b	48 8d 05 00 00
-	00 00		 lea	 rax, OFFSET FLAT:$SG4294915601
+	00 00		 lea	 rax, OFFSET FLAT:$SG4294905964
 $LL25@find_last_:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\wchar.h
 

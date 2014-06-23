@@ -17,7 +17,7 @@ xdata	SEGMENT
 $unwind$??0MiniHeap@MemUtil@@QEAA@I@Z DD 020601H
 	DD	030023206H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 ;	COMDAT ?clear@MiniHeap@MemUtil@@QEAAXXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -34,7 +34,7 @@ this$ = 8
 ?clear@MiniHeap@MemUtil@@QEAAXXZ ENDP			; MemUtil::MiniHeap::clear
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 ;	COMDAT ??0MiniHeap@MemUtil@@QEAA@I@Z
 _TEXT	SEGMENT
 this$ = 48
@@ -63,7 +63,7 @@ $LN4:
 ??0MiniHeap@MemUtil@@QEAA@I@Z ENDP			; MemUtil::MiniHeap::MiniHeap
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\memutil.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\memutil.cpp
 ;	COMDAT ??1MiniHeap@MemUtil@@QEAA@XZ
 _TEXT	SEGMENT
 this$ = 8

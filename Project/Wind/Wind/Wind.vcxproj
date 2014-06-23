@@ -119,13 +119,13 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AssemblerOutput>All</AssemblerOutput>
-      <AdditionalIncludeDirectories>$(CUDA_PATH)/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CUDA_PATH)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(CUDA_PATH)/lib/x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CUDA_PATH)\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -166,6 +166,7 @@
     <ClCompile Include="blocks.cpp" />
     <ClCompile Include="chunkdrawthread.cpp" />
     <ClCompile Include="chunkloadthread.cpp" />
+    <ClCompile Include="generation.cpp" />
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="globalutil.cpp" />
     <ClCompile Include="intersection.cpp" />

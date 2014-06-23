@@ -73,8 +73,8 @@ CONST	SEGMENT
 	DQ	FLAT:?_Delete_this@?$_Ref_count@VChunk@@@std@@EEAAXXZ
 	DQ	FLAT:??_E?$_Ref_count@VChunk@@@std@@UEAAPEAXI@Z
 	DQ	FLAT:?_Get_deleter@_Ref_count_base@std@@UEBAPEAXAEBVtype_info@@@Z
-	ORG $+4
-$SG4294908338 DB 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 00H, 00H
+	ORG $+5
+$SG4294898609 DB 'W', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 00H, 00H
 PUBLIC	??$_Resetp0@VChunk@@@?$shared_ptr@VChunkBase@@@std@@QEAAXPEAVChunk@@PEAV_Ref_count_base@1@@Z ; std::shared_ptr<ChunkBase>::_Resetp0<Chunk>
 PUBLIC	??1?$_Ref_count@VChunk@@@std@@UEAA@XZ		; std::_Ref_count<Chunk>::~_Ref_count<Chunk>
 PUBLIC	??_G?$_Ref_count@VChunk@@@std@@UEAAPEAXI@Z	; std::_Ref_count<Chunk>::`scalar deleting destructor'
@@ -177,14 +177,14 @@ $pdata$3$??4?$shared_ptr@VChunkBase@@@std@@QEAAAEAV01@$$QEAV01@@Z DD imagerel $L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??_GGLWindow@@QEAAPEAXI@Z DD imagerel $LN41
-	DD	imagerel $LN41+65
+$pdata$??_GGLWindow@@QEAAPEAXI@Z DD imagerel $LN45
+	DD	imagerel $LN45+74
 	DD	imagerel $unwind$??_GGLWindow@@QEAAPEAXI@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$WinMain DD imagerel $LN991
-	DD	imagerel $LN991+2466
+$pdata$WinMain DD imagerel $LN993
+	DD	imagerel $LN993+2479
 	DD	imagerel $unwind$WinMain
 pdata	ENDS
 ;	COMDAT pdata
@@ -403,53 +403,53 @@ xdata	SEGMENT
 $unwind$??_G?$_Ref_count@VChunk@@@std@@UEAAPEAXI@Z DD 020601H
 	DD	030023206H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\utility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
@@ -460,12 +460,12 @@ $unwind$??_G?$_Ref_count@VChunk@@@std@@UEAAPEAXI@Z DD 020601H
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
@@ -473,10 +473,10 @@ $unwind$??_G?$_Ref_count@VChunk@@@std@@UEAAPEAXI@Z DD 020601H
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ;	COMDAT ?mainLoop@@YA_NXZ
 _TEXT	SEGMENT
 c$1 = 48
@@ -583,7 +583,7 @@ $LL44@mainLoop:
   000ad	8b c8		 mov	 ecx, eax
   000af	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN65@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 48   : 	bool value = mbs[index];
 
@@ -607,7 +607,7 @@ $LN65@mainLoop:
   000cb	8b c8		 mov	 ecx, eax
   000cd	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN72@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 29   : 		if(Mouse::getMB(0))
 
@@ -758,7 +758,7 @@ $LN34@mainLoop:
   001a6	8b c8		 mov	 ecx, eax
   001a8	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN85@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -782,7 +782,7 @@ $LN85@mainLoop:
   001c4	8b c8		 mov	 ecx, eax
   001c6	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN92@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 55   : 	float b = Keyboard::getKey(16) ? 0.4f : 0.1f;
 
@@ -813,7 +813,7 @@ $LN48@mainLoop:
   001f3	8b c8		 mov	 ecx, eax
   001f5	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN101@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -837,7 +837,7 @@ $LN101@mainLoop:
   00211	8b c8		 mov	 ecx, eax
   00213	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN108@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 57   : 	if(Keyboard::getKey(87)) //W
 
@@ -922,7 +922,7 @@ $LN33@mainLoop:
   002f0	8b c8		 mov	 ecx, eax
   002f2	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN117@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -946,7 +946,7 @@ $LN117@mainLoop:
   0030e	8b c8		 mov	 ecx, eax
   00310	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN124@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 64   : 	if(Keyboard::getKey(83)) //S
 
@@ -1027,7 +1027,7 @@ $LN32@mainLoop:
   003db	8b c8		 mov	 ecx, eax
   003dd	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN133@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -1051,7 +1051,7 @@ $LN133@mainLoop:
   003f9	8b c8		 mov	 ecx, eax
   003fb	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN140@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 71   : 	if(Keyboard::getKey(65)) //A
 
@@ -1108,7 +1108,7 @@ $LN31@mainLoop:
   00473	8b c8		 mov	 ecx, eax
   00475	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN149@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -1132,7 +1132,7 @@ $LN149@mainLoop:
   00491	8b c8		 mov	 ecx, eax
   00493	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN156@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 77   : 	if(Keyboard::getKey(68)) //D
 
@@ -1190,7 +1190,7 @@ $LN30@mainLoop:
   0050e	8b c8		 mov	 ecx, eax
   00510	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN165@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -1214,7 +1214,7 @@ $LN165@mainLoop:
   0052c	8b c8		 mov	 ecx, eax
   0052e	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN172@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 83   : 	if(Keyboard::getKey(32)) //SPACE
 
@@ -1263,7 +1263,7 @@ $LN29@mainLoop:
   00594	8b c8		 mov	 ecx, eax
   00596	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN181@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\input.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\input.cpp
 
 ; 23   : 	bool value = keys[index];
 
@@ -1287,7 +1287,7 @@ $LN181@mainLoop:
   005b2	8b c8		 mov	 ecx, eax
   005b4	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN188@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 88   : 	if(Keyboard::getKey(17)) //CTRL
 
@@ -1384,7 +1384,7 @@ $LN25@mainLoop:
 
   00670	48 8b ce	 mov	 rcx, rsi
   00673	e8 00 00 00 00	 call	 ?tick@World@@QEAAXXZ	; World::tick
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 
 ; 37   : 		count = 0;
 
@@ -1392,7 +1392,7 @@ $LN25@mainLoop:
 	00 00		 mov	 DWORD PTR ?actions@Mouse@@2V?$List@VMouseAction@@$0BA@@@A+320, r12d
   0067f	44 89 25 80 00
 	00 00		 mov	 DWORD PTR ?actions@Keyboard@@2V?$List@VKeyboardAction@@$0BA@@@A+128, r12d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 107  : 	camX = cam->pos.x / 16.0f;
 
@@ -1446,28 +1446,28 @@ $LN17@mainLoop:
   006eb	3b d7		 cmp	 edx, edi
 $LN588@mainLoop:
   006ed	0f 4f fa	 cmovg	 edi, edx
-  006f0	83 c7 0a	 add	 edi, 10
+  006f0	83 c7 08	 add	 edi, 8
   006f3	89 7c 24 48	 mov	 DWORD PTR xLimit$1$[rsp], edi
 
 ; 114  : 		int yLimit = (camY > prevCamY ? camY : prevCamY) + renderDistance;
 
   006f7	3b c3		 cmp	 eax, ebx
   006f9	0f 4f d8	 cmovg	 ebx, eax
-  006fc	83 c3 0a	 add	 ebx, 10
+  006fc	83 c3 08	 add	 ebx, 8
   006ff	89 5c 24 44	 mov	 DWORD PTR yLimit$1$[rsp], ebx
 
 ; 115  : 		int zLimit = (camZ > prevCamZ ? camZ : prevCamZ) + renderDistance;
 
   00703	3b ce		 cmp	 ecx, esi
   00705	0f 4f f1	 cmovg	 esi, ecx
-  00708	83 c6 0a	 add	 esi, 10
+  00708	83 c6 08	 add	 esi, 8
   0070b	89 75 60	 mov	 DWORD PTR zLimit$1$[rbp-256], esi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  0070e	48 8d 0d 88 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+136
+  0070e	48 8d 0d 90 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+144
   00715	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -1483,8 +1483,8 @@ $LN199@mainLoop:
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00725	48 8d 0d b8 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+184
+  00725	48 8d 0d c0 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+192
   0072c	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -1497,7 +1497,7 @@ $LN199@mainLoop:
   00735	8b c8		 mov	 ecx, eax
   00737	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN206@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 118  : 		for(int i = (camX < prevCamX ? camX : prevCamX) - renderDistance; i <= xLimit; i++)
 
@@ -1508,7 +1508,7 @@ $LN206@mainLoop:
 	00		 mov	 ecx, DWORD PTR ?camX@@3HA ; camX
   0074b	3b c8		 cmp	 ecx, eax
   0074d	44 0f 4c e9	 cmovl	 r13d, ecx
-  00751	41 83 ed 0a	 sub	 r13d, 10
+  00751	41 83 ed 08	 sub	 r13d, 8
   00755	44 3b ef	 cmp	 r13d, edi
   00758	0f 8f 64 05 00
 	00		 jg	 $LN580@mainLoop
@@ -1539,7 +1539,7 @@ $LL16@mainLoop:
   0078d	45 8b f9	 mov	 r15d, r9d
   00790	45 3b c1	 cmp	 r8d, r9d
   00793	45 0f 4c f8	 cmovl	 r15d, r8d
-  00797	41 83 ef 0a	 sub	 r15d, 10
+  00797	41 83 ef 08	 sub	 r15d, 8
   0079b	44 3b fb	 cmp	 r15d, ebx
   0079e	0f 8f 05 05 00
 	00		 jg	 $LN15@mainLoop
@@ -1569,7 +1569,7 @@ $LL13@mainLoop:
 	00 00		 cmp	 DWORD PTR ?camZ@@3HA, r14d ; camZ
   007d0	44 0f 4c 35 00
 	00 00 00	 cmovl	 r14d, DWORD PTR ?camZ@@3HA ; camZ
-  007d8	41 83 ee 0a	 sub	 r14d, 10
+  007d8	41 83 ee 08	 sub	 r14d, 8
   007dc	44 3b f6	 cmp	 r14d, esi
   007df	0f 8f a8 04 00
 	00		 jg	 $LN12@mainLoop
@@ -1601,13 +1601,13 @@ $LL10@mainLoop:
 ; 131  : 					bool in1 = xDist + yDist + zDist <= renderDistance * renderDistance;
 
   00818	41 03 c0	 add	 eax, r8d
-  0081b	83 f8 64	 cmp	 eax, 100		; 00000064H
+  0081b	83 f8 40	 cmp	 eax, 64			; 00000040H
   0081e	0f 9e c3	 setle	 bl
 
 ; 132  : 					bool in2 = xPrevDist + yPrevDist + zPrevDist <= renderDistance * renderDistance;
 
   00821	8d 04 0a	 lea	 eax, DWORD PTR [rdx+rcx]
-  00824	83 f8 64	 cmp	 eax, 100		; 00000064H
+  00824	83 f8 40	 cmp	 eax, 64			; 00000040H
   00827	40 0f 9e c7	 setle	 dil
 
 ; 133  : 
@@ -1657,7 +1657,7 @@ $LL10@mainLoop:
   00884	48 85 c0	 test	 rax, rax
   00887	0f 84 99 00 00
 	00		 je	 $LN49@mainLoop
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -1698,7 +1698,7 @@ $LL10@mainLoop:
   008cc	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
   008d1	90		 npad	 1
 $LN230@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -1721,7 +1721,7 @@ $LN230@mainLoop:
   008e6	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
   008eb	90		 npad	 1
 $LN239@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -1751,7 +1751,7 @@ $LN239@mainLoop:
   008f7	33 d2		 xor	 edx, edx
   008f9	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
   008fe	90		 npad	 1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -1781,16 +1781,16 @@ $LN239@mainLoop:
   0090a	33 d2		 xor	 edx, edx
   0090c	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
   00911	90		 npad	 1
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 145  : {
+; 150  : {
 
   00912	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
   00919	48 89 03	 mov	 QWORD PTR [rbx], rax
   0091c	48 c7 43 58 00
 	00 00 00	 mov	 QWORD PTR [rbx+88], 0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 142  : 							c = std::shared_ptr<ChunkBase>(new Chunk(GlobalThread::world, i, j, k));
 
@@ -1947,27 +1947,27 @@ $LN560@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  00996	48 8b 05 b0 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+176
+  00996	48 8b 05 b8 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+184
   0099d	48 ff c0	 inc	 rax
-  009a0	48 8b 3d a0 00
-	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+160
+  009a0	48 8b 3d a8 00
+	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+168
   009a7	48 3b f8	 cmp	 rdi, rax
   009aa	77 13		 ja	 SHORT $LN332@mainLoop
-  009ac	48 8d 0d 90 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+144
+  009ac	48 8d 0d 98 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+152
   009b3	e8 00 00 00 00	 call	 ?_Growmap@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAX_K@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Growmap
-  009b8	48 8b 3d a0 00
-	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+160
+  009b8	48 8b 3d a8 00
+	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+168
 $LN332@mainLoop:
   009bf	48 ff cf	 dec	 rdi
-  009c2	48 8b 0d a8 00
-	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+168
+  009c2	48 8b 0d b0 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+176
   009c9	48 23 cf	 and	 rcx, rdi
-  009cc	48 89 0d a8 00
-	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+168, rcx
-  009d3	48 03 0d b0 00
-	00 00		 add	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+176
+  009cc	48 89 0d b0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+176, rcx
+  009d3	48 03 0d b8 00
+	00 00		 add	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+184
 
 ; 787  : 		return ((_Off / _DEQUESIZ) & (this->_Mapsize - 1));
 
@@ -1975,8 +1975,8 @@ $LN332@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  009dd	48 8b 05 98 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+152
+  009dd	48 8b 05 a0 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+160
   009e4	48 83 3c f8 00	 cmp	 QWORD PTR [rax+rdi*8], 0
   009e9	75 25		 jne	 SHORT $LN331@mainLoop
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
@@ -1992,11 +1992,11 @@ $LN332@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  009fe	48 8b 0d 98 00
-	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+152
+  009fe	48 8b 0d a0 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+160
   00a05	48 89 04 f9	 mov	 QWORD PTR [rcx+rdi*8], rax
-  00a09	48 8b 05 98 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+152
+  00a09	48 8b 05 a0 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+160
 $LN331@mainLoop:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
@@ -2158,8 +2158,8 @@ $LN366@mainLoop:
 
 ; 1490 : 		_PUSH_BACK_END;
 
-  00a5b	48 ff 05 b0 00
-	00 00		 inc	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+176
+  00a5b	48 ff 05 b8 00
+	00 00		 inc	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+184
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 282  : 		{	// construct
@@ -2309,9 +2309,9 @@ $LN562@mainLoop:
   00aa6	48 89 44 24 50	 mov	 QWORD PTR $T2[rsp], rax
   00aab	48 8d 44 24 50	 lea	 rax, QWORD PTR $T2[rsp]
   00ab0	48 89 45 88	 mov	 QWORD PTR $T6[rbp-256], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
-; 159  : 	ChunkLoadThread* thread = &chunkLoadThreads[(loaderThread++) % LOAD_THREAD_AMOUNT];
+; 215  : 	ChunkLoadThread* thread = &chunkLoadThreads[(loaderThread++) % LOAD_THREAD_AMOUNT];
 
   00ab4	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?loaderThread@@3HA ; loaderThread
@@ -2319,8 +2319,8 @@ $LN562@mainLoop:
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00aba	48 8d 0d 48 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2376
+  00aba	48 8d 0d 60 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2400
   00ac1	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -2338,15 +2338,15 @@ $LN419@mainLoop:
 ; 155  : 		c.push_back(_Val);
 
   00ad1	48 8d 54 24 50	 lea	 rdx, QWORD PTR $T2[rsp]
-  00ad6	48 8d 0d 20 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2336
+  00ad6	48 8d 0d 38 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2360
   00add	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00ae2	48 8d 0d 48 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2376
+  00ae2	48 8d 0d 60 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2400
   00ae9	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -2408,7 +2408,7 @@ $LN428@mainLoop:
   00b24	48 8b 03	 mov	 rax, QWORD PTR [rbx]
   00b27	48 8b cb	 mov	 rcx, rbx
   00b2a	ff 50 08	 call	 QWORD PTR [rax+8]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 146  : 					}
 
@@ -2436,27 +2436,27 @@ $LN6@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  00b53	48 8b 05 e0 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+224
+  00b53	48 8b 05 e8 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+232
   00b5a	48 ff c0	 inc	 rax
-  00b5d	48 8b 15 d0 00
-	00 00		 mov	 rdx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+208
+  00b5d	48 8b 15 d8 00
+	00 00		 mov	 rdx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+216
   00b64	48 3b d0	 cmp	 rdx, rax
   00b67	77 13		 ja	 SHORT $LN449@mainLoop
-  00b69	48 8d 0d c0 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+192
+  00b69	48 8d 0d c8 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+200
   00b70	e8 00 00 00 00	 call	 ?_Growmap@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@IEAAX_K@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::_Growmap
-  00b75	48 8b 15 d0 00
-	00 00		 mov	 rdx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+208
+  00b75	48 8b 15 d8 00
+	00 00		 mov	 rdx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+216
 $LN449@mainLoop:
   00b7c	48 ff ca	 dec	 rdx
-  00b7f	48 8b 0d d8 00
-	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+216
+  00b7f	48 8b 0d e0 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+224
   00b86	48 23 ca	 and	 rcx, rdx
-  00b89	48 89 0d d8 00
-	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+216, rcx
-  00b90	48 8b 3d e0 00
-	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+224
+  00b89	48 89 0d e0 00
+	00 00		 mov	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+224, rcx
+  00b90	48 8b 3d e8 00
+	00 00		 mov	 rdi, QWORD PTR ?world@GlobalThread@@3VWorld@@A+232
   00b97	48 03 f9	 add	 rdi, rcx
 
 ; 787  : 		return ((_Off / _DEQUESIZ) & (this->_Mapsize - 1));
@@ -2465,8 +2465,8 @@ $LN449@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  00b9d	48 8b 05 c8 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+200
+  00b9d	48 8b 05 d0 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+208
   00ba4	48 83 3c f8 00	 cmp	 QWORD PTR [rax+rdi*8], 0
   00ba9	75 25		 jne	 SHORT $LN448@mainLoop
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
@@ -2482,11 +2482,11 @@ $LN449@mainLoop:
 
 ; 1487 : 		_PUSH_BACK_BEGIN;
 
-  00bbe	48 8b 0d c8 00
-	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+200
+  00bbe	48 8b 0d d0 00
+	00 00		 mov	 rcx, QWORD PTR ?world@GlobalThread@@3VWorld@@A+208
   00bc5	48 89 04 f9	 mov	 QWORD PTR [rcx+rdi*8], rax
-  00bc9	48 8b 05 c8 00
-	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+200
+  00bc9	48 8b 05 d0 00
+	00 00		 mov	 rax, QWORD PTR ?world@GlobalThread@@3VWorld@@A+208
 $LN448@mainLoop:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
@@ -2650,8 +2650,8 @@ $LN564@mainLoop:
 
 ; 1490 : 		_PUSH_BACK_END;
 
-  00c25	48 ff 05 e0 00
-	00 00		 inc	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+224
+  00c25	48 ff 05 e8 00
+	00 00		 inc	 QWORD PTR ?world@GlobalThread@@3VWorld@@A+232
   00c2c	eb 03		 jmp	 SHORT $LN565@mainLoop
 $LN583@mainLoop:
   00c2e	8b 75 60	 mov	 esi, DWORD PTR zLimit$1$[rbp-256]
@@ -2706,7 +2706,7 @@ $LN586@mainLoop:
   00c5f	8b 55 70	 mov	 edx, DWORD PTR tv2277[rbp-256]
   00c62	44 8b 45 68	 mov	 r8d, DWORD PTR tv2278[rbp-256]
 $LN9@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 126  : 				for(int k = (camZ < prevCamZ ? camZ : prevCamZ) - renderDistance; k <= zLimit; k++)
 
@@ -2757,8 +2757,8 @@ $LN580@mainLoop:
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00cc2	48 8d 0d 88 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+136
+  00cc2	48 8d 0d 90 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+144
   00cc9	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -2774,8 +2774,8 @@ $LN523@mainLoop:
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00cd9	48 8d 0d b8 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+184
+  00cd9	48 8d 0d c0 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+192
   00ce0	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -2795,7 +2795,7 @@ $LN567@mainLoop:
   00cfc	8b 15 00 00 00
 	00		 mov	 edx, DWORD PTR ?camX@@3HA ; camX
 $LN530@mainLoop:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 161  : 	prevCamX = camX;
 
@@ -3028,76 +3028,62 @@ xDist$1$ = 376
 ?dtor$9@?0??mainLoop@@YA_NXZ@4HA ENDP			; `mainLoop'::`1'::dtor$9
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\utility
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
@@ -3106,41 +3092,59 @@ text$x	ENDS
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xrefwrap
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\functional
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\window.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\window.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
-; File c:\users\glenn\documents\github\wind\project\wind\wind\gamestates.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+; File c:\users\erlend\documents\github\wind\project\wind\wind\gamestates.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ;	COMDAT WinMain
 _TEXT	SEGMENT
 c$1 = 64
 r2$1$ = 80
 xDist$1$ = 84
 r1$1$ = 88
-tv2945 = 92
+tv3035 = 92
 lastTick$1$ = 96
 theThread$2 = 104
 $T3 = 112
@@ -3177,7 +3181,7 @@ WinMain	PROC						; COMDAT
 
 ; 177  : {
 
-$LN991:
+$LN993:
   00000	48 89 5c 24 10	 mov	 QWORD PTR [rsp+16], rbx
   00005	48 89 74 24 18	 mov	 QWORD PTR [rsp+24], rsi
   0000a	48 89 7c 24 20	 mov	 QWORD PTR [rsp+32], rdi
@@ -3230,7 +3234,7 @@ $LN41@WinMain:
 
   00065	41 8b cf	 mov	 ecx, r15d
   00068	f7 d9		 neg	 ecx
-  0006a	89 4c 24 5c	 mov	 DWORD PTR tv2945[rsp], ecx
+  0006a	89 4c 24 5c	 mov	 DWORD PTR tv3035[rsp], ecx
   0006e	44 8b e9	 mov	 r13d, ecx
   00071	41 3b cf	 cmp	 ecx, r15d
   00074	0f 8f b7 02 00
@@ -3294,7 +3298,7 @@ $LL28@WinMain:
 ; 335  : 		return (_Ptr);
 
   000de	48 8b 08	 mov	 rcx, QWORD PTR [rax]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 194  : 					bool b = GlobalThread::world.getChunk(i, j, k)->isEmpty();
 
@@ -3346,7 +3350,7 @@ $LL28@WinMain:
   00107	48 8b cb	 mov	 rcx, rbx
   0010a	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN60@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 201  : 					if((zDist <= r1) && (zDist > r2))
 
@@ -3365,7 +3369,7 @@ $LN60@WinMain:
   0012e	48 85 c0	 test	 rax, rax
   00131	0f 84 92 00 00
 	00		 je	 $LN42@WinMain
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -3382,7 +3386,7 @@ $LN60@WinMain:
 ; 28   : 		_Mtx_initX(&_Mtx, _Flags | _Mtx_try);
 
   00152	48 8d 4b 28	 lea	 rcx, QWORD PTR [rbx+40]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -3392,7 +3396,7 @@ $LN60@WinMain:
 ; 63   : 	return (_Check_C_return(_Mtx_init(_Mtx, _Type)));
 
   0015a	ba 02 00 00 00	 mov	 edx, 2
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 11   : {
 
@@ -3437,7 +3441,7 @@ $LN75@WinMain:
   0018c	8b c8		 mov	 ecx, eax
   0018e	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN84@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -3460,7 +3464,7 @@ $LN84@WinMain:
 ; 501  : 		_Resetp((_Ty *)0);
 
   001a2	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 54   : {
 
@@ -3479,15 +3483,15 @@ $LN84@WinMain:
 ; 501  : 		_Resetp((_Ty *)0);
 
   001b4	e8 00 00 00 00	 call	 ??$_Resetp@VVertexStream@gfxu@@@?$shared_ptr@VVertexStream@gfxu@@@std@@AEAAXPEAVVertexStream@gfxu@@@Z ; std::shared_ptr<gfxu::VertexStream>::_Resetp<gfxu::VertexStream>
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 145  : {
+; 150  : {
 
   001b9	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
   001c0	48 89 7b 58	 mov	 QWORD PTR [rbx+88], rdi
   001c4	48 89 03	 mov	 QWORD PTR [rbx], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 203  : 						std::shared_ptr<ChunkBase> c(new Chunk(GlobalThread::world, i, j, k));
 
@@ -3511,13 +3515,13 @@ $LN43@WinMain:
 ; 487  : 		_Resetp(_Px);
 
   001df	e8 00 00 00 00	 call	 ??$_Resetp@VChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVChunk@@@Z ; std::shared_ptr<ChunkBase>::_Resetp<Chunk>
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 204  : 						GlobalThread::world.chunkMap[c->pos] = c;
 
   001e4	48 8b 54 24 40	 mov	 rdx, QWORD PTR c$1[rsp]
-  001e9	48 8d 0d 48 00
-	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+72
+  001e9	48 8d 0d 50 00
+	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A+80
   001f0	48 83 c2 18	 add	 rdx, 24
   001f4	e8 00 00 00 00	 call	 ??A?$unordered_map@VChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@U?$hash@VChunkPosition@@@3@U?$equal_to@VChunkPosition@@@3@V?$allocator@U?$pair@$$CBVChunkPosition@@V?$shared_ptr@VChunkBase@@@std@@@std@@@3@@std@@QEAAAEAV?$shared_ptr@VChunkBase@@@1@AEBVChunkPosition@@@Z ; std::unordered_map<ChunkPosition,std::shared_ptr<ChunkBase>,std::hash<ChunkPosition>,std::equal_to<ChunkPosition>,std::allocator<std::pair<ChunkPosition const ,std::shared_ptr<ChunkBase> > > >::operator[]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
@@ -3564,7 +3568,7 @@ $LN122@WinMain:
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
   00225	f0 ff 4a 08	 lock dec DWORD PTR [rdx+8]
-  00229	75 1c		 jne	 SHORT $LN985@WinMain
+  00229	75 1c		 jne	 SHORT $LN989@WinMain
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
@@ -3583,14 +3587,14 @@ $LN122@WinMain:
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
   00237	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  0023b	75 0a		 jne	 SHORT $LN985@WinMain
+  0023b	75 0a		 jne	 SHORT $LN989@WinMain
 
 ; 128  : 			_Delete_this();
 
   0023d	48 8b 4d b8	 mov	 rcx, QWORD PTR $T8[rbp-248]
   00241	48 8b 01	 mov	 rax, QWORD PTR [rcx]
   00244	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN985@WinMain:
+$LN989@WinMain:
   00247	48 8b 7c 24 48	 mov	 rdi, QWORD PTR c$1[rsp+8]
 $LN153@WinMain:
 
@@ -3608,9 +3612,9 @@ $LN165@WinMain:
 ; 427  : 		_Ptr = _Other_ptr;
 
   0025a	48 8b 44 24 40	 mov	 rax, QWORD PTR c$1[rsp]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
-; 159  : 	ChunkLoadThread* thread = &chunkLoadThreads[(loaderThread++) % LOAD_THREAD_AMOUNT];
+; 215  : 	ChunkLoadThread* thread = &chunkLoadThreads[(loaderThread++) % LOAD_THREAD_AMOUNT];
 
   0025f	ff 05 00 00 00
 	00		 inc	 DWORD PTR ?loaderThread@@3HA ; loaderThread
@@ -3618,8 +3622,8 @@ $LN165@WinMain:
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00265	48 8d 0d 48 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2376
+  00265	48 8d 0d 60 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2400
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 427  : 		_Ptr = _Other_ptr;
@@ -3647,15 +3651,15 @@ $LN182@WinMain:
 ; 155  : 		c.push_back(_Val);
 
   00284	48 8d 55 c0	 lea	 rdx, QWORD PTR $T9[rbp-256]
-  00288	48 8d 0d 20 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2336
+  00288	48 8d 0d 38 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2360
   0028f	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00294	48 8d 0d 48 09
-	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2376
+  00294	48 8d 0d 60 09
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2400
   0029b	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
@@ -3754,7 +3758,7 @@ $LN202@WinMain:
   002f2	48 8b 01	 mov	 rax, QWORD PTR [rcx]
   002f5	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN27@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 191  : 				for(int k = -r; k <= r; k++)
 
@@ -3765,7 +3769,7 @@ $LN27@WinMain:
   00304	0f 8e b6 fd ff
 	ff		 jle	 $LL28@WinMain
   0030a	8b 44 24 54	 mov	 eax, DWORD PTR xDist$1$[rsp]
-  0030e	8b 4c 24 5c	 mov	 ecx, DWORD PTR tv2945[rsp]
+  0030e	8b 4c 24 5c	 mov	 ecx, DWORD PTR tv3035[rsp]
   00312	4c 8d 15 00 00
 	00 00		 lea	 r10, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
 $LN30@WinMain:
@@ -3790,7 +3794,7 @@ $LN36@WinMain:
 ; 181  : 	for(int r = 0; r <= renderDistance; r++)
 
   00331	41 ff c7	 inc	 r15d
-  00334	41 83 ff 0a	 cmp	 r15d, 10
+  00334	41 83 ff 08	 cmp	 r15d, 8
   00338	0f 8e 02 fd ff
 	ff		 jle	 $LL37@WinMain
 
@@ -3808,12 +3812,12 @@ $LN36@WinMain:
 ; 213  : 	cl::staticInit();
 
   00343	e8 00 00 00 00	 call	 ?staticInit@cl@@YA_NXZ	; cl::staticInit
-; File c:\users\glenn\documents\github\wind\project\wind\wind\noise.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\noise.cpp
 
 ; 21   : 	Noise::noiseProgram.create(IOUtil::EXE_DIR + L"\\programs\\noise.cl");
 
   00348	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294904952
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294895145
   0034f	48 8d 8d 80 01
 	00 00		 lea	 rcx, QWORD PTR $T27[rbp-256]
   00356	e8 00 00 00 00	 call	 ??$?H_WU?$char_traits@_W@std@@V?$allocator@_W@1@@std@@YA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@0@AEBV10@PEB_W@Z ; std::operator+<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >
@@ -3821,7 +3825,7 @@ $LN36@WinMain:
 	00 00		 lea	 rcx, OFFSET FLAT:?noiseProgram@Noise@@3VProgram@cl@@A ; Noise::noiseProgram
   00362	48 8b d0	 mov	 rdx, rax
   00365	e8 00 00 00 00	 call	 ?create@Program@cl@@QEAA_NV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@Z ; cl::Program::create
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 215  : 	Blocks::staticInit();
 
@@ -3834,14 +3838,14 @@ $LN36@WinMain:
 
 ; 219  : 	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 3, 4);
 
-  00374	b9 68 00 00 00	 mov	 ecx, 104		; 00000068H
+  00374	b9 70 00 00 00	 mov	 ecx, 112		; 00000070H
   00379	e8 00 00 00 00	 call	 ??2@YAPEAX_K@Z		; operator new
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
   0037e	45 33 ff	 xor	 r15d, r15d
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 219  : 	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 3, 4);
 
@@ -3854,7 +3858,7 @@ $LN36@WinMain:
 
   00389	45 8d 47 04	 lea	 r8d, QWORD PTR [r15+4]
   0038d	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294908338
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294898609
   00394	48 8d 4d d0	 lea	 rcx, QWORD PTR $T10[rbp-256]
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
@@ -3875,7 +3879,7 @@ $LN36@WinMain:
 ; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
 
   003a9	e8 00 00 00 00	 call	 ?assign@?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@QEAAAEAV12@PEB_W_K@Z ; std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >::assign
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 219  : 	GLWindow::instance = new GLWindow(L"Wind", 600, 600, _hInstance, 3, 4);
 
@@ -3895,7 +3899,7 @@ $LN45@WinMain:
 ; 220  : 	GLWindow::instance->initWindow();
 
   003d2	e8 00 00 00 00	 call	 ?initWindow@GLWindow@@QEAAXXZ ; GLWindow::initWindow
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 37   : 	Thread* theThread = this;
 
@@ -3907,7 +3911,7 @@ $LN45@WinMain:
 
   003de	48 8d 8d b0 00
 	00 00		 lea	 rcx, QWORD PTR _Launcher$21[rbp-256]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 37   : 	Thread* theThread = this;
 
@@ -4004,8 +4008,8 @@ $LN45@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  00441	0f 85 49 05 00
-	00		 jne	 $LN989@WinMain
+  00441	0f 85 56 05 00
+	00		 jne	 $LN991@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
 
@@ -4022,7 +4026,7 @@ $LN45@WinMain:
   00461	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
 $LL23@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 223  : 	while(GLWindow::instance == nullptr || !GLWindow::instance->isOK())
 
@@ -4035,10 +4039,10 @@ $LL23@WinMain:
 
   00472	48 8d 1d 18 00
 	00 00		 lea	 rbx, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+24
-  00479	4c 8d 35 68 09
-	00 00		 lea	 r14, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2408
+  00479	4c 8d 35 80 09
+	00 00		 lea	 r14, OFFSET FLAT:?chunkLoadThreads@@3PAVChunkLoadThread@@A+2432
 $LL20@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 37   : 	Thread* theThread = this;
 
@@ -4049,7 +4053,7 @@ $LL20@WinMain:
 
   00484	48 8d 8d f0 00
 	00 00		 lea	 rcx, QWORD PTR _Launcher$23[rbp-256]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 35   : 	started = true;
 
@@ -4136,32 +4140,32 @@ $LL20@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  004d3	0f 85 c3 04 00
-	00		 jne	 $LN947@WinMain
+  004d3	0f 85 d0 04 00
+	00		 jne	 $LN951@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
 
   004d9	48 8b 44 24 70	 mov	 rax, QWORD PTR $T3[rsp]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 228  : 	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
 
-  004de	48 81 c3 50 09
-	00 00		 add	 rbx, 2384		; 00000950H
+  004de	48 81 c3 68 09
+	00 00		 add	 rbx, 2408		; 00000968H
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 113  : 		_Thr = _Other._Thr;
 
-  004e5	48 89 83 a0 f6
-	ff ff		 mov	 QWORD PTR [rbx-2400], rax
+  004e5	48 89 83 88 f6
+	ff ff		 mov	 QWORD PTR [rbx-2424], rax
   004ec	48 8b 44 24 78	 mov	 rax, QWORD PTR $T3[rsp+8]
 
 ; 114  : 		_Thr_set_null(_Other._Thr);
 
   004f1	44 89 7c 24 78	 mov	 DWORD PTR $T3[rsp+8], r15d
-  004f6	48 89 83 a8 f6
-	ff ff		 mov	 QWORD PTR [rbx-2392], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+  004f6	48 89 83 90 f6
+	ff ff		 mov	 QWORD PTR [rbx-2416], rax
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 228  : 	for(int i = 0; i < LOAD_THREAD_AMOUNT; i++)
 
@@ -4173,13 +4177,13 @@ $LL20@WinMain:
 
   00506	48 8d 1d 18 00
 	00 00		 lea	 rbx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+24
-  0050d	4c 8d 35 d0 08
-	00 00		 lea	 r14, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2256
+  0050d	4c 8d 35 88 11
+	00 00		 lea	 r14, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+4488
   00514	66 66 66 66 0f
 	1f 84 00 00 00
 	00 00		 npad	 12
 $LL17@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 37   : 	Thread* theThread = this;
 
@@ -4189,7 +4193,7 @@ $LL17@WinMain:
 ; 182  : 		{	// construct from target
 
   00524	48 8d 4d 20	 lea	 rcx, QWORD PTR _Launcher$14[rbp-256]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 35   : 	started = true;
 
@@ -4271,13 +4275,13 @@ $LL17@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  00562	0f 85 2e 04 00
-	00		 jne	 $LN949@WinMain
+  00562	0f 85 3b 04 00
+	00		 jne	 $LN953@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
 
   00568	48 8b 45 80	 mov	 rax, QWORD PTR $T4[rbp-256]
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 233  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
 
@@ -4296,7 +4300,7 @@ $LL17@WinMain:
   0057e	44 89 7d 88	 mov	 DWORD PTR $T4[rbp-248], r15d
   00582	48 89 83 40 f7
 	ff ff		 mov	 QWORD PTR [rbx-2240], rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 233  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
 
@@ -4315,7 +4319,7 @@ $LL17@WinMain:
 ; 706  : 		return (time_point(duration(_Xtime_get_ticks())));
 
   00593	e8 00 00 00 00	 call	 _Xtime_get_ticks
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 244  : 	while(!GlobalThread::stop)
 
@@ -4326,12 +4330,12 @@ $LL17@WinMain:
 ; 706  : 		return (time_point(duration(_Xtime_get_ticks())));
 
   0059f	48 8b d8	 mov	 rbx, rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 244  : 	while(!GlobalThread::stop)
 
-  005a2	0f 85 d0 00 00
-	00		 jne	 $LN987@WinMain
+  005a2	0f 85 d8 00 00
+	00		 jne	 $LL979@WinMain
   005a8	48 bf bd 42 7a
 	e5 d5 94 bf d6	 mov	 rdi, -2972493582642298179 ; d6bf94d5e57a42bdH
   005b2	66 66 66 66 66
@@ -4360,7 +4364,7 @@ $LL14@WinMain:
   005e1	83 bd 28 01 00
 	00 12		 cmp	 DWORD PTR msg$[rbp-248], 18
   005e8	0f 84 83 00 00
-	00		 je	 $LN984@WinMain
+	00		 je	 $LN988@WinMain
 
 ; 249  : 			{
 ; 250  : 				GlobalThread::stop = true;
@@ -4383,7 +4387,7 @@ $LL14@WinMain:
 ; 255  : 			}
 ; 256  : 		} else
 
-  00608	eb 58		 jmp	 SHORT $LN986@WinMain
+  00608	eb 58		 jmp	 SHORT $LN7@WinMain
 $LN12@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
 
@@ -4391,7 +4395,7 @@ $LN12@WinMain:
 
   0060a	e8 00 00 00 00	 call	 _Xtime_get_ticks
   0060f	48 8b c8	 mov	 rcx, rax
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 261  : 			long long tick = difference / tickTime;
 
@@ -4842,7 +4846,7 @@ $LN12@WinMain:
 ; 543  : 		return (_To(static_cast<typename _To::rep>(
 
   00618	48 6b c9 64	 imul	 rcx, 100		; 00000064H
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 261  : 			long long tick = difference / tickTime;
 
@@ -4862,7 +4866,7 @@ $LN12@WinMain:
 ; 264  : 			if(ticksToProcess > 0)
 
   00638	48 85 d2	 test	 rdx, rdx
-  0063b	7e 25		 jle	 SHORT $LN986@WinMain
+  0063b	7e 25		 jle	 SHORT $LN7@WinMain
 
 ; 265  : 			{
 ; 266  : 				lastTick++;
@@ -4879,12 +4883,12 @@ $LN12@WinMain:
 
   0064c	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
-  00653	80 78 64 00	 cmp	 BYTE PTR [rax+100], 0
-  00657	74 09		 je	 SHORT $LN986@WinMain
+  00653	80 78 6c 00	 cmp	 BYTE PTR [rax+108], 0
+  00657	74 09		 je	 SHORT $LN7@WinMain
   00659	e8 00 00 00 00	 call	 ?mainLoop@@YA_NXZ	; mainLoop
   0065e	84 c0		 test	 al, al
-  00660	74 0f		 je	 SHORT $LN984@WinMain
-$LN986@WinMain:
+  00660	74 0f		 je	 SHORT $LN988@WinMain
+$LN7@WinMain:
 
 ; 244  : 	while(!GlobalThread::stop)
 
@@ -4892,31 +4896,33 @@ $LN986@WinMain:
 	00 00		 cmp	 BYTE PTR ?stop@GlobalThread@@3_NA, 0 ; GlobalThread::stop
   00669	0f 84 51 ff ff
 	ff		 je	 $LL14@WinMain
-  0066f	eb 07		 jmp	 SHORT $LN987@WinMain
-$LN984@WinMain:
+  0066f	eb 0f		 jmp	 SHORT $LL979@WinMain
+$LN988@WinMain:
 
 ; 269  : 				{
 ; 270  : 					GlobalThread::stop = true;
 
   00671	c6 05 00 00 00
 	00 01		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, 1 ; GlobalThread::stop
-$LN987@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+  00678	0f 1f 84 00 00
+	00 00 00	 npad	 8
+$LL979@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
 
-  00678	80 3d 18 00 00
-	00 00		 cmp	 BYTE PTR ?renderThread@@3VRenderThread@@A+24, 0
-  0067f	c6 05 19 00 00
-	00 01		 mov	 BYTE PTR ?renderThread@@3VRenderThread@@A+25, 1
-  00686	0f 84 94 00 00
-	00		 je	 $LL810@WinMain
+  00680	80 3d 18 00 00
+	00 00		 cmp	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+24, 0
+  00687	c6 05 19 00 00
+	00 01		 mov	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+25, 1
+  0068e	0f 84 90 00 00
+	00		 je	 $LN5@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  0068c	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
+  00694	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, 0
 
 ; 115  : 		return (*this);
 ; 116  : 		}
@@ -5016,23 +5022,23 @@ $LN987@WinMain:
 ; 210  : 	{	// join thread
 ; 211  : 	if (!joinable())
 
-  00693	75 1d		 jne	 SHORT $LN808@WinMain
+  0069b	75 1d		 jne	 SHORT $LN808@WinMain
 
 ; 212  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00695	b9 01 00 00 00	 mov	 ecx, 1
-  0069a	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  0069d	b9 01 00 00 00	 mov	 ecx, 1
+  006a2	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 
 ; 213  : 	if (_Thr_is_null(_Thr))
 
-  0069f	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
-  006a6	75 0a		 jne	 SHORT $LN808@WinMain
+  006a7	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, 0
+  006ae	75 0a		 jne	 SHORT $LN808@WinMain
 
 ; 214  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  006a8	b9 01 00 00 00	 mov	 ecx, 1
-  006ad	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  006b0	b9 01 00 00 00	 mov	 ecx, 1
+  006b5	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN808@WinMain:
 
 ; 220  : 	}
@@ -5046,9 +5052,9 @@ $LN808@WinMain:
 ; 228  : 	{	// return id for current thread
 ; 229  : 	return (_Thrd_current());
 
-  006b2	48 8d 8d 50 01
+  006ba	48 8d 8d 50 01
 	00 00		 lea	 rcx, QWORD PTR $T24[rbp-256]
-  006b9	e8 00 00 00 00	 call	 _Thrd_current
+  006c1	e8 00 00 00 00	 call	 _Thrd_current
 
 ; 230  : 	}
 ; 231  : 
@@ -5061,67 +5067,72 @@ $LN808@WinMain:
 ; 238  : 	{	// return true if _Left and _Right identify the same thread
 ; 239  : 	return (_Thrd_equal(_Left._Thr, _Right._Thr));
 
-  006be	48 8d 95 90 00
+  006c6	48 8d 95 90 00
 	00 00		 lea	 rdx, QWORD PTR $T19[rbp-256]
-  006c5	48 8d 4d f0	 lea	 rcx, QWORD PTR $T11[rbp-256]
-  006c9	0f 10 0d 08 00
-	00 00		 movups	 xmm1, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
-  006d0	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  006d3	0f 29 4d f0	 movaps	 XMMWORD PTR $T11[rbp-256], xmm1
-  006d7	0f 29 85 90 00
+  006cd	48 8d 4d f0	 lea	 rcx, QWORD PTR $T11[rbp-256]
+  006d1	0f 10 0d 08 00
+	00 00		 movups	 xmm1, XMMWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+8
+  006d8	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  006db	0f 29 4d f0	 movaps	 XMMWORD PTR $T11[rbp-256], xmm1
+  006df	0f 29 85 90 00
 	00 00		 movaps	 XMMWORD PTR $T19[rbp-256], xmm0
-  006de	e8 00 00 00 00	 call	 _Thrd_equal
-  006e3	85 c0		 test	 eax, eax
+  006e6	e8 00 00 00 00	 call	 _Thrd_equal
+  006eb	85 c0		 test	 eax, eax
 
 ; 215  : 	if (get_id() == _STD this_thread::get_id())
 
-  006e5	74 0a		 je	 SHORT $LN807@WinMain
+  006ed	74 0a		 je	 SHORT $LN807@WinMain
 
 ; 216  : 		_Throw_Cpp_error(_RESOURCE_DEADLOCK_WOULD_OCCUR);
 
-  006e7	b9 05 00 00 00	 mov	 ecx, 5
-  006ec	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  006ef	b9 05 00 00 00	 mov	 ecx, 5
+  006f4	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN807@WinMain:
 
 ; 217  : 	if (_Thrd_join(_Thr, 0) != _Thrd_success)
 
-  006f1	0f 10 05 08 00
-	00 00		 movups	 xmm0, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
-  006f8	48 8d 4d 10	 lea	 rcx, QWORD PTR $T13[rbp-256]
-  006fc	33 d2		 xor	 edx, edx
-  006fe	0f 29 45 10	 movaps	 XMMWORD PTR $T13[rbp-256], xmm0
-  00702	e8 00 00 00 00	 call	 _Thrd_join
-  00707	85 c0		 test	 eax, eax
-  00709	74 0a		 je	 SHORT $LN806@WinMain
+  006f9	0f 10 05 08 00
+	00 00		 movups	 xmm0, XMMWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+8
+  00700	48 8d 4d 10	 lea	 rcx, QWORD PTR $T13[rbp-256]
+  00704	33 d2		 xor	 edx, edx
+  00706	0f 29 45 10	 movaps	 XMMWORD PTR $T13[rbp-256], xmm0
+  0070a	e8 00 00 00 00	 call	 _Thrd_join
+  0070f	85 c0		 test	 eax, eax
+  00711	74 0a		 je	 SHORT $LN806@WinMain
 
 ; 218  : 		_Throw_Cpp_error(_NO_SUCH_PROCESS);
 
-  0070b	b9 02 00 00 00	 mov	 ecx, 2
-  00710	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00713	b9 02 00 00 00	 mov	 ecx, 2
+  00718	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN806@WinMain:
 
 ; 219  : 	_Thr_set_null(_Thr);
 
-  00715	44 89 3d 10 00
-	00 00		 mov	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, r15d
-  0071c	0f 1f 40 00	 npad	 4
-$LL810@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+  0071d	44 89 3d 10 00
+	00 00		 mov	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, r15d
+$LN5@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+
+; 280  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
+
+  00724	48 8d 1d 10 00
+	00 00		 lea	 rbx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+16
+  0072b	48 8d 3d 80 11
+	00 00		 lea	 rdi, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+4480
+$LL3@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
 
-  00720	80 3d 18 00 00
-	00 00		 cmp	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+24, 0
-  00727	c6 05 19 00 00
-	00 01		 mov	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+25, 1
-  0072e	0f 84 9c 00 00
-	00		 je	 $LL5@WinMain
+  00732	80 7b 08 00	 cmp	 BYTE PTR [rbx+8], 0
+  00736	c6 43 09 01	 mov	 BYTE PTR [rbx+9], 1
+  0073a	0f 84 84 00 00
+	00		 je	 $LN2@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  00734	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, 0
+  00740	83 3b 00	 cmp	 DWORD PTR [rbx], 0
 
 ; 115  : 		return (*this);
 ; 116  : 		}
@@ -5221,23 +5232,22 @@ $LL810@WinMain:
 ; 210  : 	{	// join thread
 ; 211  : 	if (!joinable())
 
-  0073b	75 1d		 jne	 SHORT $LN829@WinMain
+  00743	75 19		 jne	 SHORT $LN829@WinMain
 
 ; 212  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  0073d	b9 01 00 00 00	 mov	 ecx, 1
-  00742	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00745	b9 01 00 00 00	 mov	 ecx, 1
+  0074a	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 
 ; 213  : 	if (_Thr_is_null(_Thr))
 
-  00747	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, 0
-  0074e	75 0a		 jne	 SHORT $LN829@WinMain
+  0074f	83 3b 00	 cmp	 DWORD PTR [rbx], 0
+  00752	75 0a		 jne	 SHORT $LN829@WinMain
 
 ; 214  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00750	b9 01 00 00 00	 mov	 ecx, 1
-  00755	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00754	b9 01 00 00 00	 mov	 ecx, 1
+  00759	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN829@WinMain:
 
 ; 220  : 	}
@@ -5251,9 +5261,9 @@ $LN829@WinMain:
 ; 228  : 	{	// return id for current thread
 ; 229  : 	return (_Thrd_current());
 
-  0075a	48 8d 8d 70 01
+  0075e	48 8d 8d 70 01
 	00 00		 lea	 rcx, QWORD PTR $T26[rbp-256]
-  00761	e8 00 00 00 00	 call	 _Thrd_current
+  00765	e8 00 00 00 00	 call	 _Thrd_current
 
 ; 230  : 	}
 ; 231  : 
@@ -5266,70 +5276,74 @@ $LN829@WinMain:
 ; 238  : 	{	// return true if _Left and _Right identify the same thread
 ; 239  : 	return (_Thrd_equal(_Left._Thr, _Right._Thr));
 
-  00766	48 8d 95 e0 00
+  0076a	48 8d 95 e0 00
 	00 00		 lea	 rdx, QWORD PTR $T22[rbp-256]
-  0076d	48 8d 4d 60	 lea	 rcx, QWORD PTR $T16[rbp-256]
-  00771	0f 10 0d 08 00
-	00 00		 movups	 xmm1, XMMWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+8
-  00778	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  0077b	0f 29 4d 60	 movaps	 XMMWORD PTR $T16[rbp-256], xmm1
-  0077f	0f 29 85 e0 00
+  00771	48 8d 4d 60	 lea	 rcx, QWORD PTR $T16[rbp-256]
+  00775	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00778	0f 29 85 e0 00
 	00 00		 movaps	 XMMWORD PTR $T22[rbp-256], xmm0
-  00786	e8 00 00 00 00	 call	 _Thrd_equal
-  0078b	85 c0		 test	 eax, eax
+  0077f	0f 10 43 f8	 movups	 xmm0, XMMWORD PTR [rbx-8]
+  00783	0f 29 45 60	 movaps	 XMMWORD PTR $T16[rbp-256], xmm0
+  00787	e8 00 00 00 00	 call	 _Thrd_equal
+  0078c	85 c0		 test	 eax, eax
 
 ; 215  : 	if (get_id() == _STD this_thread::get_id())
 
-  0078d	74 0a		 je	 SHORT $LN828@WinMain
+  0078e	74 0a		 je	 SHORT $LN828@WinMain
 
 ; 216  : 		_Throw_Cpp_error(_RESOURCE_DEADLOCK_WOULD_OCCUR);
 
-  0078f	b9 05 00 00 00	 mov	 ecx, 5
-  00794	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00790	b9 05 00 00 00	 mov	 ecx, 5
+  00795	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN828@WinMain:
 
 ; 217  : 	if (_Thrd_join(_Thr, 0) != _Thrd_success)
 
-  00799	0f 10 05 08 00
-	00 00		 movups	 xmm0, XMMWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+8
-  007a0	48 8d 8d a0 00
+  0079a	0f 10 43 f8	 movups	 xmm0, XMMWORD PTR [rbx-8]
+  0079e	48 8d 8d a0 00
 	00 00		 lea	 rcx, QWORD PTR $T20[rbp-256]
-  007a7	33 d2		 xor	 edx, edx
-  007a9	0f 29 85 a0 00
+  007a5	33 d2		 xor	 edx, edx
+  007a7	0f 29 85 a0 00
 	00 00		 movaps	 XMMWORD PTR $T20[rbp-256], xmm0
-  007b0	e8 00 00 00 00	 call	 _Thrd_join
-  007b5	85 c0		 test	 eax, eax
-  007b7	74 0a		 je	 SHORT $LN827@WinMain
+  007ae	e8 00 00 00 00	 call	 _Thrd_join
+  007b3	85 c0		 test	 eax, eax
+  007b5	74 0a		 je	 SHORT $LN827@WinMain
 
 ; 218  : 		_Throw_Cpp_error(_NO_SUCH_PROCESS);
 
-  007b9	b9 02 00 00 00	 mov	 ecx, 2
-  007be	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  007b7	b9 02 00 00 00	 mov	 ecx, 2
+  007bc	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN827@WinMain:
 
 ; 219  : 	_Thr_set_null(_Thr);
 
-  007c3	44 89 3d 10 00
-	00 00		 mov	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, r15d
-  007ca	66 0f 1f 44 00
-	00		 npad	 6
-$LL5@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\threads.cpp
+  007c1	44 89 3b	 mov	 DWORD PTR [rbx], r15d
+$LN2@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
+
+; 280  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
+
+  007c4	48 81 c3 b8 08
+	00 00		 add	 rbx, 2232		; 000008b8H
+  007cb	48 3b df	 cmp	 rbx, rdi
+  007ce	0f 8c 5e ff ff
+	ff		 jl	 $LL3@WinMain
+; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
 
-  007d0	80 3d 18 00 00
-	00 00		 cmp	 BYTE PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+24, 0
-  007d7	c6 05 19 00 00
-	00 01		 mov	 BYTE PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+25, 1
-  007de	0f 84 90 00 00
-	00		 je	 $LN2@WinMain
+  007d4	80 3d 18 00 00
+	00 00		 cmp	 BYTE PTR ?renderThread@@3VRenderThread@@A+24, 0
+  007db	c6 05 19 00 00
+	00 01		 mov	 BYTE PTR ?renderThread@@3VRenderThread@@A+25, 1
+  007e2	0f 84 90 00 00
+	00		 je	 $LN852@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  007e4	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, 0
+  007e8	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
 
 ; 115  : 		return (*this);
 ; 116  : 		}
@@ -5429,23 +5443,23 @@ $LL5@WinMain:
 ; 210  : 	{	// join thread
 ; 211  : 	if (!joinable())
 
-  007eb	75 1d		 jne	 SHORT $LN850@WinMain
+  007ef	75 1d		 jne	 SHORT $LN850@WinMain
 
 ; 212  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  007ed	b9 01 00 00 00	 mov	 ecx, 1
-  007f2	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  007f1	b9 01 00 00 00	 mov	 ecx, 1
+  007f6	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 
 ; 213  : 	if (_Thr_is_null(_Thr))
 
-  007f7	83 3d 10 00 00
-	00 00		 cmp	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, 0
-  007fe	75 0a		 jne	 SHORT $LN850@WinMain
+  007fb	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
+  00802	75 0a		 jne	 SHORT $LN850@WinMain
 
 ; 214  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00800	b9 01 00 00 00	 mov	 ecx, 1
-  00805	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00804	b9 01 00 00 00	 mov	 ecx, 1
+  00809	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN850@WinMain:
 
 ; 220  : 	}
@@ -5459,9 +5473,9 @@ $LN850@WinMain:
 ; 228  : 	{	// return id for current thread
 ; 229  : 	return (_Thrd_current());
 
-  0080a	48 8d 8d 60 01
+  0080e	48 8d 8d 60 01
 	00 00		 lea	 rcx, QWORD PTR $T25[rbp-256]
-  00811	e8 00 00 00 00	 call	 _Thrd_current
+  00815	e8 00 00 00 00	 call	 _Thrd_current
 
 ; 230  : 	}
 ; 231  : 
@@ -5474,267 +5488,280 @@ $LN850@WinMain:
 ; 238  : 	{	// return true if _Left and _Right identify the same thread
 ; 239  : 	return (_Thrd_equal(_Left._Thr, _Right._Thr));
 
-  00816	48 8d 95 80 00
+  0081a	48 8d 95 80 00
 	00 00		 lea	 rdx, QWORD PTR $T18[rbp-256]
-  0081d	48 8d 4d 00	 lea	 rcx, QWORD PTR $T12[rbp-256]
-  00821	0f 10 0d 08 00
-	00 00		 movups	 xmm1, XMMWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+8
-  00828	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  0082b	0f 29 4d 00	 movaps	 XMMWORD PTR $T12[rbp-256], xmm1
-  0082f	0f 29 85 80 00
+  00821	48 8d 4d 00	 lea	 rcx, QWORD PTR $T12[rbp-256]
+  00825	0f 10 0d 08 00
+	00 00		 movups	 xmm1, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
+  0082c	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  0082f	0f 29 4d 00	 movaps	 XMMWORD PTR $T12[rbp-256], xmm1
+  00833	0f 29 85 80 00
 	00 00		 movaps	 XMMWORD PTR $T18[rbp-256], xmm0
-  00836	e8 00 00 00 00	 call	 _Thrd_equal
-  0083b	85 c0		 test	 eax, eax
+  0083a	e8 00 00 00 00	 call	 _Thrd_equal
+  0083f	85 c0		 test	 eax, eax
 
 ; 215  : 	if (get_id() == _STD this_thread::get_id())
 
-  0083d	74 0a		 je	 SHORT $LN849@WinMain
+  00841	74 0a		 je	 SHORT $LN849@WinMain
 
 ; 216  : 		_Throw_Cpp_error(_RESOURCE_DEADLOCK_WOULD_OCCUR);
 
-  0083f	b9 05 00 00 00	 mov	 ecx, 5
-  00844	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00843	b9 05 00 00 00	 mov	 ecx, 5
+  00848	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN849@WinMain:
 
 ; 217  : 	if (_Thrd_join(_Thr, 0) != _Thrd_success)
 
-  00849	0f 10 05 08 00
-	00 00		 movups	 xmm0, XMMWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+8
-  00850	48 8d 4d 50	 lea	 rcx, QWORD PTR $T15[rbp-256]
-  00854	33 d2		 xor	 edx, edx
-  00856	0f 29 45 50	 movaps	 XMMWORD PTR $T15[rbp-256], xmm0
-  0085a	e8 00 00 00 00	 call	 _Thrd_join
-  0085f	85 c0		 test	 eax, eax
-  00861	74 0a		 je	 SHORT $LN848@WinMain
+  0084d	0f 10 05 08 00
+	00 00		 movups	 xmm0, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
+  00854	48 8d 4d 50	 lea	 rcx, QWORD PTR $T15[rbp-256]
+  00858	33 d2		 xor	 edx, edx
+  0085a	0f 29 45 50	 movaps	 XMMWORD PTR $T15[rbp-256], xmm0
+  0085e	e8 00 00 00 00	 call	 _Thrd_join
+  00863	85 c0		 test	 eax, eax
+  00865	74 0a		 je	 SHORT $LN848@WinMain
 
 ; 218  : 		_Throw_Cpp_error(_NO_SUCH_PROCESS);
 
-  00863	b9 02 00 00 00	 mov	 ecx, 2
-  00868	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00867	b9 02 00 00 00	 mov	 ecx, 2
+  0086c	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN848@WinMain:
 
 ; 219  : 	_Thr_set_null(_Thr);
 
-  0086d	44 89 3d 10 00
-	00 00		 mov	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, r15d
-$LN2@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+  00871	44 89 3d 10 00
+	00 00		 mov	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, r15d
+$LN852@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
-; 286  : 	delete GLWindow::instance;
+; 287  : 	delete GLWindow::instance;
 
-  00874	48 8b 1d 00 00
+  00878	48 8b 1d 00 00
 	00 00		 mov	 rbx, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
-  0087b	48 85 db	 test	 rbx, rbx
-  0087e	0f 84 a0 00 00
+  0087f	48 85 db	 test	 rbx, rbx
+  00882	0f 84 a9 00 00
 	00		 je	 $LN866@WinMain
-; File c:\users\glenn\documents\github\wind\project\wind\wind\window.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\window.cpp
 
-; 257  : 	if(hDC && !ReleaseDC(hWnd, hDC))
+; 264  : 	if(hDC && !ReleaseDC(hWnd, hDC))
 
-  00884	48 8b 53 18	 mov	 rdx, QWORD PTR [rbx+24]
-  00888	40 32 ff	 xor	 dil, dil
-  0088b	48 85 d2	 test	 rdx, rdx
-  0088e	74 15		 je	 SHORT $LN874@WinMain
-  00890	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
-  00894	ff 15 00 00 00
+  00888	48 8b 53 18	 mov	 rdx, QWORD PTR [rbx+24]
+  0088c	40 32 ff	 xor	 dil, dil
+  0088f	48 85 d2	 test	 rdx, rdx
+  00892	74 15		 je	 SHORT $LN874@WinMain
+  00894	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
+  00898	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_ReleaseDC
-  0089a	85 c0		 test	 eax, eax
-  0089c	75 07		 jne	 SHORT $LN874@WinMain
+  0089e	85 c0		 test	 eax, eax
+  008a0	75 07		 jne	 SHORT $LN874@WinMain
 
-; 258  : 	{
-; 259  : 		hDC = NULL;
+; 265  : 	{
+; 266  : 		hDC = NULL;
 
-  0089e	4c 89 7b 18	 mov	 QWORD PTR [rbx+24], r15
+  008a2	4c 89 7b 18	 mov	 QWORD PTR [rbx+24], r15
 
-; 260  : 		error = true;
+; 267  : 		error = true;
 
-  008a2	40 b7 01	 mov	 dil, 1
+  008a6	40 b7 01	 mov	 dil, 1
 $LN874@WinMain:
 
-; 261  : 	}
-; 262  : 	if(hWnd && !DestroyWindow(hWnd))
+; 268  : 	}
+; 269  : 	if(hWnd && !DestroyWindow(hWnd))
 
-  008a5	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
-  008a9	48 85 c9	 test	 rcx, rcx
-  008ac	74 11		 je	 SHORT $LN873@WinMain
-  008ae	ff 15 00 00 00
+  008a9	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
+  008ad	48 85 c9	 test	 rcx, rcx
+  008b0	74 11		 je	 SHORT $LN873@WinMain
+  008b2	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_DestroyWindow
-  008b4	85 c0		 test	 eax, eax
-  008b6	75 07		 jne	 SHORT $LN873@WinMain
+  008b8	85 c0		 test	 eax, eax
+  008ba	75 07		 jne	 SHORT $LN873@WinMain
 
-; 263  : 	{
-; 264  : 		hWnd = NULL;
+; 270  : 	{
+; 271  : 		hWnd = NULL;
 
-  008b8	4c 89 7b 10	 mov	 QWORD PTR [rbx+16], r15
+  008bc	4c 89 7b 10	 mov	 QWORD PTR [rbx+16], r15
 
-; 265  : 		error = true;
+; 272  : 		error = true;
 
-  008bc	40 b7 01	 mov	 dil, 1
+  008c0	40 b7 01	 mov	 dil, 1
 $LN873@WinMain:
 
-; 266  : 	}
-; 267  : 	if(!UnregisterClass(L"GLWindow", hInstance))
+; 273  : 	}
+; 274  : 	if(!UnregisterClass(L"GLWindow", hInstance))
 
-  008bf	48 8b 53 08	 mov	 rdx, QWORD PTR [rbx+8]
-  008c3	48 8d 0d 00 00
-	00 00		 lea	 rcx, OFFSET FLAT:$SG4294899922
-  008ca	ff 15 00 00 00
+  008c3	48 8b 53 08	 mov	 rdx, QWORD PTR [rbx+8]
+  008c7	48 8d 0d 00 00
+	00 00		 lea	 rcx, OFFSET FLAT:$SG4294889935
+  008ce	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_UnregisterClassW
-  008d0	85 c0		 test	 eax, eax
-  008d2	75 06		 jne	 SHORT $LN872@WinMain
+  008d4	85 c0		 test	 eax, eax
+  008d6	75 06		 jne	 SHORT $LN872@WinMain
 
-; 268  : 	{
-; 269  : 		hInstance = NULL;
+; 275  : 	{
+; 276  : 		hInstance = NULL;
 
-  008d4	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
+  008d8	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
 
-; 270  : 		error = true;
-; 271  : 	}
-; 272  : 	if(error)
+; 277  : 		error = true;
+; 278  : 	}
+; 279  : 	if(error)
 
-  008d8	eb 05		 jmp	 SHORT $LN976@WinMain
+  008dc	eb 05		 jmp	 SHORT $LN980@WinMain
 $LN872@WinMain:
-  008da	40 84 ff	 test	 dil, dil
-  008dd	74 1c		 je	 SHORT $LN871@WinMain
-$LN976@WinMain:
+  008de	40 84 ff	 test	 dil, dil
+  008e1	74 1c		 je	 SHORT $LN871@WinMain
+$LN980@WinMain:
 
-; 273  : 	{
-; 274  : 		MessageBox(NULL, L"There was an error while destroying the window", L"ERROR", MB_OK | MB_ICONINFORMATION);
+; 280  : 	{
+; 281  : 		MessageBox(NULL, L"There was an error while destroying the window", L"ERROR", MB_OK | MB_ICONINFORMATION);
 
-  008df	4c 8d 05 00 00
-	00 00		 lea	 r8, OFFSET FLAT:$SG4294899921
-  008e6	48 8d 15 00 00
-	00 00		 lea	 rdx, OFFSET FLAT:$SG4294899920
-  008ed	41 b9 40 00 00
+  008e3	4c 8d 05 00 00
+	00 00		 lea	 r8, OFFSET FLAT:$SG4294889934
+  008ea	48 8d 15 00 00
+	00 00		 lea	 rdx, OFFSET FLAT:$SG4294889933
+  008f1	41 b9 40 00 00
 	00		 mov	 r9d, 64			; 00000040H
-  008f3	33 c9		 xor	 ecx, ecx
-  008f5	ff 15 00 00 00
+  008f7	33 c9		 xor	 ecx, ecx
+  008f9	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 $LN871@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  008fb	48 83 7b 48 08	 cmp	 QWORD PTR [rbx+72], 8
-  00900	72 09		 jb	 SHORT $LN899@WinMain
+  008ff	48 83 7b 50 08	 cmp	 QWORD PTR [rbx+80], 8
+  00904	72 09		 jb	 SHORT $LN899@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00902	48 8b 4b 30	 mov	 rcx, QWORD PTR [rbx+48]
-  00906	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00906	48 8b 4b 38	 mov	 rcx, QWORD PTR [rbx+56]
+  0090a	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN899@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  0090b	48 c7 43 48 07
-	00 00 00	 mov	 QWORD PTR [rbx+72], 7
+  0090f	48 c7 43 50 07
+	00 00 00	 mov	 QWORD PTR [rbx+80], 7
 
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  00913	4c 89 7b 40	 mov	 QWORD PTR [rbx+64], r15
-  00917	48 8b cb	 mov	 rcx, rbx
+  00917	4c 89 7b 48	 mov	 QWORD PTR [rbx+72], r15
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+
+; 33   : 		_Mtx_destroy(&_Mtx);
+
+  0091b	48 8d 4b 30	 lea	 rcx, QWORD PTR [rbx+48]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 347  : 		_Left = _Right;
 
-  0091a	66 44 89 7b 30	 mov	 WORD PTR [rbx+48], r15w
-  0091f	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0091f	66 44 89 7b 38	 mov	 WORD PTR [rbx+56], r15w
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+
+; 33   : 		_Mtx_destroy(&_Mtx);
+
+  00924	e8 00 00 00 00	 call	 _Mtx_destroy
+  00929	48 8b cb	 mov	 rcx, rbx
+  0092c	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN866@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\gamestates.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\gamestates.cpp
 
 ; 42   : 	delete GameStates::renderingState;
 
-  00924	48 8b 0d 00 00
+  00931	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?renderingState@GameStates@@3PEAVGameState@1@EA ; GameStates::renderingState
-  0092b	48 85 c9	 test	 rcx, rcx
-  0092e	74 05		 je	 SHORT $LN919@WinMain
-  00930	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-$LN919@WinMain:
+  00938	48 85 c9	 test	 rcx, rcx
+  0093b	74 05		 je	 SHORT $LN923@WinMain
+  0093d	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+$LN923@WinMain:
 
 ; 43   : 	delete GameStates::processedState;
 
-  00935	48 8b 0d 00 00
+  00942	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?processedState@GameStates@@3PEAVGameState@1@EA ; GameStates::processedState
-  0093c	48 85 c9	 test	 rcx, rcx
-  0093f	74 05		 je	 SHORT $LN924@WinMain
-  00941	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-$LN924@WinMain:
+  00949	48 85 c9	 test	 rcx, rcx
+  0094c	74 05		 je	 SHORT $LN928@WinMain
+  0094e	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+$LN928@WinMain:
 
 ; 44   : 	delete GameStates::pendingState;
 
-  00946	48 8b 0d 00 00
+  00953	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?pendingState@GameStates@@3PEAVGameState@1@EA ; GameStates::pendingState
-  0094d	48 85 c9	 test	 rcx, rcx
-  00950	74 05		 je	 SHORT $LN929@WinMain
-  00952	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-$LN929@WinMain:
-; File c:\users\glenn\documents\github\wind\project\wind\wind\opencl.cpp
+  0095a	48 85 c9	 test	 rcx, rcx
+  0095d	74 05		 je	 SHORT $LN933@WinMain
+  0095f	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+$LN933@WinMain:
+; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 38   : 	clReleaseContext(context);
 
-  00957	48 8b 0d 00 00
+  00964	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?context@cl@@3PEAU_cl_context@@EA ; cl::context
-  0095e	ff 15 00 00 00
+  0096b	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_clReleaseContext
-; File c:\users\glenn\documents\github\wind\project\wind\wind\main.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
-; 289  : 	Blocks::destroy();
+; 290  : 	Blocks::destroy();
 
-  00964	e8 00 00 00 00	 call	 ?destroy@Blocks@@YAXXZ	; Blocks::destroy
+  00971	e8 00 00 00 00	 call	 ?destroy@Blocks@@YAXXZ	; Blocks::destroy
 
-; 290  : 	return msg.wParam;
+; 291  : 	return msg.wParam;
 
-  00969	8b 85 30 01 00
+  00976	8b 85 30 01 00
 	00		 mov	 eax, DWORD PTR msg$[rbp-240]
 
-; 291  : }
+; 292  : }
 
-  0096f	4c 8d 9c 24 a0
+  0097c	4c 8d 9c 24 a0
 	02 00 00	 lea	 r11, QWORD PTR [rsp+672]
-  00977	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
-  0097b	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
-  0097f	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
-  00983	49 8b e3	 mov	 rsp, r11
-  00986	41 5f		 pop	 r15
-  00988	41 5e		 pop	 r14
-  0098a	41 5d		 pop	 r13
-  0098c	41 5c		 pop	 r12
-  0098e	5d		 pop	 rbp
-  0098f	c3		 ret	 0
-$LN989@WinMain:
+  00984	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
+  00988	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
+  0098c	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
+  00990	49 8b e3	 mov	 rsp, r11
+  00993	41 5f		 pop	 r15
+  00995	41 5e		 pop	 r14
+  00997	41 5d		 pop	 r13
+  00999	41 5c		 pop	 r12
+  0099b	5d		 pop	 rbp
+  0099c	c3		 ret	 0
+$LN991@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 112  : 			_XSTD terminate();
 
-  00990	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
-  00995	cc		 int	 3
-$LN949@WinMain:
-  00996	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
-  0099b	cc		 int	 3
-$LN947@WinMain:
-  0099c	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
-  009a1	cc		 int	 3
-$LN988@WinMain:
+  0099d	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
+  009a2	cc		 int	 3
+$LN953@WinMain:
+  009a3	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
+  009a8	cc		 int	 3
+$LN951@WinMain:
+  009a9	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
+  009ae	cc		 int	 3
+$LN990@WinMain:
 WinMain	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\window.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\window.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 ;	COMDAT ??_GGLWindow@@QEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 48
 __flags$dead$ = 56
 ??_GGLWindow@@QEAAPEAXI@Z PROC				; GLWindow::`scalar deleting destructor', COMDAT
-$LN41:
+$LN45:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
   00006	48 8b d9	 mov	 rbx, rcx
-; File c:\users\glenn\documents\github\wind\project\wind\wind\window.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\window.cpp
 
 ; 28   : 	destroyWindow();
 
@@ -5743,13 +5770,13 @@ $LN41:
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  0000e	48 83 7b 48 08	 cmp	 QWORD PTR [rbx+72], 8
+  0000e	48 83 7b 50 08	 cmp	 QWORD PTR [rbx+80], 8
   00013	72 09		 jb	 SHORT $LN28@scalar
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00015	48 8b 4b 30	 mov	 rcx, QWORD PTR [rbx+48]
+  00015	48 8b 4b 38	 mov	 rcx, QWORD PTR [rbx+56]
   00019	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN28@scalar:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
@@ -5768,27 +5795,38 @@ $LN28@scalar:
 ; 2264 : 			}
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  00020	48 c7 43 48 07
-	00 00 00	 mov	 QWORD PTR [rbx+72], 7
-  00028	48 8b cb	 mov	 rcx, rbx
+  00020	48 c7 43 50 07
+	00 00 00	 mov	 QWORD PTR [rbx+80], 7
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+
+; 33   : 		_Mtx_destroy(&_Mtx);
+
+  00028	48 8d 4b 30	 lea	 rcx, QWORD PTR [rbx+48]
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  0002b	48 89 43 40	 mov	 QWORD PTR [rbx+64], rax
+  0002c	48 89 43 48	 mov	 QWORD PTR [rbx+72], rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 347  : 		_Left = _Right;
 
-  0002f	66 89 43 30	 mov	 WORD PTR [rbx+48], ax
-  00033	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  00038	48 8b c3	 mov	 rax, rbx
-  0003b	48 83 c4 20	 add	 rsp, 32			; 00000020H
-  0003f	5b		 pop	 rbx
-  00040	c3		 ret	 0
+  00030	66 89 43 38	 mov	 WORD PTR [rbx+56], ax
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
+
+; 33   : 		_Mtx_destroy(&_Mtx);
+
+  00034	e8 00 00 00 00	 call	 _Mtx_destroy
+  00039	48 8b cb	 mov	 rcx, rbx
+  0003c	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00041	48 8b c3	 mov	 rax, rbx
+  00044	48 83 c4 20	 add	 rsp, 32			; 00000020H
+  00048	5b		 pop	 rbx
+  00049	c3		 ret	 0
 ??_GGLWindow@@QEAAPEAXI@Z ENDP				; GLWindow::`scalar deleting destructor'
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??A?$List@VKeyboardAction@@$0BA@@@QEAAAEAVKeyboardAction@@H@Z
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -5808,7 +5846,7 @@ index$ = 16
 ??A?$List@VKeyboardAction@@$0BA@@@QEAAAEAVKeyboardAction@@H@Z ENDP ; List<KeyboardAction,16>::operator[]
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ?getSize@?$List@VKeyboardAction@@$0BA@@@QEAAHXZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -5825,7 +5863,7 @@ this$dead$ = 8
 ?getSize@?$List@VKeyboardAction@@$0BA@@@QEAAHXZ ENDP	; List<KeyboardAction,16>::getSize
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ?clear@?$List@VKeyboardAction@@$0BA@@@QEAAXXZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -5842,7 +5880,7 @@ this$dead$ = 8
 ?clear@?$List@VKeyboardAction@@$0BA@@@QEAAXXZ ENDP	; List<KeyboardAction,16>::clear
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ??A?$List@VMouseAction@@$0BA@@@QEAAAEAVMouseAction@@H@Z
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -5863,7 +5901,7 @@ index$ = 16
 ??A?$List@VMouseAction@@$0BA@@@QEAAAEAVMouseAction@@H@Z ENDP ; List<MouseAction,16>::operator[]
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ?getSize@?$List@VMouseAction@@$0BA@@@QEAAHXZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -5880,7 +5918,7 @@ this$dead$ = 8
 ?getSize@?$List@VMouseAction@@$0BA@@@QEAAHXZ ENDP	; List<MouseAction,16>::getSize
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\list.h
+; File c:\users\erlend\documents\github\wind\project\wind\wind\list.h
 ;	COMDAT ?clear@?$List@VMouseAction@@$0BA@@@QEAAXXZ
 _TEXT	SEGMENT
 this$dead$ = 8
@@ -6551,7 +6589,7 @@ $LN30@Resetp:
 ??$_Resetp@VChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVChunk@@@Z ENDP ; std::shared_ptr<ChunkBase>::_Resetp<Chunk>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -6574,16 +6612,16 @@ __catch$??$_Resetp@VChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVChunk@@@Z$0:
   0000e	48 8b 5d 48	 mov	 rbx, QWORD PTR _Px$[rbp]
   00012	48 85 db	 test	 rbx, rbx
   00015	74 1a		 je	 SHORT $LN25@catch$0
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 150  : {
+; 155  : {
 
   00017	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
   0001e	48 89 03	 mov	 QWORD PTR [rbx], rax
 
-; 151  : 
-; 152  : }
+; 156  : 
+; 157  : }
 
   00021	48 8b cb	 mov	 rcx, rbx
   00024	e8 00 00 00 00	 call	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
@@ -6601,7 +6639,7 @@ $LN25@catch$0:
 ?catch$0@?0???$_Resetp@VChunk@@@?$shared_ptr@VChunkBase@@@std@@AEAAXPEAVChunk@@@Z@4HA ENDP ; `std::shared_ptr<ChunkBase>::_Resetp<Chunk>'::`1'::catch$0
 text$x	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ;	COMDAT ??_GChunk@@QEAAPEAXI@Z
 _TEXT	SEGMENT
 this$ = 48
@@ -6611,15 +6649,15 @@ $LN7:
   00000	40 53		 push	 rbx
   00002	48 83 ec 20	 sub	 rsp, 32			; 00000020H
 
-; 150  : {
+; 155  : {
 
   00006	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
   0000d	48 8b d9	 mov	 rbx, rcx
   00010	48 89 01	 mov	 QWORD PTR [rcx], rax
 
-; 151  : 
-; 152  : }
+; 156  : 
+; 157  : }
 
   00013	e8 00 00 00 00	 call	 ??1ChunkBase@@QEAA@XZ	; ChunkBase::~ChunkBase
   00018	48 8b cb	 mov	 rcx, rbx
@@ -6667,7 +6705,7 @@ _Px$ = 16
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ;	COMDAT ?_Destroy@?$_Ref_count@VChunk@@@std@@EEAAXXZ
 _TEXT	SEGMENT
@@ -6685,15 +6723,15 @@ $LN11:
   00006	48 8b 59 10	 mov	 rbx, QWORD PTR [rcx+16]
   0000a	48 85 db	 test	 rbx, rbx
   0000d	74 1f		 je	 SHORT $LN5@Destroy
-; File c:\users\glenn\documents\github\wind\project\wind\wind\world.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
-; 150  : {
+; 155  : {
 
   0000f	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:??_7Chunk@@6B@
 
-; 151  : 
-; 152  : }
+; 156  : 
+; 157  : }
 
   00016	48 8b cb	 mov	 rcx, rbx
   00019	48 89 03	 mov	 QWORD PTR [rbx], rax

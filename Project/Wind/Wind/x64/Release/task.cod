@@ -127,7 +127,7 @@ xdata	SEGMENT
 $unwind$?invoke@TaskVBOVAOSet@Tasks@@UEAA_NXZ DD 020601H
 	DD	030023206H
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\task.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\task.cpp
 ;	COMDAT ?invoke@Task@Tasks@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 8
@@ -143,7 +143,7 @@ this$ = 8
 ?invoke@Task@Tasks@@UEAA_NXZ ENDP			; Tasks::Task::invoke
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\task.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\task.cpp
 ;	COMDAT ??0TaskVBOVAOSet@Tasks@@QEAA@II@Z
 _TEXT	SEGMENT
 this$ = 8
@@ -179,7 +179,7 @@ this$ = 8
 ??0Task@Tasks@@QEAA@XZ ENDP				; Tasks::Task::Task
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
-; File c:\users\glenn\documents\github\wind\project\wind\wind\task.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\task.cpp
 ;	COMDAT ?invoke@TaskVBOVAOSet@Tasks@@UEAA_NXZ
 _TEXT	SEGMENT
 this$ = 48

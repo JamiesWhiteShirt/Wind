@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include <iostream>
+#include <mutex>
 
 #ifndef HID_USAGE_PAGE_GENERIC
 #define HID_USAGE_PAGE_GENERIC ((USHORT)0x01)
@@ -21,6 +22,8 @@ private:
 	HGLRC hRC_temp;
 
 	friend LRESULT CALLBACK wndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+	std::mutex msgBoxMutex;
 public:
 	wstring title;
 	bool rescaled;
@@ -44,6 +47,7 @@ public:
 
 	void messageBox(LPCWSTR lpText, LPCWSTR lpCaption, UINT uType);
 	void postError(const char* text, const char* caption);
+	void postError(std::string text, std::string caption);
 
 	static GLWindow* instance;
 };

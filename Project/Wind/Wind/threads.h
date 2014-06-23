@@ -1,6 +1,6 @@
 #pragma once
 
-#define DRAW_THREAD_AMOUNT 1
+#define DRAW_THREAD_AMOUNT 2
 #define LOAD_THREAD_AMOUNT 1
 
 #include <thread>
@@ -70,6 +70,7 @@ protected:
 	cl::Buffer stoneNoiseBuffer;
 	cl::Buffer temperatureNoiseBuffer;
 	cl::Buffer humidityNoiseBuffer;
+	cl::Buffer caveLinesBuffer;
 
 	virtual void preStart();
 	virtual bool tick();

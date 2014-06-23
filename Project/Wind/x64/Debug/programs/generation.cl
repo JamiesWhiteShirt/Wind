@@ -1,282 +1,128 @@
-float interpolate(float f)
+bool isCave(const float x, const float y, const float z, __global const float* caves, const int amount)
 {
-	return 1.0f - f * f * (3.0f - f * 2.0f);
-}
-
-float noise2d(__global const uchar* noiseMap, float x, float y, uint octaves, const float smoothness)
-{
-	const int andField = 0b1111;
-	const int sizeExponent = 4;
-
-	float noise = 0.0f;
-	float value = 1.0f;
-	float maxValue = 0.0f;
-
-	int ix;
-	int ix1;
-	int iy;
-	int iy1;
-	float xMix;
-	float xMixi;
-	float yMix;
-	float yMixi;
-
-	for(int i = 0; i < octaves; i++)
+	for(int i = 0; i < amount; i++)
 	{
-		maxValue += value;
+		float apx = x - caves[i * 8];
+		float apy = y - caves[i * 8 + 1];
+		float apz = z - caves[i * 8 + 2];
+		float abx = caves[i * 8 + 4] - caves[i * 8];
+		float aby = caves[i * 8 + 4] - caves[i * 8 + 1];
+		float abz = caves[i * 8 + 4] - caves[i * 8 + 2];
 
-		ix = floor(x);
-		ix1 = ix + 1;
-		iy = floor(y);
-		iy1 = iy + 1;
-		xMix = interpolate(x - ix);
-		xMixi = 1.0f - xMix;
-		yMix = interpolate(y - iy);
-		yMixi = 1.0f - yMix;
+		float ab2 = sqrt(abx * abx + aby * aby + abz * abz);
+		float ap_ab = apx * abx + apy * aby + apz * abz;
+		float t = ap_ab / ab2;
 
-		ix = (ix & andField) << sizeExponent;
-		ix1 = (ix1 & andField) << sizeExponent;
-		iy = iy & andField;
-		iy1 = iy1 & andField;
+		if(t < 0.0) t = 0.0;
+		else if(t > 1.0) t = 1.0;
 
-		noise += (noiseMap[ix | iy] * xMix * yMix
-			+ noiseMap[ix1 | iy] * xMixi * yMix
-			+ noiseMap[ix | iy1] * xMix * yMixi
-			+ noiseMap[ix1 | iy1] * xMixi * yMixi)
-			* value;
-
-		x *= 0.5f;
-		y *= 0.5f;
-		value *= smoothness;
+		float r = (1.0 - t) * caves[i * 8 + 3] + t * caves[i * 8 + 7];
+		float pcx = apx + t * abx;
+		float pcy = apy + t * aby;
+		float pcz = apz + t * abz;
+		if(pcx * pcx + pcy * pcy + pcz * pcz < r * r)
+		{
+			return true;
+		}
 	}
 
-	return noise / maxValue;
+	return false;
 }
 
-float noise3d(__global const uchar* noiseMap, float x, float y, float z, uint octaves, const float smoothness)
-{
-	const int andField = 0b1111;
-	const int sizeExponent = 4;
-
-	float noise = 0.0f;
-	float value = 1.0f;
-	float maxValue = 0.0f;
-
-	int ix;
-	int ix1;
-	int iy;
-	int iy1;
-	int iz;
-	int iz1;
-	float xMix;
-	float xMixi;
-	float yMix;
-	float yMixi;
-	float zMix;
-	float zMixi;
-
-	for(int i = 0; i < octaves; i++)
-	{
-		maxValue += value;
-
-		ix = floor(x);
-		ix1 = ix + 1;
-		iy = floor(y);
-		iy1 = iy + 1;
-		iz = floor(z);
-		iz1 = iz + 1;
-		xMix = interpolate(x - ix);
-		xMixi = 1.0f - xMix;
-		yMix = interpolate(y - iy);
-		yMixi = 1.0f - yMix;
-		zMix = interpolate(z - iz);
-		zMixi = 1.0f - zMix;
-
-		ix = (ix & andField) << (sizeExponent * 2);
-		ix1 = (ix1 & andField) << (sizeExponent * 2);
-		iy = (iy & andField) << sizeExponent;
-		iy1 = (iy1 & andField) << sizeExponent;
-		iz = iz & andField;
-		iz1 = iz1 & andField;
-
-		noise += (noiseMap[ix | iy | iz] * xMix * yMix * zMix
-			+ noiseMap[ix1 | iy | iz] * xMixi * yMix * zMix
-			+ noiseMap[ix | iy1 | iz] * xMix * yMixi * zMix
-			+ noiseMap[ix1 | iy1 | iz] * xMixi * yMixi * zMix
-			+ noiseMap[ix | iy | iz1] * xMix * yMix * zMixi
-			+ noiseMap[ix1 | iy | iz1] * xMixi * yMix * zMixi
-			+ noiseMap[ix | iy1 | iz1] * xMix * yMixi * zMixi
-			+ noiseMap[ix1 | iy1 | iz1] * xMixi * yMixi * zMixi)
-			* value;
-
-		x *= 0.5f;
-		y *= 0.5f;
-		z *= 0.5f;
-		value *= smoothness;
-	}
-
-	return noise / maxValue;
-}
-
-__kernel void generateTerrain_p1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const uchar* noiseMap1, __global const uchar* noiseMap2, __global const uchar* noiseMap3)
+__kernel void generateTerrain_1(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const float* minHeightNoise, __global const float* maxHeightNoise, __global const float* smoothnessNoise, __global const float* solidNoise, __global const float* stoneNoise, __global const float* temperatureNoise, __global const float* humidityNoise, __global const float* caveLines, const int amountOfLines)
 {
 	const int x = chunkX * 16 + get_global_id(0);
 	const int y = chunkY * 16 + get_global_id(1);
 	const int z = chunkZ * 16 + get_global_id(2);
 
-	const int index = (get_global_id(0) << 8) | (get_global_id(1) << 4) | get_global_id(2);
+	const int blockIndex = (get_global_id(0) << 8) | (get_global_id(1) << 4) | get_global_id(2);
+	const int index2d = get_global_id(0) * 18 + get_global_id(2);
+	const int index3d = ((get_global_id(0) + 1) * 18 + (get_global_id(1) + 1)) * 18 + get_global_id(2) + 1;
 
-	if(y < -32)
+	if(y < -64)
 	{
-		blocks[index] = 1;
+		if(isCave(x, y, z, caveLines, amountOfLines))
+		{
+			blocks[blockIndex] = 0;
+		}
+		else
+		{
+			blocks[blockIndex] = 1;
+		}
 	}
-	else if(y >= 64)
+	else if(y >= 128)
 	{
-		blocks[index] = 0;
+		blocks[blockIndex] = 0;
 	}
 	else
 	{
-		float tolerance = (y + 32) / 96.0f;
+		const float minHeight = minHeightNoise[index2d] * 95.0f - 64.0f;
+		const float maxHeight = maxHeightNoise[index2d] * 96.0f + minHeight + 1.0f;
+		const float heightDiff = maxHeight - minHeight;
 
-		float n1 = noise3d(noiseMap2, x * 16.0f, y * 16.0f, z * 16.0f, 12, 2.5f);
-		float smoothness = 2.0f + n1;
-		float n2 = noise3d(noiseMap1, x * 20.0f, y * 25.0f, z * 20.0f, 12, smoothness);
-		float n3 = noise3d(noiseMap3, x * 20.0f, y * 20.0f, z * 20.0f, 12, 2.0f);
+		const float tolerance = (y - minHeight) / heightDiff;
 
-		float stoneChance = (1.0f - tolerance) * (n1 + 1.0f) / 2.0f + (n2 - tolerance) * 16.0f * (1.0f - n1);
+		const float n1 = smoothnessNoise[index3d];
+		const float n2 = solidNoise[index3d];
+		const float n3 = stoneNoise[index3d];
+
+		const float f1 = (heightDiff / 384.0f) * ((1.0f - tolerance) * (n1 + 1.0f) / 2.0f + 1.0f);
+		const float f2 = (n2 - tolerance) * 16.0f * (1.0f - n1);
+
+		const float stoneChance = f1 > f2 ? f1 : f2;
+		const float gravelChance = (1.0f + n1) * (96.0f - heightDiff) / 192.0f;
+		const float sandLine = (1.0f - maxHeightNoise[index2d]) * 16.0f - 4.0f;
 
 		if(tolerance < n2)
 		{
-			if(n3 < stoneChance * 0.5f)
+			if(isCave(x, y, z, caveLines, amountOfLines))
 			{
-				blocks[index] = 1;
+				blocks[blockIndex] = 0;
 			}
-			else if(n3 < stoneChance * 0.75f)
+			else if(n3 < stoneChance * (1.0f - gravelChance))
 			{
-				blocks[index] = 6;
+				blocks[blockIndex] = 1;
 			}
 			else if(n3 < stoneChance)
 			{
-				blocks[index] = 5;
+				blocks[blockIndex] = 5;
 			}
-			else if(y >= -1)
+			else if(n3 < stoneChance * (1.0f + gravelChance))
 			{
-				if(y < 5)
-				{
-					blocks[index] = 7;
-				}
-				else
-				{
-					smoothness = 2.0f + noise3d(noiseMap2, x * 16.0f, (y + 1) * 16.0f, z * 16.0f, 12, 2.5f);
-					n2 = noise3d(noiseMap1, x * 20.0f, (y + 1) * 25.0f, z * 20.0f, 12, smoothness);
-					tolerance = (y + 33) / 96.0f;
-
-					if(tolerance < n2)
-					{
-						blocks[index] = 3;
-					}
-					else
-					{
-						blocks[index] = 4;
-					}
-				}
+				blocks[blockIndex] = 6;
 			}
 			else
 			{
-				blocks[index] = 7;
+				if(y < sandLine && y > -4.0 - sandLine)
+				{
+					blocks[blockIndex] = 7;
+				}
+				else
+				{
+					if(y < -1)
+					{
+						blocks[blockIndex] = 6;
+					}
+					else if((y + 1 - minHeight) / heightDiff < solidNoise[index3d + 18])
+					{
+						blocks[blockIndex] = 3;
+					}
+					else
+					{
+						blocks[blockIndex] = 4;
+					}
+				}
 			}
 		}
 		else
 		{
 			if(y < 0)
 			{
-				blocks[index] = 2;
+				blocks[blockIndex] = 2;
 			}
 			else
 			{
-				blocks[index] = 0;
-			}
-		}
-	}
-}
-
-__kernel void generateTerrain_alt(__global ushort* blocks, const int chunkX, const int chunkY, const int chunkZ, __global const float* noise1, __global const float* noise2, __global const float* noise3)
-{
-	const int x = chunkX * 16 + get_global_id(0);
-	const int y = chunkY * 16 + get_global_id(1);
-	const int z = chunkZ * 16 + get_global_id(2);
-
-	const int index = (get_global_id(0) << 8) | (get_global_id(1) << 4) | get_global_id(2);
-
-	if(y < -32)
-	{
-		blocks[index] = 1;
-	}
-	else if(y >= 64)
-	{
-		blocks[index] = 0;
-	}
-	else
-	{
-		float tolerance = (y + 32) / 96.0f;
-
-		float n1 = noise1[index];
-		float smoothness = 2.0f + n1;
-		float n2 = noise2[index];
-		float n3 = noise3[index];
-
-		float stoneChance = (1.0f - tolerance) * (n1 + 1.0f) / 2.0f + (n2 - tolerance) * 16.0f * (1.0f - n1);
-
-		if(tolerance < n2)
-		{
-			if(n3 < stoneChance * 0.5f)
-			{
-				blocks[index] = 1;
-			}
-			else if(n3 < stoneChance * 0.75f)
-			{
-				blocks[index] = 6;
-			}
-			else if(n3 < stoneChance)
-			{
-				blocks[index] = 5;
-			}
-			else if(y >= -1)
-			{
-				if(y < 5)
-				{
-					blocks[index] = 7;
-				}
-				else
-				{
-					/*smoothness = 2.0f + noise3d(noiseMap2, x * 16.0f, (y + 1) * 16.0f, z * 16.0f, 12, 2.5f);
-					n2 = noise3d(noiseMap1, x * 20.0f, (y + 1) * 25.0f, z * 20.0f, 12, smoothness);
-					tolerance = (y + 33) / 96.0f;
-
-					if(tolerance < n2)
-					{*/
-						blocks[index] = 3;
-					/*}
-					else
-					{
-						blocks[index] = 4;
-					}*/
-				}
-			}
-			else
-			{
-				blocks[index] = 7;
-			}
-		}
-		else
-		{
-			if(y < 0)
-			{
-				blocks[index] = 2;
-			}
-			else
-			{
-				blocks[index] = 0;
+				blocks[blockIndex] = 0;
 			}
 		}
 	}

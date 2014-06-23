@@ -13,20 +13,20 @@ bool cl::staticInit()
 
 	if((error = clGetPlatformIDs(1, &platform, &num_platforms)) != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Could not find any OpenCL platforms", "OpenCL load error");
+		GLWindow::instance->postError("Could not find any OpenCL platforms: " + to_string(error), "OpenCL load error");
 		return false;
 	}
 
-	if((error = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL)) != CL_SUCCESS)
+	if((error = clGetDeviceIDs(platform, CL_DEVICE_TYPE_DEFAULT, 1, &device, NULL)) != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Could not find a GPU OpenCL device", "OpenCL load error");
+		GLWindow::instance->postError("Could not find a GPU OpenCL device: " + to_string(error), "OpenCL load error");
 		return false;
 	}
 
 	context = clCreateContext(0, 1, &device, NULL, NULL, &error);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Could not create an OpenCL context", "OpenCL load error");
+		GLWindow::instance->postError("Could not create an OpenCL context: " + to_string(error), "OpenCL load error");
 		return false;
 	}
 
@@ -55,7 +55,7 @@ bool cl::CommandQueue::create()
 	queue = clCreateCommandQueue(cl::context, cl::device, 0, &error);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Could not create command queue", "Command queue creation error");
+		GLWindow::instance->postError("Could not create command queue: " + to_string(error), "Command queue creation error");
 		return false;
 	}
 
@@ -65,10 +65,10 @@ bool cl::CommandQueue::create()
 
 bool cl::CommandQueue::sync()
 {
-	cl_int error = clWaitForEvents(lastEvents.size(), &lastEvents[0]);
+	cl_int error = clWaitForEvents((cl_uint)lastEvents.size(), &lastEvents[0]);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to wait for events to finish", "OpenCL sync error");
+		GLWindow::instance->postError("Failed to wait for events to finish: " + to_string(error), "OpenCL sync error");
 		return false;
 	}
 
@@ -77,7 +77,7 @@ bool cl::CommandQueue::sync()
 		error = clReleaseEvent(*iter);
 		if(error != CL_SUCCESS)
 		{
-			GLWindow::instance->postError("Failed to release event", "OpenCL sync error");
+			GLWindow::instance->postError("Failed to release event: " + to_string(error), "OpenCL sync error");
 			return false;
 		}
 	}
@@ -124,7 +124,7 @@ bool cl::Program::create(std::wstring fileName)
 	program = clCreateProgramWithSource(context, 1, &source, NULL, &error);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Could not create program", "OpenCL program creation error");
+		GLWindow::instance->postError("Could not create program: " + to_string(error), "OpenCL program creation error");
 		return false;
 	}
 
@@ -157,14 +157,14 @@ cl::Program::~Program()
 			error = clReleaseKernel(iter->second);
 			if(error != CL_SUCCESS)
 			{
-				GLWindow::instance->postError("Could not release kernel", "OpenCL program deletion error");
+				GLWindow::instance->postError("Could not release kernel: " + to_string(error), "OpenCL program deletion error");
 				return;
 			}
 		}
 		error = clReleaseProgram(program);
 		if(error != CL_SUCCESS)
 		{
-			GLWindow::instance->postError("Could not release program", "OpenCL program deletion error");
+			GLWindow::instance->postError("Could not release program: " + to_string(error), "OpenCL program deletion error");
 		}
 	}
 }
@@ -187,7 +187,7 @@ cl_kernel cl::Program::getKernel(std::string kernel)
 		return k;
 	}
 
-	GLWindow::instance->postError("Tried to use nonexistant kernel", "OpenCL kernel error");
+	GLWindow::instance->postError("Tried to use nonexistant kernel: " + to_string(error), "OpenCL kernel error");
 	return 0;
 }
 
@@ -219,7 +219,7 @@ bool cl::Program::setArgument(size_t size, const void* value)
 	cl_int error = clSetKernelArg(preparedKernel, argIndex++, size, value);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to set kernel argument", "OpenCL kernel argument error");
+		GLWindow::instance->postError("Failed to set kernel argument: " + to_string(error), "OpenCL kernel argument error");
 		return false;
 	}
 	return true;
@@ -239,12 +239,12 @@ bool cl::Program::invoke(CommandQueue& queue, cl_uint dimensions, const size_t* 
 	}
 
 	cl_int error;
-	cl_event event;
+	cl_event event = 0;
 
 	error = clEnqueueNDRangeKernel(queue.queue, preparedKernel, dimensions, NULL, globalWorkSize, localWorkSize, 0, NULL, &event);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to exectue kernel", "OpenCL program execution error");
+		GLWindow::instance->postError("Failed to exectue kernel: " + to_string(error), "OpenCL program execution error");
 		return false;
 	}
 
@@ -269,7 +269,7 @@ cl::Buffer::~Buffer()
 		cl_int error = clReleaseMemObject(mem);
 		if(error != CL_SUCCESS)
 		{
-			GLWindow::instance->postError("Failed to delete buffer", "OpenCL buffer deletion error");
+			GLWindow::instance->postError("Failed to delete buffer: " + to_string(error), "OpenCL buffer deletion error");
 		}
 	}
 }
@@ -280,7 +280,7 @@ bool cl::Buffer::create(size_t size, int flags, void* data)
 	mem = clCreateBuffer(context, flags, size, data, &error);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to create buffer", "OpenCL buffer creation error");
+		GLWindow::instance->postError("Failed to create buffer: " + to_string(error), "OpenCL buffer creation error");
 		return false;
 	}
 
@@ -293,12 +293,12 @@ bool cl::Buffer::write(CommandQueue& queue, size_t offset, size_t cb, const void
 {
 	if(!okay) return false;
 
-	cl_event event;
+	cl_event event = 0;
 
 	cl_int error = clEnqueueWriteBuffer(queue.queue, mem, CL_TRUE, offset, cb, data, 0, NULL, &event);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to write to buffer", "OpenCL buffer write error");
+		GLWindow::instance->postError("Failed to write to buffer: " + to_string(error), "OpenCL buffer write error");
 		return false;
 	}
 
@@ -316,12 +316,12 @@ bool cl::Buffer::read(CommandQueue& queue, size_t offset, size_t cb, void* data)
 {
 	if(!okay) return false;
 
-	cl_event event;
+	cl_event event = 0;
 
 	cl_int error = clEnqueueReadBuffer(queue.queue, mem, CL_TRUE, offset, cb, data, 0, NULL, &event);
 	if(error)
 	{
-		GLWindow::instance->postError("Failed to read buffer", "OpenCL buffer read error");
+		GLWindow::instance->postError("Failed to read buffer: " + to_string(error), "OpenCL buffer read error");
 		return false;
 	}
 
@@ -339,12 +339,12 @@ bool cl::Buffer::copyTo(CommandQueue& queue, Buffer& buffer)
 {
 	if(!okay) return false;
 	
-	cl_event event;
+	cl_event event = 0;
 
 	cl_int error = clEnqueueCopyBuffer(queue.queue, mem, buffer.mem, 0, 0, size, 0, nullptr, &event);
 	if(error != CL_SUCCESS)
 	{
-		GLWindow::instance->postError("Failed to copy buffer", "OpenCL buffer copy error");
+		GLWindow::instance->postError("Failed to copy buffer: " + to_string(error), "OpenCL buffer copy error");
 		return false;
 	}
 
