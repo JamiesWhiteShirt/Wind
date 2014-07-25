@@ -183,8 +183,8 @@ $pdata$??_GGLWindow@@QEAAPEAXI@Z DD imagerel $LN45
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$WinMain DD imagerel $LN993
-	DD	imagerel $LN993+2479
+$pdata$WinMain DD imagerel $LN995
+	DD	imagerel $LN995+2485
 	DD	imagerel $unwind$WinMain
 pdata	ENDS
 ;	COMDAT pdata
@@ -3119,10 +3119,8 @@ text$x	ENDS
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
-; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
@@ -3144,7 +3142,7 @@ c$1 = 64
 r2$1$ = 80
 xDist$1$ = 84
 r1$1$ = 88
-tv3035 = 92
+tv2946 = 92
 lastTick$1$ = 96
 theThread$2 = 104
 $T3 = 112
@@ -3181,7 +3179,7 @@ WinMain	PROC						; COMDAT
 
 ; 177  : {
 
-$LN993:
+$LN995:
   00000	48 89 5c 24 10	 mov	 QWORD PTR [rsp+16], rbx
   00005	48 89 74 24 18	 mov	 QWORD PTR [rsp+24], rsi
   0000a	48 89 7c 24 20	 mov	 QWORD PTR [rsp+32], rdi
@@ -3234,7 +3232,7 @@ $LN41@WinMain:
 
   00065	41 8b cf	 mov	 ecx, r15d
   00068	f7 d9		 neg	 ecx
-  0006a	89 4c 24 5c	 mov	 DWORD PTR tv3035[rsp], ecx
+  0006a	89 4c 24 5c	 mov	 DWORD PTR tv2946[rsp], ecx
   0006e	44 8b e9	 mov	 r13d, ecx
   00071	41 3b cf	 cmp	 ecx, r15d
   00074	0f 8f b7 02 00
@@ -3769,7 +3767,7 @@ $LN27@WinMain:
   00304	0f 8e b6 fd ff
 	ff		 jle	 $LL28@WinMain
   0030a	8b 44 24 54	 mov	 eax, DWORD PTR xDist$1$[rsp]
-  0030e	8b 4c 24 5c	 mov	 ecx, DWORD PTR tv3035[rsp]
+  0030e	8b 4c 24 5c	 mov	 ecx, DWORD PTR tv2946[rsp]
   00312	4c 8d 15 00 00
 	00 00		 lea	 r10, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
 $LN30@WinMain:
@@ -4008,8 +4006,8 @@ $LN45@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  00441	0f 85 56 05 00
-	00		 jne	 $LN991@WinMain
+  00441	0f 85 5c 05 00
+	00		 jne	 $LN993@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
 
@@ -4140,7 +4138,7 @@ $LL20@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  004d3	0f 85 d0 04 00
+  004d3	0f 85 d6 04 00
 	00		 jne	 $LN951@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
@@ -4177,8 +4175,8 @@ $LL20@WinMain:
 
   00506	48 8d 1d 18 00
 	00 00		 lea	 rbx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+24
-  0050d	4c 8d 35 88 11
-	00 00		 lea	 r14, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+4488
+  0050d	4c 8d 35 d0 08
+	00 00		 lea	 r14, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2256
   00514	66 66 66 66 0f
 	1f 84 00 00 00
 	00 00		 npad	 12
@@ -4275,7 +4273,7 @@ $LL17@WinMain:
 ; 110  : 		{	// move from _Other
 ; 111  : 		if (joinable())
 
-  00562	0f 85 3b 04 00
+  00562	0f 85 41 04 00
 	00		 jne	 $LN953@WinMain
 
 ; 113  : 		_Thr = _Other._Thr;
@@ -4335,7 +4333,7 @@ $LL17@WinMain:
 ; 244  : 	while(!GlobalThread::stop)
 
   005a2	0f 85 d8 00 00
-	00		 jne	 $LL979@WinMain
+	00		 jne	 $LL991@WinMain
   005a8	48 bf bd 42 7a
 	e5 d5 94 bf d6	 mov	 rdi, -2972493582642298179 ; d6bf94d5e57a42bdH
   005b2	66 66 66 66 66
@@ -4387,7 +4385,7 @@ $LL14@WinMain:
 ; 255  : 			}
 ; 256  : 		} else
 
-  00608	eb 58		 jmp	 SHORT $LN7@WinMain
+  00608	eb 58		 jmp	 SHORT $LN990@WinMain
 $LN12@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\chrono
 
@@ -4866,7 +4864,7 @@ $LN12@WinMain:
 ; 264  : 			if(ticksToProcess > 0)
 
   00638	48 85 d2	 test	 rdx, rdx
-  0063b	7e 25		 jle	 SHORT $LN7@WinMain
+  0063b	7e 25		 jle	 SHORT $LN990@WinMain
 
 ; 265  : 			{
 ; 266  : 				lastTick++;
@@ -4884,11 +4882,11 @@ $LN12@WinMain:
   0064c	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
   00653	80 78 6c 00	 cmp	 BYTE PTR [rax+108], 0
-  00657	74 09		 je	 SHORT $LN7@WinMain
+  00657	74 09		 je	 SHORT $LN990@WinMain
   00659	e8 00 00 00 00	 call	 ?mainLoop@@YA_NXZ	; mainLoop
   0065e	84 c0		 test	 al, al
   00660	74 0f		 je	 SHORT $LN988@WinMain
-$LN7@WinMain:
+$LN990@WinMain:
 
 ; 244  : 	while(!GlobalThread::stop)
 
@@ -4896,7 +4894,7 @@ $LN7@WinMain:
 	00 00		 cmp	 BYTE PTR ?stop@GlobalThread@@3_NA, 0 ; GlobalThread::stop
   00669	0f 84 51 ff ff
 	ff		 je	 $LL14@WinMain
-  0066f	eb 0f		 jmp	 SHORT $LL979@WinMain
+  0066f	eb 0f		 jmp	 SHORT $LL991@WinMain
 $LN988@WinMain:
 
 ; 269  : 				{
@@ -4906,7 +4904,7 @@ $LN988@WinMain:
 	00 01		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, 1 ; GlobalThread::stop
   00678	0f 1f 84 00 00
 	00 00 00	 npad	 8
-$LL979@WinMain:
+$LL991@WinMain:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
@@ -4915,8 +4913,8 @@ $LL979@WinMain:
 	00 00		 cmp	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+24, 0
   00687	c6 05 19 00 00
 	00 01		 mov	 BYTE PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+25, 1
-  0068e	0f 84 90 00 00
-	00		 je	 $LN5@WinMain
+  0068e	0f 84 9c 00 00
+	00		 je	 $LL5@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
@@ -5110,29 +5108,26 @@ $LN806@WinMain:
 
   0071d	44 89 3d 10 00
 	00 00		 mov	 DWORD PTR ?chunkLoadThreads@@3PAVChunkLoadThread@@A+16, r15d
-$LN5@WinMain:
-; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
-
-; 280  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
-
-  00724	48 8d 1d 10 00
-	00 00		 lea	 rbx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+16
-  0072b	48 8d 3d 80 11
-	00 00		 lea	 rdi, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+4480
-$LL3@WinMain:
+  00724	66 66 66 66 0f
+	1f 84 00 00 00
+	00 00		 npad	 12
+$LL5@WinMain:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
 
-  00732	80 7b 08 00	 cmp	 BYTE PTR [rbx+8], 0
-  00736	c6 43 09 01	 mov	 BYTE PTR [rbx+9], 1
-  0073a	0f 84 84 00 00
+  00730	80 3d 18 00 00
+	00 00		 cmp	 BYTE PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+24, 0
+  00737	c6 05 19 00 00
+	00 01		 mov	 BYTE PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+25, 1
+  0073e	0f 84 96 00 00
 	00		 je	 $LN2@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  00740	83 3b 00	 cmp	 DWORD PTR [rbx], 0
+  00744	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, 0
 
 ; 115  : 		return (*this);
 ; 116  : 		}
@@ -5232,22 +5227,23 @@ $LL3@WinMain:
 ; 210  : 	{	// join thread
 ; 211  : 	if (!joinable())
 
-  00743	75 19		 jne	 SHORT $LN829@WinMain
+  0074b	75 1d		 jne	 SHORT $LN829@WinMain
 
 ; 212  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00745	b9 01 00 00 00	 mov	 ecx, 1
-  0074a	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  0074d	b9 01 00 00 00	 mov	 ecx, 1
+  00752	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 
 ; 213  : 	if (_Thr_is_null(_Thr))
 
-  0074f	83 3b 00	 cmp	 DWORD PTR [rbx], 0
-  00752	75 0a		 jne	 SHORT $LN829@WinMain
+  00757	83 3d 10 00 00
+	00 00		 cmp	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, 0
+  0075e	75 0a		 jne	 SHORT $LN829@WinMain
 
 ; 214  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00754	b9 01 00 00 00	 mov	 ecx, 1
-  00759	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00760	b9 01 00 00 00	 mov	 ecx, 1
+  00765	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN829@WinMain:
 
 ; 220  : 	}
@@ -5261,9 +5257,9 @@ $LN829@WinMain:
 ; 228  : 	{	// return id for current thread
 ; 229  : 	return (_Thrd_current());
 
-  0075e	48 8d 8d 70 01
+  0076a	48 8d 8d 70 01
 	00 00		 lea	 rcx, QWORD PTR $T26[rbp-256]
-  00765	e8 00 00 00 00	 call	 _Thrd_current
+  00771	e8 00 00 00 00	 call	 _Thrd_current
 
 ; 230  : 	}
 ; 231  : 
@@ -5276,73 +5272,67 @@ $LN829@WinMain:
 ; 238  : 	{	// return true if _Left and _Right identify the same thread
 ; 239  : 	return (_Thrd_equal(_Left._Thr, _Right._Thr));
 
-  0076a	48 8d 95 e0 00
+  00776	48 8d 95 e0 00
 	00 00		 lea	 rdx, QWORD PTR $T22[rbp-256]
-  00771	48 8d 4d 60	 lea	 rcx, QWORD PTR $T16[rbp-256]
-  00775	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  00778	0f 29 85 e0 00
+  0077d	48 8d 4d 60	 lea	 rcx, QWORD PTR $T16[rbp-256]
+  00781	0f 10 0d 08 00
+	00 00		 movups	 xmm1, XMMWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+8
+  00788	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  0078b	0f 29 4d 60	 movaps	 XMMWORD PTR $T16[rbp-256], xmm1
+  0078f	0f 29 85 e0 00
 	00 00		 movaps	 XMMWORD PTR $T22[rbp-256], xmm0
-  0077f	0f 10 43 f8	 movups	 xmm0, XMMWORD PTR [rbx-8]
-  00783	0f 29 45 60	 movaps	 XMMWORD PTR $T16[rbp-256], xmm0
-  00787	e8 00 00 00 00	 call	 _Thrd_equal
-  0078c	85 c0		 test	 eax, eax
+  00796	e8 00 00 00 00	 call	 _Thrd_equal
+  0079b	85 c0		 test	 eax, eax
 
 ; 215  : 	if (get_id() == _STD this_thread::get_id())
 
-  0078e	74 0a		 je	 SHORT $LN828@WinMain
+  0079d	74 0a		 je	 SHORT $LN828@WinMain
 
 ; 216  : 		_Throw_Cpp_error(_RESOURCE_DEADLOCK_WOULD_OCCUR);
 
-  00790	b9 05 00 00 00	 mov	 ecx, 5
-  00795	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  0079f	b9 05 00 00 00	 mov	 ecx, 5
+  007a4	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN828@WinMain:
 
 ; 217  : 	if (_Thrd_join(_Thr, 0) != _Thrd_success)
 
-  0079a	0f 10 43 f8	 movups	 xmm0, XMMWORD PTR [rbx-8]
-  0079e	48 8d 8d a0 00
+  007a9	0f 10 05 08 00
+	00 00		 movups	 xmm0, XMMWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+8
+  007b0	48 8d 8d a0 00
 	00 00		 lea	 rcx, QWORD PTR $T20[rbp-256]
-  007a5	33 d2		 xor	 edx, edx
-  007a7	0f 29 85 a0 00
+  007b7	33 d2		 xor	 edx, edx
+  007b9	0f 29 85 a0 00
 	00 00		 movaps	 XMMWORD PTR $T20[rbp-256], xmm0
-  007ae	e8 00 00 00 00	 call	 _Thrd_join
-  007b3	85 c0		 test	 eax, eax
-  007b5	74 0a		 je	 SHORT $LN827@WinMain
+  007c0	e8 00 00 00 00	 call	 _Thrd_join
+  007c5	85 c0		 test	 eax, eax
+  007c7	74 0a		 je	 SHORT $LN827@WinMain
 
 ; 218  : 		_Throw_Cpp_error(_NO_SUCH_PROCESS);
 
-  007b7	b9 02 00 00 00	 mov	 ecx, 2
-  007bc	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  007c9	b9 02 00 00 00	 mov	 ecx, 2
+  007ce	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN827@WinMain:
 
 ; 219  : 	_Thr_set_null(_Thr);
 
-  007c1	44 89 3b	 mov	 DWORD PTR [rbx], r15d
+  007d3	44 89 3d 10 00
+	00 00		 mov	 DWORD PTR ?chunkDrawThreads@@3PAVChunkDrawThread@@A+16, r15d
 $LN2@WinMain:
-; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
-
-; 280  : 	for(int i = 0; i < DRAW_THREAD_AMOUNT; i++)
-
-  007c4	48 81 c3 b8 08
-	00 00		 add	 rbx, 2232		; 000008b8H
-  007cb	48 3b df	 cmp	 rbx, rdi
-  007ce	0f 8c 5e ff ff
-	ff		 jl	 $LL3@WinMain
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\threads.cpp
 
 ; 45   : 	if(started) thread.join();
 
-  007d4	80 3d 18 00 00
+  007da	80 3d 18 00 00
 	00 00		 cmp	 BYTE PTR ?renderThread@@3VRenderThread@@A+24, 0
-  007db	c6 05 19 00 00
+  007e1	c6 05 19 00 00
 	00 01		 mov	 BYTE PTR ?renderThread@@3VRenderThread@@A+25, 1
-  007e2	0f 84 90 00 00
+  007e8	0f 84 90 00 00
 	00		 je	 $LN852@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 83   : 		return (!_Thr_is_null(_Thr));
 
-  007e8	83 3d 10 00 00
+  007ee	83 3d 10 00 00
 	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
 
 ; 115  : 		return (*this);
@@ -5443,23 +5433,23 @@ $LN2@WinMain:
 ; 210  : 	{	// join thread
 ; 211  : 	if (!joinable())
 
-  007ef	75 1d		 jne	 SHORT $LN850@WinMain
+  007f5	75 1d		 jne	 SHORT $LN850@WinMain
 
 ; 212  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  007f1	b9 01 00 00 00	 mov	 ecx, 1
-  007f6	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  007f7	b9 01 00 00 00	 mov	 ecx, 1
+  007fc	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 
 ; 213  : 	if (_Thr_is_null(_Thr))
 
-  007fb	83 3d 10 00 00
+  00801	83 3d 10 00 00
 	00 00		 cmp	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, 0
-  00802	75 0a		 jne	 SHORT $LN850@WinMain
+  00808	75 0a		 jne	 SHORT $LN850@WinMain
 
 ; 214  : 		_Throw_Cpp_error(_INVALID_ARGUMENT);
 
-  00804	b9 01 00 00 00	 mov	 ecx, 1
-  00809	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  0080a	b9 01 00 00 00	 mov	 ecx, 1
+  0080f	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN850@WinMain:
 
 ; 220  : 	}
@@ -5473,9 +5463,9 @@ $LN850@WinMain:
 ; 228  : 	{	// return id for current thread
 ; 229  : 	return (_Thrd_current());
 
-  0080e	48 8d 8d 60 01
+  00814	48 8d 8d 60 01
 	00 00		 lea	 rcx, QWORD PTR $T25[rbp-256]
-  00815	e8 00 00 00 00	 call	 _Thrd_current
+  0081b	e8 00 00 00 00	 call	 _Thrd_current
 
 ; 230  : 	}
 ; 231  : 
@@ -5488,259 +5478,259 @@ $LN850@WinMain:
 ; 238  : 	{	// return true if _Left and _Right identify the same thread
 ; 239  : 	return (_Thrd_equal(_Left._Thr, _Right._Thr));
 
-  0081a	48 8d 95 80 00
+  00820	48 8d 95 80 00
 	00 00		 lea	 rdx, QWORD PTR $T18[rbp-256]
-  00821	48 8d 4d 00	 lea	 rcx, QWORD PTR $T12[rbp-256]
-  00825	0f 10 0d 08 00
+  00827	48 8d 4d 00	 lea	 rcx, QWORD PTR $T12[rbp-256]
+  0082b	0f 10 0d 08 00
 	00 00		 movups	 xmm1, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
-  0082c	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
-  0082f	0f 29 4d 00	 movaps	 XMMWORD PTR $T12[rbp-256], xmm1
-  00833	0f 29 85 80 00
+  00832	0f 10 00	 movups	 xmm0, XMMWORD PTR [rax]
+  00835	0f 29 4d 00	 movaps	 XMMWORD PTR $T12[rbp-256], xmm1
+  00839	0f 29 85 80 00
 	00 00		 movaps	 XMMWORD PTR $T18[rbp-256], xmm0
-  0083a	e8 00 00 00 00	 call	 _Thrd_equal
-  0083f	85 c0		 test	 eax, eax
+  00840	e8 00 00 00 00	 call	 _Thrd_equal
+  00845	85 c0		 test	 eax, eax
 
 ; 215  : 	if (get_id() == _STD this_thread::get_id())
 
-  00841	74 0a		 je	 SHORT $LN849@WinMain
+  00847	74 0a		 je	 SHORT $LN849@WinMain
 
 ; 216  : 		_Throw_Cpp_error(_RESOURCE_DEADLOCK_WOULD_OCCUR);
 
-  00843	b9 05 00 00 00	 mov	 ecx, 5
-  00848	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  00849	b9 05 00 00 00	 mov	 ecx, 5
+  0084e	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN849@WinMain:
 
 ; 217  : 	if (_Thrd_join(_Thr, 0) != _Thrd_success)
 
-  0084d	0f 10 05 08 00
+  00853	0f 10 05 08 00
 	00 00		 movups	 xmm0, XMMWORD PTR ?renderThread@@3VRenderThread@@A+8
-  00854	48 8d 4d 50	 lea	 rcx, QWORD PTR $T15[rbp-256]
-  00858	33 d2		 xor	 edx, edx
-  0085a	0f 29 45 50	 movaps	 XMMWORD PTR $T15[rbp-256], xmm0
-  0085e	e8 00 00 00 00	 call	 _Thrd_join
-  00863	85 c0		 test	 eax, eax
-  00865	74 0a		 je	 SHORT $LN848@WinMain
+  0085a	48 8d 4d 50	 lea	 rcx, QWORD PTR $T15[rbp-256]
+  0085e	33 d2		 xor	 edx, edx
+  00860	0f 29 45 50	 movaps	 XMMWORD PTR $T15[rbp-256], xmm0
+  00864	e8 00 00 00 00	 call	 _Thrd_join
+  00869	85 c0		 test	 eax, eax
+  0086b	74 0a		 je	 SHORT $LN848@WinMain
 
 ; 218  : 		_Throw_Cpp_error(_NO_SUCH_PROCESS);
 
-  00867	b9 02 00 00 00	 mov	 ecx, 2
-  0086c	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
+  0086d	b9 02 00 00 00	 mov	 ecx, 2
+  00872	e8 00 00 00 00	 call	 ?_Throw_Cpp_error@std@@YAXH@Z ; std::_Throw_Cpp_error
 $LN848@WinMain:
 
 ; 219  : 	_Thr_set_null(_Thr);
 
-  00871	44 89 3d 10 00
+  00877	44 89 3d 10 00
 	00 00		 mov	 DWORD PTR ?renderThread@@3VRenderThread@@A+16, r15d
 $LN852@WinMain:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 287  : 	delete GLWindow::instance;
 
-  00878	48 8b 1d 00 00
+  0087e	48 8b 1d 00 00
 	00 00		 mov	 rbx, QWORD PTR ?instance@GLWindow@@2PEAV1@EA ; GLWindow::instance
-  0087f	48 85 db	 test	 rbx, rbx
-  00882	0f 84 a9 00 00
+  00885	48 85 db	 test	 rbx, rbx
+  00888	0f 84 a9 00 00
 	00		 je	 $LN866@WinMain
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\window.cpp
 
 ; 264  : 	if(hDC && !ReleaseDC(hWnd, hDC))
 
-  00888	48 8b 53 18	 mov	 rdx, QWORD PTR [rbx+24]
-  0088c	40 32 ff	 xor	 dil, dil
-  0088f	48 85 d2	 test	 rdx, rdx
-  00892	74 15		 je	 SHORT $LN874@WinMain
-  00894	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
-  00898	ff 15 00 00 00
+  0088e	48 8b 53 18	 mov	 rdx, QWORD PTR [rbx+24]
+  00892	40 32 ff	 xor	 dil, dil
+  00895	48 85 d2	 test	 rdx, rdx
+  00898	74 15		 je	 SHORT $LN874@WinMain
+  0089a	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
+  0089e	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_ReleaseDC
-  0089e	85 c0		 test	 eax, eax
-  008a0	75 07		 jne	 SHORT $LN874@WinMain
+  008a4	85 c0		 test	 eax, eax
+  008a6	75 07		 jne	 SHORT $LN874@WinMain
 
 ; 265  : 	{
 ; 266  : 		hDC = NULL;
 
-  008a2	4c 89 7b 18	 mov	 QWORD PTR [rbx+24], r15
+  008a8	4c 89 7b 18	 mov	 QWORD PTR [rbx+24], r15
 
 ; 267  : 		error = true;
 
-  008a6	40 b7 01	 mov	 dil, 1
+  008ac	40 b7 01	 mov	 dil, 1
 $LN874@WinMain:
 
 ; 268  : 	}
 ; 269  : 	if(hWnd && !DestroyWindow(hWnd))
 
-  008a9	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
-  008ad	48 85 c9	 test	 rcx, rcx
-  008b0	74 11		 je	 SHORT $LN873@WinMain
-  008b2	ff 15 00 00 00
+  008af	48 8b 4b 10	 mov	 rcx, QWORD PTR [rbx+16]
+  008b3	48 85 c9	 test	 rcx, rcx
+  008b6	74 11		 je	 SHORT $LN873@WinMain
+  008b8	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_DestroyWindow
-  008b8	85 c0		 test	 eax, eax
-  008ba	75 07		 jne	 SHORT $LN873@WinMain
+  008be	85 c0		 test	 eax, eax
+  008c0	75 07		 jne	 SHORT $LN873@WinMain
 
 ; 270  : 	{
 ; 271  : 		hWnd = NULL;
 
-  008bc	4c 89 7b 10	 mov	 QWORD PTR [rbx+16], r15
+  008c2	4c 89 7b 10	 mov	 QWORD PTR [rbx+16], r15
 
 ; 272  : 		error = true;
 
-  008c0	40 b7 01	 mov	 dil, 1
+  008c6	40 b7 01	 mov	 dil, 1
 $LN873@WinMain:
 
 ; 273  : 	}
 ; 274  : 	if(!UnregisterClass(L"GLWindow", hInstance))
 
-  008c3	48 8b 53 08	 mov	 rdx, QWORD PTR [rbx+8]
-  008c7	48 8d 0d 00 00
+  008c9	48 8b 53 08	 mov	 rdx, QWORD PTR [rbx+8]
+  008cd	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:$SG4294889935
-  008ce	ff 15 00 00 00
+  008d4	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_UnregisterClassW
-  008d4	85 c0		 test	 eax, eax
-  008d6	75 06		 jne	 SHORT $LN872@WinMain
+  008da	85 c0		 test	 eax, eax
+  008dc	75 06		 jne	 SHORT $LN872@WinMain
 
 ; 275  : 	{
 ; 276  : 		hInstance = NULL;
 
-  008d8	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
+  008de	4c 89 7b 08	 mov	 QWORD PTR [rbx+8], r15
 
 ; 277  : 		error = true;
 ; 278  : 	}
 ; 279  : 	if(error)
 
-  008dc	eb 05		 jmp	 SHORT $LN980@WinMain
+  008e2	eb 05		 jmp	 SHORT $LN980@WinMain
 $LN872@WinMain:
-  008de	40 84 ff	 test	 dil, dil
-  008e1	74 1c		 je	 SHORT $LN871@WinMain
+  008e4	40 84 ff	 test	 dil, dil
+  008e7	74 1c		 je	 SHORT $LN871@WinMain
 $LN980@WinMain:
 
 ; 280  : 	{
 ; 281  : 		MessageBox(NULL, L"There was an error while destroying the window", L"ERROR", MB_OK | MB_ICONINFORMATION);
 
-  008e3	4c 8d 05 00 00
+  008e9	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:$SG4294889934
-  008ea	48 8d 15 00 00
+  008f0	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294889933
-  008f1	41 b9 40 00 00
+  008f7	41 b9 40 00 00
 	00		 mov	 r9d, 64			; 00000040H
-  008f7	33 c9		 xor	 ecx, ecx
-  008f9	ff 15 00 00 00
+  008fd	33 c9		 xor	 ecx, ecx
+  008ff	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_MessageBoxW
 $LN871@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2256 : 		else if (this->_BUF_SIZE <= this->_Myres)
 
-  008ff	48 83 7b 50 08	 cmp	 QWORD PTR [rbx+80], 8
-  00904	72 09		 jb	 SHORT $LN899@WinMain
+  00905	48 83 7b 50 08	 cmp	 QWORD PTR [rbx+80], 8
+  0090a	72 09		 jb	 SHORT $LN899@WinMain
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00906	48 8b 4b 38	 mov	 rcx, QWORD PTR [rbx+56]
-  0090a	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0090c	48 8b 4b 38	 mov	 rcx, QWORD PTR [rbx+56]
+  00910	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN899@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  0090f	48 c7 43 50 07
+  00915	48 c7 43 50 07
 	00 00 00	 mov	 QWORD PTR [rbx+80], 7
 
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  00917	4c 89 7b 48	 mov	 QWORD PTR [rbx+72], r15
+  0091d	4c 89 7b 48	 mov	 QWORD PTR [rbx+72], r15
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  0091b	48 8d 4b 30	 lea	 rcx, QWORD PTR [rbx+48]
+  00921	48 8d 4b 30	 lea	 rcx, QWORD PTR [rbx+48]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 347  : 		_Left = _Right;
 
-  0091f	66 44 89 7b 38	 mov	 WORD PTR [rbx+56], r15w
+  00925	66 44 89 7b 38	 mov	 WORD PTR [rbx+56], r15w
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\mutex
 
 ; 33   : 		_Mtx_destroy(&_Mtx);
 
-  00924	e8 00 00 00 00	 call	 _Mtx_destroy
-  00929	48 8b cb	 mov	 rcx, rbx
-  0092c	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0092a	e8 00 00 00 00	 call	 _Mtx_destroy
+  0092f	48 8b cb	 mov	 rcx, rbx
+  00932	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN866@WinMain:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\gamestates.cpp
 
 ; 42   : 	delete GameStates::renderingState;
 
-  00931	48 8b 0d 00 00
+  00937	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?renderingState@GameStates@@3PEAVGameState@1@EA ; GameStates::renderingState
-  00938	48 85 c9	 test	 rcx, rcx
-  0093b	74 05		 je	 SHORT $LN923@WinMain
-  0093d	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0093e	48 85 c9	 test	 rcx, rcx
+  00941	74 05		 je	 SHORT $LN923@WinMain
+  00943	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN923@WinMain:
 
 ; 43   : 	delete GameStates::processedState;
 
-  00942	48 8b 0d 00 00
+  00948	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?processedState@GameStates@@3PEAVGameState@1@EA ; GameStates::processedState
-  00949	48 85 c9	 test	 rcx, rcx
-  0094c	74 05		 je	 SHORT $LN928@WinMain
-  0094e	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  0094f	48 85 c9	 test	 rcx, rcx
+  00952	74 05		 je	 SHORT $LN928@WinMain
+  00954	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN928@WinMain:
 
 ; 44   : 	delete GameStates::pendingState;
 
-  00953	48 8b 0d 00 00
+  00959	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?pendingState@GameStates@@3PEAVGameState@1@EA ; GameStates::pendingState
-  0095a	48 85 c9	 test	 rcx, rcx
-  0095d	74 05		 je	 SHORT $LN933@WinMain
-  0095f	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00960	48 85 c9	 test	 rcx, rcx
+  00963	74 05		 je	 SHORT $LN933@WinMain
+  00965	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
 $LN933@WinMain:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 38   : 	clReleaseContext(context);
 
-  00964	48 8b 0d 00 00
+  0096a	48 8b 0d 00 00
 	00 00		 mov	 rcx, QWORD PTR ?context@cl@@3PEAU_cl_context@@EA ; cl::context
-  0096b	ff 15 00 00 00
+  00971	ff 15 00 00 00
 	00		 call	 QWORD PTR __imp_clReleaseContext
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\main.cpp
 
 ; 290  : 	Blocks::destroy();
 
-  00971	e8 00 00 00 00	 call	 ?destroy@Blocks@@YAXXZ	; Blocks::destroy
+  00977	e8 00 00 00 00	 call	 ?destroy@Blocks@@YAXXZ	; Blocks::destroy
 
 ; 291  : 	return msg.wParam;
 
-  00976	8b 85 30 01 00
+  0097c	8b 85 30 01 00
 	00		 mov	 eax, DWORD PTR msg$[rbp-240]
 
 ; 292  : }
 
-  0097c	4c 8d 9c 24 a0
+  00982	4c 8d 9c 24 a0
 	02 00 00	 lea	 r11, QWORD PTR [rsp+672]
-  00984	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
-  00988	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
-  0098c	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
-  00990	49 8b e3	 mov	 rsp, r11
-  00993	41 5f		 pop	 r15
-  00995	41 5e		 pop	 r14
-  00997	41 5d		 pop	 r13
-  00999	41 5c		 pop	 r12
-  0099b	5d		 pop	 rbp
-  0099c	c3		 ret	 0
-$LN991@WinMain:
+  0098a	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
+  0098e	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
+  00992	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
+  00996	49 8b e3	 mov	 rsp, r11
+  00999	41 5f		 pop	 r15
+  0099b	41 5e		 pop	 r14
+  0099d	41 5d		 pop	 r13
+  0099f	41 5c		 pop	 r12
+  009a1	5d		 pop	 rbp
+  009a2	c3		 ret	 0
+$LN993@WinMain:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thread
 
 ; 112  : 			_XSTD terminate();
 
-  0099d	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
-  009a2	cc		 int	 3
-$LN953@WinMain:
   009a3	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
   009a8	cc		 int	 3
-$LN951@WinMain:
+$LN953@WinMain:
   009a9	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
   009ae	cc		 int	 3
-$LN990@WinMain:
+$LN951@WinMain:
+  009af	e8 00 00 00 00	 call	 ?terminate@@YAXXZ	; terminate
+  009b4	cc		 int	 3
+$LN992@WinMain:
 WinMain	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp

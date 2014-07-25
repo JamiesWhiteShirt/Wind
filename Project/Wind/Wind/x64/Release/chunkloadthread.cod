@@ -441,8 +441,8 @@ $pdata$?requestChunkLoad@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?tick@ChunkLoadThread@@MEAA_NXZ DD imagerel $LN664
-	DD	imagerel $LN664+3875
+$pdata$?tick@ChunkLoadThread@@MEAA_NXZ DD imagerel $LN694
+	DD	imagerel $LN694+4004
 	DD	imagerel $unwind$?tick@ChunkLoadThread@@MEAA_NXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -664,29 +664,33 @@ xdata	ENDS
 xdata	SEGMENT
 $ip2state$?tick@ChunkLoadThread@@MEAA_NXZ DD imagerel ?tick@ChunkLoadThread@@MEAA_NXZ
 	DD	0ffffffffH
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+237
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+240
 	DD	00H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1115
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1118
 	DD	01H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1227
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1230
 	DD	02H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1351
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+1357
 	DD	03H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2220
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2226
 	DD	02H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2316
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2327
 	DD	03H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2342
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+2353
 	DD	02H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3402
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3420
 	DD	04H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3535
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3546
+	DD	05H
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3615
+	DD	04H
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3667
 	DD	02H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3628
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3760
 	DD	01H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3643
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3775
 	DD	00H
-	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3725
+	DD	imagerel ?tick@ChunkLoadThread@@MEAA_NXZ+3855
 	DD	0ffffffffH
 xdata	ENDS
 ;	COMDAT xdata
@@ -701,17 +705,19 @@ $stateUnwindMap$?tick@ChunkLoadThread@@MEAA_NXZ DD 0ffffffffH
 	DD	imagerel ?dtor$3@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA
 	DD	02H
 	DD	imagerel ?dtor$6@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA
+	DD	04H
+	DD	imagerel ?dtor$8@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
 $cppxdata$?tick@ChunkLoadThread@@MEAA_NXZ DD 019930522H
-	DD	05H
+	DD	06H
 	DD	imagerel $stateUnwindMap$?tick@ChunkLoadThread@@MEAA_NXZ
 	DD	00H
 	DD	00H
-	DD	0dH
+	DD	0fH
 	DD	imagerel $ip2state$?tick@ChunkLoadThread@@MEAA_NXZ
-	DD	01d0H
+	DD	01d8H
 	DD	00H
 	DD	01H
 CONST	ENDS
@@ -737,7 +743,7 @@ $unwind$?tick@ChunkLoadThread@@MEAA_NXZ DD 0218119H
 	DD	05004H
 	DD	imagerel __GSHandlerCheck_EH
 	DD	imagerel $cppxdata$?tick@ChunkLoadThread@@MEAA_NXZ
-	DD	0242H
+	DD	024aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -2102,7 +2108,10 @@ _TEXT	ENDS
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
-; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkdrawthread.cpp
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
@@ -2120,41 +2129,42 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?tick@ChunkLoadThread@@MEAA_NXZ PROC			; ChunkLoadThread::tick, COMDAT
 
 ; 46   : {
 
-$LN664:
+$LN694:
   00000	48 8b c4	 mov	 rax, rsp
   00003	55		 push	 rbp
   00004	41 54		 push	 r12
@@ -2165,9 +2175,9 @@ $LN664:
 	ff ff		 lea	 rbp, QWORD PTR [rax-536]
   00013	48 81 ec f0 02
 	00 00		 sub	 rsp, 752		; 000002f0H
-  0001a	48 c7 85 d0 00
+  0001a	48 c7 85 d8 00
 	00 00 fe ff ff
-	ff		 mov	 QWORD PTR $T12[rbp-256], -2
+	ff		 mov	 QWORD PTR $T13[rbp-256], -2
   00025	48 89 58 10	 mov	 QWORD PTR [rax+16], rbx
   00029	48 89 70 18	 mov	 QWORD PTR [rax+24], rsi
   0002d	48 89 78 20	 mov	 QWORD PTR [rax+32], rdi
@@ -2189,60 +2199,61 @@ $LN664:
   00070	48 8b 05 00 00
 	00 00		 mov	 rax, QWORD PTR __security_cookie
   00077	48 33 c4	 xor	 rax, rsp
-  0007a	48 89 85 40 01
+  0007a	48 89 85 48 01
 	00 00		 mov	 QWORD PTR __$ArrayPad$[rbp-256], rax
-  00081	48 8b f1	 mov	 rsi, rcx
-  00084	48 89 4d 68	 mov	 QWORD PTR this$GSCopy$1$[rbp-256], rcx
+  00081	4c 8b f1	 mov	 r14, rcx
+  00084	48 89 8d 88 00
+	00 00		 mov	 QWORD PTR this$GSCopy$1$[rbp-256], rcx
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 1382 : 		return (this->_Mysize == 0);
 
-  00088	48 83 b9 58 09
+  0008b	48 83 b9 58 09
 	00 00 00	 cmp	 QWORD PTR [rcx+2392], 0
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 47   : 	if(ChunkLoadThread::loadQueue.empty())
 
-  00090	0f 84 23 0e 00
-	00		 je	 $LN629@tick
+  00093	0f 84 a1 0e 00
+	00		 je	 $LN659@tick
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 1426 : 		return (*begin());
 
-  00096	48 8d 95 f8 00
-	00 00		 lea	 rdx, QWORD PTR $T14[rbp-256]
-  0009d	48 81 c1 38 09
+  00099	48 8d 95 00 01
+	00 00		 lea	 rdx, QWORD PTR $T15[rbp-256]
+  000a0	48 81 c1 38 09
 	00 00		 add	 rcx, 2360		; 00000938H
-  000a4	e8 00 00 00 00	 call	 ?begin@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@2@XZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::begin
-  000a9	48 8b c8	 mov	 rcx, rax
+  000a7	e8 00 00 00 00	 call	 ?begin@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$shared_ptr@VChunkBase@@@std@@@std@@@std@@@2@XZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::begin
+  000ac	48 8b c8	 mov	 rcx, rax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility
 
 ; 178  : 		return (_Myproxy == 0 ? 0 : _Myproxy->_Mycont);
 
-  000ac	48 8b 00	 mov	 rax, QWORD PTR [rax]
-  000af	48 85 c0	 test	 rax, rax
-  000b2	74 03		 je	 SHORT $LN63@tick
-  000b4	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  000af	48 8b 00	 mov	 rax, QWORD PTR [rax]
+  000b2	48 85 c0	 test	 rax, rax
+  000b5	74 03		 je	 SHORT $LN63@tick
+  000b7	48 8b 00	 mov	 rax, QWORD PTR [rax]
 $LN63@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\deque
 
 ; 787  : 		return ((_Off / _DEQUESIZ) & (this->_Mapsize - 1));
 
-  000b7	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
-  000bb	48 ff ca	 dec	 rdx
-  000be	48 23 51 10	 and	 rdx, QWORD PTR [rcx+16]
+  000ba	48 8b 50 10	 mov	 rdx, QWORD PTR [rax+16]
+  000be	48 ff ca	 dec	 rdx
+  000c1	48 23 51 10	 and	 rdx, QWORD PTR [rcx+16]
 
 ; 1426 : 		return (*begin());
 
-  000c2	48 8b 40 08	 mov	 rax, QWORD PTR [rax+8]
-  000c6	48 8b 14 d0	 mov	 rdx, QWORD PTR [rax+rdx*8]
+  000c5	48 8b 40 08	 mov	 rax, QWORD PTR [rax+8]
+  000c9	48 8b 14 d0	 mov	 rdx, QWORD PTR [rax+rdx*8]
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 357  : 		_Reset(_Other._Ptr, _Other._Rep);
 
-  000ca	4c 8b 7a 08	 mov	 r15, QWORD PTR [rdx+8]
-  000ce	4c 89 7d 08	 mov	 QWORD PTR $T4[rbp-256], r15
-  000d2	4c 8b 22	 mov	 r12, QWORD PTR [rdx]
+  000cd	4c 8b 6a 08	 mov	 r13, QWORD PTR [rdx+8]
+  000d1	4c 89 6d 08	 mov	 QWORD PTR $T5[rbp-256], r13
+  000d5	4c 8b 22	 mov	 r12, QWORD PTR [rdx]
 
 ; 358  : 		}
 ; 359  : 
@@ -2295,333 +2306,333 @@ $LN63@tick:
 ; 406  : 		{	// release resource and take _Other_ptr through _Other_rep
 ; 407  : 		if (_Other_rep)
 
-  000d5	4d 85 ff	 test	 r15, r15
-  000d8	74 05		 je	 SHORT $LN83@tick
+  000d8	4d 85 ed	 test	 r13, r13
+  000db	74 05		 je	 SHORT $LN83@tick
 
 ; 108  : 		_MT_INCR(_Ignored, _Uses);
 
-  000da	f0 41 ff 47 08	 lock inc DWORD PTR [r15+8]
+  000dd	f0 41 ff 45 08	 lock inc DWORD PTR [r13+8]
 $LN83@tick:
 
 ; 426  : 		_Rep = _Other_rep;
 
-  000df	4c 89 bd e0 00
-	00 00		 mov	 QWORD PTR chunk$[rbp-248], r15
+  000e2	4c 89 ad e8 00
+	00 00		 mov	 QWORD PTR chunk$[rbp-248], r13
 
 ; 427  : 		_Ptr = _Other_ptr;
 
-  000e6	4c 89 a5 d8 00
+  000e9	4c 89 a5 e0 00
 	00 00		 mov	 QWORD PTR chunk$[rbp-256], r12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
 
 ; 160  : 		c.pop_front();
 
-  000ed	48 8d 8e 38 09
-	00 00		 lea	 rcx, QWORD PTR [rsi+2360]
-  000f4	e8 00 00 00 00	 call	 ?pop_front@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::pop_front
+  000f0	49 8d 8e 38 09
+	00 00		 lea	 rcx, QWORD PTR [r14+2360]
+  000f7	e8 00 00 00 00	 call	 ?pop_front@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXXZ ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::pop_front
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 55   : 	const int chunkX = chunk->pos.x;
 
-  000f9	41 8b 54 24 18	 mov	 edx, DWORD PTR [r12+24]
-  000fe	89 54 24 70	 mov	 DWORD PTR chunkX$[rsp], edx
+  000fc	41 8b 54 24 18	 mov	 edx, DWORD PTR [r12+24]
+  00101	89 54 24 70	 mov	 DWORD PTR chunkX$[rsp], edx
 
 ; 56   : 	const int chunkY = chunk->pos.y;
 
-  00102	41 8b 4c 24 1c	 mov	 ecx, DWORD PTR [r12+28]
-  00107	89 4c 24 7c	 mov	 DWORD PTR chunkY$[rsp], ecx
+  00105	41 8b 4c 24 1c	 mov	 ecx, DWORD PTR [r12+28]
+  0010a	89 4c 24 7c	 mov	 DWORD PTR chunkY$[rsp], ecx
 
 ; 57   : 	const int chunkZ = chunk->pos.z;
 
-  0010b	41 8b 44 24 20	 mov	 eax, DWORD PTR [r12+32]
-  00110	89 44 24 74	 mov	 DWORD PTR chunkZ$[rsp], eax
-  00114	66 0f 6e d0	 movd	 xmm2, eax
+  0010e	41 8b 44 24 20	 mov	 eax, DWORD PTR [r12+32]
+  00113	89 44 24 74	 mov	 DWORD PTR chunkZ$[rsp], eax
+  00117	66 0f 6e d0	 movd	 xmm2, eax
 
 ; 58   : 
 ; 59   : 	smoothnessNoise.fillNoiseBuffer(queue, smoothnessNoiseBuffer, 18, 18, 18, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 16.0f, 16.0f, 16.0f);
 
-  00118	0f 5b d2	 cvtdq2ps xmm2, xmm2
-  0011b	f3 44 0f 10 15
+  0011b	0f 5b d2	 cvtdq2ps xmm2, xmm2
+  0011e	f3 44 0f 10 15
 	00 00 00 00	 movss	 xmm10, DWORD PTR __real@41800000
-  00124	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
-  00129	f3 44 0f 10 0d
+  00127	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
+  0012c	f3 44 0f 10 0d
 	00 00 00 00	 movss	 xmm9, DWORD PTR __real@3f800000
-  00132	f3 41 0f 5c d1	 subss	 xmm2, xmm9
-  00137	66 0f 6e c9	 movd	 xmm1, ecx
-  0013b	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  0013e	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  00143	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  00148	66 0f 6e c2	 movd	 xmm0, edx
-  0014c	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  0014f	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  00154	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  00159	48 8d 9e a8 08
-	00 00		 lea	 rbx, QWORD PTR [rsi+2216]
-  00160	4c 8d ae 38 08
-	00 00		 lea	 r13, QWORD PTR [rsi+2104]
-  00167	4c 89 6d 70	 mov	 QWORD PTR tv3522[rbp-256], r13
+  00135	f3 41 0f 5c d1	 subss	 xmm2, xmm9
+  0013a	66 0f 6e c9	 movd	 xmm1, ecx
+  0013e	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  00141	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  00146	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  0014b	66 0f 6e c2	 movd	 xmm0, edx
+  0014f	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  00152	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  00157	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  0015c	49 8d 9e a8 08
+	00 00		 lea	 rbx, QWORD PTR [r14+2216]
+  00163	4d 8d be 38 08
+	00 00		 lea	 r15, QWORD PTR [r14+2104]
+  0016a	4c 89 7d e0	 mov	 QWORD PTR tv3615[rbp-256], r15
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\noise.cpp
 
 ; 397  : 	fillNoiseBuffer(queue, buffer, xs, ys, zs, smoothness, x, y, z, xd, yd, zd);
 
-  0016b	f3 44 0f 11 54
+  0016e	f3 44 0f 11 54
 	24 60		 movss	 DWORD PTR [rsp+96], xmm10
-  00172	f3 44 0f 11 54
+  00175	f3 44 0f 11 54
 	24 58		 movss	 DWORD PTR [rsp+88], xmm10
-  00179	f3 44 0f 11 54
+  0017c	f3 44 0f 11 54
 	24 50		 movss	 DWORD PTR [rsp+80], xmm10
-  00180	f3 0f 11 54 24
+  00183	f3 0f 11 54 24
 	48		 movss	 DWORD PTR [rsp+72], xmm2
-  00186	f3 0f 11 4c 24
+  00189	f3 0f 11 4c 24
 	40		 movss	 DWORD PTR [rsp+64], xmm1
-  0018c	f3 0f 11 44 24
+  0018f	f3 0f 11 44 24
 	38		 movss	 DWORD PTR [rsp+56], xmm0
-  00192	f3 0f 10 05 0c
+  00195	f3 0f 10 05 0c
 	00 00 00	 movss	 xmm0, DWORD PTR ?smoothnessNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A+12
-  0019a	f3 0f 11 44 24
+  0019d	f3 0f 11 44 24
 	30		 movss	 DWORD PTR [rsp+48], xmm0
-  001a0	4c 8b c3	 mov	 r8, rbx
-  001a3	49 8b d5	 mov	 rdx, r13
-  001a6	48 8d 0d 00 00
+  001a3	4c 8b c3	 mov	 r8, rbx
+  001a6	49 8b d7	 mov	 rdx, r15
+  001a9	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?smoothnessNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A ; ChunkLoadThread::smoothnessNoise
-  001ad	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
+  001b0	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 60   : 	queue.sync();
 
-  001b2	49 8b cd	 mov	 rcx, r13
-  001b5	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
-  001ba	66 0f 6e 4c 24
+  001b5	49 8b cf	 mov	 rcx, r15
+  001b8	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
+  001bd	66 0f 6e 4c 24
 	74		 movd	 xmm1, DWORD PTR chunkZ$[rsp]
 
 ; 61   : 	minHeightNoise.fillNoiseBuffer(queue, minHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 
-  001c0	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  001c3	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  001c8	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  001cd	66 0f 6e 44 24
+  001c3	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  001c6	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  001cb	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  001d0	66 0f 6e 44 24
 	70		 movd	 xmm0, DWORD PTR chunkX$[rsp]
-  001d3	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  001d6	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  001db	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  001e0	4c 8d 86 78 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2168]
-  001e7	f3 44 0f 10 05
+  001d6	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  001d9	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  001de	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  001e3	4d 8d 86 78 08
+	00 00		 lea	 r8, QWORD PTR [r14+2168]
+  001ea	f3 44 0f 10 05
 	00 00 00 00	 movss	 xmm8, DWORD PTR __real@40800000
-  001f0	f3 44 0f 11 44
+  001f3	f3 44 0f 11 44
 	24 48		 movss	 DWORD PTR [rsp+72], xmm8
-  001f7	f3 44 0f 11 44
+  001fa	f3 44 0f 11 44
 	24 40		 movss	 DWORD PTR [rsp+64], xmm8
-  001fe	f3 0f 11 4c 24
+  00201	f3 0f 11 4c 24
 	38		 movss	 DWORD PTR [rsp+56], xmm1
-  00204	f3 0f 11 44 24
+  00207	f3 0f 11 44 24
 	30		 movss	 DWORD PTR [rsp+48], xmm0
-  0020a	f3 0f 10 3d 00
+  0020d	f3 0f 10 3d 00
 	00 00 00	 movss	 xmm7, DWORD PTR __real@40000000
-  00212	f3 0f 11 7c 24
+  00215	f3 0f 11 7c 24
 	28		 movss	 DWORD PTR [rsp+40], xmm7
-  00218	49 8b d5	 mov	 rdx, r13
-  0021b	48 8d 0d 00 00
+  0021b	49 8b d7	 mov	 rdx, r15
+  0021e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?minHeightNoise@ChunkLoadThread@@2VNoiseGenerator2D@Noise@@A ; ChunkLoadThread::minHeightNoise
-  00222	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
-  00227	66 0f 6e 4c 24
+  00225	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
+  0022a	66 0f 6e 4c 24
 	74		 movd	 xmm1, DWORD PTR chunkZ$[rsp]
 
 ; 62   : 	maxHeightNoise.fillNoiseBuffer(queue, maxHeightNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 
-  0022d	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  00230	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  00235	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  0023a	66 0f 6e 44 24
+  00230	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  00233	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  00238	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  0023d	66 0f 6e 44 24
 	70		 movd	 xmm0, DWORD PTR chunkX$[rsp]
-  00240	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  00243	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  00248	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  0024d	4c 8d 86 90 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2192]
-  00254	f3 44 0f 11 44
+  00243	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  00246	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  0024b	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  00250	4d 8d 86 90 08
+	00 00		 lea	 r8, QWORD PTR [r14+2192]
+  00257	f3 44 0f 11 44
 	24 48		 movss	 DWORD PTR [rsp+72], xmm8
-  0025b	f3 44 0f 11 44
+  0025e	f3 44 0f 11 44
 	24 40		 movss	 DWORD PTR [rsp+64], xmm8
-  00262	f3 0f 11 4c 24
+  00265	f3 0f 11 4c 24
 	38		 movss	 DWORD PTR [rsp+56], xmm1
-  00268	f3 0f 11 44 24
+  0026b	f3 0f 11 44 24
 	30		 movss	 DWORD PTR [rsp+48], xmm0
-  0026e	f3 0f 11 7c 24
+  00271	f3 0f 11 7c 24
 	28		 movss	 DWORD PTR [rsp+40], xmm7
-  00274	49 8b d5	 mov	 rdx, r13
-  00277	48 8d 0d 00 00
+  00277	49 8b d7	 mov	 rdx, r15
+  0027a	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?maxHeightNoise@ChunkLoadThread@@2VNoiseGenerator2D@Noise@@A ; ChunkLoadThread::maxHeightNoise
-  0027e	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
-  00283	66 0f 6e 5c 24
+  00281	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
+  00286	66 0f 6e 5c 24
 	74		 movd	 xmm3, DWORD PTR chunkZ$[rsp]
 
 ; 63   : 	solidNoise.fillNoiseBufferWithSmoothness(queue, solidNoiseBuffer, 18, 18, 18, smoothnessNoiseBuffer, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 25.0f, 20.0f);
 
-  00289	0f 5b db	 cvtdq2ps xmm3, xmm3
-  0028c	f3 41 0f 59 da	 mulss	 xmm3, xmm10
-  00291	f3 41 0f 5c d9	 subss	 xmm3, xmm9
-  00296	66 0f 6e 54 24
+  0028c	0f 5b db	 cvtdq2ps xmm3, xmm3
+  0028f	f3 41 0f 59 da	 mulss	 xmm3, xmm10
+  00294	f3 41 0f 5c d9	 subss	 xmm3, xmm9
+  00299	66 0f 6e 54 24
 	7c		 movd	 xmm2, DWORD PTR chunkY$[rsp]
-  0029c	0f 5b d2	 cvtdq2ps xmm2, xmm2
-  0029f	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
-  002a4	f3 41 0f 5c d1	 subss	 xmm2, xmm9
-  002a9	66 0f 6e 4c 24
+  0029f	0f 5b d2	 cvtdq2ps xmm2, xmm2
+  002a2	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
+  002a7	f3 41 0f 5c d1	 subss	 xmm2, xmm9
+  002ac	66 0f 6e 4c 24
 	70		 movd	 xmm1, DWORD PTR chunkX$[rsp]
-  002af	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  002b2	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  002b7	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  002bc	4c 8d 86 c0 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2240]
-  002c3	f3 0f 10 35 00
+  002b2	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  002b5	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  002ba	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  002bf	4d 8d 86 c0 08
+	00 00		 lea	 r8, QWORD PTR [r14+2240]
+  002c6	f3 0f 10 35 00
 	00 00 00	 movss	 xmm6, DWORD PTR __real@41a00000
-  002cb	f3 0f 11 74 24
+  002ce	f3 0f 11 74 24
 	60		 movss	 DWORD PTR [rsp+96], xmm6
-  002d1	f3 0f 10 05 00
+  002d4	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41c80000
-  002d9	f3 0f 11 44 24
+  002dc	f3 0f 11 44 24
 	58		 movss	 DWORD PTR [rsp+88], xmm0
-  002df	f3 0f 11 74 24
+  002e2	f3 0f 11 74 24
 	50		 movss	 DWORD PTR [rsp+80], xmm6
-  002e5	f3 0f 11 5c 24
+  002e8	f3 0f 11 5c 24
 	48		 movss	 DWORD PTR [rsp+72], xmm3
-  002eb	f3 0f 11 54 24
+  002ee	f3 0f 11 54 24
 	40		 movss	 DWORD PTR [rsp+64], xmm2
-  002f1	f3 0f 11 4c 24
+  002f4	f3 0f 11 4c 24
 	38		 movss	 DWORD PTR [rsp+56], xmm1
-  002f7	48 89 5c 24 30	 mov	 QWORD PTR [rsp+48], rbx
-  002fc	49 8b d5	 mov	 rdx, r13
-  002ff	e8 00 00 00 00	 call	 ?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBufferWithSmoothness
-  00304	66 0f 6e 54 24
+  002fa	48 89 5c 24 30	 mov	 QWORD PTR [rsp+48], rbx
+  002ff	49 8b d7	 mov	 rdx, r15
+  00302	e8 00 00 00 00	 call	 ?fillNoiseBufferWithSmoothness@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@III1MMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBufferWithSmoothness
+  00307	66 0f 6e 54 24
 	74		 movd	 xmm2, DWORD PTR chunkZ$[rsp]
 
 ; 64   : 	stoneNoise.fillNoiseBuffer(queue, stoneNoiseBuffer, 18, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkY * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 20.0f, 20.0f, 20.0f);
 
-  0030a	0f 5b d2	 cvtdq2ps xmm2, xmm2
-  0030d	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
-  00312	f3 41 0f 5c d1	 subss	 xmm2, xmm9
-  00317	66 0f 6e 4c 24
+  0030d	0f 5b d2	 cvtdq2ps xmm2, xmm2
+  00310	f3 41 0f 59 d2	 mulss	 xmm2, xmm10
+  00315	f3 41 0f 5c d1	 subss	 xmm2, xmm9
+  0031a	66 0f 6e 4c 24
 	7c		 movd	 xmm1, DWORD PTR chunkY$[rsp]
-  0031d	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  00320	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  00325	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  0032a	66 0f 6e 44 24
+  00320	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  00323	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  00328	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  0032d	66 0f 6e 44 24
 	70		 movd	 xmm0, DWORD PTR chunkX$[rsp]
-  00330	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  00333	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  00338	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  0033d	4c 8d 86 d8 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2264]
-  00344	f3 0f 11 74 24
+  00333	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  00336	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  0033b	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  00340	4d 8d 86 d8 08
+	00 00		 lea	 r8, QWORD PTR [r14+2264]
+  00347	f3 0f 11 74 24
 	60		 movss	 DWORD PTR [rsp+96], xmm6
-  0034a	f3 0f 11 74 24
+  0034d	f3 0f 11 74 24
 	58		 movss	 DWORD PTR [rsp+88], xmm6
-  00350	f3 0f 11 74 24
+  00353	f3 0f 11 74 24
 	50		 movss	 DWORD PTR [rsp+80], xmm6
-  00356	f3 0f 11 54 24
+  00359	f3 0f 11 54 24
 	48		 movss	 DWORD PTR [rsp+72], xmm2
-  0035c	f3 0f 11 4c 24
+  0035f	f3 0f 11 4c 24
 	40		 movss	 DWORD PTR [rsp+64], xmm1
-  00362	f3 0f 11 44 24
+  00365	f3 0f 11 44 24
 	38		 movss	 DWORD PTR [rsp+56], xmm0
-  00368	f3 0f 11 7c 24
+  0036b	f3 0f 11 7c 24
 	30		 movss	 DWORD PTR [rsp+48], xmm7
-  0036e	49 8b d5	 mov	 rdx, r13
-  00371	48 8d 0d 00 00
+  00371	49 8b d7	 mov	 rdx, r15
+  00374	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?stoneNoise@ChunkLoadThread@@2VNoiseGenerator3D@Noise@@A ; ChunkLoadThread::stoneNoise
-  00378	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
-  0037d	66 0f 6e 4c 24
+  0037b	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator3D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIIMMMMMMM@Z ; Noise::NoiseGenerator3D::fillNoiseBuffer
+  00380	66 0f 6e 4c 24
 	74		 movd	 xmm1, DWORD PTR chunkZ$[rsp]
 
 ; 65   : 	temperatureNoise.fillNoiseBuffer(queue, temperatureNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 
-  00383	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  00386	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  0038b	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  00390	66 0f 6e 44 24
+  00386	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  00389	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  0038e	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  00393	66 0f 6e 44 24
 	70		 movd	 xmm0, DWORD PTR chunkX$[rsp]
-  00396	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  00399	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  0039e	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  003a3	4c 8d 86 f0 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2288]
-  003aa	f3 44 0f 11 44
+  00399	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  0039c	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  003a1	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  003a6	4d 8d 86 f0 08
+	00 00		 lea	 r8, QWORD PTR [r14+2288]
+  003ad	f3 44 0f 11 44
 	24 48		 movss	 DWORD PTR [rsp+72], xmm8
-  003b1	f3 44 0f 11 44
+  003b4	f3 44 0f 11 44
 	24 40		 movss	 DWORD PTR [rsp+64], xmm8
-  003b8	f3 0f 11 4c 24
+  003bb	f3 0f 11 4c 24
 	38		 movss	 DWORD PTR [rsp+56], xmm1
-  003be	f3 0f 11 44 24
+  003c1	f3 0f 11 44 24
 	30		 movss	 DWORD PTR [rsp+48], xmm0
-  003c4	f3 0f 11 7c 24
+  003c7	f3 0f 11 7c 24
 	28		 movss	 DWORD PTR [rsp+40], xmm7
-  003ca	49 8b d5	 mov	 rdx, r13
-  003cd	48 8d 0d 00 00
+  003cd	49 8b d7	 mov	 rdx, r15
+  003d0	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?temperatureNoise@ChunkLoadThread@@2VNoiseGenerator2D@Noise@@A ; ChunkLoadThread::temperatureNoise
-  003d4	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
-  003d9	66 0f 6e 4c 24
+  003d7	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
+  003dc	66 0f 6e 4c 24
 	74		 movd	 xmm1, DWORD PTR chunkZ$[rsp]
 
 ; 66   : 	humidityNoise.fillNoiseBuffer(queue, humidityNoiseBuffer, 18, 18, 2.0f, chunkX * 16.0f - 1.0f, chunkZ * 16.0f - 1.0f, 4.0f, 4.0f);
 
-  003df	0f 5b c9	 cvtdq2ps xmm1, xmm1
-  003e2	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
-  003e7	f3 41 0f 5c c9	 subss	 xmm1, xmm9
-  003ec	66 0f 6e 44 24
+  003e2	0f 5b c9	 cvtdq2ps xmm1, xmm1
+  003e5	f3 41 0f 59 ca	 mulss	 xmm1, xmm10
+  003ea	f3 41 0f 5c c9	 subss	 xmm1, xmm9
+  003ef	66 0f 6e 44 24
 	70		 movd	 xmm0, DWORD PTR chunkX$[rsp]
-  003f2	0f 5b c0	 cvtdq2ps xmm0, xmm0
-  003f5	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
-  003fa	f3 41 0f 5c c1	 subss	 xmm0, xmm9
-  003ff	4c 8d 86 08 09
-	00 00		 lea	 r8, QWORD PTR [rsi+2312]
-  00406	f3 44 0f 11 44
+  003f5	0f 5b c0	 cvtdq2ps xmm0, xmm0
+  003f8	f3 41 0f 59 c2	 mulss	 xmm0, xmm10
+  003fd	f3 41 0f 5c c1	 subss	 xmm0, xmm9
+  00402	4d 8d 86 08 09
+	00 00		 lea	 r8, QWORD PTR [r14+2312]
+  00409	f3 44 0f 11 44
 	24 48		 movss	 DWORD PTR [rsp+72], xmm8
-  0040d	f3 44 0f 11 44
+  00410	f3 44 0f 11 44
 	24 40		 movss	 DWORD PTR [rsp+64], xmm8
-  00414	f3 0f 11 4c 24
+  00417	f3 0f 11 4c 24
 	38		 movss	 DWORD PTR [rsp+56], xmm1
-  0041a	f3 0f 11 44 24
+  0041d	f3 0f 11 44 24
 	30		 movss	 DWORD PTR [rsp+48], xmm0
-  00420	f3 0f 11 7c 24
+  00423	f3 0f 11 7c 24
 	28		 movss	 DWORD PTR [rsp+40], xmm7
-  00426	49 8b d5	 mov	 rdx, r13
-  00429	48 8d 0d 00 00
+  00429	49 8b d7	 mov	 rdx, r15
+  0042c	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?humidityNoise@ChunkLoadThread@@2VNoiseGenerator2D@Noise@@A ; ChunkLoadThread::humidityNoise
-  00430	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
+  00433	e8 00 00 00 00	 call	 ?fillNoiseBuffer@NoiseGenerator2D@Noise@@QEAAXAEAVCommandQueue@cl@@AEAVBuffer@4@IIMMMMM@Z ; Noise::NoiseGenerator2D::fillNoiseBuffer
 
 ; 67   : 
 ; 68   : 	std::vector<std::shared_ptr<Cave>> caves = CaveCache::getCavesInRegion(chunk->pos);
 
-  00435	41 8b 44 24 18	 mov	 eax, DWORD PTR [r12+24]
-  0043a	89 45 30	 mov	 DWORD PTR $T6[rbp-256], eax
-  0043d	41 8b 44 24 1c	 mov	 eax, DWORD PTR [r12+28]
-  00442	89 45 34	 mov	 DWORD PTR $T6[rbp-252], eax
-  00445	41 8b 44 24 20	 mov	 eax, DWORD PTR [r12+32]
-  0044a	89 45 38	 mov	 DWORD PTR $T6[rbp-248], eax
-  0044d	48 8d 55 30	 lea	 rdx, QWORD PTR $T6[rbp-256]
-  00451	48 8d 4d 40	 lea	 rcx, QWORD PTR caves$[rbp-256]
-  00455	e8 00 00 00 00	 call	 ?getCavesInRegion@CaveCache@@SA?AV?$vector@V?$shared_ptr@VCave@@@std@@V?$allocator@V?$shared_ptr@VCave@@@std@@@2@@std@@VChunkPosition@@@Z ; CaveCache::getCavesInRegion
-  0045a	90		 npad	 1
-  0045b	66 41 0f 6e 5c
+  00438	41 8b 44 24 18	 mov	 eax, DWORD PTR [r12+24]
+  0043d	89 45 40	 mov	 DWORD PTR $T7[rbp-256], eax
+  00440	41 8b 44 24 1c	 mov	 eax, DWORD PTR [r12+28]
+  00445	89 45 44	 mov	 DWORD PTR $T7[rbp-252], eax
+  00448	41 8b 44 24 20	 mov	 eax, DWORD PTR [r12+32]
+  0044d	89 45 48	 mov	 DWORD PTR $T7[rbp-248], eax
+  00450	48 8d 55 40	 lea	 rdx, QWORD PTR $T7[rbp-256]
+  00454	48 8d 4d 50	 lea	 rcx, QWORD PTR caves$[rbp-256]
+  00458	e8 00 00 00 00	 call	 ?getCavesInRegion@CaveCache@@SA?AV?$vector@V?$shared_ptr@VCave@@@std@@V?$allocator@V?$shared_ptr@VCave@@@std@@@2@@std@@VChunkPosition@@@Z ; CaveCache::getCavesInRegion
+  0045d	90		 npad	 1
+  0045e	66 41 0f 6e 5c
 	24 20		 movd	 xmm3, DWORD PTR [r12+32]
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 105  : 	return geom::AxisAlignedCube(geom::Vector(pos.x, pos.y, pos.z) * 16.0f, geom::Vector(16.0f, 16.0f, 16.0f));
 
-  00462	0f 5b db	 cvtdq2ps xmm3, xmm3
-  00465	66 45 0f 6e 7c
+  00465	0f 5b db	 cvtdq2ps xmm3, xmm3
+  00468	66 45 0f 6e 7c
 	24 1c		 movd	 xmm15, DWORD PTR [r12+28]
-  0046c	45 0f 5b ff	 cvtdq2ps xmm15, xmm15
-  00470	66 45 0f 6e 74
+  0046f	45 0f 5b ff	 cvtdq2ps xmm15, xmm15
+  00473	66 45 0f 6e 74
 	24 18		 movd	 xmm14, DWORD PTR [r12+24]
-  00477	45 0f 5b f6	 cvtdq2ps xmm14, xmm14
+  0047a	45 0f 5b f6	 cvtdq2ps xmm14, xmm14
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 63   : 	return Vector(x * f, y * f, z * f);
 
-  0047b	f3 41 0f 59 da	 mulss	 xmm3, xmm10
-  00480	f3 45 0f 59 fa	 mulss	 xmm15, xmm10
-  00485	f3 45 0f 59 f2	 mulss	 xmm14, xmm10
+  0047e	f3 41 0f 59 da	 mulss	 xmm3, xmm10
+  00483	f3 45 0f 59 fa	 mulss	 xmm15, xmm10
+  00488	f3 45 0f 59 f2	 mulss	 xmm14, xmm10
 
 ; 11   : 	
 ; 12   : }
@@ -2654,75 +2665,76 @@ $LN83@tick:
 ; 39   : {
 ; 40   : 	return Vector(x - vec.x, y - vec.y, z - vec.z);
 
-  0048a	f3 0f 10 05 00
+  0048d	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@41000000
-  00492	f3 0f 5c d8	 subss	 xmm3, xmm0
-  00496	f3 0f 11 5c 24
+  00495	f3 0f 5c d8	 subss	 xmm3, xmm0
+  00499	f3 0f 11 5c 24
 	78		 movss	 DWORD PTR boundingBox$1$[rsp], xmm3
-  0049c	f3 44 0f 5c f8	 subss	 xmm15, xmm0
-  004a1	f3 44 0f 5c f0	 subss	 xmm14, xmm0
+  0049f	f3 44 0f 5c f8	 subss	 xmm15, xmm0
+  004a4	f3 44 0f 5c f0	 subss	 xmm14, xmm0
 
 ; 10   : {
 
-  004a6	f3 44 0f 11 75
-	e0		 movss	 DWORD PTR boundingBox$[rbp-256], xmm14
-  004ac	f3 44 0f 11 7d
-	e4		 movss	 DWORD PTR boundingBox$[rbp-252], xmm15
-  004b2	f3 0f 11 5d e8	 movss	 DWORD PTR boundingBox$[rbp-248], xmm3
+  004a9	f3 44 0f 11 75
+	e8		 movss	 DWORD PTR boundingBox$[rbp-256], xmm14
+  004af	f3 44 0f 11 7d
+	ec		 movss	 DWORD PTR boundingBox$[rbp-252], xmm15
+  004b5	f3 0f 11 5d f0	 movss	 DWORD PTR boundingBox$[rbp-248], xmm3
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 486  : 		_Myfirst = pointer();
 
-  004b7	45 33 d2	 xor	 r10d, r10d
-  004ba	4c 89 55 80	 mov	 QWORD PTR lines$[rbp-256], r10
+  004ba	45 33 d2	 xor	 r10d, r10d
+  004bd	4c 89 55 80	 mov	 QWORD PTR lines$[rbp-256], r10
 
 ; 487  : 		_Mylast = pointer();
 
-  004be	33 d2		 xor	 edx, edx
-  004c0	48 89 55 88	 mov	 QWORD PTR lines$[rbp-248], rdx
+  004c1	33 d2		 xor	 edx, edx
+  004c3	48 89 55 88	 mov	 QWORD PTR lines$[rbp-248], rdx
 
 ; 488  : 		_Myend = pointer();
 
-  004c4	45 33 c0	 xor	 r8d, r8d
-  004c7	4c 89 45 90	 mov	 QWORD PTR lines$[rbp-240], r8
+  004c7	45 33 c0	 xor	 r8d, r8d
+  004ca	4c 89 45 90	 mov	 QWORD PTR lines$[rbp-240], r8
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 71   : 	for(int i = 0; i < caves.size(); i++)
 
-  004cb	33 ff		 xor	 edi, edi
-  004cd	89 7d 9c	 mov	 DWORD PTR i$1$[rbp-256], edi
+  004ce	33 ff		 xor	 edi, edi
+  004d0	89 7d 9c	 mov	 DWORD PTR i$1$[rbp-256], edi
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
-  004d0	48 8b 45 48	 mov	 rax, QWORD PTR caves$[rbp-248]
-  004d4	48 8b 5d 40	 mov	 rbx, QWORD PTR caves$[rbp-256]
-  004d8	48 89 5d 00	 mov	 QWORD PTR caves$1$[rbp-256], rbx
-  004dc	48 2b c3	 sub	 rax, rbx
-  004df	48 c1 f8 04	 sar	 rax, 4
-  004e3	48 89 45 78	 mov	 QWORD PTR tv3520[rbp-256], rax
+  004d3	48 8b 45 58	 mov	 rax, QWORD PTR caves$[rbp-248]
+  004d7	48 8b 5d 50	 mov	 rbx, QWORD PTR caves$[rbp-256]
+  004db	48 89 5d 10	 mov	 QWORD PTR caves$1$[rbp-256], rbx
+  004df	48 2b c3	 sub	 rax, rbx
+  004e2	48 c1 f8 04	 sar	 rax, 4
+  004e6	48 89 85 90 00
+	00 00		 mov	 QWORD PTR tv3613[rbp-256], rax
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 71   : 	for(int i = 0; i < caves.size(); i++)
 
-  004e7	41 83 ce ff	 or	 r14d, -1
-  004eb	48 85 c0	 test	 rax, rax
-  004ee	0f 84 3e 04 00
-	00		 je	 $LN657@tick
-$LN663@tick:
+  004ed	83 ce ff	 or	 esi, -1
+  004f0	48 85 c0	 test	 rax, rax
+  004f3	0f 84 47 04 00
+	00		 je	 $LN687@tick
+$LN693@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 426  : 		_Rep = _Other_rep;
 
-  004f4	f3 0f 10 05 00
+  004f9	f3 0f 10 05 00
 	00 00 00	 movss	 xmm0, DWORD PTR __real@42000000
-  004fc	49 bb ff ff ff
+  00501	49 bb ff ff ff
 	ff ff ff ff 07	 mov	 r11, 576460752303423487	; 07ffffffffffffffH
 
 ; 357  : 		_Reset(_Other._Ptr, _Other._Rep);
 
-  00506	48 8b 73 08	 mov	 rsi, QWORD PTR [rbx+8]
-  0050a	4c 8b 2b	 mov	 r13, QWORD PTR [rbx]
+  0050b	4c 8b 73 08	 mov	 r14, QWORD PTR [rbx+8]
+  0050f	4c 8b 2b	 mov	 r13, QWORD PTR [rbx]
 
 ; 358  : 		}
 ; 359  : 
@@ -2775,79 +2787,81 @@ $LN663@tick:
 ; 406  : 		{	// release resource and take _Other_ptr through _Other_rep
 ; 407  : 		if (_Other_rep)
 
-  0050d	48 85 f6	 test	 rsi, rsi
-  00510	74 27		 je	 SHORT $LN177@tick
+  00512	4d 85 f6	 test	 r14, r14
+  00515	74 28		 je	 SHORT $LN177@tick
 
 ; 108  : 		_MT_INCR(_Ignored, _Uses);
 
-  00512	f0 ff 46 08	 lock inc DWORD PTR [rsi+8]
-  00516	f3 0f 10 5d e8	 movss	 xmm3, DWORD PTR boundingBox$[rbp-248]
-  0051b	f3 0f 11 5c 24
+  00517	f0 41 ff 46 08	 lock inc DWORD PTR [r14+8]
+  0051c	f3 0f 10 5d f0	 movss	 xmm3, DWORD PTR boundingBox$[rbp-248]
+  00521	f3 0f 11 5c 24
 	78		 movss	 DWORD PTR boundingBox$1$[rsp], xmm3
-  00521	f3 44 0f 10 7d
-	e4		 movss	 xmm15, DWORD PTR boundingBox$[rbp-252]
-  00527	f3 44 0f 10 75
-	e0		 movss	 xmm14, DWORD PTR boundingBox$[rbp-256]
-  0052d	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
-  00531	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
-  00535	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
+  00527	f3 44 0f 10 7d
+	ec		 movss	 xmm15, DWORD PTR boundingBox$[rbp-252]
+  0052d	f3 44 0f 10 75
+	e8		 movss	 xmm14, DWORD PTR boundingBox$[rbp-256]
+  00533	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
+  00537	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
+  0053b	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
 $LN177@tick:
 
 ; 426  : 		_Rep = _Other_rep;
 
-  00539	48 89 b5 f0 00
-	00 00		 mov	 QWORD PTR cave$13[rbp-248], rsi
+  0053f	4c 89 b5 f8 00
+	00 00		 mov	 QWORD PTR cave$14[rbp-248], r14
 
 ; 427  : 		_Ptr = _Other_ptr;
 
-  00540	4c 89 ad e8 00
-	00 00		 mov	 QWORD PTR cave$13[rbp-256], r13
+  00546	4c 89 ad f0 00
+	00 00		 mov	 QWORD PTR cave$14[rbp-256], r13
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 74   : 		for(int i = 1; i <= cave->length; i++)
 
-  00547	41 bf 01 00 00
+  0054d	41 bf 01 00 00
 	00		 mov	 r15d, 1
-  0054d	45 39 7d 0c	 cmp	 DWORD PTR [r13+12], r15d
-  00551	0f 8c 55 03 00
+  00553	45 39 7d 0c	 cmp	 DWORD PTR [r13+12], r15d
+  00557	0f 8c 55 03 00
 	00		 jl	 $LN31@tick
-  00557	41 0f 28 e7	 movaps	 xmm4, xmm15
-  0055b	f3 0f 58 e0	 addss	 xmm4, xmm0
-  0055f	f3 0f 11 65 98	 movss	 DWORD PTR tv3466[rbp-256], xmm4
-  00564	0f 28 eb	 movaps	 xmm5, xmm3
-  00567	f3 0f 58 e8	 addss	 xmm5, xmm0
-  0056b	f3 0f 11 6d a4	 movss	 DWORD PTR tv3465[rbp-256], xmm5
-  00570	45 0f 28 ce	 movaps	 xmm9, xmm14
-  00574	f3 44 0f 58 c8	 addss	 xmm9, xmm0
-  00579	f3 44 0f 11 4d
-	a0		 movss	 DWORD PTR tv3464[rbp-256], xmm9
+  0055d	41 0f 28 e7	 movaps	 xmm4, xmm15
+  00561	f3 0f 58 e0	 addss	 xmm4, xmm0
+  00565	f3 0f 11 65 98	 movss	 DWORD PTR tv3591[rbp-256], xmm4
+  0056a	0f 28 eb	 movaps	 xmm5, xmm3
+  0056d	f3 0f 58 e8	 addss	 xmm5, xmm0
+  00571	f3 0f 11 6d a4	 movss	 DWORD PTR tv3590[rbp-256], xmm5
+  00576	45 0f 28 ce	 movaps	 xmm9, xmm14
+  0057a	f3 44 0f 58 c8	 addss	 xmm9, xmm0
+  0057f	f3 44 0f 11 4d
+	a0		 movss	 DWORD PTR tv3589[rbp-256], xmm9
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 426  : 		_Rep = _Other_rep;
 
-  0057f	bf 10 00 00 00	 mov	 edi, 16
+  00585	bf 10 00 00 00	 mov	 edi, 16
+  0058a	66 0f 1f 44 00
+	00		 npad	 6
 $LL33@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 76   : 			geom::Vector& back = cave->nodes[i - 1].pos;
 
-  00584	4d 8b 4d 30	 mov	 r9, QWORD PTR [r13+48]
+  00590	4d 8b 4d 30	 mov	 r9, QWORD PTR [r13+48]
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 10   : {
 
-  00588	f3 42 0f 10 74
+  00594	f3 42 0f 10 74
 	0f f0		 movss	 xmm6, DWORD PTR [rdi+r9-16]
-  0058f	f3 0f 11 b5 90
-	00 00 00	 movss	 DWORD PTR $T9[rbp-256], xmm6
-  00597	f3 42 0f 10 7c
+  0059b	f3 0f 11 b5 98
+	00 00 00	 movss	 DWORD PTR $T10[rbp-256], xmm6
+  005a3	f3 42 0f 10 7c
 	0f f4		 movss	 xmm7, DWORD PTR [rdi+r9-12]
-  0059e	f3 0f 11 bd 94
-	00 00 00	 movss	 DWORD PTR $T9[rbp-252], xmm7
-  005a6	f3 46 0f 10 44
+  005aa	f3 0f 11 bd 9c
+	00 00 00	 movss	 DWORD PTR $T10[rbp-252], xmm7
+  005b2	f3 46 0f 10 44
 	0f f8		 movss	 xmm8, DWORD PTR [rdi+r9-8]
-  005ad	f3 44 0f 11 85
-	98 00 00 00	 movss	 DWORD PTR $T9[rbp-248], xmm8
+  005b9	f3 44 0f 11 85
+	a0 00 00 00	 movss	 DWORD PTR $T10[rbp-248], xmm8
 
 ; 64   : }
 ; 65   : 
@@ -3246,44 +3260,44 @@ $LL33@tick:
 ; 458  : {
 ; 459  : 	return vec.x >= pos.x & vec.x <= pos.x + size.x & vec.y >= pos.y & vec.y <= pos.y + size.y & vec.z >= pos.z & vec.z <= pos.z + size.z;
 
-  005b6	41 0f 2f f6	 comiss	 xmm6, xmm14
-  005ba	0f 93 c1	 setae	 cl
-  005bd	41 0f 2f ff	 comiss	 xmm7, xmm15
-  005c1	0f 93 c0	 setae	 al
-  005c4	22 c8		 and	 cl, al
-  005c6	44 0f 2f c3	 comiss	 xmm8, xmm3
-  005ca	0f 93 c0	 setae	 al
-  005cd	22 c8		 and	 cl, al
-  005cf	44 0f 2f ce	 comiss	 xmm9, xmm6
-  005d3	0f 93 c0	 setae	 al
-  005d6	22 c8		 and	 cl, al
-  005d8	41 0f 2f e8	 comiss	 xmm5, xmm8
-  005dc	0f 93 c0	 setae	 al
-  005df	22 c8		 and	 cl, al
-  005e1	0f 2f e7	 comiss	 xmm4, xmm7
-  005e4	0f 93 c0	 setae	 al
-  005e7	84 c8		 test	 cl, al
+  005c2	41 0f 2f f6	 comiss	 xmm6, xmm14
+  005c6	0f 93 c1	 setae	 cl
+  005c9	41 0f 2f ff	 comiss	 xmm7, xmm15
+  005cd	0f 93 c0	 setae	 al
+  005d0	22 c8		 and	 cl, al
+  005d2	44 0f 2f c3	 comiss	 xmm8, xmm3
+  005d6	0f 93 c0	 setae	 al
+  005d9	22 c8		 and	 cl, al
+  005db	44 0f 2f ce	 comiss	 xmm9, xmm6
+  005df	0f 93 c0	 setae	 al
+  005e2	22 c8		 and	 cl, al
+  005e4	41 0f 2f e8	 comiss	 xmm5, xmm8
+  005e8	0f 93 c0	 setae	 al
+  005eb	22 c8		 and	 cl, al
+  005ed	0f 2f e7	 comiss	 xmm4, xmm7
+  005f0	0f 93 c0	 setae	 al
+  005f3	84 c8		 test	 cl, al
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 78   : 			if(boundingBox.inside(back) || boundingBox.inside(front))
 
-  005e9	75 63		 jne	 SHORT $LN29@tick
+  005f5	75 63		 jne	 SHORT $LN29@tick
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 10   : {
 
-  005eb	f3 42 0f 10 04
+  005f7	f3 42 0f 10 04
 	0f		 movss	 xmm0, DWORD PTR [rdi+r9]
-  005f1	f3 0f 11 85 a0
-	00 00 00	 movss	 DWORD PTR $T10[rbp-256], xmm0
-  005f9	f3 42 0f 10 54
+  005fd	f3 0f 11 85 a8
+	00 00 00	 movss	 DWORD PTR $T11[rbp-256], xmm0
+  00605	f3 42 0f 10 54
 	0f 04		 movss	 xmm2, DWORD PTR [rdi+r9+4]
-  00600	f3 0f 11 95 a4
-	00 00 00	 movss	 DWORD PTR $T10[rbp-252], xmm2
-  00608	f3 42 0f 10 4c
+  0060c	f3 0f 11 95 ac
+	00 00 00	 movss	 DWORD PTR $T11[rbp-252], xmm2
+  00614	f3 42 0f 10 4c
 	0f 08		 movss	 xmm1, DWORD PTR [rdi+r9+8]
-  0060f	f3 0f 11 8d a8
-	00 00 00	 movss	 DWORD PTR $T10[rbp-248], xmm1
+  0061b	f3 0f 11 8d b0
+	00 00 00	 movss	 DWORD PTR $T11[rbp-248], xmm1
 
 ; 64   : }
 ; 65   : 
@@ -3682,85 +3696,83 @@ $LL33@tick:
 ; 458  : {
 ; 459  : 	return vec.x >= pos.x & vec.x <= pos.x + size.x & vec.y >= pos.y & vec.y <= pos.y + size.y & vec.z >= pos.z & vec.z <= pos.z + size.z;
 
-  00617	41 0f 2f c6	 comiss	 xmm0, xmm14
-  0061b	0f 93 c1	 setae	 cl
-  0061e	41 0f 2f d7	 comiss	 xmm2, xmm15
-  00622	0f 93 c0	 setae	 al
-  00625	22 c8		 and	 cl, al
-  00627	0f 2f cb	 comiss	 xmm1, xmm3
-  0062a	0f 93 c0	 setae	 al
-  0062d	22 c8		 and	 cl, al
-  0062f	44 0f 2f c8	 comiss	 xmm9, xmm0
-  00633	0f 93 c0	 setae	 al
-  00636	22 c8		 and	 cl, al
-  00638	0f 2f e9	 comiss	 xmm5, xmm1
-  0063b	0f 93 c0	 setae	 al
-  0063e	22 c8		 and	 cl, al
-  00640	0f 2f e2	 comiss	 xmm4, xmm2
-  00643	0f 93 c0	 setae	 al
-  00646	84 c8		 test	 cl, al
+  00623	41 0f 2f c6	 comiss	 xmm0, xmm14
+  00627	0f 93 c1	 setae	 cl
+  0062a	41 0f 2f d7	 comiss	 xmm2, xmm15
+  0062e	0f 93 c0	 setae	 al
+  00631	22 c8		 and	 cl, al
+  00633	0f 2f cb	 comiss	 xmm1, xmm3
+  00636	0f 93 c0	 setae	 al
+  00639	22 c8		 and	 cl, al
+  0063b	44 0f 2f c8	 comiss	 xmm9, xmm0
+  0063f	0f 93 c0	 setae	 al
+  00642	22 c8		 and	 cl, al
+  00644	0f 2f e9	 comiss	 xmm5, xmm1
+  00647	0f 93 c0	 setae	 al
+  0064a	22 c8		 and	 cl, al
+  0064c	0f 2f e2	 comiss	 xmm4, xmm2
+  0064f	0f 93 c0	 setae	 al
+  00652	84 c8		 test	 cl, al
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 78   : 			if(boundingBox.inside(back) || boundingBox.inside(front))
 
-  00648	0f 84 46 02 00
+  00654	0f 84 40 02 00
 	00		 je	 $LN32@tick
 $LN29@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 10   : {
 
-  0064e	f3 46 0f 10 0c
+  0065a	f3 46 0f 10 0c
 	0f		 movss	 xmm9, DWORD PTR [rdi+r9]
-  00654	f3 44 0f 11 4d
-	58		 movss	 DWORD PTR $T7[rbp-256], xmm9
-  0065a	f3 46 0f 10 54
+  00660	f3 44 0f 11 4d
+	68		 movss	 DWORD PTR $T8[rbp-256], xmm9
+  00666	f3 46 0f 10 54
 	0f 04		 movss	 xmm10, DWORD PTR [rdi+r9+4]
-  00661	f3 44 0f 11 55
-	5c		 movss	 DWORD PTR $T7[rbp-252], xmm10
-  00667	f3 46 0f 10 5c
+  0066d	f3 44 0f 11 55
+	6c		 movss	 DWORD PTR $T8[rbp-252], xmm10
+  00673	f3 46 0f 10 5c
 	0f 08		 movss	 xmm11, DWORD PTR [rdi+r9+8]
-  0066e	f3 44 0f 11 5d
-	60		 movss	 DWORD PTR $T7[rbp-248], xmm11
-  00674	f3 46 0f 10 64
+  0067a	f3 44 0f 11 5d
+	70		 movss	 DWORD PTR $T8[rbp-248], xmm11
+  00680	f3 46 0f 10 64
 	0f 0c		 movss	 xmm12, DWORD PTR [rdi+r9+12]
-  0067b	f3 44 0f 11 65
-	64		 movss	 DWORD PTR $T7[rbp-244], xmm12
-  00681	f3 0f 11 b5 80
-	00 00 00	 movss	 DWORD PTR $T8[rbp-256], xmm6
-  00689	f3 0f 11 bd 84
-	00 00 00	 movss	 DWORD PTR $T8[rbp-252], xmm7
-  00691	f3 44 0f 11 85
-	88 00 00 00	 movss	 DWORD PTR $T8[rbp-248], xmm8
-  0069a	f3 46 0f 10 6c
+  00687	f3 44 0f 11 65
+	74		 movss	 DWORD PTR $T8[rbp-244], xmm12
+  0068d	f3 0f 11 75 78	 movss	 DWORD PTR $T9[rbp-256], xmm6
+  00692	f3 0f 11 7d 7c	 movss	 DWORD PTR $T9[rbp-252], xmm7
+  00697	f3 44 0f 11 85
+	80 00 00 00	 movss	 DWORD PTR $T9[rbp-248], xmm8
+  006a0	f3 46 0f 10 6c
 	0f fc		 movss	 xmm13, DWORD PTR [rdi+r9-4]
-  006a1	f3 44 0f 11 ad
-	8c 00 00 00	 movss	 DWORD PTR $T8[rbp-244], xmm13
-  006aa	f3 0f 11 75 10	 movss	 DWORD PTR $T5[rbp-256], xmm6
-  006af	f3 0f 11 7d 14	 movss	 DWORD PTR $T5[rbp-252], xmm7
-  006b4	f3 44 0f 11 45
-	18		 movss	 DWORD PTR $T5[rbp-248], xmm8
-  006ba	f3 44 0f 11 6d
-	1c		 movss	 DWORD PTR $T5[rbp-244], xmm13
-  006c0	f3 44 0f 11 4d
-	20		 movss	 DWORD PTR $T5[rbp-240], xmm9
-  006c6	f3 44 0f 11 55
-	24		 movss	 DWORD PTR $T5[rbp-236], xmm10
-  006cc	f3 44 0f 11 5d
-	28		 movss	 DWORD PTR $T5[rbp-232], xmm11
-  006d2	f3 44 0f 11 65
-	2c		 movss	 DWORD PTR $T5[rbp-228], xmm12
+  006a7	f3 44 0f 11 ad
+	84 00 00 00	 movss	 DWORD PTR $T9[rbp-244], xmm13
+  006b0	f3 0f 11 75 18	 movss	 DWORD PTR $T6[rbp-256], xmm6
+  006b5	f3 0f 11 7d 1c	 movss	 DWORD PTR $T6[rbp-252], xmm7
+  006ba	f3 44 0f 11 45
+	20		 movss	 DWORD PTR $T6[rbp-248], xmm8
+  006c0	f3 44 0f 11 6d
+	24		 movss	 DWORD PTR $T6[rbp-244], xmm13
+  006c6	f3 44 0f 11 4d
+	28		 movss	 DWORD PTR $T6[rbp-240], xmm9
+  006cc	f3 44 0f 11 55
+	2c		 movss	 DWORD PTR $T6[rbp-236], xmm10
+  006d2	f3 44 0f 11 5d
+	30		 movss	 DWORD PTR $T6[rbp-232], xmm11
+  006d8	f3 44 0f 11 65
+	34		 movss	 DWORD PTR $T6[rbp-228], xmm12
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1496 : 		return (_Ptr < this->_Mylast && this->_Myfirst <= _Ptr);
 
-  006d8	48 8d 45 10	 lea	 rax, QWORD PTR $T5[rbp-256]
-  006dc	48 3b c2	 cmp	 rax, rdx
-  006df	0f 83 e3 00 00
+  006de	48 8d 45 18	 lea	 rax, QWORD PTR $T6[rbp-256]
+  006e2	48 3b c2	 cmp	 rax, rdx
+  006e5	0f 83 e3 00 00
 	00		 jae	 $LN213@tick
-  006e5	48 8d 45 10	 lea	 rax, QWORD PTR $T5[rbp-256]
-  006e9	4c 3b d0	 cmp	 r10, rax
-  006ec	0f 87 d6 00 00
+  006eb	48 8d 45 18	 lea	 rax, QWORD PTR $T6[rbp-256]
+  006ef	4c 3b d0	 cmp	 r10, rax
+  006f2	0f 87 d6 00 00
 	00		 ja	 $LN213@tick
 
 ; 489  : 		}
@@ -4115,13 +4127,13 @@ $LN29@tick:
 ; 838  : 			{	// push back an element
 ; 839  : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
 
-  006f2	48 8d 5d 10	 lea	 rbx, QWORD PTR $T5[rbp-256]
-  006f6	49 2b da	 sub	 rbx, r10
+  006f8	48 8d 5d 18	 lea	 rbx, QWORD PTR $T6[rbp-256]
+  006fc	49 2b da	 sub	 rbx, r10
 
 ; 840  : 			if (this->_Mylast == this->_Myend)
 
-  006f9	49 3b d0	 cmp	 rdx, r8
-  006fc	0f 85 83 00 00
+  006ff	49 3b d0	 cmp	 rdx, r8
+  00702	0f 85 83 00 00
 	00		 jne	 $LN225@tick
 
 ; 968  : 		}
@@ -4130,9 +4142,9 @@ $LN29@tick:
 ; 971  : 		{	// micro-optimization for capacity() - size()
 ; 972  : 		return (this->_Myend - this->_Mylast);
 
-  00702	49 8b c0	 mov	 rax, r8
-  00705	48 2b c2	 sub	 rax, rdx
-  00708	48 c1 f8 05	 sar	 rax, 5
+  00708	49 8b c0	 mov	 rax, r8
+  0070b	48 2b c2	 sub	 rax, rdx
+  0070e	48 c1 f8 05	 sar	 rax, 5
 
 ; 1497 : 		}
 ; 1498 : 
@@ -4165,27 +4177,27 @@ $LN29@tick:
 ; 1525 : 		{	// ensure room for _Count new elements, grow exponentially
 ; 1526 : 		if (_Unused_capacity() < _Count)
 
-  0070c	48 83 f8 01	 cmp	 rax, 1
-  00710	73 73		 jae	 SHORT $LN225@tick
+  00712	48 83 f8 01	 cmp	 rax, 1
+  00716	73 73		 jae	 SHORT $LN225@tick
 
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
-  00712	49 2b d2	 sub	 rdx, r10
-  00715	48 c1 fa 05	 sar	 rdx, 5
+  00718	49 2b d2	 sub	 rdx, r10
+  0071b	48 c1 fa 05	 sar	 rdx, 5
 
 ; 1527 : 			{	// need more room, try to get it
 ; 1528 : 			if (max_size() - size() < _Count)
 
-  00719	49 8b c3	 mov	 rax, r11
-  0071c	48 2b c2	 sub	 rax, rdx
-  0071f	48 83 f8 01	 cmp	 rax, 1
-  00723	0f 82 e3 01 00
-	00		 jb	 $LN638@tick
+  0071f	49 8b c3	 mov	 rax, r11
+  00722	48 2b c2	 sub	 rax, rdx
+  00725	48 83 f8 01	 cmp	 rax, 1
+  00729	0f 82 e8 01 00
+	00		 jb	 $LN668@tick
 
 ; 1529 : 				_Xlen();
 ; 1530 : 			_Reallocate(_Grow_to(size() + _Count));
 
-  00729	48 ff c2	 inc	 rdx
+  0072f	48 ff c2	 inc	 rdx
 
 ; 855  : 			}
 ; 856  : 		}
@@ -4301,8 +4313,8 @@ $LN29@tick:
 ; 966  : 		{	// return current length of allocated storage
 ; 967  : 		return (this->_Myend - this->_Myfirst);
 
-  0072c	4d 2b c2	 sub	 r8, r10
-  0072f	49 c1 f8 05	 sar	 r8, 5
+  00732	4d 2b c2	 sub	 r8, r10
+  00735	49 c1 f8 05	 sar	 r8, 5
 
 ; 1088 : 		}
 ; 1089 : 
@@ -4706,37 +4718,37 @@ $LN29@tick:
 ; 1487 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
 ; 1488 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
 
-  00733	49 8b c8	 mov	 rcx, r8
-  00736	48 d1 e9	 shr	 rcx, 1
-  00739	49 8b c3	 mov	 rax, r11
-  0073c	48 2b c1	 sub	 rax, rcx
-  0073f	49 3b c0	 cmp	 rax, r8
-  00742	73 05		 jae	 SHORT $LN250@tick
-  00744	45 33 c0	 xor	 r8d, r8d
-  00747	eb 03		 jmp	 SHORT $LN251@tick
+  00739	49 8b c8	 mov	 rcx, r8
+  0073c	48 d1 e9	 shr	 rcx, 1
+  0073f	49 8b c3	 mov	 rax, r11
+  00742	48 2b c1	 sub	 rax, rcx
+  00745	49 3b c0	 cmp	 rax, r8
+  00748	73 05		 jae	 SHORT $LN250@tick
+  0074a	45 33 c0	 xor	 r8d, r8d
+  0074d	eb 03		 jmp	 SHORT $LN251@tick
 $LN250@tick:
-  00749	4c 03 c1	 add	 r8, rcx
+  0074f	4c 03 c1	 add	 r8, rcx
 $LN251@tick:
 
 ; 1489 : 		if (_Capacity < _Count)
 
-  0074c	4c 3b c2	 cmp	 r8, rdx
-  0074f	4c 0f 42 c2	 cmovb	 r8, rdx
+  00752	4c 3b c2	 cmp	 r8, rdx
+  00755	4c 0f 42 c2	 cmovb	 r8, rdx
 
 ; 1529 : 				_Xlen();
 ; 1530 : 			_Reallocate(_Grow_to(size() + _Count));
 
-  00753	49 8b d0	 mov	 rdx, r8
-  00756	48 8d 4d 80	 lea	 rcx, QWORD PTR lines$[rbp-256]
-  0075a	e8 00 00 00 00	 call	 ?_Reallocate@?$vector@VLine@geom@@V?$allocator@VLine@geom@@@std@@@std@@IEAAX_K@Z ; std::vector<geom::Line,std::allocator<geom::Line> >::_Reallocate
-  0075f	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
-  00763	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
-  00767	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
-  0076b	f3 0f 10 5c 24
+  00759	49 8b d0	 mov	 rdx, r8
+  0075c	48 8d 4d 80	 lea	 rcx, QWORD PTR lines$[rbp-256]
+  00760	e8 00 00 00 00	 call	 ?_Reallocate@?$vector@VLine@geom@@V?$allocator@VLine@geom@@@std@@@std@@IEAAX_K@Z ; std::vector<geom::Line,std::allocator<geom::Line> >::_Reallocate
+  00765	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
+  00769	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
+  0076d	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
+  00771	f3 0f 10 5c 24
 	78		 movss	 xmm3, DWORD PTR boundingBox$1$[rsp]
-  00771	f3 0f 10 65 98	 movss	 xmm4, DWORD PTR tv3466[rbp-256]
-  00776	f3 0f 10 6d a4	 movss	 xmm5, DWORD PTR tv3465[rbp-256]
-  0077b	49 bb ff ff ff
+  00777	f3 0f 10 65 98	 movss	 xmm4, DWORD PTR tv3591[rbp-256]
+  0077c	f3 0f 10 6d a4	 movss	 xmm5, DWORD PTR tv3590[rbp-256]
+  00781	49 bb ff ff ff
 	ff ff ff ff 07	 mov	 r11, 576460752303423487	; 07ffffffffffffffH
 $LN225@tick:
 
@@ -4745,47 +4757,47 @@ $LN225@tick:
 ; 843  : 			this->_Getal().construct(this->_Mylast,
 ; 844  : 				_STD forward<value_type>(this->_Myfirst[_Idx]));
 
-  00785	48 83 e3 e0	 and	 rbx, -32		; ffffffffffffffe0H
-  00789	49 03 da	 add	 rbx, r10
+  0078b	48 83 e3 e0	 and	 rbx, -32		; ffffffffffffffe0H
+  0078f	49 03 da	 add	 rbx, r10
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 617  : _VARIADIC_EXPAND_0X(_ALLOC_MEMBER_CONSTRUCT, , , , )
 
-  0078c	48 85 d2	 test	 rdx, rdx
-  0078f	0f 84 f1 00 00
+  00792	48 85 d2	 test	 rdx, rdx
+  00795	0f 84 f1 00 00
 	00		 je	 $LN349@tick
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 10   : {
 
-  00795	8b 03		 mov	 eax, DWORD PTR [rbx]
-  00797	89 02		 mov	 DWORD PTR [rdx], eax
-  00799	8b 43 04	 mov	 eax, DWORD PTR [rbx+4]
-  0079c	89 42 04	 mov	 DWORD PTR [rdx+4], eax
-  0079f	8b 43 08	 mov	 eax, DWORD PTR [rbx+8]
-  007a2	89 42 08	 mov	 DWORD PTR [rdx+8], eax
-  007a5	8b 43 0c	 mov	 eax, DWORD PTR [rbx+12]
-  007a8	89 42 0c	 mov	 DWORD PTR [rdx+12], eax
-  007ab	8b 43 10	 mov	 eax, DWORD PTR [rbx+16]
-  007ae	89 42 10	 mov	 DWORD PTR [rdx+16], eax
-  007b1	8b 43 14	 mov	 eax, DWORD PTR [rbx+20]
-  007b4	89 42 14	 mov	 DWORD PTR [rdx+20], eax
-  007b7	8b 43 18	 mov	 eax, DWORD PTR [rbx+24]
-  007ba	89 42 18	 mov	 DWORD PTR [rdx+24], eax
-  007bd	8b 43 1c	 mov	 eax, DWORD PTR [rbx+28]
-  007c0	89 42 1c	 mov	 DWORD PTR [rdx+28], eax
+  0079b	8b 03		 mov	 eax, DWORD PTR [rbx]
+  0079d	89 02		 mov	 DWORD PTR [rdx], eax
+  0079f	8b 43 04	 mov	 eax, DWORD PTR [rbx+4]
+  007a2	89 42 04	 mov	 DWORD PTR [rdx+4], eax
+  007a5	8b 43 08	 mov	 eax, DWORD PTR [rbx+8]
+  007a8	89 42 08	 mov	 DWORD PTR [rdx+8], eax
+  007ab	8b 43 0c	 mov	 eax, DWORD PTR [rbx+12]
+  007ae	89 42 0c	 mov	 DWORD PTR [rdx+12], eax
+  007b1	8b 43 10	 mov	 eax, DWORD PTR [rbx+16]
+  007b4	89 42 10	 mov	 DWORD PTR [rdx+16], eax
+  007b7	8b 43 14	 mov	 eax, DWORD PTR [rbx+20]
+  007ba	89 42 14	 mov	 DWORD PTR [rdx+20], eax
+  007bd	8b 43 18	 mov	 eax, DWORD PTR [rbx+24]
+  007c0	89 42 18	 mov	 DWORD PTR [rdx+24], eax
+  007c3	8b 43 1c	 mov	 eax, DWORD PTR [rbx+28]
+  007c6	89 42 1c	 mov	 DWORD PTR [rdx+28], eax
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 847  : 		else
 
-  007c3	e9 be 00 00 00	 jmp	 $LN349@tick
+  007c9	e9 be 00 00 00	 jmp	 $LN349@tick
 $LN213@tick:
 
 ; 848  : 			{	// push back a non-element
 ; 849  : 			if (this->_Mylast == this->_Myend)
 
-  007c8	49 3b d0	 cmp	 rdx, r8
-  007cb	0f 85 83 00 00
+  007ce	49 3b d0	 cmp	 rdx, r8
+  007d1	0f 85 83 00 00
 	00		 jne	 $LN294@tick
 
 ; 968  : 		}
@@ -4794,9 +4806,9 @@ $LN213@tick:
 ; 971  : 		{	// micro-optimization for capacity() - size()
 ; 972  : 		return (this->_Myend - this->_Mylast);
 
-  007d1	49 8b c0	 mov	 rax, r8
-  007d4	48 2b c2	 sub	 rax, rdx
-  007d7	48 c1 f8 05	 sar	 rax, 5
+  007d7	49 8b c0	 mov	 rax, r8
+  007da	48 2b c2	 sub	 rax, rdx
+  007dd	48 c1 f8 05	 sar	 rax, 5
 
 ; 1497 : 		}
 ; 1498 : 
@@ -4829,27 +4841,27 @@ $LN213@tick:
 ; 1525 : 		{	// ensure room for _Count new elements, grow exponentially
 ; 1526 : 		if (_Unused_capacity() < _Count)
 
-  007db	48 83 f8 01	 cmp	 rax, 1
-  007df	73 73		 jae	 SHORT $LN294@tick
+  007e1	48 83 f8 01	 cmp	 rax, 1
+  007e5	73 73		 jae	 SHORT $LN294@tick
 
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
-  007e1	49 2b d2	 sub	 rdx, r10
-  007e4	48 c1 fa 05	 sar	 rdx, 5
+  007e7	49 2b d2	 sub	 rdx, r10
+  007ea	48 c1 fa 05	 sar	 rdx, 5
 
 ; 1527 : 			{	// need more room, try to get it
 ; 1528 : 			if (max_size() - size() < _Count)
 
-  007e8	49 8b c3	 mov	 rax, r11
-  007eb	48 2b c2	 sub	 rax, rdx
-  007ee	48 83 f8 01	 cmp	 rax, 1
-  007f2	0f 82 21 01 00
-	00		 jb	 $LN639@tick
+  007ee	49 8b c3	 mov	 rax, r11
+  007f1	48 2b c2	 sub	 rax, rdx
+  007f4	48 83 f8 01	 cmp	 rax, 1
+  007f8	0f 82 26 01 00
+	00		 jb	 $LN669@tick
 
 ; 1529 : 				_Xlen();
 ; 1530 : 			_Reallocate(_Grow_to(size() + _Count));
 
-  007f8	48 ff c2	 inc	 rdx
+  007fe	48 ff c2	 inc	 rdx
 
 ; 855  : 			}
 ; 856  : 		}
@@ -4965,8 +4977,8 @@ $LN213@tick:
 ; 966  : 		{	// return current length of allocated storage
 ; 967  : 		return (this->_Myend - this->_Myfirst);
 
-  007fb	4d 2b c2	 sub	 r8, r10
-  007fe	49 c1 f8 05	 sar	 r8, 5
+  00801	4d 2b c2	 sub	 r8, r10
+  00804	49 c1 f8 05	 sar	 r8, 5
 
 ; 1088 : 		}
 ; 1089 : 
@@ -5370,91 +5382,91 @@ $LN213@tick:
 ; 1487 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
 ; 1488 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
 
-  00802	49 8b c8	 mov	 rcx, r8
-  00805	48 d1 e9	 shr	 rcx, 1
-  00808	49 8b c3	 mov	 rax, r11
-  0080b	48 2b c1	 sub	 rax, rcx
-  0080e	49 3b c0	 cmp	 rax, r8
-  00811	73 05		 jae	 SHORT $LN319@tick
-  00813	45 33 c0	 xor	 r8d, r8d
-  00816	eb 03		 jmp	 SHORT $LN320@tick
+  00808	49 8b c8	 mov	 rcx, r8
+  0080b	48 d1 e9	 shr	 rcx, 1
+  0080e	49 8b c3	 mov	 rax, r11
+  00811	48 2b c1	 sub	 rax, rcx
+  00814	49 3b c0	 cmp	 rax, r8
+  00817	73 05		 jae	 SHORT $LN319@tick
+  00819	45 33 c0	 xor	 r8d, r8d
+  0081c	eb 03		 jmp	 SHORT $LN320@tick
 $LN319@tick:
-  00818	4c 03 c1	 add	 r8, rcx
+  0081e	4c 03 c1	 add	 r8, rcx
 $LN320@tick:
 
 ; 1489 : 		if (_Capacity < _Count)
 
-  0081b	4c 3b c2	 cmp	 r8, rdx
-  0081e	4c 0f 42 c2	 cmovb	 r8, rdx
+  00821	4c 3b c2	 cmp	 r8, rdx
+  00824	4c 0f 42 c2	 cmovb	 r8, rdx
 
 ; 1529 : 				_Xlen();
 ; 1530 : 			_Reallocate(_Grow_to(size() + _Count));
 
-  00822	49 8b d0	 mov	 rdx, r8
-  00825	48 8d 4d 80	 lea	 rcx, QWORD PTR lines$[rbp-256]
-  00829	e8 00 00 00 00	 call	 ?_Reallocate@?$vector@VLine@geom@@V?$allocator@VLine@geom@@@std@@@std@@IEAAX_K@Z ; std::vector<geom::Line,std::allocator<geom::Line> >::_Reallocate
-  0082e	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
-  00832	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
-  00836	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
-  0083a	f3 0f 10 5c 24
+  00828	49 8b d0	 mov	 rdx, r8
+  0082b	48 8d 4d 80	 lea	 rcx, QWORD PTR lines$[rbp-256]
+  0082f	e8 00 00 00 00	 call	 ?_Reallocate@?$vector@VLine@geom@@V?$allocator@VLine@geom@@@std@@@std@@IEAAX_K@Z ; std::vector<geom::Line,std::allocator<geom::Line> >::_Reallocate
+  00834	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
+  00838	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
+  0083c	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
+  00840	f3 0f 10 5c 24
 	78		 movss	 xmm3, DWORD PTR boundingBox$1$[rsp]
-  00840	f3 0f 10 65 98	 movss	 xmm4, DWORD PTR tv3466[rbp-256]
-  00845	f3 0f 10 6d a4	 movss	 xmm5, DWORD PTR tv3465[rbp-256]
-  0084a	49 bb ff ff ff
+  00846	f3 0f 10 65 98	 movss	 xmm4, DWORD PTR tv3591[rbp-256]
+  0084b	f3 0f 10 6d a4	 movss	 xmm5, DWORD PTR tv3590[rbp-256]
+  00850	49 bb ff ff ff
 	ff ff ff ff 07	 mov	 r11, 576460752303423487	; 07ffffffffffffffH
 $LN294@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 617  : _VARIADIC_EXPAND_0X(_ALLOC_MEMBER_CONSTRUCT, , , , )
 
-  00854	48 85 d2	 test	 rdx, rdx
-  00857	74 2d		 je	 SHORT $LN349@tick
+  0085a	48 85 d2	 test	 rdx, rdx
+  0085d	74 2d		 je	 SHORT $LN349@tick
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\geometry.cpp
 
 ; 10   : {
 
-  00859	f3 0f 11 32	 movss	 DWORD PTR [rdx], xmm6
-  0085d	f3 0f 11 7a 04	 movss	 DWORD PTR [rdx+4], xmm7
-  00862	f3 44 0f 11 42
+  0085f	f3 0f 11 32	 movss	 DWORD PTR [rdx], xmm6
+  00863	f3 0f 11 7a 04	 movss	 DWORD PTR [rdx+4], xmm7
+  00868	f3 44 0f 11 42
 	08		 movss	 DWORD PTR [rdx+8], xmm8
-  00868	f3 44 0f 11 6a
+  0086e	f3 44 0f 11 6a
 	0c		 movss	 DWORD PTR [rdx+12], xmm13
-  0086e	f3 44 0f 11 4a
+  00874	f3 44 0f 11 4a
 	10		 movss	 DWORD PTR [rdx+16], xmm9
-  00874	f3 44 0f 11 52
+  0087a	f3 44 0f 11 52
 	14		 movss	 DWORD PTR [rdx+20], xmm10
-  0087a	f3 44 0f 11 5a
+  00880	f3 44 0f 11 5a
 	18		 movss	 DWORD PTR [rdx+24], xmm11
-  00880	f3 44 0f 11 62
+  00886	f3 44 0f 11 62
 	1c		 movss	 DWORD PTR [rdx+28], xmm12
 $LN349@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 854  : 			++this->_Mylast;
 
-  00886	48 83 c2 20	 add	 rdx, 32			; 00000020H
-  0088a	f3 44 0f 10 4d
-	a0		 movss	 xmm9, DWORD PTR tv3464[rbp-256]
-  00890	48 89 55 88	 mov	 QWORD PTR lines$[rbp-248], rdx
+  0088c	48 83 c2 20	 add	 rdx, 32			; 00000020H
+  00890	f3 44 0f 10 4d
+	a0		 movss	 xmm9, DWORD PTR tv3589[rbp-256]
+  00896	48 89 55 88	 mov	 QWORD PTR lines$[rbp-248], rdx
 $LN32@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 74   : 		for(int i = 1; i <= cave->length; i++)
 
-  00894	41 ff c7	 inc	 r15d
-  00897	48 83 c7 10	 add	 rdi, 16
-  0089b	45 3b 7d 0c	 cmp	 r15d, DWORD PTR [r13+12]
-  0089f	0f 8e df fc ff
+  0089a	41 ff c7	 inc	 r15d
+  0089d	48 83 c7 10	 add	 rdi, 16
+  008a1	45 3b 7d 0c	 cmp	 r15d, DWORD PTR [r13+12]
+  008a5	0f 8e e5 fc ff
 	ff		 jle	 $LL33@tick
-  008a5	48 8b 5d 00	 mov	 rbx, QWORD PTR caves$1$[rbp-256]
-  008a9	8b 7d 9c	 mov	 edi, DWORD PTR i$1$[rbp-256]
+  008ab	48 8b 5d 10	 mov	 rbx, QWORD PTR caves$1$[rbp-256]
+  008af	8b 7d 9c	 mov	 edi, DWORD PTR i$1$[rbp-256]
 $LN31@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  008ac	48 85 f6	 test	 rsi, rsi
-  008af	74 40		 je	 SHORT $LN35@tick
+  008b2	4d 85 f6	 test	 r14, r14
+  008b5	74 42		 je	 SHORT $LN35@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -5467,15 +5479,15 @@ $LN31@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  008b1	f0 ff 4e 08	 lock dec DWORD PTR [rsi+8]
-  008b5	75 17		 jne	 SHORT $LN653@tick
+  008b7	f0 41 ff 4e 08	 lock dec DWORD PTR [r14+8]
+  008bc	75 18		 jne	 SHORT $LN683@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  008b7	48 8b 06	 mov	 rax, QWORD PTR [rsi]
-  008ba	48 8b ce	 mov	 rcx, rsi
-  008bd	ff 10		 call	 QWORD PTR [rax]
+  008be	49 8b 06	 mov	 rax, QWORD PTR [r14]
+  008c1	49 8b ce	 mov	 rcx, r14
+  008c4	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -5485,121 +5497,123 @@ $LN31@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  008bf	f0 ff 4e 0c	 lock dec DWORD PTR [rsi+12]
-  008c3	75 09		 jne	 SHORT $LN653@tick
+  008c6	f0 41 ff 4e 0c	 lock dec DWORD PTR [r14+12]
+  008cb	75 09		 jne	 SHORT $LN683@tick
 
 ; 128  : 			_Delete_this();
 
-  008c5	48 8b 06	 mov	 rax, QWORD PTR [rsi]
-  008c8	48 8b ce	 mov	 rcx, rsi
-  008cb	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN653@tick:
-  008ce	f3 0f 10 5d e8	 movss	 xmm3, DWORD PTR boundingBox$[rbp-248]
-  008d3	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
-  008d7	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
-  008db	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
-  008df	f3 44 0f 10 75
-	e0		 movss	 xmm14, DWORD PTR boundingBox$[rbp-256]
-  008e5	f3 44 0f 10 7d
-	e4		 movss	 xmm15, DWORD PTR boundingBox$[rbp-252]
-  008eb	f3 0f 11 5c 24
+  008cd	49 8b 06	 mov	 rax, QWORD PTR [r14]
+  008d0	49 8b ce	 mov	 rcx, r14
+  008d3	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN683@tick:
+  008d6	f3 0f 10 5d f0	 movss	 xmm3, DWORD PTR boundingBox$[rbp-248]
+  008db	4c 8b 55 80	 mov	 r10, QWORD PTR lines$[rbp-256]
+  008df	48 8b 55 88	 mov	 rdx, QWORD PTR lines$[rbp-248]
+  008e3	4c 8b 45 90	 mov	 r8, QWORD PTR lines$[rbp-240]
+  008e7	f3 44 0f 10 75
+	e8		 movss	 xmm14, DWORD PTR boundingBox$[rbp-256]
+  008ed	f3 44 0f 10 7d
+	ec		 movss	 xmm15, DWORD PTR boundingBox$[rbp-252]
+  008f3	f3 0f 11 5c 24
 	78		 movss	 DWORD PTR boundingBox$1$[rsp], xmm3
 $LN35@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 71   : 	for(int i = 0; i < caves.size(); i++)
 
-  008f1	ff c7		 inc	 edi
-  008f3	89 7d 9c	 mov	 DWORD PTR i$1$[rbp-256], edi
-  008f6	48 83 c3 10	 add	 rbx, 16
-  008fa	48 89 5d 00	 mov	 QWORD PTR caves$1$[rbp-256], rbx
-  008fe	48 63 c7	 movsxd	 rax, edi
-  00901	48 3b 45 78	 cmp	 rax, QWORD PTR tv3520[rbp-256]
-  00905	73 1f		 jae	 SHORT $LN658@tick
-  00907	e9 e8 fb ff ff	 jmp	 $LN663@tick
-$LN638@tick:
+  008f9	ff c7		 inc	 edi
+  008fb	89 7d 9c	 mov	 DWORD PTR i$1$[rbp-256], edi
+  008fe	48 83 c3 10	 add	 rbx, 16
+  00902	48 89 5d 10	 mov	 QWORD PTR caves$1$[rbp-256], rbx
+  00906	48 63 c7	 movsxd	 rax, edi
+  00909	48 3b 85 90 00
+	00 00		 cmp	 rax, QWORD PTR tv3613[rbp-256]
+  00910	73 1f		 jae	 SHORT $LN688@tick
+  00912	e9 e2 fb ff ff	 jmp	 $LN693@tick
+$LN668@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1667 : 		_Xlength_error("vector<T> too long");
 
-  0090c	48 8d 0d 00 00
+  00917	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
-  00913	e8 00 00 00 00	 call	 ?_Xlength_error@std@@YAXPEBD@Z ; std::_Xlength_error
-  00918	cc		 int	 3
-$LN639@tick:
-  00919	48 8d 0d 00 00
+  0091e	e8 00 00 00 00	 call	 ?_Xlength_error@std@@YAXPEBD@Z ; std::_Xlength_error
+  00923	cc		 int	 3
+$LN669@tick:
+  00924	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
-  00920	e8 00 00 00 00	 call	 ?_Xlength_error@std@@YAXPEBD@Z ; std::_Xlength_error
-  00925	90		 npad	 1
-$LN658@tick:
-  00926	48 8b 75 68	 mov	 rsi, QWORD PTR this$GSCopy$1$[rbp-256]
-  0092a	4c 8b 7d 08	 mov	 r15, QWORD PTR $T4[rbp-256]
-  0092e	4c 8b 6d 70	 mov	 r13, QWORD PTR tv3522[rbp-256]
-$LN657@tick:
+  0092b	e8 00 00 00 00	 call	 ?_Xlength_error@std@@YAXPEBD@Z ; std::_Xlength_error
+  00930	90		 npad	 1
+$LN688@tick:
+  00931	4c 8b b5 88 00
+	00 00		 mov	 r14, QWORD PTR this$GSCopy$1$[rbp-256]
+  00938	4c 8b 7d e0	 mov	 r15, QWORD PTR tv3615[rbp-256]
+  0093c	4c 8b 6d 08	 mov	 r13, QWORD PTR $T5[rbp-256]
+$LN687@tick:
 
 ; 1087 : 		return (this->_Mylast - this->_Myfirst);
 
-  00932	49 2b d2	 sub	 rdx, r10
-  00935	48 c1 fa 05	 sar	 rdx, 5
+  00940	49 2b d2	 sub	 rdx, r10
+  00943	48 c1 fa 05	 sar	 rdx, 5
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 85   : 	const int amountOfLines = lines.size();
 
-  00939	89 55 b8	 mov	 DWORD PTR amountOfLines$[rbp-256], edx
+  00947	89 55 c8	 mov	 DWORD PTR amountOfLines$[rbp-256], edx
 
 ; 86   : 	if(amountOfLines > 0)
 
-  0093c	85 d2		 test	 edx, edx
-  0093e	7e 1b		 jle	 SHORT $LN28@tick
+  0094a	85 d2		 test	 edx, edx
+  0094c	7e 1b		 jle	 SHORT $LN28@tick
 
 ; 87   : 	{
 ; 88   : 		caveLinesBuffer.write(queue, 0, sizeof(geom::Line) * amountOfLines, &lines[0]);
 
-  00940	4c 63 ca	 movsxd	 r9, edx
-  00943	49 c1 e1 05	 shl	 r9, 5
-  00947	48 8d 8e 20 09
-	00 00		 lea	 rcx, QWORD PTR [rsi+2336]
-  0094e	4c 89 54 24 20	 mov	 QWORD PTR [rsp+32], r10
-  00953	49 8b d5	 mov	 rdx, r13
-  00956	e8 00 00 00 00	 call	 ?write@Buffer@cl@@QEAA_NAEAVCommandQueue@2@_K1PEBX@Z ; cl::Buffer::write
+  0094e	4c 63 ca	 movsxd	 r9, edx
+  00951	49 c1 e1 05	 shl	 r9, 5
+  00955	49 8d 8e 20 09
+	00 00		 lea	 rcx, QWORD PTR [r14+2336]
+  0095c	4c 89 54 24 20	 mov	 QWORD PTR [rsp+32], r10
+  00961	49 8b d7	 mov	 rdx, r15
+  00964	e8 00 00 00 00	 call	 ?write@Buffer@cl@@QEAA_NAEAVCommandQueue@2@_K1PEBX@Z ; cl::Buffer::write
 $LN28@tick:
 
 ; 89   : 	}
 ; 90   : 
 ; 91   : 	queue.sync();
 
-  0095b	49 8b cd	 mov	 rcx, r13
-  0095e	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
+  00969	49 8b cf	 mov	 rcx, r15
+  0096c	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
 
 ; 92   : 
 ; 93   : 	const size_t local_ws[] = {1, 1, 1};
 
-  00963	bb 01 00 00 00	 mov	 ebx, 1
-  00968	48 89 9d 28 01
+  00971	bb 01 00 00 00	 mov	 ebx, 1
+  00976	48 89 9d 30 01
 	00 00		 mov	 QWORD PTR local_ws$[rbp-256], rbx
-  0096f	48 89 9d 30 01
+  0097d	48 89 9d 38 01
 	00 00		 mov	 QWORD PTR local_ws$[rbp-248], rbx
-  00976	48 89 9d 38 01
+  00984	48 89 9d 40 01
 	00 00		 mov	 QWORD PTR local_ws$[rbp-240], rbx
 
 ; 94   : 	const size_t global_ws[] = {16, 16, 16};
 
-  0097d	48 c7 85 10 01
+  0098b	48 c7 85 18 01
 	00 00 10 00 00
 	00		 mov	 QWORD PTR global_ws$[rbp-256], 16
-  00988	48 c7 85 18 01
+  00996	48 c7 85 20 01
 	00 00 10 00 00
 	00		 mov	 QWORD PTR global_ws$[rbp-248], 16
-  00993	48 c7 85 20 01
+  009a1	48 c7 85 28 01
 	00 00 10 00 00
 	00		 mov	 QWORD PTR global_ws$[rbp-240], 16
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 2265 : 		this->_Myres = this->_BUF_SIZE - 1;
 
-  0099e	48 c7 85 c8 00
+  009ac	48 c7 85 d0 00
 	00 00 0f 00 00
-	00		 mov	 QWORD PTR $T11[rbp-232], 15
+	00		 mov	 QWORD PTR $T12[rbp-232], 15
 
 ; 1145 : 		}
 ; 1146 : 
@@ -6676,378 +6690,378 @@ $LN28@tick:
 ; 2217 : 		{	// set new length and null terminator
 ; 2218 : 		_Traits::assign(this->_Myptr()[this->_Mysize = _Newsize], _Elem());
 
-  009a9	48 c7 85 c0 00
+  009b7	48 c7 85 c8 00
 	00 00 00 00 00
-	00		 mov	 QWORD PTR $T11[rbp-240], 0
+	00		 mov	 QWORD PTR $T12[rbp-240], 0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\iosfwd
 
 ; 564  : 		_Left = _Right;
 
-  009b4	c6 85 b0 00 00
-	00 00		 mov	 BYTE PTR $T11[rbp-256], 0
+  009c2	c6 85 b8 00 00
+	00 00		 mov	 BYTE PTR $T12[rbp-256], 0
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring
 
 ; 1144 : 		return (assign(_Ptr, _Traits::length(_Ptr)));
 
-  009bb	44 8d 43 10	 lea	 r8d, QWORD PTR [rbx+16]
-  009bf	48 8d 15 00 00
+  009c9	44 8d 43 10	 lea	 r8d, QWORD PTR [rbx+16]
+  009cd	48 8d 15 00 00
 	00 00		 lea	 rdx, OFFSET FLAT:$SG4294957485
-  009c6	48 8d 8d b0 00
-	00 00		 lea	 rcx, QWORD PTR $T11[rbp-256]
-  009cd	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
+  009d4	48 8d 8d b8 00
+	00 00		 lea	 rcx, QWORD PTR $T12[rbp-256]
+  009db	e8 00 00 00 00	 call	 ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAAEAV12@PEBD_K@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 96   : 	if(!chunkGenProgram.prepare("generateTerrain_1")) GlobalThread::stop = true;
 
-  009d2	48 8d 95 b0 00
-	00 00		 lea	 rdx, QWORD PTR $T11[rbp-256]
-  009d9	48 8d 0d 00 00
+  009e0	48 8d 95 b8 00
+	00 00		 lea	 rdx, QWORD PTR $T12[rbp-256]
+  009e7	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  009e0	e8 00 00 00 00	 call	 ?prepare@Program@cl@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; cl::Program::prepare
-  009e5	0f b6 0d 00 00
+  009ee	e8 00 00 00 00	 call	 ?prepare@Program@cl@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; cl::Program::prepare
+  009f3	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  009ec	84 c0		 test	 al, al
-  009ee	0f 44 cb	 cmove	 ecx, ebx
-  009f1	88 0d 00 00 00
+  009fa	84 c0		 test	 al, al
+  009fc	0f 44 cb	 cmove	 ecx, ebx
+  009ff	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  009f7	4c 8d 86 68 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2152]
-  009fe	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00a01	48 8d 0d 00 00
+  00a05	4d 8d 86 68 08
+	00 00		 lea	 r8, QWORD PTR [r14+2152]
+  00a0c	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00a0f	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00a08	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00a16	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 97   : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &blockBuffer)) GlobalThread::stop = true;
 
-  00a0d	0f b6 0d 00 00
+  00a1b	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00a14	84 c0		 test	 al, al
-  00a16	0f 44 cb	 cmove	 ecx, ebx
-  00a19	88 0d 00 00 00
+  00a22	84 c0		 test	 al, al
+  00a24	0f 44 cb	 cmove	 ecx, ebx
+  00a27	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 
 ; 98   : 	if(!chunkGenProgram.setArgument(sizeof(const int), &chunkX)) GlobalThread::stop = true;
 
-  00a1f	4c 8d 44 24 70	 lea	 r8, QWORD PTR chunkX$[rsp]
-  00a24	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
-  00a27	48 8d 0d 00 00
+  00a2d	4c 8d 44 24 70	 lea	 r8, QWORD PTR chunkX$[rsp]
+  00a32	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
+  00a35	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00a2e	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
-  00a33	0f b6 0d 00 00
+  00a3c	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00a41	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00a3a	84 c0		 test	 al, al
-  00a3c	0f 44 cb	 cmove	 ecx, ebx
-  00a3f	88 0d 00 00 00
+  00a48	84 c0		 test	 al, al
+  00a4a	0f 44 cb	 cmove	 ecx, ebx
+  00a4d	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 
 ; 99   : 	if(!chunkGenProgram.setArgument(sizeof(const int), &chunkY)) GlobalThread::stop = true;
 
-  00a45	4c 8d 44 24 7c	 lea	 r8, QWORD PTR chunkY$[rsp]
-  00a4a	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
-  00a4d	48 8d 0d 00 00
+  00a53	4c 8d 44 24 7c	 lea	 r8, QWORD PTR chunkY$[rsp]
+  00a58	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
+  00a5b	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00a54	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
-  00a59	0f b6 0d 00 00
+  00a62	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00a67	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00a60	84 c0		 test	 al, al
-  00a62	0f 44 cb	 cmove	 ecx, ebx
-  00a65	88 0d 00 00 00
+  00a6e	84 c0		 test	 al, al
+  00a70	0f 44 cb	 cmove	 ecx, ebx
+  00a73	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 
 ; 100  : 	if(!chunkGenProgram.setArgument(sizeof(const int), &chunkZ)) GlobalThread::stop = true;
 
-  00a6b	4c 8d 44 24 74	 lea	 r8, QWORD PTR chunkZ$[rsp]
-  00a70	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
-  00a73	48 8d 0d 00 00
+  00a79	4c 8d 44 24 74	 lea	 r8, QWORD PTR chunkZ$[rsp]
+  00a7e	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
+  00a81	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00a7a	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
-  00a7f	0f b6 0d 00 00
+  00a88	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00a8d	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00a86	84 c0		 test	 al, al
-  00a88	0f 44 cb	 cmove	 ecx, ebx
-  00a8b	88 0d 00 00 00
+  00a94	84 c0		 test	 al, al
+  00a96	0f 44 cb	 cmove	 ecx, ebx
+  00a99	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00a91	4c 8d 86 80 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2176]
-  00a98	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00a9b	48 8d 0d 00 00
+  00a9f	4d 8d 86 80 08
+	00 00		 lea	 r8, QWORD PTR [r14+2176]
+  00aa6	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00aa9	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00aa2	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00ab0	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 101  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &minHeightNoiseBuffer)) GlobalThread::stop = true;
 
-  00aa7	0f b6 0d 00 00
+  00ab5	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00aae	84 c0		 test	 al, al
-  00ab0	0f 44 cb	 cmove	 ecx, ebx
-  00ab3	88 0d 00 00 00
+  00abc	84 c0		 test	 al, al
+  00abe	0f 44 cb	 cmove	 ecx, ebx
+  00ac1	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00ab9	4c 8d 86 98 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2200]
-  00ac0	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00ac3	48 8d 0d 00 00
+  00ac7	4d 8d 86 98 08
+	00 00		 lea	 r8, QWORD PTR [r14+2200]
+  00ace	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00ad1	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00aca	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00ad8	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 102  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &maxHeightNoiseBuffer)) GlobalThread::stop = true;
 
-  00acf	0f b6 0d 00 00
+  00add	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00ad6	84 c0		 test	 al, al
-  00ad8	0f 44 cb	 cmove	 ecx, ebx
-  00adb	88 0d 00 00 00
+  00ae4	84 c0		 test	 al, al
+  00ae6	0f 44 cb	 cmove	 ecx, ebx
+  00ae9	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00ae1	4c 8d 86 b0 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2224]
-  00ae8	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00aeb	48 8d 0d 00 00
+  00aef	4d 8d 86 b0 08
+	00 00		 lea	 r8, QWORD PTR [r14+2224]
+  00af6	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00af9	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00af2	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00b00	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 103  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &smoothnessNoiseBuffer)) GlobalThread::stop = true;
 
-  00af7	0f b6 0d 00 00
+  00b05	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00afe	84 c0		 test	 al, al
-  00b00	0f 44 cb	 cmove	 ecx, ebx
-  00b03	88 0d 00 00 00
+  00b0c	84 c0		 test	 al, al
+  00b0e	0f 44 cb	 cmove	 ecx, ebx
+  00b11	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00b09	4c 8d 86 c8 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2248]
-  00b10	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00b13	48 8d 0d 00 00
+  00b17	4d 8d 86 c8 08
+	00 00		 lea	 r8, QWORD PTR [r14+2248]
+  00b1e	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00b21	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00b1a	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00b28	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 104  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &solidNoiseBuffer)) GlobalThread::stop = true;
 
-  00b1f	0f b6 0d 00 00
+  00b2d	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00b26	84 c0		 test	 al, al
-  00b28	0f 44 cb	 cmove	 ecx, ebx
-  00b2b	88 0d 00 00 00
+  00b34	84 c0		 test	 al, al
+  00b36	0f 44 cb	 cmove	 ecx, ebx
+  00b39	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00b31	4c 8d 86 e0 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2272]
-  00b38	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00b3b	48 8d 0d 00 00
+  00b3f	4d 8d 86 e0 08
+	00 00		 lea	 r8, QWORD PTR [r14+2272]
+  00b46	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00b49	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00b42	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00b50	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 105  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &stoneNoiseBuffer)) GlobalThread::stop = true;
 
-  00b47	0f b6 0d 00 00
+  00b55	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00b4e	84 c0		 test	 al, al
-  00b50	0f 44 cb	 cmove	 ecx, ebx
-  00b53	88 0d 00 00 00
+  00b5c	84 c0		 test	 al, al
+  00b5e	0f 44 cb	 cmove	 ecx, ebx
+  00b61	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00b59	4c 8d 86 f8 08
-	00 00		 lea	 r8, QWORD PTR [rsi+2296]
-  00b60	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00b63	48 8d 0d 00 00
+  00b67	4d 8d 86 f8 08
+	00 00		 lea	 r8, QWORD PTR [r14+2296]
+  00b6e	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00b71	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00b6a	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00b78	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 106  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &temperatureNoiseBuffer)) GlobalThread::stop = true;
 
-  00b6f	0f b6 0d 00 00
+  00b7d	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00b76	84 c0		 test	 al, al
-  00b78	0f 44 cb	 cmove	 ecx, ebx
-  00b7b	88 0d 00 00 00
+  00b84	84 c0		 test	 al, al
+  00b86	0f 44 cb	 cmove	 ecx, ebx
+  00b89	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00b81	4c 8d 86 10 09
-	00 00		 lea	 r8, QWORD PTR [rsi+2320]
-  00b88	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00b8b	48 8d 0d 00 00
+  00b8f	4d 8d 86 10 09
+	00 00		 lea	 r8, QWORD PTR [r14+2320]
+  00b96	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00b99	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00b92	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00ba0	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 107  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &humidityNoiseBuffer)) GlobalThread::stop = true;
 
-  00b97	0f b6 0d 00 00
+  00ba5	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00b9e	84 c0		 test	 al, al
-  00ba0	0f 44 cb	 cmove	 ecx, ebx
-  00ba3	88 0d 00 00 00
+  00bac	84 c0		 test	 al, al
+  00bae	0f 44 cb	 cmove	 ecx, ebx
+  00bb1	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 230  : 	return setArgument(size, &value->mem);
 
-  00ba9	4c 8d 86 28 09
-	00 00		 lea	 r8, QWORD PTR [rsi+2344]
-  00bb0	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
-  00bb3	48 8d 0d 00 00
+  00bb7	4d 8d 86 28 09
+	00 00		 lea	 r8, QWORD PTR [r14+2344]
+  00bbe	8d 53 07	 lea	 edx, QWORD PTR [rbx+7]
+  00bc1	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00bba	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00bc8	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 108  : 	if(!chunkGenProgram.setArgument(sizeof(cl_mem), &caveLinesBuffer)) GlobalThread::stop = true;
 
-  00bbf	0f b6 0d 00 00
+  00bcd	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00bc6	84 c0		 test	 al, al
-  00bc8	0f 44 cb	 cmove	 ecx, ebx
-  00bcb	88 0d 00 00 00
+  00bd4	84 c0		 test	 al, al
+  00bd6	0f 44 cb	 cmove	 ecx, ebx
+  00bd9	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 
 ; 109  : 	if(!chunkGenProgram.setArgument(sizeof(const int), &amountOfLines)) GlobalThread::stop = true;
 
-  00bd1	4c 8d 45 b8	 lea	 r8, QWORD PTR amountOfLines$[rbp-256]
-  00bd5	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
-  00bd8	48 8d 0d 00 00
+  00bdf	4c 8d 45 c8	 lea	 r8, QWORD PTR amountOfLines$[rbp-256]
+  00be3	8d 53 03	 lea	 edx, QWORD PTR [rbx+3]
+  00be6	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00bdf	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
-  00be4	0f b6 15 00 00
+  00bed	e8 00 00 00 00	 call	 ?setArgument@Program@cl@@QEAA_N_KPEBX@Z ; cl::Program::setArgument
+  00bf2	0f b6 15 00 00
 	00 00		 movzx	 edx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00beb	84 c0		 test	 al, al
-  00bed	0f 44 d3	 cmove	 edx, ebx
-  00bf0	88 15 00 00 00
+  00bf9	84 c0		 test	 al, al
+  00bfb	0f 44 d3	 cmove	 edx, ebx
+  00bfe	88 15 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, dl ; GlobalThread::stop
 
 ; 110  : 	if(!chunkGenProgram.invoke(queue, 3, global_ws, local_ws)) GlobalThread::stop = true;
 
-  00bf6	48 8d 85 28 01
+  00c04	48 8d 85 30 01
 	00 00		 lea	 rax, QWORD PTR local_ws$[rbp-256]
-  00bfd	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00c02	4c 8d 8d 10 01
+  00c0b	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00c10	4c 8d 8d 18 01
 	00 00		 lea	 r9, QWORD PTR global_ws$[rbp-256]
-  00c09	44 8d 43 02	 lea	 r8d, QWORD PTR [rbx+2]
-  00c0d	49 8b d5	 mov	 rdx, r13
-  00c10	48 8d 0d 00 00
+  00c17	44 8d 43 02	 lea	 r8d, QWORD PTR [rbx+2]
+  00c1b	49 8b d7	 mov	 rdx, r15
+  00c1e	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkGenProgram@ChunkLoadThread@@2VProgram@cl@@A ; ChunkLoadThread::chunkGenProgram
-  00c17	e8 00 00 00 00	 call	 ?invoke@Program@cl@@QEAA_NAEAVCommandQueue@2@IPEB_K1@Z ; cl::Program::invoke
-  00c1c	0f b6 0d 00 00
+  00c25	e8 00 00 00 00	 call	 ?invoke@Program@cl@@QEAA_NAEAVCommandQueue@2@IPEB_K1@Z ; cl::Program::invoke
+  00c2a	0f b6 0d 00 00
 	00 00		 movzx	 ecx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00c23	84 c0		 test	 al, al
-  00c25	0f 44 cb	 cmove	 ecx, ebx
-  00c28	88 0d 00 00 00
+  00c31	84 c0		 test	 al, al
+  00c33	0f 44 cb	 cmove	 ecx, ebx
+  00c36	88 0d 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, cl ; GlobalThread::stop
 
 ; 111  : 	queue.sync();
 
-  00c2e	49 8b cd	 mov	 rcx, r13
-  00c31	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
+  00c3c	49 8b cf	 mov	 rcx, r15
+  00c3f	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
 
 ; 113  : 	if(!blockBuffer.read(queue, chunk->dataPtr())) GlobalThread::stop = true;
 
-  00c36	49 8b 04 24	 mov	 rax, QWORD PTR [r12]
-  00c3a	49 8b cc	 mov	 rcx, r12
-  00c3d	ff 50 20	 call	 QWORD PTR [rax+32]
-  00c40	48 8d 8e 60 08
-	00 00		 lea	 rcx, QWORD PTR [rsi+2144]
+  00c44	49 8b 04 24	 mov	 rax, QWORD PTR [r12]
+  00c48	49 8b cc	 mov	 rcx, r12
+  00c4b	ff 50 20	 call	 QWORD PTR [rax+32]
+  00c4e	49 8d 8e 60 08
+	00 00		 lea	 rcx, QWORD PTR [r14+2144]
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\opencl.cpp
 
 ; 335  : 	return read(queue, 0, size, data);
 
-  00c47	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
-  00c4c	4c 8b 49 10	 mov	 r9, QWORD PTR [rcx+16]
-  00c50	49 8b d5	 mov	 rdx, r13
-  00c53	e8 00 00 00 00	 call	 ?read@Buffer@cl@@QEAA_NAEAVCommandQueue@2@_K1PEAX@Z ; cl::Buffer::read
+  00c55	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
+  00c5a	4c 8b 49 10	 mov	 r9, QWORD PTR [rcx+16]
+  00c5e	49 8b d7	 mov	 rdx, r15
+  00c61	e8 00 00 00 00	 call	 ?read@Buffer@cl@@QEAA_NAEAVCommandQueue@2@_K1PEAX@Z ; cl::Buffer::read
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 113  : 	if(!blockBuffer.read(queue, chunk->dataPtr())) GlobalThread::stop = true;
 
-  00c58	0f b6 15 00 00
+  00c66	0f b6 15 00 00
 	00 00		 movzx	 edx, BYTE PTR ?stop@GlobalThread@@3_NA ; GlobalThread::stop
-  00c5f	84 c0		 test	 al, al
-  00c61	0f 44 d3	 cmove	 edx, ebx
-  00c64	88 15 00 00 00
+  00c6d	84 c0		 test	 al, al
+  00c6f	0f 44 d3	 cmove	 edx, ebx
+  00c72	88 15 00 00 00
 	00		 mov	 BYTE PTR ?stop@GlobalThread@@3_NA, dl ; GlobalThread::stop
 
 ; 114  : 	queue.sync();
 
-  00c6a	49 8b cd	 mov	 rcx, r13
-  00c6d	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
+  00c78	49 8b cf	 mov	 rcx, r15
+  00c7b	e8 00 00 00 00	 call	 ?sync@CommandQueue@cl@@QEAA_NXZ ; cl::CommandQueue::sync
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
 
-  00c72	49 8d 4c 24 28	 lea	 rcx, QWORD PTR [r12+40]
-  00c77	e8 00 00 00 00	 call	 _Mtx_lock
+  00c80	49 8d 4c 24 28	 lea	 rcx, QWORD PTR [r12+40]
+  00c85	e8 00 00 00 00	 call	 _Mtx_lock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00c7c	85 c0		 test	 eax, eax
-  00c7e	74 07		 je	 SHORT $LN453@tick
+  00c8a	85 c0		 test	 eax, eax
+  00c8c	74 07		 je	 SHORT $LN453@tick
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00c80	8b c8		 mov	 ecx, eax
-  00c82	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00c8e	8b c8		 mov	 ecx, eax
+  00c90	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN453@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 95   : 	renderUpdateNeeded = flag;
 
-  00c87	66 41 c7 44 24
+  00c95	66 41 c7 44 24
 	08 01 01	 mov	 WORD PTR [r12+8], 257	; 00000101H
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
 
 ; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
 
-  00c8f	49 8d 4c 24 28	 lea	 rcx, QWORD PTR [r12+40]
-  00c94	e8 00 00 00 00	 call	 _Mtx_unlock
+  00c9d	49 8d 4c 24 28	 lea	 rcx, QWORD PTR [r12+40]
+  00ca2	e8 00 00 00 00	 call	 _Mtx_unlock
 
 ; 32   : 	if (_Res != _Thrd_success)
 
-  00c99	85 c0		 test	 eax, eax
-  00c9b	74 07		 je	 SHORT $LN476@tick
+  00ca7	85 c0		 test	 eax, eax
+  00ca9	74 07		 je	 SHORT $LN476@tick
 
 ; 33   : 		_Throw_C_error(_Res);
 
-  00c9d	8b c8		 mov	 ecx, eax
-  00c9f	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00cab	8b c8		 mov	 ecx, eax
+  00cad	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
 $LN476@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 282  : 		{	// construct
 
-  00ca4	33 db		 xor	 ebx, ebx
-  00ca6	48 89 5d c0	 mov	 QWORD PTR $T2[rbp-256], rbx
-  00caa	48 89 5d c8	 mov	 QWORD PTR $T2[rbp-248], rbx
+  00cb2	33 db		 xor	 ebx, ebx
+  00cb4	48 89 5d d0	 mov	 QWORD PTR $T3[rbp-256], rbx
+  00cb8	48 89 5d d8	 mov	 QWORD PTR $T3[rbp-248], rbx
 
 ; 358  : 		}
 ; 359  : 
@@ -7100,12 +7114,12 @@ $LN476@tick:
 ; 406  : 		{	// release resource and take _Other_ptr through _Other_rep
 ; 407  : 		if (_Other_rep)
 
-  00cae	4d 85 ff	 test	 r15, r15
-  00cb1	74 2d		 je	 SHORT $LN496@tick
+  00cbc	4d 85 ed	 test	 r13, r13
+  00cbf	74 2d		 je	 SHORT $LN496@tick
 
 ; 108  : 		_MT_INCR(_Ignored, _Uses);
 
-  00cb3	f0 41 ff 47 08	 lock inc DWORD PTR [r15+8]
+  00cc1	f0 41 ff 45 08	 lock inc DWORD PTR [r13+8]
 
 ; 408  : 			_Other_rep->_Incref();
 ; 409  : 		_Reset0(_Other_ptr, _Other_rep);
@@ -7125,9 +7139,9 @@ $LN476@tick:
 ; 423  : 		{	// release resource and take new resource
 ; 424  : 		if (_Rep != 0)
 
-  00cb8	48 8b 5d c8	 mov	 rbx, QWORD PTR $T2[rbp-248]
-  00cbc	48 85 db	 test	 rbx, rbx
-  00cbf	74 1d		 je	 SHORT $LN661@tick
+  00cc6	48 8b 5d d8	 mov	 rbx, QWORD PTR $T3[rbp-248]
+  00cca	48 85 db	 test	 rbx, rbx
+  00ccd	74 1d		 je	 SHORT $LN691@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -7140,15 +7154,15 @@ $LN476@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00cc1	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
-  00cc5	75 17		 jne	 SHORT $LN661@tick
+  00ccf	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  00cd3	75 17		 jne	 SHORT $LN691@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  00cc7	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00cca	48 8b cb	 mov	 rcx, rbx
-  00ccd	ff 10		 call	 QWORD PTR [rax]
+  00cd5	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00cd8	48 8b cb	 mov	 rcx, rbx
+  00cdb	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -7158,102 +7172,105 @@ $LN476@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  00ccf	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  00cd3	75 09		 jne	 SHORT $LN661@tick
+  00cdd	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  00ce1	75 09		 jne	 SHORT $LN691@tick
 
 ; 128  : 			_Delete_this();
 
-  00cd5	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00cd8	48 8b cb	 mov	 rcx, rbx
-  00cdb	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN661@tick:
-  00cde	33 db		 xor	 ebx, ebx
+  00ce3	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00ce6	48 8b cb	 mov	 rcx, rbx
+  00ce9	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN691@tick:
+  00cec	33 db		 xor	 ebx, ebx
 $LN496@tick:
 
 ; 426  : 		_Rep = _Other_rep;
 
-  00ce0	4c 89 7d c8	 mov	 QWORD PTR $T2[rbp-248], r15
+  00cee	4c 89 6d d8	 mov	 QWORD PTR $T3[rbp-248], r13
 
 ; 427  : 		_Ptr = _Other_ptr;
 
-  00ce4	4c 89 65 c0	 mov	 QWORD PTR $T2[rbp-256], r12
+  00cf2	4c 89 65 d0	 mov	 QWORD PTR $T3[rbp-256], r12
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 189  : 	requestChunkDraw(chunk);
 
-  00ce8	48 8d 4d c0	 lea	 rcx, QWORD PTR $T2[rbp-256]
-  00cec	e8 00 00 00 00	 call	 ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ; requestChunkDraw
+  00cf6	48 8d 4d d0	 lea	 rcx, QWORD PTR $T3[rbp-256]
+  00cfa	e8 00 00 00 00	 call	 ?requestChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ; requestChunkDraw
 
 ; 190  : 		
 ; 191  : 	for(int i = -1; i <= 1; i++)
 
-  00cf1	45 8b ee	 mov	 r13d, r14d
-  00cf4	66 66 66 66 0f
-	1f 84 00 00 00
-	00 00		 npad	 12
+  00cff	44 8b ee	 mov	 r13d, esi
+  00d02	66 66 66 66 66
+	66 0f 1f 84 00
+	00 00 00 00	 npad	 14
 $LL11@tick:
 
 ; 192  : 	{
 ; 193  : 		for(int j = -1; j <= 1; j++)
 
-  00d00	45 8b fe	 mov	 r15d, r14d
+  00d10	44 8b fe	 mov	 r15d, esi
 $LL8@tick:
 
 ; 195  : 			for(int k = -1; k <= 1; k++)
 
-  00d03	41 8b f6	 mov	 esi, r14d
-  00d06	66 66 0f 1f 84
+  00d13	44 8b f6	 mov	 r14d, esi
+  00d16	66 66 0f 1f 84
 	00 00 00 00 00	 npad	 10
 $LL5@tick:
 
 ; 196  : 			{
 ; 197  : 				if(i | j | k)
 
-  00d10	8b c6		 mov	 eax, esi
-  00d12	41 0b c7	 or	 eax, r15d
-  00d15	41 0b c5	 or	 eax, r13d
-  00d18	0f 84 e4 00 00
+  00d20	41 8b c6	 mov	 eax, r14d
+  00d23	41 0b c7	 or	 eax, r15d
+  00d26	41 0b c5	 or	 eax, r13d
+  00d29	0f 84 55 01 00
 	00		 je	 $LN4@tick
 
 ; 198  : 				{
 ; 199  : 					std::shared_ptr<ChunkBase> c = GlobalThread::world.getChunk(i + chunk->pos.x, j + chunk->pos.y, k + chunk->pos.z);
 
-  00d1e	41 8b 4c 24 20	 mov	 ecx, DWORD PTR [r12+32]
-  00d23	03 ce		 add	 ecx, esi
-  00d25	45 8b 4c 24 1c	 mov	 r9d, DWORD PTR [r12+28]
-  00d2a	45 03 cf	 add	 r9d, r15d
-  00d2d	45 8b 44 24 18	 mov	 r8d, DWORD PTR [r12+24]
-  00d32	45 03 c5	 add	 r8d, r13d
-  00d35	89 4c 24 20	 mov	 DWORD PTR [rsp+32], ecx
-  00d39	48 8d 55 a8	 lea	 rdx, QWORD PTR c$1[rbp-256]
-  00d3d	48 8d 0d 00 00
+  00d2f	41 8b 4c 24 20	 mov	 ecx, DWORD PTR [r12+32]
+  00d34	41 03 ce	 add	 ecx, r14d
+  00d37	45 8b 4c 24 1c	 mov	 r9d, DWORD PTR [r12+28]
+  00d3c	45 03 cf	 add	 r9d, r15d
+  00d3f	45 8b 44 24 18	 mov	 r8d, DWORD PTR [r12+24]
+  00d44	45 03 c5	 add	 r8d, r13d
+  00d47	89 4c 24 20	 mov	 DWORD PTR [rsp+32], ecx
+  00d4b	48 8d 55 a8	 lea	 rdx, QWORD PTR c$1[rbp-256]
+  00d4f	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?world@GlobalThread@@3VWorld@@A ; GlobalThread::world
-  00d44	e8 00 00 00 00	 call	 ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunk
-  00d49	90		 npad	 1
+  00d56	e8 00 00 00 00	 call	 ?getChunk@World@@QEAA?AV?$shared_ptr@VChunkBase@@@std@@HHH@Z ; World::getChunk
+  00d5b	90		 npad	 1
 
 ; 200  : 					if(!c->isEmpty() && c->isLoaded() && !c->isRenderUpdateNeeded())
 
-  00d4a	48 8b 7d a8	 mov	 rdi, QWORD PTR c$1[rbp-256]
-  00d4e	48 8b 07	 mov	 rax, QWORD PTR [rdi]
-  00d51	48 8b cf	 mov	 rcx, rdi
-  00d54	ff 50 18	 call	 QWORD PTR [rax+24]
-  00d57	84 c0		 test	 al, al
-  00d59	75 70		 jne	 SHORT $LN655@tick
-  00d5b	38 47 09	 cmp	 BYTE PTR [rdi+9], al
-  00d5e	74 6b		 je	 SHORT $LN655@tick
-  00d60	38 47 08	 cmp	 BYTE PTR [rdi+8], al
-  00d63	75 66		 jne	 SHORT $LN655@tick
+  00d5c	48 8b 7d a8	 mov	 rdi, QWORD PTR c$1[rbp-256]
+  00d60	48 8b 07	 mov	 rax, QWORD PTR [rdi]
+  00d63	48 8b cf	 mov	 rcx, rdi
+  00d66	ff 50 18	 call	 QWORD PTR [rax+24]
+  00d69	84 c0		 test	 al, al
+  00d6b	0f 85 de 00 00
+	00		 jne	 $LN685@tick
+  00d71	38 47 09	 cmp	 BYTE PTR [rdi+9], al
+  00d74	0f 84 d5 00 00
+	00		 je	 $LN685@tick
+  00d7a	38 47 08	 cmp	 BYTE PTR [rdi+8], al
+  00d7d	0f 85 cc 00 00
+	00		 jne	 $LN685@tick
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\world.cpp
 
 ; 95   : 	renderUpdateNeeded = flag;
 
-  00d65	c6 47 08 01	 mov	 BYTE PTR [rdi+8], 1
+  00d83	c6 47 08 01	 mov	 BYTE PTR [rdi+8], 1
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 282  : 		{	// construct
 
-  00d69	48 89 5d d0	 mov	 QWORD PTR $T3[rbp-256], rbx
-  00d6d	48 89 5d d8	 mov	 QWORD PTR $T3[rbp-248], rbx
+  00d87	48 89 5d b8	 mov	 QWORD PTR $T2[rbp-256], rbx
+  00d8b	48 89 5d c0	 mov	 QWORD PTR $T2[rbp-248], rbx
 
 ; 358  : 		}
 ; 359  : 
@@ -7306,13 +7323,13 @@ $LL5@tick:
 ; 406  : 		{	// release resource and take _Other_ptr through _Other_rep
 ; 407  : 		if (_Other_rep)
 
-  00d71	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
-  00d75	48 85 db	 test	 rbx, rbx
-  00d78	74 3e		 je	 SHORT $LN550@tick
+  00d8f	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
+  00d93	48 85 db	 test	 rbx, rbx
+  00d96	74 32		 je	 SHORT $LN550@tick
 
 ; 108  : 		_MT_INCR(_Ignored, _Uses);
 
-  00d7a	f0 ff 43 08	 lock inc DWORD PTR [rbx+8]
+  00d98	f0 ff 43 08	 lock inc DWORD PTR [rbx+8]
 
 ; 408  : 			_Other_rep->_Incref();
 ; 409  : 		_Reset0(_Other_ptr, _Other_rep);
@@ -7332,9 +7349,9 @@ $LL5@tick:
 ; 423  : 		{	// release resource and take new resource
 ; 424  : 		if (_Rep != 0)
 
-  00d7e	48 8b 5d d8	 mov	 rbx, QWORD PTR $T3[rbp-248]
-  00d82	48 85 db	 test	 rbx, rbx
-  00d85	74 29		 je	 SHORT $LN654@tick
+  00d9c	48 8b 5d c0	 mov	 rbx, QWORD PTR $T2[rbp-248]
+  00da0	48 85 db	 test	 rbx, rbx
+  00da3	74 1d		 je	 SHORT $LN684@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -7347,17 +7364,15 @@ $LL5@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00d87	41 8b c6	 mov	 eax, r14d
-  00d8a	f0 0f c1 43 08	 lock xadd DWORD PTR [rbx+8], eax
-  00d8f	ff c8		 dec	 eax
-  00d91	75 1d		 jne	 SHORT $LN654@tick
+  00da5	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  00da9	75 17		 jne	 SHORT $LN684@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  00d93	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00d96	48 8b cb	 mov	 rcx, rbx
-  00d99	ff 10		 call	 QWORD PTR [rax]
+  00dab	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00dae	48 8b cb	 mov	 rcx, rbx
+  00db1	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -7367,44 +7382,86 @@ $LL5@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  00d9b	41 8b c6	 mov	 eax, r14d
-  00d9e	f0 0f c1 43 0c	 lock xadd DWORD PTR [rbx+12], eax
-  00da3	ff c8		 dec	 eax
-  00da5	75 09		 jne	 SHORT $LN654@tick
+  00db3	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  00db7	75 09		 jne	 SHORT $LN684@tick
 
 ; 128  : 			_Delete_this();
 
-  00da7	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00daa	48 8b cb	 mov	 rcx, rbx
-  00dad	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN654@tick:
-  00db0	48 8b 7d a8	 mov	 rdi, QWORD PTR c$1[rbp-256]
-  00db4	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
+  00db9	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00dbc	48 8b cb	 mov	 rcx, rbx
+  00dbf	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN684@tick:
+  00dc2	48 8b 7d a8	 mov	 rdi, QWORD PTR c$1[rbp-256]
+  00dc6	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
 $LN550@tick:
 
 ; 426  : 		_Rep = _Other_rep;
 
-  00db8	48 89 5d d8	 mov	 QWORD PTR $T3[rbp-248], rbx
+  00dca	48 89 5d c0	 mov	 QWORD PTR $T2[rbp-248], rbx
 
 ; 427  : 		_Ptr = _Other_ptr;
 
-  00dbc	48 89 7d d0	 mov	 QWORD PTR $T3[rbp-256], rdi
-; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
+  00dce	48 89 7d b8	 mov	 QWORD PTR $T2[rbp-256], rdi
+  00dd2	48 8d 45 b8	 lea	 rax, QWORD PTR $T2[rbp-256]
+  00dd6	48 89 45 e0	 mov	 QWORD PTR $T4[rbp-256], rax
+; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkdrawthread.cpp
 
-; 203  : 						requestLateChunkDraw(c);
+; 129  : 	ChunkDrawThread* thread = &chunkDrawThreads[(drawerThread++) % DRAW_THREAD_AMOUNT];
 
-  00dc0	48 8d 4d d0	 lea	 rcx, QWORD PTR $T3[rbp-256]
-  00dc4	e8 00 00 00 00	 call	 ?requestLateChunkDraw@@YAXV?$shared_ptr@VChunkBase@@@std@@@Z ; requestLateChunkDraw
-  00dc9	eb 04		 jmp	 SHORT $LN1@tick
-$LN655@tick:
-  00dcb	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
-$LN1@tick:
+  00dda	ff 05 00 00 00
+	00		 inc	 DWORD PTR ?drawerThread@@3HA ; drawerThread
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 68   : 	return (_Check_C_return(_Mtx_lock(_Mtx)));
+
+  00de0	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  00de7	e8 00 00 00 00	 call	 _Mtx_lock
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  00dec	85 c0		 test	 eax, eax
+  00dee	74 07		 je	 SHORT $LN560@tick
+
+; 33   : 		_Throw_C_error(_Res);
+
+  00df0	8b c8		 mov	 ecx, eax
+  00df2	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+$LN560@tick:
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\queue
+
+; 155  : 		c.push_back(_Val);
+
+  00df7	48 8d 55 b8	 lea	 rdx, QWORD PTR $T2[rbp-256]
+  00dfb	48 8d 0d 88 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2184
+  00e02	e8 00 00 00 00	 call	 ?push_back@?$deque@V?$shared_ptr@VChunkBase@@@std@@V?$allocator@V?$shared_ptr@VChunkBase@@@std@@@2@@std@@QEAAXAEBV?$shared_ptr@VChunkBase@@@2@@Z ; std::deque<std::shared_ptr<ChunkBase>,std::allocator<std::shared_ptr<ChunkBase> > >::push_back
+; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\thr\xthread
+
+; 83   : 	return (_Check_C_return(_Mtx_unlock(_Mtx)));
+
+  00e07	48 8d 0d b0 08
+	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A+2224
+  00e0e	e8 00 00 00 00	 call	 _Mtx_unlock
+
+; 32   : 	if (_Res != _Thrd_success)
+
+  00e13	85 c0		 test	 eax, eax
+  00e15	74 08		 je	 SHORT $LN569@tick
+
+; 33   : 		_Throw_C_error(_Res);
+
+  00e17	8b c8		 mov	 ecx, eax
+  00e19	e8 00 00 00 00	 call	 ?_Throw_C_error@std@@YAXH@Z ; std::_Throw_C_error
+  00e1e	90		 npad	 1
+$LN569@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00dcf	48 85 db	 test	 rbx, rbx
-  00dd2	74 2e		 je	 SHORT $LN4@tick
+  00e1f	48 8b 7d c0	 mov	 rdi, QWORD PTR $T2[rbp-248]
+  00e23	48 85 ff	 test	 rdi, rdi
+  00e26	74 2b		 je	 SHORT $LN580@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -7417,18 +7474,17 @@ $LN1@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00dd4	41 8b c6	 mov	 eax, r14d
-  00dd7	f0 0f c1 43 08	 lock xadd DWORD PTR [rbx+8], eax
-  00ddc	ff c8		 dec	 eax
-  00dde	75 22		 jne	 SHORT $LN4@tick
+  00e28	8b c6		 mov	 eax, esi
+  00e2a	f0 0f c1 47 08	 lock xadd DWORD PTR [rdi+8], eax
+  00e2f	ff c8		 dec	 eax
+  00e31	75 1c		 jne	 SHORT $LN685@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  00de0	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
-  00de4	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00de7	48 8b cb	 mov	 rcx, rbx
-  00dea	ff 10		 call	 QWORD PTR [rax]
+  00e33	48 8b 07	 mov	 rax, QWORD PTR [rdi]
+  00e36	48 8b cf	 mov	 rcx, rdi
+  00e39	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -7438,82 +7494,132 @@ $LN1@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  00dec	41 8b c6	 mov	 eax, r14d
-  00def	f0 0f c1 43 0c	 lock xadd DWORD PTR [rbx+12], eax
-  00df4	ff c8		 dec	 eax
-  00df6	75 0a		 jne	 SHORT $LN4@tick
+  00e3b	8b c6		 mov	 eax, esi
+  00e3d	f0 0f c1 47 0c	 lock xadd DWORD PTR [rdi+12], eax
+  00e42	ff c8		 dec	 eax
+  00e44	75 09		 jne	 SHORT $LN685@tick
 
 ; 128  : 			_Delete_this();
 
-  00df8	48 8b 4d b0	 mov	 rcx, QWORD PTR c$1[rbp-248]
-  00dfc	48 8b 01	 mov	 rax, QWORD PTR [rcx]
-  00dff	ff 50 08	 call	 QWORD PTR [rax+8]
+  00e46	48 8b 07	 mov	 rax, QWORD PTR [rdi]
+  00e49	48 8b cf	 mov	 rcx, rdi
+  00e4c	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN685@tick:
+  00e4f	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
+$LN580@tick:
+
+; 345  : 		if (_Rep != 0)
+
+  00e53	48 85 db	 test	 rbx, rbx
+  00e56	74 2c		 je	 SHORT $LN4@tick
+
+; 109  : 		}
+; 110  : 
+; 111  : 	void _Incwref()
+; 112  : 		{	// increment weak reference count
+; 113  : 		_MT_INCR(_Ignored, _Weaks);
+; 114  : 		}
+; 115  : 
+; 116  : 	void _Decref()
+; 117  : 		{	// decrement use count
+; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
+
+  00e58	8b c6		 mov	 eax, esi
+  00e5a	f0 0f c1 43 08	 lock xadd DWORD PTR [rbx+8], eax
+  00e5f	ff c8		 dec	 eax
+  00e61	75 21		 jne	 SHORT $LN4@tick
+
+; 119  : 			{	// destroy managed resource, decrement weak reference count
+; 120  : 			_Destroy();
+
+  00e63	48 8b 5d b0	 mov	 rbx, QWORD PTR c$1[rbp-248]
+  00e67	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00e6a	48 8b cb	 mov	 rcx, rbx
+  00e6d	ff 10		 call	 QWORD PTR [rax]
+
+; 121  : 			_Decwref();
+; 122  : 			}
+; 123  : 		}
+; 124  : 
+; 125  : 	void _Decwref()
+; 126  : 		{	// decrement weak reference count
+; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
+
+  00e6f	8b c6		 mov	 eax, esi
+  00e71	f0 0f c1 43 0c	 lock xadd DWORD PTR [rbx+12], eax
+  00e76	ff c8		 dec	 eax
+  00e78	75 0a		 jne	 SHORT $LN4@tick
+
+; 128  : 			_Delete_this();
+
+  00e7a	48 8b 4d b0	 mov	 rcx, QWORD PTR c$1[rbp-248]
+  00e7e	48 8b 01	 mov	 rax, QWORD PTR [rcx]
+  00e81	ff 50 08	 call	 QWORD PTR [rax+8]
 $LN4@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 195  : 			for(int k = -1; k <= 1; k++)
 
-  00e02	ff c6		 inc	 esi
-  00e04	83 fe 01	 cmp	 esi, 1
-  00e07	bb 00 00 00 00	 mov	 ebx, 0
-  00e0c	0f 8e fe fe ff
+  00e84	41 ff c6	 inc	 r14d
+  00e87	41 83 fe 01	 cmp	 r14d, 1
+  00e8b	bb 00 00 00 00	 mov	 ebx, 0
+  00e90	0f 8e 8a fe ff
 	ff		 jle	 $LL5@tick
 
 ; 192  : 	{
 ; 193  : 		for(int j = -1; j <= 1; j++)
 
-  00e12	41 ff c7	 inc	 r15d
-  00e15	41 83 ff 01	 cmp	 r15d, 1
-  00e19	0f 8e e4 fe ff
+  00e96	41 ff c7	 inc	 r15d
+  00e99	41 83 ff 01	 cmp	 r15d, 1
+  00e9d	0f 8e 70 fe ff
 	ff		 jle	 $LL8@tick
 
 ; 190  : 		
 ; 191  : 	for(int i = -1; i <= 1; i++)
 
-  00e1f	41 ff c5	 inc	 r13d
-  00e22	41 83 fd 01	 cmp	 r13d, 1
-  00e26	0f 8e d4 fe ff
+  00ea3	41 ff c5	 inc	 r13d
+  00ea6	41 83 fd 01	 cmp	 r13d, 1
+  00eaa	0f 8e 60 fe ff
 	ff		 jle	 $LL11@tick
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  00e2c	48 8b 4d 80	 mov	 rcx, QWORD PTR lines$[rbp-256]
-  00e30	48 85 c9	 test	 rcx, rcx
-  00e33	74 06		 je	 SHORT $LN566@tick
+  00eb0	48 8b 4d 80	 mov	 rcx, QWORD PTR lines$[rbp-256]
+  00eb4	48 85 c9	 test	 rcx, rcx
+  00eb7	74 06		 je	 SHORT $LN596@tick
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00e35	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  00e3a	90		 npad	 1
-$LN566@tick:
+  00eb9	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00ebe	90		 npad	 1
+$LN596@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector
 
 ; 1536 : 		if (this->_Myfirst != pointer())
 
-  00e3b	48 8b 4d 40	 mov	 rcx, QWORD PTR caves$[rbp-256]
-  00e3f	48 85 c9	 test	 rcx, rcx
-  00e42	74 49		 je	 SHORT $LN579@tick
+  00ebf	48 8b 4d 50	 mov	 rcx, QWORD PTR caves$[rbp-256]
+  00ec3	48 85 c9	 test	 rcx, rcx
+  00ec6	74 47		 je	 SHORT $LN609@tick
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 88   : 	for (; _First != _Last; ++_First)
 
-  00e44	48 3b 4d 48	 cmp	 rcx, QWORD PTR caves$[rbp-248]
-  00e48	74 3d		 je	 SHORT $LN590@tick
+  00ec8	48 3b 4d 58	 cmp	 rcx, QWORD PTR caves$[rbp-248]
+  00ecc	74 3b		 je	 SHORT $LN620@tick
 
 ; 80   : 	_Destroy_range(_First, _Last, _Al, _Ptr_cat(_First, _Last));
 
-  00e4a	48 8d 79 08	 lea	 rdi, QWORD PTR [rcx+8]
-  00e4e	66 90		 npad	 2
-$LL592@tick:
+  00ece	48 8d 79 08	 lea	 rdi, QWORD PTR [rcx+8]
+$LL622@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00e50	48 8b 1f	 mov	 rbx, QWORD PTR [rdi]
-  00e53	48 85 db	 test	 rbx, rbx
-  00e56	74 1d		 je	 SHORT $LN656@tick
+  00ed2	48 8b 1f	 mov	 rbx, QWORD PTR [rdi]
+  00ed5	48 85 db	 test	 rbx, rbx
+  00ed8	74 1d		 je	 SHORT $LN686@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -7526,15 +7632,15 @@ $LL592@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00e58	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
-  00e5c	75 17		 jne	 SHORT $LN656@tick
+  00eda	f0 ff 4b 08	 lock dec DWORD PTR [rbx+8]
+  00ede	75 17		 jne	 SHORT $LN686@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  00e5e	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00e61	48 8b cb	 mov	 rcx, rbx
-  00e64	ff 10		 call	 QWORD PTR [rax]
+  00ee0	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00ee3	48 8b cb	 mov	 rcx, rbx
+  00ee6	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -7544,38 +7650,38 @@ $LL592@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  00e66	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  00e6a	75 09		 jne	 SHORT $LN656@tick
+  00ee8	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  00eec	75 09		 jne	 SHORT $LN686@tick
 
 ; 128  : 			_Delete_this();
 
-  00e6c	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00e6f	48 8b cb	 mov	 rcx, rbx
-  00e72	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN656@tick:
+  00eee	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00ef1	48 8b cb	 mov	 rcx, rbx
+  00ef4	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN686@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\xmemory0
 
 ; 88   : 	for (; _First != _Last; ++_First)
 
-  00e75	48 83 c7 10	 add	 rdi, 16
-  00e79	48 8d 47 f8	 lea	 rax, QWORD PTR [rdi-8]
-  00e7d	48 3b 45 48	 cmp	 rax, QWORD PTR caves$[rbp-248]
-  00e81	75 cd		 jne	 SHORT $LL592@tick
-  00e83	48 8b 4d 40	 mov	 rcx, QWORD PTR caves$[rbp-256]
-$LN590@tick:
+  00ef7	48 83 c7 10	 add	 rdi, 16
+  00efb	48 8d 47 f8	 lea	 rax, QWORD PTR [rdi-8]
+  00eff	48 3b 45 58	 cmp	 rax, QWORD PTR caves$[rbp-248]
+  00f03	75 cd		 jne	 SHORT $LL622@tick
+  00f05	48 8b 4d 50	 mov	 rcx, QWORD PTR caves$[rbp-256]
+$LN620@tick:
 
 ; 586  : 		::operator delete(_Ptr);
 
-  00e87	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
-  00e8c	90		 npad	 1
-$LN579@tick:
+  00f09	e8 00 00 00 00	 call	 ??3@YAXPEAX@Z		; operator delete
+  00f0e	90		 npad	 1
+$LN609@tick:
 ; File c:\program files (x86)\microsoft visual studio 11.0\vc\include\memory
 
 ; 345  : 		if (_Rep != 0)
 
-  00e8d	48 8b 5d 08	 mov	 rbx, QWORD PTR $T4[rbp-256]
-  00e91	48 85 db	 test	 rbx, rbx
-  00e94	74 23		 je	 SHORT $LN629@tick
+  00f0f	48 8b 5d 08	 mov	 rbx, QWORD PTR $T5[rbp-256]
+  00f13	48 85 db	 test	 rbx, rbx
+  00f16	74 22		 je	 SHORT $LN659@tick
 
 ; 109  : 		}
 ; 110  : 
@@ -7588,17 +7694,17 @@ $LN579@tick:
 ; 117  : 		{	// decrement use count
 ; 118  : 		if (_MT_DECR(_Ignored, _Uses) == 0)
 
-  00e96	41 8b c6	 mov	 eax, r14d
-  00e99	f0 0f c1 43 08	 lock xadd DWORD PTR [rbx+8], eax
-  00e9e	ff c8		 dec	 eax
-  00ea0	75 17		 jne	 SHORT $LN629@tick
+  00f18	8b c6		 mov	 eax, esi
+  00f1a	f0 0f c1 43 08	 lock xadd DWORD PTR [rbx+8], eax
+  00f1f	ff c8		 dec	 eax
+  00f21	75 17		 jne	 SHORT $LN659@tick
 
 ; 119  : 			{	// destroy managed resource, decrement weak reference count
 ; 120  : 			_Destroy();
 
-  00ea2	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00ea5	48 8b cb	 mov	 rcx, rbx
-  00ea8	ff 10		 call	 QWORD PTR [rax]
+  00f23	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00f26	48 8b cb	 mov	 rcx, rbx
+  00f29	ff 10		 call	 QWORD PTR [rax]
 
 ; 121  : 			_Decwref();
 ; 122  : 			}
@@ -7608,52 +7714,52 @@ $LN579@tick:
 ; 126  : 		{	// decrement weak reference count
 ; 127  : 		if (_MT_DECR(_Ignored, _Weaks) == 0)
 
-  00eaa	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
-  00eae	75 09		 jne	 SHORT $LN629@tick
+  00f2b	f0 ff 4b 0c	 lock dec DWORD PTR [rbx+12]
+  00f2f	75 09		 jne	 SHORT $LN659@tick
 
 ; 128  : 			_Delete_this();
 
-  00eb0	48 8b 03	 mov	 rax, QWORD PTR [rbx]
-  00eb3	48 8b cb	 mov	 rcx, rbx
-  00eb6	ff 50 08	 call	 QWORD PTR [rax+8]
-$LN629@tick:
+  00f31	48 8b 03	 mov	 rax, QWORD PTR [rbx]
+  00f34	48 8b cb	 mov	 rcx, rbx
+  00f37	ff 50 08	 call	 QWORD PTR [rax+8]
+$LN659@tick:
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp
 
 ; 210  : 	return true;
 
-  00eb9	b0 01		 mov	 al, 1
+  00f3a	b0 01		 mov	 al, 1
 
 ; 211  : }
 
-  00ebb	48 8b 8d 40 01
+  00f3c	48 8b 8d 48 01
 	00 00		 mov	 rcx, QWORD PTR __$ArrayPad$[rbp-256]
-  00ec2	48 33 cc	 xor	 rcx, rsp
-  00ec5	e8 00 00 00 00	 call	 __security_check_cookie
-  00eca	4c 8d 9c 24 f0
+  00f43	48 33 cc	 xor	 rcx, rsp
+  00f46	e8 00 00 00 00	 call	 __security_check_cookie
+  00f4b	4c 8d 9c 24 f0
 	02 00 00	 lea	 r11, QWORD PTR [rsp+752]
-  00ed2	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
-  00ed6	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
-  00eda	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
-  00ede	41 0f 28 73 f0	 movaps	 xmm6, XMMWORD PTR [r11-16]
-  00ee3	41 0f 28 7b e0	 movaps	 xmm7, XMMWORD PTR [r11-32]
-  00ee8	45 0f 28 43 d0	 movaps	 xmm8, XMMWORD PTR [r11-48]
-  00eed	45 0f 28 4b c0	 movaps	 xmm9, XMMWORD PTR [r11-64]
-  00ef2	45 0f 28 53 b0	 movaps	 xmm10, XMMWORD PTR [r11-80]
-  00ef7	45 0f 28 5b a0	 movaps	 xmm11, XMMWORD PTR [r11-96]
-  00efc	45 0f 28 63 90	 movaps	 xmm12, XMMWORD PTR [r11-112]
-  00f01	45 0f 28 6b 80	 movaps	 xmm13, XMMWORD PTR [r11-128]
-  00f06	45 0f 28 b3 70
+  00f53	49 8b 5b 38	 mov	 rbx, QWORD PTR [r11+56]
+  00f57	49 8b 73 40	 mov	 rsi, QWORD PTR [r11+64]
+  00f5b	49 8b 7b 48	 mov	 rdi, QWORD PTR [r11+72]
+  00f5f	41 0f 28 73 f0	 movaps	 xmm6, XMMWORD PTR [r11-16]
+  00f64	41 0f 28 7b e0	 movaps	 xmm7, XMMWORD PTR [r11-32]
+  00f69	45 0f 28 43 d0	 movaps	 xmm8, XMMWORD PTR [r11-48]
+  00f6e	45 0f 28 4b c0	 movaps	 xmm9, XMMWORD PTR [r11-64]
+  00f73	45 0f 28 53 b0	 movaps	 xmm10, XMMWORD PTR [r11-80]
+  00f78	45 0f 28 5b a0	 movaps	 xmm11, XMMWORD PTR [r11-96]
+  00f7d	45 0f 28 63 90	 movaps	 xmm12, XMMWORD PTR [r11-112]
+  00f82	45 0f 28 6b 80	 movaps	 xmm13, XMMWORD PTR [r11-128]
+  00f87	45 0f 28 b3 70
 	ff ff ff	 movaps	 xmm14, XMMWORD PTR [r11-144]
-  00f0e	45 0f 28 bb 60
+  00f8f	45 0f 28 bb 60
 	ff ff ff	 movaps	 xmm15, XMMWORD PTR [r11-160]
-  00f16	49 8b e3	 mov	 rsp, r11
-  00f19	41 5f		 pop	 r15
-  00f1b	41 5e		 pop	 r14
-  00f1d	41 5d		 pop	 r13
-  00f1f	41 5c		 pop	 r12
-  00f21	5d		 pop	 rbp
-  00f22	c3		 ret	 0
-$LN662@tick:
+  00f97	49 8b e3	 mov	 rsp, r11
+  00f9a	41 5f		 pop	 r15
+  00f9c	41 5e		 pop	 r14
+  00f9e	41 5d		 pop	 r13
+  00fa0	41 5c		 pop	 r12
+  00fa2	5d		 pop	 rbp
+  00fa3	c3		 ret	 0
+$LN692@tick:
 ?tick@ChunkLoadThread@@MEAA_NXZ ENDP			; ChunkLoadThread::tick
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
@@ -7664,38 +7770,39 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?dtor$0@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$0
-  00000	48 8d 8a d8 01
+  00000	48 8d 8a e0 01
 	00 00		 lea	 rcx, QWORD PTR chunk$[rdx]
   00007	e9 00 00 00 00	 jmp	 ??1?$shared_ptr@VChunkBase@@@std@@QEAA@XZ ; std::shared_ptr<ChunkBase>::~shared_ptr<ChunkBase>
 ?dtor$0@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA ENDP	; `ChunkLoadThread::tick'::`1'::dtor$0
@@ -7708,38 +7815,39 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?dtor$1@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$1
-  0000c	48 8d 8a 40 01
+  0000c	48 8d 8a 50 01
 	00 00		 lea	 rcx, QWORD PTR caves$[rdx]
   00013	e9 00 00 00 00	 jmp	 ??1?$vector@V?$shared_ptr@VCave@@@std@@V?$allocator@V?$shared_ptr@VCave@@@std@@@2@@std@@QEAA@XZ ; std::vector<std::shared_ptr<Cave>,std::allocator<std::shared_ptr<Cave> > >::~vector<std::shared_ptr<Cave>,std::allocator<std::shared_ptr<Cave> > >
 ?dtor$1@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA ENDP	; `ChunkLoadThread::tick'::`1'::dtor$1
@@ -7752,35 +7860,36 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?dtor$2@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$2
   00018	48 8d 8a 80 00
@@ -7796,39 +7905,40 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?dtor$3@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$3
-  00024	48 8d 8a e8 01
-	00 00		 lea	 rcx, QWORD PTR cave$13[rdx]
+  00024	48 8d 8a f0 01
+	00 00		 lea	 rcx, QWORD PTR cave$14[rdx]
   0002b	e9 00 00 00 00	 jmp	 ??1?$shared_ptr@VCave@@@std@@QEAA@XZ ; std::shared_ptr<Cave>::~shared_ptr<Cave>
 ?dtor$3@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA ENDP	; `ChunkLoadThread::tick'::`1'::dtor$3
 text$x	ENDS
@@ -7840,41 +7950,87 @@ chunkZ$ = 116
 boundingBox$1$ = 120
 chunkY$ = 124
 lines$ = 128
-tv3466 = 152
+tv3591 = 152
 i$1$ = 156
-tv3464 = 160
-tv3465 = 164
+tv3589 = 160
+tv3590 = 164
 c$1 = 168
-amountOfLines$ = 184
-$T2 = 192
+$T2 = 184
+amountOfLines$ = 200
 $T3 = 208
-boundingBox$ = 224
-caves$1$ = 256
-$T4 = 264
-$T5 = 272
-$T6 = 304
-caves$ = 320
-$T7 = 344
-this$GSCopy$1$ = 360
-tv3522 = 368
-tv3520 = 376
-$T8 = 384
-$T9 = 400
-$T10 = 416
-$T11 = 432
-$T12 = 464
-chunk$ = 472
-cave$13 = 488
-$T14 = 504
-global_ws$ = 528
-local_ws$ = 552
-__$ArrayPad$ = 576
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
 this$ = 800
 ?dtor$6@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$6
   00030	48 8d 8a a8 00
 	00 00		 lea	 rcx, QWORD PTR c$1[rdx]
   00037	e9 00 00 00 00	 jmp	 ??1?$shared_ptr@VChunkBase@@@std@@QEAA@XZ ; std::shared_ptr<ChunkBase>::~shared_ptr<ChunkBase>
 ?dtor$6@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA ENDP	; `ChunkLoadThread::tick'::`1'::dtor$6
+text$x	ENDS
+; Function compile flags: /Ogtp
+;	COMDAT text$x
+text$x	SEGMENT
+chunkX$ = 112
+chunkZ$ = 116
+boundingBox$1$ = 120
+chunkY$ = 124
+lines$ = 128
+tv3591 = 152
+i$1$ = 156
+tv3589 = 160
+tv3590 = 164
+c$1 = 168
+$T2 = 184
+amountOfLines$ = 200
+$T3 = 208
+tv3615 = 224
+$T4 = 224
+boundingBox$ = 232
+$T5 = 264
+caves$1$ = 272
+$T6 = 280
+$T7 = 320
+caves$ = 336
+$T8 = 360
+$T9 = 376
+this$GSCopy$1$ = 392
+tv3613 = 400
+$T10 = 408
+$T11 = 424
+$T12 = 440
+$T13 = 472
+chunk$ = 480
+cave$14 = 496
+$T15 = 512
+global_ws$ = 536
+local_ws$ = 560
+__$ArrayPad$ = 584
+this$ = 800
+?dtor$8@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA PROC	; `ChunkLoadThread::tick'::`1'::dtor$8
+  0003c	48 8b 8a e0 00
+	00 00		 mov	 rcx, QWORD PTR $T4[rdx]
+  00043	e9 00 00 00 00	 jmp	 ??1?$shared_ptr@VChunkBase@@@std@@QEAA@XZ ; std::shared_ptr<ChunkBase>::~shared_ptr<ChunkBase>
+?dtor$8@?0??tick@ChunkLoadThread@@MEAA_NXZ@4HA ENDP	; `ChunkLoadThread::tick'::`1'::dtor$8
 text$x	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\erlend\documents\github\wind\project\wind\wind\chunkloadthread.cpp

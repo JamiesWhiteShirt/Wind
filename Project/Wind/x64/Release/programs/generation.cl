@@ -9,7 +9,7 @@ bool isCave(const float x, const float y, const float z, __global const float* c
 		const float aby = caves[i * 8 + 4] - caves[i * 8 + 1];
 		const float abz = caves[i * 8 + 4] - caves[i * 8 + 2];
 
-		const float ab2 = sqrt(abx * abx + aby * aby + abz * abz);
+		const float ab2 = abx * abx + aby * aby + abz * abz;
 		const float ap_ab = apx * abx + apy * aby + apz * abz;
 		float t = ap_ab / ab2;
 

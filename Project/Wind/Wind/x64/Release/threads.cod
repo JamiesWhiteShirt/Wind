@@ -451,7 +451,7 @@ piecewise_construct DB 01H DUP (?)
 	ALIGN	4
 
 ?chunkLoadThreads@@3PAVChunkLoadThread@@A DB 0968H DUP (?) ; chunkLoadThreads
-?chunkDrawThreads@@3PAVChunkDrawThread@@A DB 01170H DUP (?) ; chunkDrawThreads
+?chunkDrawThreads@@3PAVChunkDrawThread@@A DB 08b8H DUP (?) ; chunkDrawThreads
 ?world@GlobalThread@@3VWorld@@A DB 0f0H DUP (?)		; GlobalThread::world
 _BSS	ENDS
 ;	COMDAT pdata
@@ -1708,8 +1708,8 @@ text$yc	SEGMENT
   00012	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A ; chunkDrawThreads
   00019	ba b8 08 00 00	 mov	 edx, 2232		; 000008b8H
-  0001e	41 b8 02 00 00
-	00		 mov	 r8d, 2
+  0001e	41 b8 01 00 00
+	00		 mov	 r8d, 1
   00024	48 89 44 24 20	 mov	 QWORD PTR [rsp+32], rax
   00029	e8 00 00 00 00	 call	 ??_L@YAXPEAX_KHP6AX0@Z2@Z
   0002e	48 8d 0d 00 00
@@ -1727,8 +1727,8 @@ text$yd	SEGMENT
   00007	48 8d 0d 00 00
 	00 00		 lea	 rcx, OFFSET FLAT:?chunkDrawThreads@@3PAVChunkDrawThread@@A ; chunkDrawThreads
   0000e	ba b8 08 00 00	 mov	 edx, 2232		; 000008b8H
-  00013	41 b8 02 00 00
-	00		 mov	 r8d, 2
+  00013	41 b8 01 00 00
+	00		 mov	 r8d, 1
   00019	e9 00 00 00 00	 jmp	 ??_M@YAXPEAX_KHP6AX0@Z@Z
 ??__FchunkDrawThreads@@YAXXZ ENDP			; `dynamic atexit destructor for 'chunkDrawThreads''
 text$yd	ENDS
